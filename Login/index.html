@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<div class="login">
-    <title>Login</title>
+<html lang="en">
+<head>
+    <link rel="icon" href="img/Logo_Vinos_Charuas_V2.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
     <link href="public/style.css" rel="stylesheet" type="text/css">
+</head>
+<div class="login">
     <section id="caja_mas_izquierda">
     </section>
     <section id="panel">
@@ -9,9 +16,9 @@
             <p2> Charrúas </p2>
         <form method="POST" action="php/validar.php">
             <input type="text" disabled id="mensaje"/>
-            <input type="text" name="unombre" placeholder="User"/>
-            <input type="password" name="upassword" placeholder="Password"/>
-            <button type="submit" id="login_button">login</button>
+            <input type="text" name="unombre" placeholder="Email"/>
+            <input type="password" name="upassword" placeholder="Contraseña"/>
+            <button type="submit_button" id="login_button">login</button>
         </form>
         <p onclick="add_user()"> Add User</p>
         <p onclick="change_password()"> Change Password</p>

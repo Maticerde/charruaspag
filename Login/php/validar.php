@@ -30,7 +30,7 @@
      if(!empty($_POST["unombre"]) && !empty( $_POST["upassword"]) && isset($_POST["unombre"]) && isset($_POST["upassword"])){process_login();}else 
      {
          /*redirecciono a login si es que no se provino con DATA SET via POST desde el*/
-         header("Location: http://localhost/PHP%20devs/PDO/login%20example/login.php");
+         header("Location: index.html");
          exit();
      }
      
@@ -46,18 +46,28 @@
          ];
  
          /*configuracion consulta*/
-         $data = $conn->query("SELECT * FROM usuarios")->fetchAll();
+         $data = $conn->query("SELECT * FROM clientes")->fetchAll();
      
          /*recorro consulta*/
          $log_validate = false;
          foreach ($data as $row)
          {
              /*escucho coincidencia en usuario y pass*/
-             if(strcmp($row['user'], $array_dataset["user"])==0 && strcmp($row['pass'], $array_dataset["pass"])==0){$log_validate = true;}
+             if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia'], $array_dataset["pass"])==0){$log_validate = true;}
          }
  
          /*estimo resultado de consulta login*/
-         $consulta_login = ($log_validate == true)? "credenciales válidas" : "credenciales inválidas";
-         echo $consulta_login;
+         if ($log_validate == true) {
+            $consulta_login = "credenciales válidas";
+            echo $consulta_login;
+            $logged=true;
+            header("Location: \charruaspag\index.php");
+         } else {
+            $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
+            echo "$consulta_login";
+            //header("Location: /login/index.html");
+         }
+          
+
      };
 ?>

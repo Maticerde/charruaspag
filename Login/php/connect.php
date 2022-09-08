@@ -1,18 +1,9 @@
 <?php
-    $host = "localhost";
+    $host = "localhost:3307";
     $username = "root";
     $password = "";
-    $db_name = "db_login";
+    $db_name = "vinos_charruas";
     
-    try 
-    {
-        $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //echo "<script>console.log('DB connect succesfull');</script>";
-    } catch(PDOException $e) 
-    {
-        //$err = $e->getMessage();
-        //echo "<script>console.error('DB connect failed.');</script>";
-    }
+    $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>

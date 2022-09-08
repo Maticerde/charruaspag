@@ -1,0 +1,69 @@
+html,
+body,
+ul {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "cinzelregular";
+  src: url(fonts/cinzel-regular-webfont.woff2) format("woff2"),
+    url(fonts/cinzel-regular-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "cinzelbold";
+  src: url(fonts/cinzel-bold-webfont.woff2) format("woff2"),
+    url(fonts/cinzel-bold-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "cinzel_decorativebold";
+  src: url(fonts/cinzeldecorative-bold-webfont.woff2) format("woff2"),
+    url(fonts/cinzeldecorative-bold-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "edensor";
+  src: url(fonts/edensor-free-webfont.woff2) format("woff2"),
+    url(fonts/edensor-free-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "robotolight";
+  src: url(fonts/roboto-light-webfont.woff2) format("woff2"),
+    url(fonts/roboto-light-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#fondo {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#menu {
+  transition: all 0.5s;
+  justify-content: center;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 2;
+}
+
+#charruas-texto {
+  left: 43.44%;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  position: absolute;
+  color: rgb(78, 16, 16);
+  font-family: "cinzelbold";
+  font-size: 43px;
+}
