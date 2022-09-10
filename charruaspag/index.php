@@ -17,17 +17,18 @@
     <button type='submit' id="newsesion2"><img id="newsesion-r" src="src/usericon.png"></button>
   </form>
   <section id="charruas-texto"> Charrúas </section>
-  <div id="tienda-href"></div>
-  <div id="arrow" onclick="scrollto()"> &#10151; </div>
-  <div id="cart">
+</div>
+
+<?php include 'desplegables.php';?>
+<div id="arrow" onclick="scrollto()"> &#10151; </div>
+<img id="cart-icon" src="src/carticon.png"></img>
+<div id="cart">
     <h1 id="carrito-title"> Carrito </h1>
     <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
     <section id="carro1"></section>
     <div id="totalcount"></div>
     <button id="compraboton" onclick="generar_compra(); load_shop(); vaciarcarrito();">comprar</button>
   </div>
-  <img id="cart-icon" src="src/carticon.png"></img>
-</div>
 <section id="texto1"> Un vino, ㅤ una Historia
   <p> “El mejor vino no es necesariamente el más caro, sino el que se comparte.” </p>
 </section>
@@ -89,10 +90,10 @@
     <img class="logo1" src="src/charruas logo.png">
     <p2 id="charruas-texto2"> Charrúas </p2>
     <ul>
-      <li class="contacto"> Contacto </li>
-      <li class="fdepago"> Formas de pago </li>
-      <li class="poldevolucion"> Política de Devolución </li>
-      <li class="polprivacidad"> Políticas de Privacidad </li>
+      <li id="contacto" onclick="desplegar(id)"> Contacto </li>
+      <li id="fdepago" onclick="desplegar(id)"> Formas de pago </li>
+      <li id="poldevolucion" onclick="desplegar(id)"> Política de Devolución </li>
+      <li id="polprivacidad" onclick="desplegar(id)"> Políticas de Privacidad </li>
     </ul>
   </div>
 </div>

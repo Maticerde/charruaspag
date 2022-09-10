@@ -54,7 +54,7 @@ body {
   height: 50px;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  z-index: 2;
+  z-index: 6;
 }
 
 #charruas-texto {
@@ -337,7 +337,7 @@ body {
   right: 0;
   height: 100%;
   width: 300px;
-  z-index: 9;
+  z-index: 5;
   transition: transform ease 0.5s;
   transform: translateX(305px);
 }
@@ -358,7 +358,7 @@ body {
   position: fixed;
   right: 35px;
   margin-top: 9px;
-  z-index: 9;
+  z-index: 3;
   transition: transform 0.5s;
   transform: translateX(0px);
   height: 35px !important;
@@ -538,13 +538,14 @@ li:hover {
 
 #charruas-texto2 {
   color: rgb(75, 32, 32);
-  margin-top: 10vw;
+  margin-top: 9vw;
   position: absolute;
   text-align: center;
   font-size: 2vw;
   font-family: cinzelbold;
   width: 11vw;
   cursor: pointer;
+  transition: all ease 0.3s;
 }
 
 .logo1 {
@@ -552,11 +553,18 @@ li:hover {
   opacity: 0.45;
   position: absolute;
   object-fit: scale-down;
-  height: 11vw;
+  height: 8vw;
   width: 11vw;
   cursor: pointer;
 }
 
+.logo1:hover + #charruas-texto2 {
+  color: rgb(166, 115, 115);
+}
+
+#charruas-texto2:hover {
+  color: rgb(166, 115, 115);
+}
 #copyright {
   color: rgb(113, 87, 87);
   height: 1.7vw;
