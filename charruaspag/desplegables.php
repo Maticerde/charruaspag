@@ -1,12 +1,12 @@
 
 <div id="contacto-desp">
 <h4> CONTACTO <p onclick="cerrar_nodo()">&#10005;</p></h4>
-<p><img id="contactoimg" src="src/contacto.png"/></p>
+<p>WORK IN PROGRESS<img id="contactoimg" src="src/contacto.png"/></p>
 </div>
 
 <div id="fdepago-desp">
 <h4> MÉTODOS DE PAGO <p onclick="cerrar_nodo()">&#10005;</p></h4>
-<p><img src="src/medios de pago.png"/></p>
+<p>WORK IN PROGRESS<img src="src/medios de pago.png"/></p>
 </div>
 
 
@@ -41,56 +41,3 @@ Las mercancías vendidas están aseguradas durante el transporte y viajan por nu
     Condiciones de Uso. Confirmando su pedido en el final del proceso de una operación, el Usuario acuerda aceptar los artículos adquiridos y pagar su
     precio.</p>
 </div>
-
-<style>
-#poldevolucion-desp, #contacto-desp, #fdepago-desp, #polprivacidad-desp {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    justify-content: space-around;
-    width: 50%;
-    height: 0;
-    position: fixed;
-    top: 3vw;
-    left: 25%;
-    z-index: 10;
-    transition: all 0.5s cubic-bezier(.68,.32,.34,.97);
-    padding: 0 3% 0 3%;
-    font-family: robotolight;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    z-index: 2;
-}
-h4 {
-    font-size: 1.3vw;
-}
-h4 p{
-    cursor: pointer;
-    position: absolute;
-    font-size: 1.7vw;
-    top: -1vw;
-    right: 2%;
-}
-p {
-    font-size: 1.9vh;
-}
-#poldevolucion-desp.open, #contacto-desp.open, #fdepago-desp.open, #polprivacidad-desp.open {
-    padding: 1% 3% 1% 3%;
-    height: 50vh;
-}
-
-#polprivacidad-desp.open {
-    padding: 1% 3% 1% 3%;
-    height: 65vh;
-}
-
-#contactoimg {
-    
-    width: 100%;
-    object-fit: scale-down;
-}
-
-
-</style>
-

@@ -11,21 +11,25 @@
   <script src="script_load.js"></script>
 </head>
 <div id="menu">
-  <form action="http://localhost/charruaspag/panel_admin.php"><button id="gotoadmin">ADMIN</button></form>
-  <form type='submit' id="gotologin" action="http://localhost/login/index.html">
-    <button type='submit' id="newsesion">Iniciar sesión</button>
-    <button type='submit' id="newsesion2"><img id="newsesion-r" src="src/usericon.png"></button>
+  <form id="gotoadmin" action="http://localhost/charruaspag/panel_admin.php">
+    <button id="adminref">ADMIN</button>
+    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
   </form>
+  <form id="gotologin" action="http://localhost/login/index.html">
+    <button id="newsesion">Iniciar sesión</button>
+    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
+  </form>
+  <a href="http://localhost/charruaspag/index.php">
   <section id="charruas-texto"> Charrúas </section>
+  </a>
 </div>
-
 <?php include 'desplegables.php';?>
 <div id="arrow" onclick="scrollto()"> &#10151; </div>
 <img id="cart-icon" src="src/carticon.png"></img>
 <div id="cart">
     <h1 id="carrito-title"> Carrito </h1>
     <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
-    <section id="carro1"></section>
+    <section id="carro-content"></section>
     <div id="totalcount"></div>
     <button id="compraboton" onclick="generar_compra(); load_shop(); vaciarcarrito();">comprar</button>
   </div>
@@ -87,8 +91,10 @@
 </section>
 <div id="box3">
   <div class="contactobox">
+    <a href="http://localhost/charruaspag/index.php">
     <img class="logo1" src="src/charruas logo.png">
     <p2 id="charruas-texto2"> Charrúas </p2>
+    </a>
     <ul>
       <li id="contacto" onclick="desplegar(id)"> Contacto </li>
       <li id="fdepago" onclick="desplegar(id)"> Formas de pago </li>

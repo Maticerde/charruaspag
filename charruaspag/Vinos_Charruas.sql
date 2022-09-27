@@ -25,6 +25,7 @@ Pais VARCHAR (20),
 Region VARCHAR (50),
 Cosecha VARCHAR (20),
 Descripcion VARCHAR (100),
+Ubicacion_IMG VARCHAR (50),
 Primary key (Codigo_Vino),
 Foreign key (Bodega_Vino) references BODEGA (ID_Bodega)
 );
@@ -117,11 +118,11 @@ insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais, Ciudad, Cuenta
 insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais, Ciudad, Cuenta) values ('Bodega Garzon', 'garzon@gmail.com', 'Ruta 9 Km. 175, Garzon 20401', 'Uruguay', 'Maldonado', 37);
 insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais, Ciudad, Cuenta) values ('Santa Rosa', 'santarosa@gmail.com', '2218 Ruta Cesar Mayo Gutierrez', 'Uruguay', 'Montevideo', 27);
 
-insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion) values ('Santa Teresa', 24, 1, 15, '-', 'Uruguay', 'Canelones', 2022, '-');
-insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion) values ('Casillero del Diablo', 50, 3, 5, '-', 'Chile', 'Santiago', 2022, '-');
-insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion) values ('Vino Roses', 15, 2, 17, '-', 'Uruguay', 'Canelones', 2022, '-');
-insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion) values ('Balasto', 56, 4, 25, '-', 'Uruguay', 'Maldonado', 2022, '-');
-insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion) values ('Don Pascual', 22, 1, 12, '-', 'Uruguay', 'Canelones', 2022, '-');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Santa Teresa', 24, 1, 15, '-', 'Uruguay', 'Canelones', 2022, '-', 'src/vinos/st1_tienda.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Casillero del Diablo', 50, 3, 5, '-', 'Chile', 'Santiago', 2022, '-', 'src/vinos/cdd1_tienda.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Vino Roses', 15, 2, 17, '-', 'Uruguay', 'Canelones', 2022, '-', 'src/vinos/vr1_tienda.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Balasto', 56, 4, 25, '-', 'Uruguay', 'Maldonado', 2022, '-', 'src/vinos/b1_tienda.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Stock, Crianza, Pais, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Don Pascual', 22, 1, 12, '-', 'Uruguay', 'Canelones', 2022, '-', 'src/vinos/dp1_tienda.png');
 
 insert into CLIENTES (CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia) values (54622348, 'Ramon Alvarez', 'Ruta 5 vieja', 'Las Piedras', 'ramon@gmail.com', '4412fafsf2');
 insert into CLIENTES (CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia) values (54642348, 'Gaston Alvarez', 'AV. Italia', 'Montevideo', 'gaston@gmail.com', '4412314fsf2');

@@ -94,13 +94,12 @@ function acarrear(numprod, nombre, precio, stock) {
     total += parseInt(objeto.price); // se suma al total el objeto agregado al carrito
   }
 
-  carro = document.getElementById("carro1");
+  carro = document.getElementById("carro-content");
   carro.innerText = "";
 
   carrito.forEach((element) => {
     // por cada elemento en el carrito, se agrega una línea con la información del producto
-    carro.innerText +=
-      element.cant + "x $USD " + element.price + " | " + element.name + "\n";
+    carro.innerText += element.cant + "x $USD " + element.price + " | " + element.name + "\n";
   });
 
   totalcount = document.getElementById("totalcount");
@@ -158,8 +157,6 @@ function search() {
   const data = new FormData();
   keywords = document.querySelector("#keywords").value;
   data.set("keyword_post", keywords);
-
-
 
   //ya tengo el dato escrito cuando toco el boton, falta enviar por post a implement para actualizar el select y despues loadear shop nuevamente
   fetch("implement.php", {

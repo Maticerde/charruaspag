@@ -60,7 +60,7 @@
          if ($log_validate == true) {
             $consulta_login = "credenciales válidas";
             echo $consulta_login;
-            $logged=true;
+            //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
             header("Location: \charruaspag\index.php");
          } else {
             $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";

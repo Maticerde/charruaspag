@@ -1,6 +1,6 @@
 <?php
 
-    // connect to the bookdb database
+    // utiliza los datos de un solo producto, esto quiere decir que se ejecutará varias veces
     include('conexion.php');
 
     $name = $_POST['name'];

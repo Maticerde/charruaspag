@@ -9,22 +9,21 @@
     <link href="public/style.css" rel="stylesheet" type="text/css">
 </head>
 <div class="login">
-    <section id="caja_mas_izquierda">
-    </section>
     <section id="panel">
+        <a href="http://localhost/charruaspag/index.php">
         <img src=img/Logo_Vinos_Charuas_V2.png id="logo">
+        <img src=img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
+        </a>
         <form method="POST" action="php/validar.php">
             <input type="text" disabled id="mensaje"/>
             <input type="text" name="unombre" placeholder="Email"/>
             <input type="password" name="upassword" placeholder="Contraseña"/>
-            <button type="submit_button" id="login_button">login</button>
+            <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
-        <p onclick="add_user()"> Add User</p>
-        <p onclick="change_password()"> Change Password</p>
+        <p onclick="add_user()"> Registrarse </p>
+        <p onclick="change_password()"> Olvidaste tu contraseña? </p>
     </section>
-    <section id="caja_derecha">
-        <video autoplay loop muted src=Video/vino_cayendo_en_una_copa.mp4></video>
-    </section>
+        <video autoplay loop muted src="Video/viña_video.mp4"></video>
     <script src="public/js/funcionalidad.js"></script>
 </div>

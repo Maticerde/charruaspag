@@ -13,6 +13,11 @@ body {
   font-style: normal;
 }
 
+#regresar {
+  position: absolute;
+  font-size: 50px;
+  rotate: 180deg;
+}
 .login {
   display: grid;
   grid-template-columns: 8% 22% 70%;
@@ -58,7 +63,8 @@ p2 {
 .login section button {
   font-size: 14px;
   border-radius: 24px;
-  margin-top: 40px;
+  margin-top: 38px;
+  margin-bottom: 10px;
   padding: 0;
   width: 130px;
   height: 32px;
@@ -73,9 +79,9 @@ p2 {
   color: white;
 }
 
-.login section video {
+video {
   object-fit: cover;
-  width: 100%;
+  width: 100vw;
   height: 100%;
 }
 
@@ -91,29 +97,49 @@ p2 {
 }
 
 #panel {
+  overflow: hidden;
+  margin-left: 10vw;
+  position: absolute;
+  z-index: 1;
+  width: 24vw;
+  height: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #3d0b10;
-}
-
-#caja_mas_izquierda {
-  background-color: none;
+  background-color: #410a0f;
 }
 
 #panel p2 {
+  text-decoration: none;
+  margin-top: -5px;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
+  color: rgb(97, 44, 44);
   font-family: cinzelbold;
+  cursor: pointer;
 }
+
 #logo {
   opacity: 0.4;
   text-align: center;
-  margin-top: 37%;
-  margin-left: 28%;
+  margin-top: 41%;
+  margin-left: 29.2%;
   height: 8vw;
   width: 10vw;
+  cursor: pointer;
+}
+
+#logo2 {
+  display: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 @media (max-width: 1240px) {
+  #logo {
+    display: none;
+  }
   .login {
     display: grid;
     grid-template-columns: 22.8% 52%;
@@ -130,21 +156,20 @@ p2 {
     color: white;
   }
   #panel {
+    margin: 0;
+    width: 100%;
     box-shadow: none;
     background-color: transparent;
   }
-  .login section video {
-    display: none;
-  }
 
   html {
-    background-color: #3d0b10;
+    background-color: #161010;
   }
   .login section input,
   .login section button,
   p2,
   .login section p,
-  #logo {
+  #logo2 {
     display: block;
     margin: auto;
     border: none;
@@ -156,11 +181,30 @@ p2 {
     color: var(white);
     background: var(black);
   }
-  #logo {
+
+  .login section button {
+    width: 150px;
+  }
+
+  .login section p {
+    width: 25%;
+    height: 20px;
+    margin-top: 10px;
+  }
+  #logo2 {
+    display: block;
     margin-top: 15vh;
-    opacity: 0.25;
+    opacity: 0.9;
     text-align: center;
     height: 150px;
     width: 200px;
+  }
+
+  #panel p2 {
+    text-align: center;
+    font-size: 35px;
+    color: rgb(88, 20, 20);
+    font-family: cinzelbold;
+    text-shadow: 1px 1px 1px rgb(79, 13, 13);
   }
 }

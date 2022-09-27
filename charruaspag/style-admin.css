@@ -4,6 +4,7 @@ ul {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 @font-face {
@@ -43,27 +44,206 @@ ul {
 }
 
 #fondo {
-  position: absolute;
-  height: 100%;
+  position: relative;
+  height: 100vh;
   width: 100%;
+  object-fit: cover;
 }
 
 #menu {
   transition: all 0.5s;
   justify-content: center;
+  align-items: center;
   position: absolute;
+  top: 0;
   height: 50px;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  z-index: 2;
 }
 
 #charruas-texto {
-  left: 43.44%;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
   position: absolute;
-  color: rgb(78, 16, 16);
+  width: fit-content;
+  color: rgb(89, 15, 15);
   font-family: "cinzelbold";
   font-size: 43px;
+  text-shadow: 3px 3px 3px rgba(150, 150, 150, 1);
+}
+
+#texto1 {
+  text-align: center;
+  color: rgb(31, 31, 31);
+  font-weight: bolder;
+  position: absolute;
+  left: 50px;
+  top: 10px;
+  font-family: "cinzelregular";
+  font-size: 30px;
+}
+
+#grid-functions {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 80%; /*agregar otro 80% por cada dos agregados*/
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  height: 100%;
+  width: 90%;
+  grid-column-gap: 1vw;
+  padding: 15px;
+}
+
+#grid-functions div {
+  border-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgba(255, 255, 255, 0.892);
+  height: 520px;
+  width: 40vw;
+}
+
+h3 {
+  margin-inline: auto;
+  width: fit-content;
+  position: relative;
+  font-family: robotolight;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.743);
+}
+
+#addvino-form {
+  margin-top: 70px;
+}
+
+#input_grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-row-gap: 30px;
+}
+
+#addvino-form input,
+#addvino-form select {
+  transition: all ease 0.2s;
+  height: 30px;
+  width: 205px;
+  font-size: 20px;
+  display: block;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.173);
+}
+
+#addvino-form select,
+#addvino-form input[type="file"] {
+  margin-top: 5px;
+  width: 209px;
+}
+
+#addvino-form input[type="file"] {
+  display: none;
+}
+
+#imagen_label {
+  cursor: pointer;
+  width: 209px;
+}
+
+.input_label {
+  margin-inline: auto;
+  position: relative;
+}
+.input_texto,
+#imagen_texto {
+  font-family: robotolight;
+  font-size: 20px;
+  pointer-events: none;
+  position: absolute;
+  color: rgb(139, 138, 138);
+  top: 2px;
+  transition: all ease 0.2s;
+}
+
+#imagen_texto {
+  padding-bottom: 3px;
+  width: 209px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.173);
+}
+
+#preview {
+  right: -30px;
+  top: -3px;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  object-fit: scale-down;
+}
+
+#addvino-form input[type="file"]:valid + #imagen_texto {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.657);
+  color: black;
+}
+
+#addvino-form input:focus + .input_texto,
+#addvino-form input:valid + .input_texto,
+#addvino-form select:focus + .input_texto,
+#addvino-form select:valid + .input_texto {
+  transform: translateY(-16px);
+  color: black;
+  font-size: 15px;
+}
+
+#addvino-form input:focus,
+#addvino-form input:valid,
+#addvino-form select:valid {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.657);
+}
+@media (max-width: 1183px) {
+  h3 {
+    font-size: 20px;
+  }
+  #grid-functions {
+    overflow-y: scroll;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    top: 80px;
+    grid-template-columns: 100%;
+    grid-template-rows: 650px 650px; /*repetir 650px por cada uno*/
+  }
+
+  #grid-functions div {
+    border-radius: 50px;
+    width: 100%;
+    height: 520px;
+  }
+
+  #charruas-texto {
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    width: fit-content;
+    font-family: "cinzelbold";
+    font-size: 25px;
+  }
+
+  #texto1 {
+    left: 0;
+    right: 0;
+    top: 20px;
+    margin-inline: auto;
+    font-weight: bolder;
+    font-family: "cinzelregular";
+    font-size: 27px;
+  }
 }
