@@ -483,15 +483,15 @@ body {
   margin-bottom: -0.4vw;
 }
 .productos-gallery {
-  overflow-y: scroll;
-  height: 41vw;
+  height: 42vw;
   width: 98%;
   display: grid;
   margin: auto;
   grid-template-columns: repeat(5, 19.57%);
-  grid-template-rows: repeat(1, 19.33vw);
+  grid-template-rows: repeat(19.33vw);
   column-gap: 0.5vw;
   row-gap: 1vw;
+  overflow-y: scroll;
 }
 
 .productos-gallery div {
@@ -799,17 +799,15 @@ p {
   }
   .productos-gallery {
     justify-content: center;
-    height: 90vw;
     width: auto;
     display: grid;
     margin: auto;
     left: 0vw;
     position: relative;
     grid-template-columns: repeat(3, 23.57%);
-    grid-template-rows: repeat(4, 23.33vw);
+    grid-template-rows: repeat(23.33vw);
     column-gap: 0.5vw;
     row-gap: 1vw;
-    margin-bottom: 3.2vw;
     overflow: hidden;
   }
 
@@ -960,12 +958,5 @@ p {
   }
 
   .gallery-wrapper {
-    padding-top: 5vw;
-    margin: auto;
-    height: 95vw;
-    width: 95vw;
-    border-radius: 0.3vw;
-    background-color: rgb(243, 235, 235);
-    margin-bottom: -0.4vw;
   }
 }

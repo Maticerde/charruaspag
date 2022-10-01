@@ -9,6 +9,7 @@
   <title>Vinos Charrúas</title>
   <link href="style.css" rel="stylesheet" type="text/css">
   <script src="script_load.js"></script>
+  
 </head>
 <div id="menu">
   <form id="gotoadmin" action="http://localhost/charruaspag/panel_admin.php">

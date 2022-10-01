@@ -4,78 +4,82 @@
     <link rel="icon" href="src\charruas logo.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, minimum-scale=1">
     <link href="style-admin.css" rel="stylesheet" type="text/css">
     <title>Panel Admin</title>
 </head>
 <body>
-<img id=fondo src="src/sun-setting-vineyard-mountains.jpg">
-    <div id="menu">
-    <section id="texto1">A d m i n i s t r a c i ó n</section>
-        <a href="http://localhost/charruaspag/index.php">
-            <section id="charruas-texto"> Charrúas </section>
-        </a>
-    </div>
-    <section id="grid-functions">
-        <div id="addvino-box">
-            <h3>AGREGAR PRODUCTO</h3>
-            <form id="addvino-form">
-                <section id="input_grid">
-            <label class="input_label">
-                <input type="text" id="in_nombre_vino" required>
-                <p2 class="input_texto"> Nombre del Vino </p2>
-            </label>
-            <label class="input_label">
-                <input type="number" id="in_precio" required>
-                <p2 class="input_texto"> Precio </p2>
-            </label>
-                <label class="input_label">
-                <input type="number" id="in_stock" required>
-                <p2 class="input_texto"> Stock </p2>
-            </label>
-            <label class="input_label">
-                <input type="text" id="in_pais" required>
-                <p2 class="input_texto"> País </p2>
-            </label>
-            <label class="input_label">
-                <input type="text" id="in_region" required>
-                <p2 class="input_texto"> Región </p2>
-            </label>
-            <label class="input_label">
-                <input type="number" id="in_cosecha" required>
-                <p2 class="input_texto"> Cosecha </p2>
-            </label>
-            <label class="input_label">
-                <select name="bodega" id="in_bodega_vino" required>
-                <option value="" disabled selected></option>
-                <?php include 'bodegas.php' ?>
-                </select>
-                <p2 class="input_texto"> Bodega </p2>
-            </label>
-            <label id="imagen_label" class="input_label">
-                <input type="file" id="in_imagen" required>
-                <p2 id="imagen_texto"> Imagen </p2>
-                <img id="preview" src="">
-            </label></section>
-    </form>
-</div>
-        <div id="modvino-box"> <h3>MODIFICAR PRODUCTO</h3></div>
-        <!-- <div id="user-box"></div>
-        <div id="tbd-box"></div> -->
-    </section>
+   <img id=fondo src="src/sun-setting-vineyard-mountains.jpg">
+   <div id="menu">
+      <section id="texto1">A d m i n i s t r a c i ó n</section>
+      <a href="http://localhost/charruaspag/index.php">
+         <section id="charruas-texto"> Charrúas </section>
+      </a>
+   </div>
+   <section id="text-prod" onclick="slide(1)"><span>&#10132;</span> P R O D U C T O S</section>
+   <section id="text-user" onclick="slide(0)"><span>&#10132;</span> U S U A R I O S</section>
+   <section id="grid-functions">
+      <div class="box" id="addvino-box">
+         <section id="divisor">
+         <h3 onclick="box_open('addvino-box')">AGREGAR PRODUCTO</h3>
+         <span id="message"></span>
+         <form action="update_vinos.php" method="post" id="addvino-form">
+            <section id="input_grid">
+               <label class="input_label">
+                  <input type="text" id="in_nombre_vino" name="in_nombre_vino" required>
+                  <p2 class="input_texto"> Nombre </p2>
+               </label>
+               <label class="input_label">
+                  <input type="number" id="in_precio" name="in_precio" required>
+                  <p2 class="input_texto"> Precio </p2>
+               </label>
+               <label class="input_label">
+                  <input type="number" id="in_stock" name="in_stock" required>
+                  <p2 class="input_texto"> Stock </p2>
+               </label>
+               <label class="input_label">
+                  <input type="text" id="in_pais" name="in_pais" required>
+                  <p2 class="input_texto"> País </p2>
+               </label>
+               <label class="input_label">
+                  <input type="text" id="in_region" name="in_region" required>
+                  <p2 class="input_texto"> Región </p2>
+               </label>
+               <label class="input_label">
+                  <input type="number" id="in_cosecha" name="in_cosecha" required>
+                  <p2 class="input_texto"> Cosecha </p2>
+               </label>
+               <label class="input_label">
+                  <select id="in_bodega_vino" name="in_bodega_vino" required>
+                     <option value="" disabled selected></option>
+                     <?php include 'bodegas_repeater.php' ?>
+                  </select>
+                  <p2 class="input_texto"> Bodega </p2>
+               </label>
+               <label id="imagen_label" class="input_label">
+                  <input type="file" id="in_imagen" name="in_imagen" required>
+                  <p2 id="nombre_imagen"> Imagen </p2>
+                  <img id="preview" src="">
+               </label>
+            </section>
+            <button name="addvino-button" id="addvino-button"> ENVIAR </button>
+         </form>
+         </section>  
+         <section id="vinos-list">
+         <?php include 'vinos_repeater.php' ?>
+         </section>
+      </div>
+      <div class="box" id="modvino-box">
+         <h3>MODIFICAR PRODUCTO</h3>
+      </div>
+      <div class="box" id="user-box">
+      <h3> AGREGAR USUARIO </h3>
+      </div>
+      
+         <div class="box" id="tbd-box">
+         <h3>MODIFICAR USUARIO</h3>
+         </div>
+   </section>
+   <script src="admin_function.js"></script>
 </body>
 </html>
-
-<script>
-
-const output = document.querySelector("#imagen_texto");
-const input = document.querySelector("#in_imagen");
-
-input.addEventListener('change', (event) => {
-    if (input.files.length > 0 ) {
-        output.innerHTML = input.files[0].name;
-    }else {
-        output.innerHTML = "Imagen";
-    }
-})
-</script>
