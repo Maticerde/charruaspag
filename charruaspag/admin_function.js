@@ -51,23 +51,47 @@ function cargar_forms(
   codigo_vino,
   nombre,
   precio,
-  bodega,
   stock,
   pais,
   region,
   cosecha,
+  bodega,
   imagen
 ) {
-  console.log(
-    id,
-    codigo_vino,
-    nombre,
-    precio,
-    bodega,
-    stock,
-    pais,
-    region,
-    cosecha,
-    imagen
-  );
+  options = document.querySelectorAll(".options");
+  option = document.getElementById(id);
+  for (var i = 0; i < options.length; i++) {
+    options[i].classList.remove("selected");
+  }
+  option.classList.toggle("selected");
+
+  inputs = document.querySelectorAll(".inputs");
+  inputs[0].value = nombre;
+  inputs[1].value = precio;
+  inputs[2].value = stock;
+  inputs[3].value = pais;
+  inputs[4].value = region;
+  inputs[5].value = cosecha;
+  inputs[6].value = bodega;
+}
+function validate() {
+  const data = new FormData(document.getElementById("vinos-order"));
+  const vinos_list = document.querySelector("#vinos-list");
+  fetch("vinos_repeater.php", {
+    method: "POST",
+    body: data,
+  })
+    .then(function (response) {
+      if (response.ok) {
+        return response.text();
+      } else {
+        throw "Error";
+      }
+    })
+    .then(function (texto) {
+      vinos_list.innerHTML = texto;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }

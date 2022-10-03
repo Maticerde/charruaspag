@@ -21,43 +21,48 @@
    <section id="grid-functions">
       <div class="box" id="addvino-box">
          <section id="divisor">
+         <form id="vinos-order" method="POST">
+            <input type="radio" name="orden" onclick="validate()" value="Nombre_Vino" checked>A &#10132; Z</input>
+            <input type="radio" name="orden" onclick="validate()" value="Codigo_Vino DESC">Recientes</input>
+            <input type="radio" name="orden" onclick="validate()" value="Codigo_Vino ASC">Antiguos</input>
+         </form>
          <h3 onclick="box_open('addvino-box')">AGREGAR PRODUCTO</h3>
          <span id="message"></span>
          <form action="update_vinos.php" method="post" id="addvino-form">
             <section id="input_grid">
                <label class="input_label">
-                  <input type="text" id="in_nombre_vino" name="in_nombre_vino" required>
+                  <input class="inputs" type="text" id="in_nombre_vino" name="in_nombre_vino" required>
                   <p2 class="input_texto"> Nombre </p2>
                </label>
                <label class="input_label">
-                  <input type="number" id="in_precio" name="in_precio" required>
+                  <input class="inputs" type="number" id="in_precio" name="in_precio" required>
                   <p2 class="input_texto"> Precio </p2>
                </label>
                <label class="input_label">
-                  <input type="number" id="in_stock" name="in_stock" required>
+                  <input class="inputs" type="number" id="in_stock" name="in_stock" required>
                   <p2 class="input_texto"> Stock </p2>
                </label>
                <label class="input_label">
-                  <input type="text" id="in_pais" name="in_pais" required>
+                  <input class="inputs" type="text" id="in_pais" name="in_pais" required>
                   <p2 class="input_texto"> País </p2>
                </label>
                <label class="input_label">
-                  <input type="text" id="in_region" name="in_region" required>
+                  <input class="inputs" type="text" id="in_region" name="in_region" required>
                   <p2 class="input_texto"> Región </p2>
                </label>
                <label class="input_label">
-                  <input type="number" id="in_cosecha" name="in_cosecha" required>
+                  <input class="inputs" type="number" id="in_cosecha" name="in_cosecha" required>
                   <p2 class="input_texto"> Cosecha </p2>
                </label>
                <label class="input_label">
-                  <select id="in_bodega_vino" name="in_bodega_vino" required>
+                  <select class="inputs" id="in_bodega_vino" name="in_bodega_vino" required>
                      <option value="" disabled selected></option>
                      <?php include 'bodegas_repeater.php' ?>
                   </select>
                   <p2 class="input_texto"> Bodega </p2>
                </label>
                <label id="imagen_label" class="input_label">
-                  <input type="file" id="in_imagen" name="in_imagen" required>
+                  <input class="inputs" type="file" id="in_imagen" name="in_imagen" required>
                   <p2 id="nombre_imagen"> Imagen </p2>
                   <img id="preview" src="">
                </label>
@@ -71,6 +76,8 @@
       </div>
       <div class="box" id="modvino-box">
          <h3>MODIFICAR PRODUCTO</h3>
+         
+         
       </div>
       <div class="box" id="user-box">
       <h3> AGREGAR USUARIO </h3>
