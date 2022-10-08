@@ -1,7 +1,7 @@
 <?php
 
 //define('URL', 'http://localhost/mvc/');
-define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/charruaspag/');
+define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/ResktSoftware/');
 
 //CONEXION PDO
 
