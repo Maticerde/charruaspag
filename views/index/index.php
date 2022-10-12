@@ -9,31 +9,31 @@
   <title>Vinos Charrúas</title>
   <link href="public/css/style.css" rel="stylesheet" type="text/css">
   <script src="public/js/script_load.js"></script>
-  
+
 </head>
 <div id="menu">
-  <form id="gotoadmin" action="http://localhost/charruaspag/panel_admin.php">
+  <form id="gotoadmin" action="http://localhost/ResktSoftware/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
-    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
+    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png" /></button>
   </form>
   <form id="gotologin" action="http://localhost/login/index.html">
     <button id="newsesion">Iniciar sesión</button>
-    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
+    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png" /></button>
   </form>
   <a href="http://localhost/charruaspag/index.php">
-  <section id="charruas-texto"> Charrúas </section>
+    <section id="charruas-texto"> Charrúas </section>
   </a>
 </div>
 <?php include 'views/desplegables/desplegables.php';?>
 <div id="arrow" onclick="scrollto()"> &#10151; </div>
 <img id="cart-icon" src="src/carticon.png"></img>
 <div id="cart">
-    <h1 id="carrito-title"> Carrito </h1>
-    <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
-    <section id="carro-content"></section>
-    <div id="totalcount"></div>
-    <button id="compraboton" onclick="generar_compra(); load_shop(); vaciarcarrito();">comprar</button>
-  </div>
+  <h1 id="carrito-title"> Carrito </h1>
+  <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
+  <section id="carro-content"></section>
+  <div id="totalcount"></div>
+  <button id="compraboton" onclick="generar_compra(); load_shop(); vaciarcarrito();">comprar</button>
+</div>
 <section id="texto1"> Un vino, ㅤ una Historia
   <p> “El mejor vino no es necesariamente el más caro, sino el que se comparte.” </p>
 </section>
@@ -93,8 +93,8 @@
 <div id="box3">
   <div class="contactobox">
     <a href="http://localhost/charruaspag/index.php">
-    <img class="logo1" src="src/charruas logo.png">
-    <p2 id="charruas-texto2"> Charrúas </p2>
+      <img class="logo1" src="src/charruas logo.png">
+      <p2 id="charruas-texto2"> Charrúas </p2>
     </a>
     <ul>
       <li id="contacto" onclick="desplegar(id)"> Contacto </li>

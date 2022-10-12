@@ -3,20 +3,22 @@ let carticon = document.querySelector("#cart-icon");
 carticon.addEventListener("click", cartanimation);
 
 desplegables = [];
-desplegado=false;
+desplegado = false;
+
 function desplegar(nodo) {
   desplegables.push(nodo);
   desplegables.forEach(element => {
     if (document.getElementById(element + '-desp').classList.contains('open')) {
       document.getElementById(element + '-desp').classList.remove('open');
-  }
+    }
   });
   desplegable = document.getElementById(nodo + '-desp');
-  if (desplegado==false) { // se da delay al cambiarse de un desplegable a otro, evita el delay cuando es el primero en abrirse
+  if (desplegado ==
+    false) { // se da delay al cambiarse de un desplegable a otro, evita el delay cuando es el primero en abrirse
     desplegable.classList.toggle('open');
-    desplegado=true;
-  }else {
-    setTimeout(() =>   desplegable.classList.toggle('open'), 600);
+    desplegado = true;
+  } else {
+    setTimeout(() => desplegable.classList.toggle('open'), 600);
   }
 
 }
@@ -24,7 +26,7 @@ function desplegar(nodo) {
 function cerrar_nodo() {
   desplegable.classList.remove('open');
   desplegables.length = 0;
-  desplegado=false;
+  desplegado = false;
 }
 
 function cartanimation() { //funcion de despliegue de carrito
@@ -119,9 +121,9 @@ function fetch_async_compra(name, stock, cant) {
   data.set("stock", stock);
   data.set("cant", cant);
 
-  fetch("update_stock.php", {
-    method: "POST",
-    body: data,
+  fetch("models/update-stock_Model.php", {
+      method: "POST",
+      body: data,
     })
     .then(function(response) {
       if (response.ok) {
@@ -213,24 +215,20 @@ function scrollto() {
 }
 
 //function addheight() {
-  //tienda = document.querySelector(".productos-gallery");
-  //let $productos_render = tienda.childElementCount;
+//tienda = document.querySelector(".productos-gallery");
+//let $productos_render = tienda.childElementCount;
 
-  //let $tienda_height = 0;
-  //console.log($productos_render);
-  //for ($i = 5; $i < $productos_render; $i+=5) {
-  //$tienda_height += 800;
-  //console.log($tienda_height);
+//let $tienda_height = 0;
+//console.log($productos_render);
+//for ($i = 5; $i < $productos_render; $i+=5) {
+//$tienda_height += 800;
+//console.log($tienda_height);
 
-  //}
-  
-  //tienda.style.height = $tienda_height + "px";
+//}
+
+//tienda.style.height = $tienda_height + "px";
 //}
 
 
 //setTimeout(() => addheight(), 400);
-
-
-
-
 </script>
