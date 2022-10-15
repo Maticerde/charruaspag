@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vinos Charrúas</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
-  <script src="script_load.js"></script>
+  <link href="public/css/style.css" rel="stylesheet" type="text/css">
+  <script src="public/js/script_load.js"></script>
   
 </head>
 <div id="menu">
-  <form id="gotoadmin" action="http://localhost/charruaspag/panel_admin.php">
+  <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
   </form>
@@ -24,7 +24,7 @@
   <section id="charruas-texto"> Charrúas </section>
   </a>
 </div>
-<?php include 'desplegables.php';?>
+<?php include 'views\desplegables\desplegables.php';?>
 <div id="arrow" onclick="scrollto()"> &#10151; </div>
 <img id="cart-icon" src="src/carticon.png"></img>
 <div id="cart">
@@ -107,4 +107,4 @@
 <div id="copyright">
   <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
 </div>
-<?php include 'function.php';?>
+<script src="public/js/function.js"></script>
