@@ -1,7 +1,7 @@
 // este archivo es un setter, inserta un vino en la base
 <?php
 
-    if(!empty($_POST["in_nombre_vino"])){update_vinos();}else 
+    if(!empty($_POST["in_nombre_vino"])){add_vino();}else 
 {
     /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
     header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");
