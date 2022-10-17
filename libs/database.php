@@ -1,53 +1,41 @@
 <?php
-include 'config/config.php';
 
-//CONEXION PDO
+class Database
+{
 
-$host     = "localhost:3307";
-$username = "root";
-$password = "";
-$db_name  = "vinos_charruas";
+    private $host;
+    private $port;
+    private $db;
+    private $user;
+    private $password;
+    private $charset;
 
-$conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public function __construct()
+    {
+        $this->host     = constant('HOST');
+        $this->port     = constant('PORT');
+        $this->db       = constant('DB');
+        $this->user     = constant('USER');
+        $this->password = constant('PASSWORD');
+        $this->charset  = constant('CHARSET');
+    }
 
-//--FIN CONEXION PDO
+    public function connect()
+    {
 
-// class Database
-//{
+        try {
 
-// private $host;
-// private $port;
-// private $db;
-// private $user;
-// private $password;
-// private $charset;
+            $connection = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";charset=" . $this->charset;
+            $options    = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
+            $pdo = new PDO($connection, $this->user, $this->password, $options);
 
-// public function __construct()
-// {
-//     $this->host = constant('HOST');
-//     $this->port = constant('PORT');
-//     $this->db = constant('DB');
-//     $this->user = constant('USER');
-//     $this->password = constant('PASSWORD');
-//     $this->charset = constant('CHARSET');
-// }
+            return $pdo;
 
-// public function connect()
-// {
-
-//     try {
-
-//         $conn = "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db . ";charset=" . $this->charset;
-//         $options = [
-//             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-//             PDO::ATTR_EMULATE_PREPARES => false,
-//         ];
-//         $pdo = new PDO($connection, $this->user, $this->password, $options);
-
-//         return $pdo;
-
-//     } catch (PDOException $e) {
-//         print_r('Error connection: ' . $e->getMessage());
-//     }
-// }
+        } catch (PDOException $e) {
+            print_r('Error connection: ' . $e->getMessage());
+        }
+    }
+}

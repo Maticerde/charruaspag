@@ -3,14 +3,10 @@
 //define('URL', 'http://localhost/mvc/');
 define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/ResktSoftware/');
 
-//CONEXION PDO
-
-$host     = "localhost:3307";
-$username = "root";
-$password = "";
-$db_name  = "vinos_charruas";
-
-$conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//--FIN CONEXION PDO
+//conexion a la base de datos
+define('HOST', 'localhost');
+define('PORT', '3306');
+define('DB', 'vinos_charruas');
+define('USER', 'root');
+define('PASSWORD', "");
+define('CHARSET', 'utf8mb4');
