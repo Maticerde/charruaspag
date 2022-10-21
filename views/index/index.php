@@ -92,7 +92,7 @@
 </section>
 <div id="box3">
   <div class="contactobox">
-    <a href="http://localhost/charruaspag/index.php">
+    <a href="http://localhost/resktsoftware/index.php">
       <img class="logo1" src="src/charruas logo.png">
       <p2 id="charruas-texto2"> Charrúas </p2>
     </a>
