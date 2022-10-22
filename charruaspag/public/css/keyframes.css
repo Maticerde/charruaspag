@@ -1,0 +1,74 @@
+@keyframes animacion {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-85vw);
+  }
+  35% {
+    transform: translateX(-85vw);
+  }
+  50% {
+    transform: translateX(-170vw);
+  }
+  60% {
+    transform: translateX(-170vw);
+  }
+  75% {
+    transform: translateX(-255vw);
+  }
+  100% {
+    transform: translateX(-255vw);
+  }
+}
+
+@keyframes animaciontexto {
+  0% {
+    content: "Lo último de Kaiken: Indómito";
+  }
+  10% {
+    content: "Lo último de Kaiken: Indómito";
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    content: "Tintos, blancos, rosados... Los mejores vinos los podés encontrar en Charrúas";
+  }
+  35% {
+    content: "Tintos, blancos, rosados... Los mejores vinos los podés encontrar en Charrúas";
+  }
+  42.5% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    content: "Conoce más de la 3ª edición del festival Mahasti Artean";
+  }
+  60% {
+    content: "Conoce más de la 3ª edición del festival Mahasti Artean";
+  }
+  67.5% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+    content: "Lo último de Kaiken: Indómito";
+  }
+  100% {
+    content: "Lo último de Kaiken: Indómito";
+  }
+}
+
+@keyframes copyright-animation {
+  0% {
+    transform: translateX(-35vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
