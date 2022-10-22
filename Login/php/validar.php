@@ -1,30 +1,4 @@
 <?php
-// $usuario = $_POST['unombre'];
-// $pass = $_POST['upassword'];
-// if(empty($usuario) || empty($pass)){
-// header("Location: index.html");
-// exit();
-// }
-
-// require 'connect.php';
-// // mysql_connect('localhost','root','db_login') or die("Error al conectar " . mysql_error());
-// // mysql_select_db('db_login') or die ("Error al seleccionar la Base de datos: " . mysql_error());
-// $data = $conn->query("SELECT * FROM usuarios")->fetchAll(); //consula pdo
-// $result = mysql_query("SELECT * from usuarios where Username='" . $usuario . "'");
-// if($row = mysql_fetch_array($result)){
-// if($row['Password'] == $pass){
-// session_start();
-// $_SESSION['usuario'] = $usuario;
-// header("Location: php/contenido.php");
-// }else{
-// header("Location: index.html");
-// exit();
-// }
-// }else{
-// header("Location: index.html");
-// exit();
-// }
-
  /*me aseguro que existan los recursos por POST, con esto solo se procesa si se proviene del form configurado
      para ello*/
      if(!empty($_POST["unombre"]) && !empty( $_POST["upassword"]) && isset($_POST["unombre"]) && isset($_POST["upassword"])){process_login();}else 

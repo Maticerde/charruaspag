@@ -12,11 +12,11 @@
   
 </head>
 <div id="menu">
-  <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
+  <form id="gotoadmin" action="http://localhost/resktsoftware/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
   </form>
-  <form id="gotologin" action="http://localhost/login/index.html">
+  <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>
