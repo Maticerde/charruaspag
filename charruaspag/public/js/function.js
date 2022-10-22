@@ -2,7 +2,7 @@ let carticon = document.querySelector("#cart-icon");
 carticon.addEventListener("click", cartanimation);
 
 desplegables = [];
-desplegado = false;
+let desplegado = false;
 function desplegar(nodo) {
   desplegables.push(nodo);
   desplegables.forEach((element) => {

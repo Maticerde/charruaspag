@@ -18,12 +18,18 @@ input.addEventListener("change", (event) => {
 userbox = document.querySelector("#text-user");
 prodbox = document.querySelector("#text-prod");
 grid = document.querySelector("#grid-functions");
+vinoslist = document.querySelector("#vinos-list-label");
+info_vino = document.getElementById("info-vino");
+info_bodega = document.getElementById("info-bodega");
 prodbox.style.display = "none";
 prodbox.style.opacity = "0";
 
 function slide(num) {
   if (num == 0) {
     grid.classList.toggle("slide");
+    vinoslist.classList.toggle("slide");
+    info_vino.classList.toggle("slide");
+    info_bodega.classList.toggle("slide");
     prodbox.style.display = "";
     setTimeout(() => (prodbox.style.opacity = "1"), 300);
     prodbox.style.display = "";
@@ -31,61 +37,12 @@ function slide(num) {
     setTimeout(() => (userbox.style.display = "none"), 300);
   } else {
     grid.classList.toggle("slide");
+    vinoslist.classList.toggle("slide");
+    info_vino.classList.toggle("slide");
+    info_bodega.classList.toggle("slide");
     userbox.style.display = "";
     setTimeout(() => (userbox.style.opacity = "1"), 300);
     prodbox.style.opacity = "0";
     setTimeout(() => (prodbox.style.display = "none"), 300);
   }
-}
-
-function cargar_forms(
-  id,
-  codigo_vino,
-  nombre,
-  precio,
-  stock,
-  pais,
-  region,
-  cosecha,
-  bodega,
-  imagen
-) {
-  options = document.querySelectorAll(".options");
-  option = document.getElementById(id);
-  inputs = document.querySelectorAll(".inputs");
-
-  for (var i = 0; i < options.length; i++) {
-    if (options[i].classList.contains("selected")) {
-      options[i].classList.remove("selected");
-    }
-  }
-
-  if (
-    nombre == inputs[0].value &&
-    precio == inputs[1].value &&
-    stock == inputs[2].value &&
-    pais == inputs[3].value &&
-    region == inputs[4].value &&
-    cosecha == inputs[5].value &&
-    bodega == inputs[6].value
-  ) {
-    inputs[0].value = "";
-    inputs[1].value = "";
-    inputs[2].value = "";
-    inputs[3].value = "";
-    inputs[4].value = "";
-    inputs[5].value = "";
-    inputs[6].value = "";
-    exit();
-  } else {
-    option.classList.toggle("selected");
-  }
-
-  inputs[0].value = nombre;
-  inputs[1].value = precio;
-  inputs[2].value = stock;
-  inputs[3].value = pais;
-  inputs[4].value = region;
-  inputs[5].value = cosecha;
-  inputs[6].value = bodega;
 }

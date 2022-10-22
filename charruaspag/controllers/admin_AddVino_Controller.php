@@ -1,7 +1,9 @@
 // este archivo es un setter, inserta un vino en la base
 <?php
 
-    if(!empty($_POST["in_nombre_vino"])){add_vino();}else 
+    if(!empty($_POST["in_nombre_vino"])){
+        add_vino();
+    }else 
 {
     /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
     header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");
@@ -9,7 +11,7 @@
 }
 
 function add_vino() {
-    require_once("..\models\modelo.php");
+    require_once("..\models\modeloAdmin.php");
     $modelo = new SoporteAdmin();
     $datos = $modelo->setVino(
         $_POST["in_nombre_vino"],

@@ -47,7 +47,7 @@ ul {
 }
 
 #fondo {
-  position: relative;
+  position: absolute;
   height: 101vh;
   width: 100%;
   object-fit: cover;
@@ -143,30 +143,31 @@ ul {
   position: absolute;
   display: grid;
   grid-template-columns: 50% 50% 50% 50%;
-  top: 200px;
-  left: 4vw;
+  top: 180px;
+  left: 3.4vw;
   transform: translate(0px);
   right: 0;
-  margin-inline: auto;
   height: fit-content;
   width: 90%;
-  grid-column-gap: 1vw;
+  grid-column-gap: 4.67vw;
   padding: 15px;
 }
 
-#grid-functions.slide {
-  transform: translate(-96vw);
+#grid-functions.slide,
+#vinos-list-label.slide {
+  transform: translate(-100vw);
 }
 
 .box {
-  border-radius: 30px;
+  border-radius: 2.5vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: rgba(255, 255, 255, 0.892);
-  height: 475px;
-  width: 44vw;
+  height: 49.3vh;
+  width: 42vw;
 }
 
-#addvino-box {
+#addvino-box,
+#modvino-box {
   position: relative;
 }
 
@@ -210,6 +211,9 @@ h3 {
 #addvino-form {
   margin-top: 54px;
 }
+#modvino-form {
+  margin-top: 54px;
+}
 
 #input_grid {
   height: 100%;
@@ -220,7 +224,9 @@ h3 {
 }
 
 #addvino-form input,
-#addvino-form select {
+#addvino-form select,
+#modvino-form input,
+#modvino-form select {
   transition: all ease 0.2s;
   height: 30px;
   width: 12.5vw;
@@ -233,12 +239,15 @@ h3 {
 }
 
 #addvino-form select,
-#addvino-form input[type="file"] {
+#addvino-form input[type="file"],
+#modvino-form select,
+#modvino-form input[type="file"] {
   margin-top: 5px;
   width: calc(12.5vw + 4px);
 }
 
-#addvino-form input[type="file"] {
+#addvino-form input[type="file"],
+#modvino-form input[type="file"] {
   display: none;
 }
 
@@ -281,7 +290,8 @@ h3 {
   object-fit: scale-down;
 }
 
-#addvino-button {
+#addvino-button,
+#modvino-button {
   transition: all ease 0.1s;
   font-family: robotolight;
   font-size: 22px;
@@ -303,14 +313,16 @@ h3 {
   height: 50px;
 }
 
-#addvino-button:hover {
+#addvino-button:hover,
+#modvino-button:hover {
   margin-top: 41px;
   right: 1px;
   border: none;
   color: black;
 }
 
-#addvino-form input[type="file"]:valid + #nombre_imagen {
+#addvino-form input[type="file"]:valid + #nombre_imagen,
+#modvino-form input[type="file"]:valid + #nombre_imagen {
   border-bottom: 3px solid rgba(0, 0, 0, 0.657);
   color: black;
 }
@@ -318,7 +330,11 @@ h3 {
 #addvino-form input:focus + .input_texto,
 #addvino-form input:valid + .input_texto,
 #addvino-form select:focus + .input_texto,
-#addvino-form select:valid + .input_texto {
+#addvino-form select:valid + .input_texto,
+#modvino-form input:focus + .input_texto,
+#modvino-form input:valid + .input_texto,
+#modvino-form select:focus + .input_texto,
+#modvino-form select:valid + .input_texto {
   transform: translateY(-16px);
   color: black;
   font-size: 15px;
@@ -326,24 +342,75 @@ h3 {
 
 #addvino-form input:focus,
 #addvino-form input:valid,
-#addvino-form select:valid {
+#addvino-form select:valid,
+#modvino-form input:focus,
+#modvino-form input:valid,
+#modvino-form select:valid {
   border-bottom: 3px solid rgba(0, 0, 0, 0.657);
 }
 
+#info-vino {
+  transition: all ease 0.4s;
+  position: absolute;
+  height: 237px;
+  width: 237px;
+  background-color: rgba(255, 255, 255, 0.892);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  right: -14.6vw;
+  top: 15vw;
+}
+
+#info-bodega {
+  transition: all ease 0.6s;
+  position: absolute;
+  height: 237px;
+  width: 237px;
+  background-color: rgba(255, 255, 255, 0.892);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  right: -29.38vw;
+  top: 15vw;
+}
+.info-select {
+  transform: translateY(-15vw);
+}
+
 #vinos-list {
+  position: relative;
   display: grid;
-  height: 100%;
-  width: 25%;
-  float: right;
-  border-bottom-right-radius: 30px;
-  border-top-right-radius: 30px;
-  background-color: rgba(187, 187, 187, 0.708);
+  grid-template-columns: 25% 25% 25% 25%;
+  height: 200px;
+  width: 100%;
+  top: 100%;
+  margin-inline: auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.892);
   overflow-x: hidden;
   overflow-y: scroll;
-  direction: rtl;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#vinos-list-label {
+  transition: all ease 1s;
+  position: absolute;
+  top: 72%;
+  width: 1200px;
+  height: 37px;
+  left: 4vw;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: rgba(204, 204, 204, 0.892);
+}
+
+#vinos-list-label h1 {
+  top: -13px;
+  left: 20px;
+  position: absolute;
+  font-family: robotolight;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.743);
 }
 
 #vinos-list span {
@@ -361,7 +428,7 @@ h3 {
   overflow: hidden;
   position: relative;
   display: inline-flex;
-  width: 58%;
+  width: 230px;
   white-space: nowrap;
 }
 
@@ -389,25 +456,45 @@ h3 {
 }
 
 .selected {
+  transition: all ease 0.1s;
   background-color: rgba(177, 177, 177, 0.533);
 }
 
 #vinos-order {
   font-family: robotolight;
-  font-size: 0.8vw;
-  top: -15px;
+  font-weight: bold;
+  font-size: 1vw;
+  top: 6px;
   position: absolute;
-  left: calc(100% - 4vw);
-  width: 4vw;
+  right: 5px;
+  width: 350px;
   text-align: center;
+  color: rgba(0, 0, 0, 0.743);
+}
+
+#vinos-order p1 {
+  transition: all ease 0.1s;
+  position: absolute;
+  text-indent: -100px;
+}
+
+.selectorden {
+  color: black;
+  text-decoration: underline;
+  font-size: 1.05vw;
+  font-weight: bolder;
 }
 
 #vinos-order input {
-  accent-color: rgb(110, 110, 110);
+  cursor: pointer;
+  opacity: 0;
+  top: 2px;
+  width: 100px;
+  height: 20px;
+  accent-color: rgba(79, 79, 79, 0.243);
   position: relative;
-  top: 1.9vw;
   margin-inline: auto;
-  display: block;
+  z-index: 1;
 }
 
 @media (max-width: 1183px) {

@@ -6,7 +6,7 @@ if (isset($_POST["keyword_post"])) {
     $keywords = '';
 }
 
-require_once("..\models\modelo.php");
+require_once("..\models\modeloIndex.php");
 $modelo = new soporteIndex();
 $datos = $modelo->getVinos($keywords);
 
