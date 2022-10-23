@@ -21,14 +21,26 @@
    <section id="text-prod" onclick="slide(1)"><span>&#10132;</span> P R O D U C T O S</section>
    <section id="text-user" onclick="slide(0)"><span>&#10132;</span> U S U A R I O S</section>
    <div id="vinos-list-label">
-   <section id="info-vino">vino xd</section>
+   <section id="info-vino">
+      <img class="info" id="v_img"/>
+      <div class="info" id="v_nombre">Casillero del Diablo</div>
+      <section id="upperinfo">
+         <div class="info" id="v_pais">Argentina</div>
+         <div class="info" id="v_region">La Patagonia</div>
+         <div class="info" id="v_cosecha">2019</div>
+      </section>
+      <section id="lowerinfo">
+         <div class="info" id="v_precio">$ 5901</div>
+         <div class="info" id="v_stock">Stock: 0</div>
+      </section>
+   </section>
    <section id="info-bodega">
 
    </section>
       <h1>LISTA DE PRODUCTOS:</h1>
       <section id="vinos-list">
       <script src="../../public/js/admin_vinos_list_function.js"></script>
-      <script src="../../public/js/admin_vinos_delete.js"></script>
+      <script src="../../public/js/admin_vino_info.js"></script>
       </section>
       <form id="vinos-order" method="POST">
          <script src="../../public/js/admin_vinos_orden.js"></script>
