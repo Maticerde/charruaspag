@@ -20,7 +20,7 @@
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>
-  <a href="http://localhost/charruaspag/index.php">
+  <a href="http://localhost/ResktSoftware/charruaspag/index.php">
   <section id="charruas-texto"> Charrúas </section>
   </a>
 </div>
@@ -107,4 +107,4 @@
 <div id="copyright">
   <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
 </div>
-<script src="public/js/function.js"></script>
+<script src="/resktsoftware/charruaspag/public/js/function.js"></script>

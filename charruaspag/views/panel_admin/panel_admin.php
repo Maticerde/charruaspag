@@ -14,7 +14,7 @@
    <img id=fondo src="../../src/foto3.jpg">
    <div id="menu">
       <section id="texto1">A d m i n i s t r a c i ó n</section>
-      <a href="http://localhost/charruaspag/index.php">
+      <a href="http://localhost/resktsoftware/charruaspag/index.php">
          <section id="charruas-texto"> Charrúas </section>
       </a>
    </div>

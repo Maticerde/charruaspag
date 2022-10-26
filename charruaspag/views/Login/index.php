@@ -10,14 +10,14 @@
 </head>
 <div class="login">
     <section id="panel">
-        <a href="http://localhost/charruaspag/views/login/index.php">
+        <a href="http://localhost/resktsoftware/charruaspag/views/login/index.php">
         <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
         <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
         <form method="POST" action="/resktsoftware/charruaspag/controllers/login_Controller.php">
             <input type="text" disabled id="mensaje"/>
-            <input type="text" name="user" placeholder="Email"/>
+            <input type="text" name="user" placeholder="Usuario"/>
             <input type="password" name="password" placeholder="Contraseña"/>
             <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
