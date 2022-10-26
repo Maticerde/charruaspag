@@ -37,6 +37,7 @@ function select_vino(
     imagen
   ) {
 
+  
     
     info_vino = document.getElementById("info-vino");
     info_bodega = document.getElementById("info-bodega");
@@ -61,13 +62,13 @@ function select_vino(
       if (primeraflag == true) {
         info_vino.classList.toggle("info-select");
         info_bodega.classList.toggle("info-select");
-        info_vino.innerHTML = nombre + " EDITAR?";
-        fetch_bodega(bodega);
+        escribir_info_vino(codigo_vino, nombre, precio, stock, pais, region, cosecha, bodega, imagen)
+        escribir_info_bodega(bodega);
       } else {
         setTimeout(() => info_vino.classList.toggle("info-select"), 400);
         setTimeout(() => info_bodega.classList.toggle("info-select"), 400);
-        setTimeout(() => info_vino.innerHTML = nombre + " EDITAR?", 400);
-        setTimeout(() => fetch_bodega(bodega), 400);
+        setTimeout(() => escribir_info_vino(codigo_vino, nombre, precio, stock, pais, region, cosecha, bodega, imagen), 400);
+        setTimeout(() => escribir_info_bodega(bodega), 400);
       }
     }
       
@@ -98,6 +99,5 @@ function select_vino(
   
       option.classList.toggle("selected");
     }
+    
   }
-  
-  

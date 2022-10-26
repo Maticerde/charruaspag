@@ -1,5 +1,5 @@
 
-function fetch_bodega(idbodega) {
+function escribir_info_bodega(idbodega) {
     // envío por fetch el ID de bodega del vino clickeado a un controlador que iguala esta ID a la bodega correspondiente y devuelve sus datos
     const info_bodega = document.getElementById("info-bodega");
     const data = new FormData();
