@@ -15,10 +15,10 @@
         <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
-        <form method="POST" action="php/validar.php">
+        <form method="POST" action="/resktsoftware/charruaspag/controllers/login_Controller.php">
             <input type="text" disabled id="mensaje"/>
-            <input type="text" name="unombre" placeholder="Email"/>
-            <input type="password" name="upassword" placeholder="Contraseña"/>
+            <input type="text" name="user" placeholder="Email"/>
+            <input type="password" name="password" placeholder="Contraseña"/>
             <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
         <p onclick="add_user()"> Registrarse </p>
