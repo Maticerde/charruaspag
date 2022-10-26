@@ -35,7 +35,7 @@
             $consulta_login = "credenciales válidas";
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
-            header("Location: \charruaspag\index.php");
+            header("Location:\resktsoftware\charruaspag\index.php");
          } else {
             $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
             echo "$consulta_login";
