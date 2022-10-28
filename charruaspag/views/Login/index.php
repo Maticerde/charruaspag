@@ -17,13 +17,13 @@
         </a>
         <form method="POST" action="/resktsoftware/charruaspag/controllers/login_Controller.php">
             <input type="text" disabled id="mensaje"/>
-            <input type="text" name="user" placeholder="Usuario"/>
-            <input type="password" name="password" placeholder="Contraseña"/>
+            <input type="text" name="unombre" placeholder="Email"/>
+            <input type="password" name="upassword" placeholder="Contraseña"/>
             <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
         <p onclick="add_user()"> Registrarse </p>
         <p onclick="change_password()"> Olvidaste tu contraseña? </p>
     </section>
         <video autoplay loop muted src="/resktsoftware/charruaspag/src/login/Video/vino_cayendo_en_una_copa.mp4"></video>
-    <script src="/resktsoftware/charruaspag/public/js/loginjs.js"></script>
+    <!-- <script src="/resktsoftware/charruaspag/public/js/loginjs.js"></script> -->
 </div>
