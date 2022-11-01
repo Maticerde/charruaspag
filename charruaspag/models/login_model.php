@@ -16,10 +16,10 @@
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function consulta(){
+     public function consulta(){
 
-        /*configuracion consulta*/
-        $sql = $this->conn->query("SELECT * FROM clientes")->fetchAll();
+           /*configuracion consulta*/
+         $sql = $this->conn->query("SELECT * FROM clientes")->fetchAll();
         
         /*datos POST*/
         $array_dataset = 
@@ -47,6 +47,6 @@
             echo "$consulta_login";
             //header("Location: /login/index.html");
          }
-    }
+      }
 
    }

@@ -5,15 +5,17 @@ require_once('..\models\login_model.php');
      para ello*/
      if(!empty($_POST["unombre"]) && !empty( $_POST["upassword"]) && isset($_POST["unombre"]) && isset($_POST["upassword"])){process_login();}else 
      {
-         /*redirecciono a login si es que no se provino con DATA SET via POST desde el*/
-         header("Location: index.html");
+        /*redirecciono a login si es que no se provino con DATA SET via POST desde el*/
+         header("Location: ../views/login/index.php");
          exit();
      }
      
      
      function process_login()
      {
+        session_start(); // crea una sesion o reanuda la actual basada en un identificador de sesion mediante la peticion POST
         $modelo = new login_model();
         $datos = $modelo-> consulta();
- 
-     };
+
+        
+     }
