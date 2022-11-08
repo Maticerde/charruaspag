@@ -1,16 +1,33 @@
 <?php
+require "../libs/controller.php";
 
-class Market_Controller extends Controller {
+class Market_Controller extends controller {
 
-if (isset($_POST["keyword_post"])) {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->view->mensaje        = "";
+        // $this->view->resultadoLogin = "";
+    }
+
+    public function render()
+    {
+        // $this->view->mensaje = "cargado";
+        // $this->view->render('market/index');
+    }
+
+    public function getVinos()
+    {
+
+    if (isset($_POST["keyword_post"])) {
     $keywords = $_POST["keyword_post"];
 } else {
     $keywords = '';
 }
 
-require_once("..\models\Articulos_Model.php");
-$modelo = new soporteIndex();
-$datos  = $modelo->getVinos($keywords);
+// require_once("..\models\Articulos_Model.php");
+// $modelo = new soporteIndex();
+// $datos  = $modelo->getVinos($keywords);
 
 $aux           = 0;
 $array_ids     = [];
@@ -33,5 +50,6 @@ for ($i = 0; $i < $aux; $i++) {
         echo "<div id='productos-div' onclick='acarrear(" . $i . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\");'><p1> " . $array_nombres[$i] . "</p1><br><p1> $ " . $array_precios[$i] . "</p1><br><p1>Stock: " . $array_stocks[$i] . "</p1><img src=\"" . $array_images[$i] . "\"/></div>";
     }
 
+}
 }
 }

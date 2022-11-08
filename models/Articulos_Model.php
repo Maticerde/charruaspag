@@ -1,5 +1,7 @@
 <?php
 
+require_once 'entidades/market.php';
+
 class Articulos_Model extends Model
 {
     public function __construct()
