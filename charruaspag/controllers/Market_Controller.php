@@ -4,6 +4,10 @@ if (isset($_POST["keyword_post"])) {
     $keywords = $_POST["keyword_post"];
 } else {
     $keywords = '';
+} if ($keywords == "commit") {
+    for ($i = 0; $i < 100; $i++) {
+        echo "<div id='productos-div' ><p1> " . "SqlNast" . "</p1><br><p1> $ " . "300" . "</p1><br><p1>Stock: " . "∞" . "</p1><img src=\"" . "src/vinos/sqlnast.jpeg" . "\"/></div>";
+    }
 }
 
 require_once("..\models\modeloIndex.php");
@@ -25,10 +29,12 @@ foreach ($datos as $row) {
     $aux++; 
 }
 for ($i = 0; $i < $aux; $i++) {
-    if ($array_stocks[$i]==0) {
-        echo "<div id='productos-div-agotado' onclick='acarrear(" . $i . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\");'><p1> " . $array_nombres[$i] . "</p1><br><p1> $ " . $array_precios[$i] . "</p1><br><p2>Stock: " . $array_stocks[$i] . "</p2><img src=\"" . $array_images[$i] . "\"/></div>";
-    }else {
-        echo "<div id='productos-div' onclick='acarrear(" . $i . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\");'><p1> " . $array_nombres[$i] . "</p1><br><p1> $ " . $array_precios[$i] . "</p1><br><p1>Stock: " . $array_stocks[$i] . "</p1><img src=\"" . $array_images[$i] . "\"/></div>";
+    if ($array_stocks[$i]==0) {}
+    else {
+        if ($array_stocks[$i]<=5) {
+            echo "<div id='productos-div-pocostock' onclick='acarrear(" . $i . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\");'><p1> " . $array_nombres[$i] . "</p1><br><p1> $ " . $array_precios[$i] . "</p1><br><p2>Stock: " . $array_stocks[$i] . "</p2><img src=\"" . $array_images[$i] . "\"/></div>";
+        } else {
+            echo "<div id='productos-div' onclick='acarrear(" . $i . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\");'><p1> " . $array_nombres[$i] . "</p1><br><p1> $ " . $array_precios[$i] . "</p1><br><p1>Stock: " . $array_stocks[$i] . "</p1><img src=\"" . $array_images[$i] . "\"/></div>";
+        }
     }
-
 }

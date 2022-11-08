@@ -1,4 +1,4 @@
-function load_orden(id) {
+function load_orden_style(id) {
   let orden = document.getElementById(id);
   orden.classList.toggle("selectorden");
   options = document.querySelectorAll(".ord");
@@ -15,6 +15,8 @@ function load_orden(id) {
     info_bodega = document.getElementById("info-bodega");
     options = document.querySelectorAll(".options");
     inputs = document.querySelectorAll(".inputs");
+    addbodegabox = document.getElementById("addbodega-box");
+    modbodegabox = document.getElementById("modbodega-bax");
 
     inputs[0].value = "";
     inputs[1].value = "";
@@ -26,12 +28,41 @@ function load_orden(id) {
 
     info_vino.classList.remove("info-select");
     info_bodega.classList.remove("info-select");
+    info_wrapper.style.display = "none";
+    info_efecto.style.display = ""
+    setTimeout(() => modvinobox.classList.remove("desplegar2"), 100);
+    setTimeout(() => modbodegabox.classList.remove("desplegar2"), 100);
+    setTimeout(() => addvinobox.classList.remove("desplegar"), 1000);
+    setTimeout(() => addbodegabox.classList.remove("desplegar"), 1000);
   }
 
   vaciarforms();
 }
 
+function load_vinos() { // este fetch carga asíncronamente la lista de vinos cargados
+  const data = new FormData(document.getElementById("vinos-order"));
+  const vinos_list = document.querySelector("#vinos-list");
+  fetch("../../controllers/admin_VinosList_Controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then(function (response) {
+      if (response.ok) {
+        return response.text();
+      } else {
+        throw "Error";
+      }
+    })
+    .then(function (texto) {
+      vinos_list.innerHTML = texto;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
-  let orden = document.getElementById("orden1");
-  orden.classList.toggle("selectorden");
+  let orden1 = document.getElementById("orden1");
+  orden1.classList.toggle("selectorden");
+  load_vinos();
 });

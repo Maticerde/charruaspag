@@ -49,26 +49,47 @@ body {
 }
 
 #menu {
-  transition: all 0.5s;
+  transition: all 0.6s;
   justify-content: center;
   position: absolute;
-  height: 50px;
+  top: 0;
+  height: 57px;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  z-index: 1;
+  background: rgb(142,116,107);
+  background: linear-gradient(90deg, rgba(142, 116, 107, 0.847) 0%, rgba(142,116,107,0.4066001400560224) 50%, rgba(98, 26, 26, 0.738) 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  z-index: 4;
+}
+
+#menu.llevarmenu {
+  top: -50px;
 }
 
 #charruas-texto {
   left: 0;
   right: 0;
+  top: -2px;
   margin-inline: auto;
   width: fit-content;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
   position: absolute;
-  color: rgb(78, 16, 16);
+  color: #510707;
+  text-shadow: 1px 1px 2px #000000;
   font-family: "cinzelbold";
-  font-size: 43px;
+  font-size: 55px;
+
+}
+
+#charruas-texto img {
+  right: 46px;
+  top: -2px;
+  object-fit: cover;
+  margin-inline: auto;
+  filter: drop-shadow(1px 1px 1px #000000);
+  opacity: 1;
+  height: 60px;
+  position: absolute;
 }
 
 #box1 {
@@ -329,15 +350,16 @@ body {
 #arrow {
   position: fixed;
   margin-top: -4px;
+  top: -50px;
   right: 84px;
   z-index: 9;
-  transition: transform 0.5s;
-  transform: translateX(0px);
+  transition: all ease 0.5s;
   rotate: -90deg;
   font-size: 45px;
   opacity: 0.8;
   cursor: pointer;
 }
+
 
 #cart {
   padding-left: 7px;
@@ -510,16 +532,12 @@ body {
   background-color: rgb(242, 236, 234);
 }
 
-#productos-div-agotado {
-  background-color: rgb(226, 221, 219);
-}
-
-#productos-div-agotado p2 {
+#productos-div-pocostock p2 {
   font-weight: bold;
   color: rgb(195, 24, 24);
 }
 #productos-div img,
-#productos-div-agotado img {
+#productos-div-pocostock img {
   -webkit-user-drag: none;
   margin-inline: auto;
   display: block;
@@ -553,6 +571,7 @@ body {
 }
 
 li {
+  border-bottom: 2px solid rgb(51, 13, 18);
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 0.8vw;
@@ -566,7 +585,7 @@ li:hover {
 
 #charruas-texto2 {
   color: rgb(75, 32, 32);
-  margin-top: 9vw;
+  margin-top: 11.5vw;
   position: absolute;
   text-align: center;
   font-size: 2vw;
@@ -578,7 +597,7 @@ li:hover {
 
 .logo1 {
   -webkit-user-drag: none;
-  margin-top: 1.2vw;
+  margin-top: 3.7vw;
   opacity: 0.45;
   position: absolute;
   object-fit: scale-down;
@@ -864,24 +883,7 @@ p {
     width: 100%;
   }
   #menu {
-    transition: all 0.5s;
-    justify-content: center;
-    position: absolute;
-    height: 60px;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     z-index: 2;
-  }
-
-  #charruas-texto {
-    left: 0;
-    right: 0;
-    text-align: center;
-    text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    width: fit-content;
-    font-family: "cinzelbold";
-    font-size: 48px;
   }
 
   #texto1 {

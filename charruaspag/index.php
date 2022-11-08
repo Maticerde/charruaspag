@@ -21,7 +21,7 @@
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>
   <a href="http://localhost/charruaspag/index.php">
-  <section id="charruas-texto"> Charrúas </section>
+  <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
 </div>
 <?php include 'views\desplegables\desplegables.php';?>

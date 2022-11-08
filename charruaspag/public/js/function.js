@@ -188,14 +188,14 @@ totalcount = document.getElementById("totalcount");
 totalcount.innerText = "TOTAL: $ " + total; // se escribe el valor total
 
 arrow = document.getElementById("arrow");
-arrow.style.display = "none";
+menu = document.getElementById("menu");
 
 function myScrollFunc() {
-  var y = window.scrollY;
-  if (y > 1150) {
-    arrow.style.display = "";
+  let y = window.scrollY;
+  if (y > 1250) {
+    arrow.style.top = "0px";
   } else {
-    arrow.style.display = "none";
+    arrow.style.top = "-50px";
   }
 }
 window.addEventListener("scroll", myScrollFunc);
