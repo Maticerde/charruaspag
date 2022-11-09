@@ -11,8 +11,8 @@
 <div class="login">
     <section id="panel">
         <a href="http://localhost/resktsoftware/views/login/index.php">
-        <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
-        <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
+        <img src=/resktsoftware/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
+        <img src=/resktsoftware/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
         <form method="POST" action="/resktsoftware/controllers/login_Controller.php">

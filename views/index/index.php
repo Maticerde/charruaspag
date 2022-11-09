@@ -16,11 +16,11 @@
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png" /></button>
   </form>
-  <form id="gotologin" action="http://localhost/login/index.html">
+  <form id="gotologin" action="http://localhost/resktsoftware/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png" /></button>
   </form>
-  <a href="http://localhost/charruaspag/index.php">
+  <a href="http://localhost/resktsoftware/index.php">
     <section id="charruas-texto"> Charrúas </section>
   </a>
 </div>
