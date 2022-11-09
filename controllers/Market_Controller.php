@@ -1,5 +1,5 @@
 <?php
-require "../libs/controller.php";
+include "../libs/controller.php";
 
 class Market_Controller extends controller {
 
