@@ -16,10 +16,10 @@
         <img src=/resktsoftware/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
-        <form class="row" method="POST" action="<?php echo constant('URL'); ?>login/ingresar">
+        <form class="row" method="POST" action="">
             <input type="text" disabled id="mensaje"/>
-            <input type="email" name="unombre" placeholder="Email"/>
-            <input type="password" name="upassword" placeholder="Contraseña"/>
+            <input type="email" id="unombre" name="unombre" placeholder="Email"/>
+            <input type="password" id="upassword" name="upassword" placeholder="Contraseña"/>
             <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
         <p onclick="add_user()"> Registrarse </p>

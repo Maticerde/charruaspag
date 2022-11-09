@@ -1,34 +1,30 @@
 <?php
 
-include "../libs/controller.php";
-class Login_Controller extends controller {
+session_start();
+require "../models/Login_Model.php";
 
-    public function __construct()
-    {
-        parent::__construct();
-        // $this->view->mensaje        = "";
-         $this->view->resultadoLogin = "";
-    }
-
-    public function render()
-    {
-        $this->view->mensaje = "";
-        $this->view->render('login/index');
-    }
+class Login_Controller {
 
     public function ingresar()
     {
-        session_start();
-        $nombre = $_POST['unombre'];
-        $pass = $_POST['upassword'];
+
+        if(!isset($_POST['row'])){                      //   Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa.
+            $this->view->render('login/index');      //   Por lo tanto le presentamos la pantalla del formulario de ingreso.
+      }
+        $unombre = $_POST['unombre'];
+        $upassword = $_POST['upassword'];
         $exitoLogin = $this->model->ingresar($unombre, $upassword);
         if ($exitoLogin) {
+
+            // no va a ser usado
             // $token = Auth::SignIn([
             //     'id' => 1,
             //     'name' => $unombre,
             //     'role' => 'cliente',
             // ]);
             // $this->view->token = $token;
+            // no va a ser usado
+
             $_SESSION["estalogueado"] = true;
             $_SESSION["nombre"] = $unombre;
             $_SESSION["rol"] = "cliente";
