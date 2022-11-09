@@ -19,11 +19,15 @@ class Market_Controller extends controller {
     public function getVinos()
     {
 
-    if (isset($_POST["keyword_post"])) {
-    $keywords = $_POST["keyword_post"];
-} else {
-    $keywords = '';
-}
+        if (isset($_POST["keyword_post"])) {
+            $keywords = $_POST["keyword_post"];
+        } else {
+            $keywords = '';
+        } if ($keywords == "commit") {
+            for ($i = 0; $i < 100; $i++) {
+                echo "<div id='productos-div' ><p1> " . "SqlNast" . "</p1><br><p1> $ " . "300" . "</p1><br><p1>Stock: " . "∞" . "</p1><img src=\"" . "src/vinos/sqlnast.jpeg" . "\"/></div>";
+            }
+        }
 
 // require_once("..\models\Articulos_Model.php");
 // $modelo = new soporteIndex();
