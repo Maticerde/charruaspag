@@ -20,16 +20,16 @@ class Login_Controller extends controller {
     {
         $nombre = $_POST['unombre'];
         $pass = $_POST['upassword'];
-        $exitoLogin = $this->model->ingresar($nombre, $pass);
+        $exitoLogin = $this->model->ingresar($unombre, $upassword);
         if ($exitoLogin) {
             $token = Auth::SignIn([
                 'id' => 1,
-                'name' => $nombre,
+                'name' => $unombre,
                 'role' => 'cliente',
             ]);
             $this->view->token = $token;
             $_SESSION["estalogueado"] = true;
-            $_SESSION["nombre"] = $nombre;
+            $_SESSION["nombre"] = $unombre;
             $_SESSION["rol"] = "cliente";
             $this->view->render('login/ingresar');
         } else {

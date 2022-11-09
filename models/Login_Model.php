@@ -8,20 +8,20 @@ class Login_Model extends Model
         parent::__construct();
     }
 
-    public function ingresar($nombre, $pass)
+ public function ingresar($unombre, $upassword)
     {
 
         $tieneAcceso = false;
         try {
-            $query = $this->db->connect()->prepare('SELECT password FROM usuarios WHERE nombre=:nombre');
-            $query->bindValue(':nombre', $nombre);
+            $query = $this->db->connect()->prepare('SELECT * FROM clientes WHERE nombre=:nombre');
+            $query->bindValue(':nombre', $unombre);
             //$query->execute(['nombre' => $nombre]);
             $query->execute();
             $paswordStr = "";
             while ($row = $query->fetch()) {
                 $paswordStr = $row['password'];
             }
-            if ($paswordStr == $pass) {
+            if ($paswordStr == $upassword) {
                 $tieneAcceso = true;
             }
         } catch (PDOException $e) {
