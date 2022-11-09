@@ -6,8 +6,8 @@ class Login_Controller extends controller {
     public function __construct()
     {
         parent::__construct();
-        $this->view->mensaje        = "";
-        // $this->view->resultadoLogin = "";
+        // $this->view->mensaje        = "";
+         $this->view->resultadoLogin = "";
     }
 
     public function render()
@@ -18,16 +18,17 @@ class Login_Controller extends controller {
 
     public function ingresar()
     {
+        session_start();
         $nombre = $_POST['unombre'];
         $pass = $_POST['upassword'];
         $exitoLogin = $this->model->ingresar($unombre, $upassword);
         if ($exitoLogin) {
-            $token = Auth::SignIn([
-                'id' => 1,
-                'name' => $unombre,
-                'role' => 'cliente',
-            ]);
-            $this->view->token = $token;
+            // $token = Auth::SignIn([
+            //     'id' => 1,
+            //     'name' => $unombre,
+            //     'role' => 'cliente',
+            // ]);
+            // $this->view->token = $token;
             $_SESSION["estalogueado"] = true;
             $_SESSION["nombre"] = $unombre;
             $_SESSION["rol"] = "cliente";

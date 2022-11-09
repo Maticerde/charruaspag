@@ -10,16 +10,15 @@ class Login_Model extends Model
 
  public function ingresar($unombre, $upassword)
     {
-
         $tieneAcceso = false;
         try {
-            $query = $this->db->connect()->prepare('SELECT * FROM clientes WHERE nombre=:nombre');
-            $query->bindValue(':nombre', $unombre);
+            $query = $this->db->connect()->prepare("SELECT * FROM clientes WHERE Email_Cliente = '".$unombre."' AND Contrasenia = '".$upassword."' ");
+            $query->bindValue('Email_Cliente', $unombre);
             //$query->execute(['nombre' => $nombre]);
             $query->execute();
             $paswordStr = "";
             while ($row = $query->fetch()) {
-                $paswordStr = $row['password'];
+                $paswordStr = $row['contrasenia'];
             }
             if ($paswordStr == $upassword) {
                 $tieneAcceso = true;

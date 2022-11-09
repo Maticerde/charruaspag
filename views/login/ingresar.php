@@ -19,6 +19,6 @@
     </div>
 
     </div>
-    <!-- <script src="<?php echo constant('URL'); ?>public/js/login/ingresar.js"></script> -->
+    <script src="../public/js/login/ingresar.js"></script>
 </body>
 </html>

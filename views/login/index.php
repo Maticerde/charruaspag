@@ -8,6 +8,7 @@
     <title>Iniciar Sesión</title>
     <link href="/resktsoftware/public/css/loginstyle.css" rel="stylesheet" type="text/css">
 </head>
+<body>
 <div class="login">
     <section id="panel">
         <a href="http://localhost/resktsoftware/views/login/index.php">
@@ -15,9 +16,9 @@
         <img src=/resktsoftware/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
-        <form method="POST" action="/resktsoftware/controllers/login_controller.php">
+        <form class="row" method="POST" action="<?php echo constant('URL'); ?>login/ingresar">
             <input type="text" disabled id="mensaje"/>
-            <input type="text" name="unombre" placeholder="Email"/>
+            <input type="email" name="unombre" placeholder="Email"/>
             <input type="password" name="upassword" placeholder="Contraseña"/>
             <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
@@ -25,5 +26,6 @@
         <p onclick="change_password()"> Olvidaste tu contraseña? </p>
     </section>
         <video autoplay loop muted src="/resktsoftware/src/login/Video/vino_cayendo_en_una_copa.mp4"></video>
-    <!-- <script src="/resktsoftware/charruaspag/public/js/loginjs.js"></script> -->
+   <!-- <script src="/resktsoftware/charruaspag/public/js/loginjs.js"></script> -->
 </div>
+</body>
