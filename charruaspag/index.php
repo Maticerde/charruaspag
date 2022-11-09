@@ -12,16 +12,16 @@
   
 </head>
 <div id="menu">
-  <form id="gotoadmin" action="http://localhost/resktsoftware/charruaspag/views/panel_admin/panel_admin.php">
+  <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
   </form>
-  <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/views/login/index.php">
+  <form id="gotologin" action="http://localhost/login/index.html">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>
-  <a href="http://localhost/ResktSoftware/charruaspag/index.php">
-  <section id="charruas-texto"> Charrúas </section>
+  <a href="http://localhost/charruaspag/index.php">
+  <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
 </div>
 <?php include 'views\desplegables\desplegables.php';?>
@@ -47,9 +47,9 @@
 <div id="boxbs">
   <img id="bsdetalle" src="src/wine-sommalier-drawing.png"> </img>
   <img id="bsfondo" src="src/wine-splash.png"> </img>
-  <img class="bs" id="bs1" src="src/vinos/amalaya-tinto.png"> </img>
-  <img id="bs2" src="src/vinos/kaiken-malbec-ultra.png"> </img>
-  <img class="bs" id="bs3" src="src/vinos/zapata-alta-malbec.png"> </img>
+  <img class="bs" id="bs1" src="src/vinos/zapata-alta-malbec.png"> </img>
+  <img id="bs2" src="src/vinos/b1_tienda.png"> </img>
+  <img class="bs" id="bs3" src="src/vinos/amalaya-tinto.png"> </img>
   <div id="arr"> </div>
 </div>
 <div id="longbox">
@@ -107,4 +107,4 @@
 <div id="copyright">
   <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
 </div>
-<script src="/resktsoftware/charruaspag/public/js/function.js"></script>
+<script src="public/js/function.js"></script>
