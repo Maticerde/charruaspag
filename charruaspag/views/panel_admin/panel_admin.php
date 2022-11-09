@@ -38,7 +38,7 @@
         <input type="number" id="in_codigo_vino" name="in_codigo_vino" style="display: none">
         <input type="text" id="in_imagenString_mod" name="in_imagenString_mod" style="display: none">
         <label class="input_label">
-          <input class="inputs_mod" type="text" id="in_nombre_vino" name="in_nombre_vino" required>
+          <input class="inputs_mod" type="text" id="in_nombre_vino" name="in_nombre_vino" maxlength="20" required>
           <p2 class="input_texto_modv"> Nombre </p2>
         </label>
         <label class="input_label">
@@ -50,11 +50,11 @@
           <p2 class="input_texto_modv"> Stock </p2>
         </label>
         <label class="input_label">
-          <input class="inputs_mod" type="text" id="in_pais" name="in_pais" required>
+          <input class="inputs_mod" type="text" id="in_pais" name="in_pais" maxlength="20" required>
           <p2 class="input_texto_modv"> País </p2>
         </label>
         <label class="input_label">
-          <input class="inputs_mod" type="text" id="in_region" name="in_region" required>
+          <input class="inputs_mod" type="text" id="in_region" name="in_region" maxlength="50" required>
           <p2 class="input_texto_modv"> Región </p2>
         </label>
         <label class="input_label">
@@ -85,19 +85,19 @@
       <form action="../../controllers/admin_ModBodega_Controller.php" method="post" id="modbodega-form">
         <section id="input_grid">
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_nombre_bodega" name="in_nombre_bodega" required>
+            <input class="inputs_mod" type="text" id="in_nombre_bodega" name="in_nombre_bodega" maxlength="40" required>
             <p2 class="input_texto_modb"> Nombre </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_email" name="in_email" required>
+            <input class="inputs_mod" type="text" id="in_email" name="in_email" maxlength="50" required>
             <p2 class="input_texto_modb"> Email </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_direccion" name="in_direccion" required>
+            <input class="inputs_mod" type="text" id="in_direccion" name="in_direccion" maxlength="70" required>
             <p2 class="input_texto_modb"> Dirección </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_pais" name="in_pais" required>
+            <input class="inputs_mod" type="text" id="in_pais" name="in_pais "maxlength="25" required>
             <p2 class="input_texto_modb"> País </p2>
           </label>
           <label class="input_label">
@@ -105,7 +105,7 @@
             <p2 class="input_texto_modb"> Codigo Postal </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_ciudad" name="in_ciudad" required>
+            <input class="inputs_mod" type="text" id="in_ciudad" name="in_ciudad" maxlength="25" required>
             <p2 class="input_texto_modb"> Ciudad </p2>
           </label>
           <label class="input_label">
@@ -165,7 +165,7 @@
       <form action="../../controllers/admin_AddVino_Controller.php" method="POST" id="addvino-form">
         <section id="input_grid">
           <label class="input_label">
-            <input class="inputs" type="text" id="in_nombre_vino" name="in_nombre_vino" required>
+            <input class="inputs" type="text" id="in_nombre_vino" name="in_nombre_vino" maxlength="20" required>
             <p2 class="input_texto"> Nombre </p2>
           </label>
           <label class="input_label">
@@ -177,11 +177,11 @@
             <p2 class="input_texto"> Stock </p2>
           </label>
           <label class="input_label">
-            <input class="inputs" type="text" id="in_pais" name="in_pais" required>
+            <input class="inputs" type="text" id="in_pais" name="in_pais" maxlength="20" required>
             <p2 class="input_texto"> País </p2>
           </label>
           <label class="input_label">
-            <input class="inputs" type="text" id="in_region" name="in_region" required>
+            <input class="inputs" type="text" id="in_region" name="in_region" maxlength="50" required>
             <p2 class="input_texto"> Región </p2>
           </label>
           <label class="input_label">
@@ -210,19 +210,19 @@
       <form action="../../controllers/admin_AddBodega_Controller.php" method="post" id="addbodega-form">
         <section id="input_grid">
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_nombre_bodega" name="in_nombre_bodega" required>
+            <input class="inputs_mod" type="text" id="in_nombre_bodega" name="in_nombre_bodega" maxlength="40" required>
             <p2 class="input_texto"> Nombre </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_email" name="in_email" required>
+            <input class="inputs_mod" type="text" id="in_email" name="in_email" maxlength="50" required>
             <p2 class="input_texto"> Email </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_direccion" name="in_direccion" required>
+            <input class="inputs_mod" type="text" id="in_direccion" name="in_direccion" maxlength="70" required>
             <p2 class="input_texto"> Dirección </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_pais" name="in_pais" required>
+            <input class="inputs_mod" type="text" id="in_pais" name="in_pais" maxlength="25" required>
             <p2 class="input_texto"> País </p2>
           </label>
           <label class="input_label">
@@ -230,7 +230,7 @@
             <p2 class="input_texto"> Codigo Postal </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_ciudad" name="in_ciudad" required>
+            <input class="inputs_mod" type="text" id="in_ciudad" name="in_ciudad" maxlength="25" required>
             <p2 class="input_texto"> Ciudad </p2>
           </label>
           <label class="input_label">

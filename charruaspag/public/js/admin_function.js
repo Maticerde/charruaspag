@@ -10,6 +10,7 @@ input.addEventListener("change", (event) => {
     output.innerHTML = "Imagen";
   }
 });
+
 input_mod.addEventListener("change", (event) => {
   if (input_mod.files.length > 0) {
     output_mod.innerHTML = input_mod.files[0].name; // muestra solo el nombre del archivo de modificacion, no la ruta

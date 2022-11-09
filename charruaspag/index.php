@@ -47,9 +47,9 @@
 <div id="boxbs">
   <img id="bsdetalle" src="src/wine-sommalier-drawing.png"> </img>
   <img id="bsfondo" src="src/wine-splash.png"> </img>
-  <img class="bs" id="bs1" src="src/vinos/amalaya-tinto.png"> </img>
-  <img id="bs2" src="src/vinos/kaiken-malbec-ultra.png"> </img>
-  <img class="bs" id="bs3" src="src/vinos/zapata-alta-malbec.png"> </img>
+  <img class="bs" id="bs1" src="src/vinos/zapata-alta-malbec.png"> </img>
+  <img id="bs2" src="src/vinos/b1_tienda.png"> </img>
+  <img class="bs" id="bs3" src="src/vinos/amalaya-tinto.png"> </img>
   <div id="arr"> </div>
 </div>
 <div id="longbox">

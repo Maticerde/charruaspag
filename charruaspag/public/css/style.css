@@ -8,6 +8,7 @@ ul {
   margin: 0;
   user-select: none;
 }
+
 @font-face {
   font-family: "cinzelregular";
   src: url(fonts/cinzel-regular-webfont.woff2) format("woff2"),
@@ -44,15 +45,15 @@ ul {
   font-style: normal;
 }
 
+
 body {
   background-color: rgb(253, 245, 241);
 }
 
 #menu {
-  transition: all 0.6s;
+  transition: all ease 0.6s;
   justify-content: center;
   position: absolute;
-  top: 0;
   height: 57px;
   width: 100%;
   background: rgb(142,116,107);
@@ -62,7 +63,8 @@ body {
 }
 
 #menu.llevarmenu {
-  top: -50px;
+  background: linear-gradient(90deg, rgba(98, 26, 26, 0.794) 0%, rgba(213, 205, 203, 0.83) 50%, rgba(98, 26, 26, 0.794) 100%);
+  position: fixed;
 }
 
 #charruas-texto {
@@ -240,7 +242,7 @@ body {
   width: 10vw;
   margin-left: 15.84vw;
   display: inline-flex;
-  object-fit: scale-down;
+  object-fit: contain;
   transition: ease 0.3s;
 }
 
@@ -251,7 +253,7 @@ body {
   width: 13vw;
   top: 1vw;
   display: inline-flex;
-  object-fit: scale-down;
+  object-fit: contain;
   transition: ease 0.3s;
 }
 
@@ -261,7 +263,7 @@ body {
   height: 36vw;
   width: 10vw;
   display: inline-flex;
-  object-fit: scale-down;
+  object-fit: contain;
   transition: ease 0.3s;
 }
 #arr {
@@ -391,7 +393,7 @@ body {
   position: fixed;
   right: 35px;
   margin-top: 9px;
-  z-index: 3;
+  z-index: 4;
   transition: transform 0.5s;
   transform: translateX(0px);
   height: 35px !important;
@@ -505,46 +507,81 @@ body {
   margin-bottom: -0.4vw;
 }
 .productos-gallery {
-  height: 42vw;
-  width: 98%;
+  height: 25vw;
+  width: 100%;
   display: grid;
+  justify-content: center;
   margin: auto;
-  grid-template-columns: repeat(5, 19.57%);
-  grid-template-rows: repeat(19.33vw);
-  column-gap: 0.5vw;
-  row-gap: 1vw;
-  overflow-y: scroll;
+  grid-template-columns: repeat(auto-fit, 15vw);
+  column-gap: 0.4vw;
 }
 
 .productos-gallery div {
-  transition: all 0.1s;
+  text-align: center;
+  border-radius: 5px;
+  transition: all ease 0.3s;
   font-size: 1.2vw;
   font-family: robotolight;
-  background-color: rgb(253, 245, 241);
-  height: 19.33vw;
+  background-color: rgb(240, 232, 229);
+  height: 17vw;
   width: 100%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   cursor: pointer;
 }
 
 .productos-gallery div:hover {
-  background-color: rgb(242, 236, 234);
+  background-color: rgb(246, 237, 234);
+  box-shadow: rgba(17, 12, 46, 0.289) 0px 48px 100px 0px;
 }
 
-#productos-div-pocostock p2 {
-  font-weight: bold;
-  color: rgb(195, 24, 24);
-}
 #productos-div img,
-#productos-div-pocostock img {
+#productos-div-lowstock img {
   -webkit-user-drag: none;
   margin-inline: auto;
   display: block;
-  object-fit: scale-down;
-  height: 50%;
-  width: 50%;
-  margin-top: 10%;
+  object-fit: contain;
+  height: 60%;
+  width: 60%;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+
+#productos-div p0, #productos-div-lowstock p0 {
+  font-size: 1.44vw;
+  letter-spacing: 1px;
+  font-weight: 900;
+  color: rgb(67, 66, 66);
+}
+
+#productos-div p1, #productos-div-lowstock p1 {
+  position: relative;
+  color: #00000055;
+  font-weight: 900;
+  bottom: 0.5vw;
+  font-size: 0.85vw;
+}
+
+#productos-div p2, #productos-div-lowstock p2 {
+  position: relative;
+  font-size: 1.7vw;
+  right: 0.55vw;
+  bottom: 0.5vw;
+  color: rgba(0, 0, 0, 0.913);
+  font-weight: 900;
+  font-family: robotolight;
+}
+
+#productos-div p3, #productos-div-lowstock p3 {
+  color: rgb(29, 26, 26);
+  letter-spacing: 1px;
+  position: relative;
+  bottom: 0.85vw;
+  font-size: 0.9vw;
+}
+
+#productos-div-lowstock p3 {
+  font-weight: bold;
+  color: rgb(195, 24, 24);
 }
 
 #box3 {
@@ -690,8 +727,10 @@ li:hover {
   width: 50%;
   height: 0;
   position: fixed;
-  top: 3vw;
-  left: 25%;
+  top: 8vw;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   z-index: 10;
   transition: all 0.6s cubic-bezier(0.68, 0.32, 0.34, 0.97);
   padding: 0 3% 0 3%;
