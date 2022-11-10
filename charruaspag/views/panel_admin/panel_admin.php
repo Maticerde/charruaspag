@@ -1,3 +1,10 @@
+<?php
+session_start();
+    if(empty($_SESSION["nombredeusuario"])){
+      header("location: /resktsoftware/charruaspag/views/login/index.php");
+      echo"<script>alert 'Primero debes iniciar sesión'</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +13,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, minimum-scale=1">
-  <link href="../../public/css/style-admin.css" rel="stylesheet" type="text/css" />
-  <script src="../../public/js/admin_vinos_mod.js"></script>
+  <link href="/resktsoftware/charruaspag/public/css/style-admin.css" rel="stylesheet" type="text/css" />
+  <script src="/resktsoftware/charruaspag/public/js/admin_vinos_mod.js"></script>
 
   <title>Panel Admin</title>
 </head>
@@ -16,7 +23,7 @@
   <img id=fondo src="../../src/foto3.jpg">
   <div id="menu">
     <section id="texto1">A d m i n i s t r a c i ó n</section>
-    <a href="http://localhost/charruaspag/index.php">
+    <a href="http://localhost/resktsoftware/charruaspag/index.php">
       <section id="charruas-texto"> Charrúas </section>
     </a>
   </div>

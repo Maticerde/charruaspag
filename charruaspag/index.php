@@ -33,7 +33,7 @@ echo'
   <form id="gotoadmin" action="http://localhost/resktsoftware/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form>';
+  </form> ';
   ?>
   <?php
   if(empty($_SESSION["nombredeusuario"])){

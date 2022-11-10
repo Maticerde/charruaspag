@@ -1,3 +1,9 @@
+<?php
+session_start();
+    if(isset($_SESSION["nombredeusuario"])){
+        header("location: /resktsoftware/charruaspag/index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
