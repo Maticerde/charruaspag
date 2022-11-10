@@ -10,7 +10,7 @@
 </head>
 <div class="login">
     <section id="panel">
-        <a href="http://localhost/resktsoftware/charruaspag/views/login/index.php">
+        <a href="http://localhost/resktsoftware/charruaspag/index.php">
         <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
         <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>

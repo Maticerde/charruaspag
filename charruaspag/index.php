@@ -19,25 +19,35 @@ session_start();
 <div id="menu">
   <section id="usuariologeado">
     <?php
-      if(empty($_SESSION["nombredeusuario"]))
+      if(isset($_SESSION["nombredeusuario"]))
       {
-        echo "Sesion no iniciada";
+        echo $_SESSION["nombredeusuario"];
       }else {
-      echo $_SESSION["nombredeusuario"];
+      echo " ";
       }
     ?>
   </section>
-<section id="cerrarsesion">
-<a href="http://localhost/resktsoftware/charruaspag/salir.php">Cerrar sesion</a>
-</section>
+<?php
+if(isset($_SESSION["nombredeusuario"]))
+echo'
   <form id="gotoadmin" action="http://localhost/resktsoftware/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form>
-  <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/views/login/index.php">
+  </form>';
+  ?>
+  <?php
+  if(empty($_SESSION["nombredeusuario"])){
+  echo ' <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>
+  </form>';
+  }else{
+    echo ' <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/salir.php">
+      <button id="newsesion">Cerrar Sesión</button>
+      <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
+    </form>';
+  }
+  ?>
   <a href="http://localhost/charruaspag/index.php">
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>

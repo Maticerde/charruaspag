@@ -46,7 +46,7 @@
          } else {
             $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
             echo "$consulta_login";
-            //header("Location: /login/index.html");
+            header("Location: /resktsoftware/charruaspag/views/login/index.php");
          }
       }
 
