@@ -1,8 +1,4 @@
-<?php
-session_start();
-
-
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +14,7 @@ session_start();
 </head>
 <div id="menu">
   <section id="usuariologeado">
-    <?php
+    <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {
         echo $_SESSION["nombredeusuario"];
@@ -36,12 +32,12 @@ echo'
   </form> ';
   ?>
   <?php
-  if(empty($_SESSION["nombredeusuario"])){
+  if(empty($_SESSION["nombredeusuario"])){ // si no hay una sesion iniciada este sector no se muestra
   echo ' <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
-  }else{
+  }else{ // si hay una sesion activa, esta opcion es unicamente para cerrar sesion
     echo ' <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/salir.php">
       <button id="newsesion">Cerrar Sesión</button>
       <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>

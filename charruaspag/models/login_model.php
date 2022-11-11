@@ -39,11 +39,11 @@
         /*estimo resultado de consulta login*/
         if ($log_validate == true) {
             $consulta_login = "credenciales válidas";
-            $_SESSION['nombredeusuario']=$array_dataset["user"];
+            $_SESSION['nombredeusuario']=$array_dataset["user"]; // guardo en la sesion los datos de la consulta mysql
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
-            header("Location:/resktsoftware/charruaspag/views/login/ingreso.php");
-         } else {
+            header("Location:/resktsoftware/charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
+         } else { // en caso de que no haya coincidencia en los datos no podremos iniciar sesion
             $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
             echo "$consulta_login";
             header("Location: /resktsoftware/charruaspag/views/login/index.php");
