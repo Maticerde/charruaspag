@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +14,41 @@
 </head>
 
 <div id="menu">
+
+<section id="usuariologeado">
+    <?php // muestra el email del usuario
+      if(isset($_SESSION["nombredeusuario"]))
+      {
+        echo $_SESSION["nombredeusuario"];
+      }else {
+      echo " ";
+      }
+    ?>
+  </section>
+
+  <?php
+if(isset($_SESSION["nombredeusuario"])) // solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
+echo'
   <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form>
-  <form id="gotologin" action="http://localhost/login/index.html">
+  </form> ';
+  ?>
+
+<?php
+  if(empty($_SESSION["nombredeusuario"])){ // si no hay una sesion iniciada este sector no se muestra
+  echo ' <form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>
+  </form>';
+  }else{ // si hay una sesion activa, esta opcion es unicamente para cerrar sesion
+    echo ' <form id="gotologin" action="http://localhost/charruaspag/salir.php">
+      <button id="newsesion">Cerrar Sesión</button>
+      <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
+    </form>';
+  }
+  ?>
+
   <a href="http://localhost/charruaspag/index.php">
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
@@ -33,8 +61,15 @@
     <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
     <section id="carro-content"></section>
     <div id="totalcount"></div>
-    <button id="compraboton" onclick="generar_compra(); load_shop(); vaciarcarrito(); ">comprar</button>
-  </div>
+    
+    <button id="compraboton" <?php 
+    if(isset($_SESSION["nombredeusuario"])){
+    echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " '; }
+    else {
+      echo 'onclick="alertacarrito();"';
+    }
+    ?>>comprar</button>
+    </div>
 <section id="texto1"> Un vino, ㅤ una Historia
   <p> “El mejor vino no es necesariamente el más caro, sino el que se comparte.” </p>
 </section>
