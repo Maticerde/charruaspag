@@ -43,7 +43,7 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
       option.classList.toggle("selected");
       info_vino.classList.toggle("info-select");
       info_bodega.classList.toggle("info-select");
-      carga_form_mod(
+      carga_form_modv(
         codigo_vino,
         nombre,
         precio,
@@ -65,6 +65,7 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
         bodega,
         imagen
       );
+      carga_form_modb(bodega);
       escribir_info_bodega(bodega);
       setTimeout(() => (info_wrapper.style.display = ""), 400);
       setTimeout(() => (info_efecto.style.display = ""), 400);
@@ -75,7 +76,7 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
       setTimeout(() => info_bodega.classList.toggle("info-select"), 400);
       setTimeout(
         () =>
-          carga_form_mod(
+          carga_form_modv(
             codigo_vino,
             nombre,
             precio,
@@ -103,6 +104,8 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
           ),
         400
       );
+      
+      setTimeout(() => carga_form_modb(bodega), 400);
       setTimeout(() => escribir_info_bodega(bodega), 400);
       if (modvinobox.classList.contains("desplegar2")) {
         // si la seccion de modificaciones está desplegada cuando clickeamos dos vinos diferentes, hace una breve animación

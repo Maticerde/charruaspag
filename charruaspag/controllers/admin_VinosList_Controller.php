@@ -6,7 +6,7 @@ if (isset($_POST["orden"])) {
     $orden = 'Nombre_Vino';
 }
 
-require_once("..\models\modeloAdmin.php");
+require_once("../models/modeloAdmin.php");
 $modelo = new SoporteAdmin();
 $datos = $modelo->getVinosEnOrden($orden);
 

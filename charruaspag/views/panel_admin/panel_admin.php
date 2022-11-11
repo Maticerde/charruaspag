@@ -34,7 +34,7 @@
     <h3>MODIFICAR PRODUCTO</h3>
     <span id="mensaje_modv"></span>
     <form action="../../controllers/admin_ModVino_Controller.php" method="POST" id="modvino-form">
-      <section id="input_grid">
+      <section id="input_grid_modv">
         <input type="number" id="in_codigo_vino" name="in_codigo_vino" style="display: none">
         <input type="text" id="in_imagenString_mod" name="in_imagenString_mod" style="display: none">
         <label class="input_label">
@@ -83,39 +83,7 @@
     <h3>MODIFICAR BODEGA</h3>
     <span id="mensaje_modb"></span>
       <form action="../../controllers/admin_ModBodega_Controller.php" method="post" id="modbodega-form">
-        <section id="input_grid">
-          <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_nombre_bodega" name="in_nombre_bodega" maxlength="40" required>
-            <p2 class="input_texto_modb"> Nombre </p2>
-          </label>
-          <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_email" name="in_email" maxlength="50" required>
-            <p2 class="input_texto_modb"> Email </p2>
-          </label>
-          <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_direccion" name="in_direccion" maxlength="70" required>
-            <p2 class="input_texto_modb"> Dirección </p2>
-          </label>
-          <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_pais" name="in_pais "maxlength="25" required>
-            <p2 class="input_texto_modb"> País </p2>
-          </label>
-          <label class="input_label">
-            <input class="inputs_mod" type="number" min="0" id="in_postal" name="in_postal" required>
-            <p2 class="input_texto_modb"> Codigo Postal </p2>
-          </label>
-          <label class="input_label">
-            <input class="inputs_mod" type="text" id="in_ciudad" name="in_ciudad" maxlength="25" required>
-            <p2 class="input_texto_modb"> Ciudad </p2>
-          </label>
-          <label class="input_label">
-            <input class="inputs_mod" type="number" min="0" id="in_telefono" name="in_telefono" required>
-            <p2 class="input_texto_modb"> Teléfono </p2>
-          </label>
-          <label class="input_label">
-            <input class="inputs_mod" type="number" min="0" id="in_cuenta" name="in_cuenta" required>
-            <p2 class="input_texto_modb"> Cuenta </p2>
-          </label>
+        <section id="input_grid_modb">
         </section>
         <button name="addbodega-button" id="addbodega-button"> ENVIAR </button>
       </form>
@@ -234,7 +202,7 @@
             <p2 class="input_texto"> Ciudad </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="number" min="0" id="in_telefono" name="in_telefono" required>
+            <input class="inputs_mod" type="number" min="0" id="in_telefono" name="in_telefono" readonly="readonly" required>
             <p2 class="input_texto"> Teléfono </p2>
           </label>
           <label class="input_label">

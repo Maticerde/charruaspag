@@ -17,9 +17,18 @@ class soporteIndex {
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+    public function getBestSellers() {
+
+        $sql = "SELECT * FROM VINOS ORDER BY Stock";
+        foreach ($this->conn->query($sql) as $row) {
+            $this->respuesta[] = $row;
+        }
+        return $this->respuesta;
+    }
+
     public function getVinos($keywords) {
 
-        $sql = "SELECT * FROM vinos WHERE Nombre_Vino LIKE '%" . $keywords . "%'";
+        $sql = "SELECT * FROM VINOS WHERE Nombre_Vino LIKE '%" . $keywords . "%' ORDER BY Stock";
         foreach ($this->conn->query($sql) as $row) {
             $this->respuesta[] = $row;
         }
@@ -30,7 +39,7 @@ class soporteIndex {
 
         $nuevostock = $stock - $cantidad;
         
-        $sql = "UPDATE vinos SET Stock=? WHERE Nombre_Vino=?";
+        $sql = "UPDATE VINOS SET Stock=? WHERE Nombre_Vino=?";
         $this->conn->prepare($sql)->execute([$nuevostock, $nombre]);
 
     }

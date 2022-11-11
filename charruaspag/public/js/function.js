@@ -152,13 +152,19 @@ function vaciarcarrito() {
   cartanimation();
 }
 
+searchbar = document.getElementById("keywords").addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    search();
+  }
+});
+
 function search() {
   const data = new FormData();
   keywords = document.querySelector("#keywords").value;
   data.set("keyword_post", keywords);
 
   //ya tengo el dato escrito cuando toco el boton, falta enviar por post a implement para actualizar el select y despues loadear shop nuevamente
-  fetch("controllers/Market_Controller.php", {
+  fetch("controllers/IndexVinos_Controller.php", {
     method: "POST",
     body: data,
   })
@@ -204,11 +210,11 @@ function myScrollFunc() {
     arrow.style.top = "-50px";
     if (menu.classList.contains("llevarmenu") && auxflag) {
       menu.style.top = "-57px";
-      setTimeout(() => menu.classList.remove("llevarmenu"), 600);
-      setTimeout(() => menu.style.top = "0", 600);
-      setTimeout(() => menu.style.top = "", 1200);
+      setTimeout(() => menu.classList.remove("llevarmenu"), 500);
+      setTimeout(() => menu.style.top = "0", 500);
+      setTimeout(() => menu.style.top = "", 1000);
       auxflag = false; // previene el inicio de otra animacion hasta que termine la actual
-      setTimeout(() => auxflag = true, 1200);
+      setTimeout(() => auxflag = true, 1000);
     }
   }
 }

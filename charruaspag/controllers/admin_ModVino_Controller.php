@@ -10,7 +10,7 @@
 }
 
 function mod_vino() {
-    require_once("..\models\modeloAdmin.php");
+    require_once("../models/modeloAdmin.php");
     $modelo = new SoporteAdmin();
 
     if ($_POST["in_imagen_mod"] == "") {

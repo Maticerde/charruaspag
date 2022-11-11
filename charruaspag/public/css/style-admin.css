@@ -250,6 +250,7 @@ h3 {
   width: 180px;
 }
 
+
 #mensaje_modv.mostrarmensaje, #mensaje_modv.mostrarmensaje2 {
   opacity: 1;
   transform: translateY(-20px);
@@ -264,7 +265,7 @@ h3 {
   z-index: 2;
 }
 
-#input_grid {
+#input_grid, #input_grid_modv, #input_grid_modb {
   height: 100%;
   width: 100%;
   display: grid;

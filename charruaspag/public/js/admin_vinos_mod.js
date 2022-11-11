@@ -1,5 +1,5 @@
 let global_arguments = [];
-function carga_form_mod(
+function carga_form_modv(
   codigo_vino,
   nombre,
   precio,
