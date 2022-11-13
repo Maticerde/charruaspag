@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +14,37 @@
 </head>
 
 <div id="menu">
+
+<section id="usuariologeado">
+    <?php // muestra el email del usuario
+      if(isset($_SESSION["nombredeusuario"]))
+      {
+        echo $_SESSION["nombredeusuario"];
+      }else {
+      echo " ";
+      }
+    ?>
+  </section>
+
+  <?php
+if(isset($_SESSION["nombredeusuario"])) {
+  echo'
   <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form>
-  <form id="gotologin" action="http://localhost/login/index.html">
+  </form>';
+  echo '<form id="gotologin" action="http://localhost/charruaspag/salir.php">
+    <button id="newsesion">Cerrar Sesión</button>
+    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
+  </form>';
+} else {// solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
+  echo '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>
+  </form>';
+}
+  ?>
+
   <a href="http://localhost/charruaspag/index.php">
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
@@ -33,8 +57,15 @@
     <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
     <section id="carro-content"></section>
     <div id="totalcount"></div>
-    <button id="compraboton" onclick="generar_compra(); load_shop(); vaciarcarrito(); ">comprar</button>
-  </div>
+    
+    <button id="compraboton" <?php 
+    if(isset($_SESSION["nombredeusuario"])){
+    echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " '; }
+    else {
+      echo 'onclick="alertacarrito();"';
+    }
+    ?>>comprar</button>
+    </div>
 <section id="texto1"> Un vino, ㅤ una Historia
   <p> “El mejor vino no es necesariamente el más caro, sino el que se comparte.” </p>
 </section>
@@ -74,8 +105,6 @@
 <div id="slidertext"></div>
 <section class="gallery-wrapper">
   <input type="text" id="keywords" name="keywords" size="30" maxlength="30" placeholder="Buscar productos">
-  <button type="button" onclick="search();" name="search" id="search">
-    <p2> &#9906; </p2>
   </button>
   <section class="productos-gallery"></section>
 </section>

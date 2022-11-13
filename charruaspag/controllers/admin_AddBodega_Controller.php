@@ -3,6 +3,7 @@
 
     if(!empty($_POST["in_nombre_bodega"])){
         add_bodega();
+        //add_telbodega();
     }else 
 {
     /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
@@ -23,7 +24,10 @@ function add_bodega() {
         $_POST["in_telefono"],
         $_POST["in_cuenta"]
     );
-    
-        echo "UPDATE DATABASE realizado con exito.";
+    function add_telbodega() {
+        require_once("..\models\modeloAdmin.php");
+        $modelo = new SoporteAdmin();
+        $datos = $modelo->setTelBodega($_POST["in_pais"], $_POST["in_postal"],)
+    }
         header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");
 }

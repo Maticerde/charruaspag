@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1">
   <link href="../../public/css/style-admin.css" rel="stylesheet" type="text/css" />
   <script src="../../public/js/admin_vinos_mod.js"></script>
+  <script src="../../public/js/admin_bodegas_mod.js"></script>
 
   <title>Panel Admin</title>
 </head>
@@ -83,9 +84,43 @@
     <h3>MODIFICAR BODEGA</h3>
     <span id="mensaje_modb"></span>
       <form action="../../controllers/admin_ModBodega_Controller.php" method="post" id="modbodega-form">
-        <section id="input_grid_modb">
+      <section id="input_grid_modb">
+      <input type="number" id="in_codigo_bodega" name="in_codigo_bodega" style="display: none">
+          <label class="input_label">
+            <input class="inputs_modb" type="text" id="in_nombre_bodega" name="in_nombre_bodega" maxlength="40" required>
+            <p2 class="input_texto_modb"> Nombre </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs_modb" type="text" id="in_email" name="in_email" maxlength="50" required>
+            <p2 class="input_texto_modb"> Email </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs_modb" type="text" id="in_direccion" name="in_direccion" maxlength="70" required>
+            <p2 class="input_texto_modb"> Dirección </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs_modb" type="text" id="in_pais" name="in_pais" maxlength="25" required>
+            <p2 class="input_texto_modb"> País </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs_modb" type="number" min="0" id="in_postal" name="in_postal" required>
+            <p2 class="input_texto_modb"> Codigo Postal </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs_modb" type="text" id="in_ciudad" name="in_ciudad" maxlength="25" required>
+            <p2 class="input_texto_modb"> Ciudad </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs_modb" type="number" min="0" id="in_telefono" name="in_telefono" required>
+            <p2 class="input_texto_modb"> Teléfono </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs_modb" type="number" min="0" id="in_cuenta" name="in_cuenta" required>
+            <p2 class="input_texto_modb"> Cuenta </p2>
+          </label>
         </section>
-        <button name="addbodega-button" id="addbodega-button"> ENVIAR </button>
+        <button type="button" name="modbodega-button-preventclick" id="modbodega-button-preventclick" style="display: none"></button>
+        <button type="button" onclick="validate_submit_modb();" name="modbodega-button" id="modbodega-button"> ENVIAR </button>
       </form>
   </div>
 
@@ -109,12 +144,22 @@
       </section>
     </section>
     <section id="info-bodega">
-      <script src="../../public/js/admin_bodega_info_fetch.js"></script>
+      <div class="infob" id='b_nombre'></div>
+      <section id='upperinfo'>
+        <div class="infob" id='b_pais'></div>
+        <div class="infob" id='b_ciudad'></div>
+        <div class="infob" id='b_cuenta'></div>
+      </section>
+      <section id='lowerinfo'>
+        <div class="infob" id='b_direccion'></div>
+        <div class="infob" id='b_codpostal'></div>
+        <div class="infob" id='b_email'></div>
+      </section>
     </section>
     <h1>LISTA DE PRODUCTOS:</h1>
     <section id="vinos-list">
       <script src="../../public/js/admin_vinos_list_function.js"></script>
-      <script src="../../public/js/admin_vino_info.js"></script>
+      <script src="../../public/js/admin_mostrar_info.js"></script>
     </section>
     <form id="vinos-order" method="POST">
       <script src="../../public/js/admin_vinos_orden.js"></script>
@@ -160,7 +205,7 @@
             <input type="text" list="in_bodega_vino" class="inputs" name="in_bodega_vino" required>
             <p2 class="input_texto"> ID Bodega </p2>
             <datalist id="in_bodega_vino">
-              <script src="../../public/js/admin_bodegas_form_load.js"></script>
+              <script src="../../public/js/admin_bodegas_list_load.js"></script>
             </datalist>
           </label>
           <label id="imagen_label" class="input_label">
@@ -202,7 +247,7 @@
             <p2 class="input_texto"> Ciudad </p2>
           </label>
           <label class="input_label">
-            <input class="inputs_mod" type="number" min="0" id="in_telefono" name="in_telefono" readonly="readonly" required>
+            <input class="inputs_mod" type="number" min="0" id="in_telefono" name="in_telefono" required>
             <p2 class="input_texto"> Teléfono </p2>
           </label>
           <label class="input_label">

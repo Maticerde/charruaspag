@@ -152,10 +152,8 @@ function vaciarcarrito() {
   cartanimation();
 }
 
-searchbar = document.getElementById("keywords").addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    search();
-  }
+searchbar = document.getElementById("keywords").addEventListener('keydown', (functiona) => {
+  setTimeout(() => search(), 50);
 });
 
 function search() {
@@ -225,4 +223,8 @@ function scrollto() {
     top: 0,
     behavior: "smooth",
   });
+}
+
+function alertacarrito(){
+  alert(" Para comprar productos, primero debes iniciar sesión");
 }

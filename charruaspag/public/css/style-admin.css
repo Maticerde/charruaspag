@@ -237,7 +237,7 @@ h3 {
   text-shadow: 1px 1px 1px rgba(94, 8, 8, 0.879);
 }
 
-#mensaje_modv {
+#mensaje_modv, #mensaje_modb {
   opacity: 0;
   transition: all ease 0.3s;
   position: absolute;
@@ -252,6 +252,11 @@ h3 {
 
 
 #mensaje_modv.mostrarmensaje, #mensaje_modv.mostrarmensaje2 {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+#mensaje_modb.mostrarmensaje, #mensaje_modb.mostrarmensaje2 {
   opacity: 1;
   transform: translateY(-20px);
 }
@@ -341,7 +346,9 @@ h3 {
 #addvino-button,
 #addbodega-button,
 #modvino-button,
-#modvino-button-preventclick {
+#modvino-button-preventclick,
+#modbodega-button,
+#modbodega-button-preventclick {
   transition: all ease 0.1s;
   font-family: robotolight;
   font-size: 26px;
@@ -364,7 +371,7 @@ h3 {
   height: 50px;
 }
 
-#modvino-button-preventclick {
+#modvino-button-preventclick, #modbodega-button-preventclick {
   z-index: 1;
   background-color: none;
   background: none;

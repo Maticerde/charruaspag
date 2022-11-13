@@ -8,8 +8,8 @@ if (isset($_POST["orden"])) {
 
 require_once("../models/modeloAdmin.php");
 $modelo = new SoporteAdmin();
-$datos = $modelo->getVinosEnOrden($orden);
+$datos = $modelo->getVinosyBodegaEnOrden($orden);
 
 foreach ($datos as $row) {
-    echo "<span class='options' id='option-vino" . $row['Codigo_Vino'] ."' onclick='select_vino(" . "id" . ",\"" . $row['Codigo_Vino'] . "\",\"" . $row['Nombre_Vino'] . "\",\"" . $row['Precio'] . "\",\"" . $row['Stock'] . "\",\"" . $row['Pais'] . "\",\"" . $row['Region'] . "\",\"" . $row['Cosecha'] . "\",\"" . $row['Bodega_Vino'] . "\",\"" . $row['Ubicacion_IMG'] ."\");'> <section>". $row['Nombre_Vino'] . "</section> <img src=\"../../" . $row['Ubicacion_IMG'] . "\"></span>";
+    echo "<span class='options' id='option-vino" . $row['Codigo_Vino'] ."' onclick='select_vino(" . "id" . ",\"" . $row['Codigo_Vino'] . "\",\"" . $row['Nombre_Vino'] . "\",\"" . $row['Precio'] . "\",\"" . $row['Stock'] . "\",\"" . $row['Pais'] . "\",\"" . $row['Region'] . "\",\"" . $row['Cosecha'] . "\",\"" . $row['Bodega_Vino'] . "\",\"" . $row['Ubicacion_IMG'] . "\",\"" . $row['Nombre_Bodega'] . "\",\"" . $row['Email_Bodega'] . "\",\"" . $row['Direccion'] . "\",\"" . $row['Pais_Bodega'] . "\",\"" . $row['Ciudad'] . "\",\"" . $row['Cuenta'] . "\",\"" . $row['Codigo_Postal'] ."\");'> <section>". $row['Nombre_Vino'] . "</section> <img src=\"../../" . $row['Ubicacion_IMG'] . "\"></span>";
 }

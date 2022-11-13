@@ -6,14 +6,21 @@ info_efecto.style.display = "none";
 function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cuando clickeamos en un vino y el la carga de formularios
   id,
   codigo_vino,
-  nombre,
+  nombre_vino,
   precio,
   stock,
-  pais,
+  pais_vino,
   region,
   cosecha,
   bodega,
-  imagen
+  imagen,
+  nombre_bodega,
+  email,
+  direccion,
+  pais_bodega,
+  ciudad,
+  cuenta,
+  codpostal
 ) {
   info_vino = document.getElementById("info-vino");
   info_bodega = document.getElementById("info-bodega");
@@ -43,30 +50,47 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
       option.classList.toggle("selected");
       info_vino.classList.toggle("info-select");
       info_bodega.classList.toggle("info-select");
-      carga_form_modv(
-        codigo_vino,
-        nombre,
-        precio,
-        stock,
-        pais,
-        region,
-        cosecha,
-        bodega,
-        imagen
-      );
       escribir_info_vino(
         codigo_vino,
-        nombre,
+        nombre_vino,
         precio,
         stock,
-        pais,
+        pais_vino,
+        region,
+        cosecha,
+        bodega,
+        imagen
+        );
+      carga_form_modv(
+        codigo_vino,
+        nombre_vino,
+        precio,
+        stock,
+        pais_vino,
         region,
         cosecha,
         bodega,
         imagen
       );
-      carga_form_modb(bodega);
-      escribir_info_bodega(bodega);
+      escribir_info_bodega(
+        nombre_bodega,
+        email,
+        direccion,
+        pais_bodega,
+        ciudad,
+        cuenta,
+        codpostal
+      );
+      carga_form_modb(
+          bodega,
+          nombre_bodega,
+          email,
+          direccion,
+          pais_bodega,
+          ciudad,
+          cuenta,
+          codpostal
+        );
       setTimeout(() => (info_wrapper.style.display = ""), 400);
       setTimeout(() => (info_efecto.style.display = ""), 400);
     } else {
@@ -78,35 +102,48 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
         () =>
           carga_form_modv(
             codigo_vino,
-            nombre,
+            nombre_vino,
             precio,
             stock,
-            pais,
+            pais_vino,
             region,
             cosecha,
             bodega,
             imagen
-          ),
-        500
-      );
+          ), 450);
       setTimeout(
         () =>
           escribir_info_vino(
             codigo_vino,
-            nombre,
+            nombre_vino,
             precio,
             stock,
-            pais,
+            pais_vino,
             region,
             cosecha,
             bodega,
             imagen
-          ),
-        400
-      );
+            ), 450);
       
-      setTimeout(() => carga_form_modb(bodega), 400);
-      setTimeout(() => escribir_info_bodega(bodega), 400);
+      setTimeout(() => carga_form_modb(
+        bodega,
+        nombre_bodega,
+        email,
+        direccion,
+        pais_bodega,
+        ciudad,
+        cuenta,
+        codpostal
+      ), 450);
+      setTimeout(() => escribir_info_bodega(
+        nombre_bodega,
+        email,
+        direccion,
+        pais_bodega,
+        ciudad,
+        cuenta,
+        codpostal
+      ), 450);
       if (modvinobox.classList.contains("desplegar2")) {
         // si la seccion de modificaciones está desplegada cuando clickeamos dos vinos diferentes, hace una breve animación
         modvinobox.classList.remove("desplegar2");
