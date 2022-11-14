@@ -13,3 +13,4 @@ function load_bodegas() {
 document.addEventListener("DOMContentLoaded", function (event) {
   load_bodegas();
 });
+  

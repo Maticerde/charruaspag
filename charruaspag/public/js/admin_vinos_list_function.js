@@ -1,103 +1,194 @@
-function load_vinos() { // este fetch carga asíncronamente la lista de vinos cargados
-  const data = new FormData(document.getElementById("vinos-order"));
-  const vinos_list = document.querySelector("#vinos-list");
-  fetch("../../controllers/admin_Vinos_Controller.php", {
-    method: "POST",
-    body: data,
-  })
-    .then(function (response) {
-      if (response.ok) {
-        return response.text();
-      } else {
-        throw "Error";
+info_wrapper = document.getElementById("info-section");
+info_efecto = document.getElementById("info-efecto");
+info_wrapper.style.display = "none";
+info_efecto.style.display = "none";
+
+function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cuando clickeamos en un vino y el la carga de formularios
+  id,
+  codigo_vino,
+  nombre_vino,
+  precio,
+  stock,
+  pais_vino,
+  region,
+  cosecha,
+  bodega,
+  imagen,
+  nombre_bodega,
+  email,
+  direccion,
+  pais_bodega,
+  ciudad,
+  cuenta,
+  codpostal
+) {
+  info_vino = document.getElementById("info-vino");
+  info_bodega = document.getElementById("info-bodega");
+  options = document.querySelectorAll(".options");
+  option = document.getElementById(id);
+  inputs = document.querySelectorAll(".inputs");
+  addbodegabox = document.getElementById("addbodega-box");
+  modbodegabox = document.getElementById("modbodega-bax");
+
+  let ultimaopcion;
+  let primeraflag = true;
+  for (var i = 0; i < options.length; i++) {
+    if (options[i].classList.contains("selected")) {
+      ultimaopcion = options[i].id;
+      options[i].classList.remove("selected");
+      info_vino.classList.remove("info-select");
+      info_bodega.classList.remove("info-select");
+      primeraflag = false;
+    }
+  }
+
+  if (ultimaopcion !== id) {
+    
+     // si no dimos click dos veces en el mismo vino entra acá
+    if (primeraflag == true) {
+       //si es el primer click, las animaciones son instantaneas
+      option.classList.toggle("selected");
+      info_vino.classList.toggle("info-select");
+      info_bodega.classList.toggle("info-select");
+      escribir_info_vino(
+        codigo_vino,
+        nombre_vino,
+        precio,
+        stock,
+        pais_vino,
+        region,
+        cosecha,
+        bodega,
+        imagen
+        );
+      carga_form_modv(
+        codigo_vino,
+        nombre_vino,
+        precio,
+        stock,
+        pais_vino,
+        region,
+        cosecha,
+        bodega,
+        imagen
+      );
+      escribir_info_bodega(
+        nombre_bodega,
+        email,
+        direccion,
+        pais_bodega,
+        ciudad,
+        cuenta,
+        codpostal
+      );
+      carga_form_modb(
+          bodega,
+          nombre_bodega,
+          email,
+          direccion,
+          pais_bodega,
+          ciudad,
+          cuenta,
+          codpostal
+        );
+      setTimeout(() => (info_wrapper.style.display = ""), 400);
+      setTimeout(() => (info_efecto.style.display = ""), 400);
+    } else {
+      //si no es el primer click, las animaciones van con delay para que no se solapen
+      option.classList.toggle("selected");
+      setTimeout(() => info_vino.classList.toggle("info-select"), 400);
+      setTimeout(() => info_bodega.classList.toggle("info-select"), 400);
+      setTimeout(
+        () =>
+          carga_form_modv(
+            codigo_vino,
+            nombre_vino,
+            precio,
+            stock,
+            pais_vino,
+            region,
+            cosecha,
+            bodega,
+            imagen
+          ), 450);
+      setTimeout(
+        () =>
+          escribir_info_vino(
+            codigo_vino,
+            nombre_vino,
+            precio,
+            stock,
+            pais_vino,
+            region,
+            cosecha,
+            bodega,
+            imagen
+            ), 450);
+      
+      setTimeout(() => carga_form_modb(
+        bodega,
+        nombre_bodega,
+        email,
+        direccion,
+        pais_bodega,
+        ciudad,
+        cuenta,
+        codpostal
+      ), 450);
+      setTimeout(() => escribir_info_bodega(
+        nombre_bodega,
+        email,
+        direccion,
+        pais_bodega,
+        ciudad,
+        cuenta,
+        codpostal
+      ), 450);
+      if (modvinobox.classList.contains("desplegar2")) {
+        // si la seccion de modificaciones está desplegada cuando clickeamos dos vinos diferentes, hace una breve animación
+        modvinobox.classList.remove("desplegar2");
+        modbodegabox.classList.remove("desplegar2");
+        setTimeout(() => modvinobox.classList.toggle("desplegar2"), 500);
+        setTimeout(() => modbodegabox.classList.toggle("desplegar2"), 500);
       }
-    })
-    .then(function (texto) {
-      vinos_list.innerHTML = texto;
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
+    }
+  } else {
+    info_wrapper.style.display = "none";
+    if (!modvinobox.classList.contains("desplegar2")) {
+      addvinobox.classList.toggle("desplegar");
+      addbodegabox.classList.toggle("desplegar");
+      setTimeout(() => modvinobox.classList.toggle("desplegar2"), 900);
+      setTimeout(() => modbodegabox.classList.toggle("desplegar2"), 900);
+    }
+    modvinobox.classList.remove("desplegar2");
+    modbodegabox.classList.remove("desplegar2");
+    setTimeout(() => addvinobox.classList.remove("desplegar"), 900);
+    setTimeout(() => addbodegabox.classList.remove("desplegar"), 900);
+    primeraflag = true;
+  }
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
-  load_vinos();
-});
+function desplegarmod() {
+  // cuenta clicks para una animacion sin solapamientos
+  addvinobox = document.getElementById("addvino-box");
+  addbodegabox = document.getElementById("addbodega-box");
+  modbodegabox = document.getElementById("modbodega-bax");
 
-function select_vino(
-    id,
-    codigo_vino,
-    nombre,
-    precio,
-    stock,
-    pais,
-    region,
-    cosecha,
-    bodega,
-    imagen
-  ) {
-
-  
-    
-    info_vino = document.getElementById("info-vino");
-    info_bodega = document.getElementById("info-bodega");
-    options = document.querySelectorAll(".options");
-    option = document.getElementById(id);
-    inputs = document.querySelectorAll(".inputs");
-    
-    let ultimaopcion;
-    let primeraflag = true;
-    for (var i = 0; i < options.length; i++) {
-      if (options[i].classList.contains("selected")) {
-        ultimaopcion = options[i].id;
-        options[i].classList.remove("selected");
-        info_vino.classList.remove("info-select");
-        info_bodega.classList.remove("info-select");
-        primeraflag = false;
-      }
+  if (!addvinobox.classList.contains("desplegar")) {
+    addvinobox.classList.toggle("desplegar");
+    addbodegabox.classList.toggle("desplegar");
+    setTimeout(() => modvinobox.classList.toggle("desplegar2"), 900);
+    setTimeout(() => modbodegabox.classList.toggle("desplegar2"), 900);
+  }else {
+    if (!modvinobox.classList.contains("desplegar2")) {
+      addvinobox.classList.toggle("desplegar");
+      addbodegabox.classList.toggle("desplegar");
+      setTimeout(() => modvinobox.classList.toggle("desplegar2"), 900);
+      setTimeout(() => modbodegabox.classList.toggle("desplegar2"), 900);
     }
-  
-    if (ultimaopcion!==id) { // si no dimos click dos veces en el mismo vino, el infovino y infobodega hace animacion de ida y vuelta
-  
-      if (primeraflag == true) {
-        info_vino.classList.toggle("info-select");
-        info_bodega.classList.toggle("info-select");
-        escribir_info_vino(codigo_vino, nombre, precio, stock, pais, region, cosecha, bodega, imagen)
-        escribir_info_bodega(bodega);
-      } else {
-        setTimeout(() => info_vino.classList.toggle("info-select"), 400);
-        setTimeout(() => info_bodega.classList.toggle("info-select"), 400);
-        setTimeout(() => escribir_info_vino(codigo_vino, nombre, precio, stock, pais, region, cosecha, bodega, imagen), 400);
-        setTimeout(() => escribir_info_bodega(bodega), 400);
-      }
-    }
-      
-      if (nombre == inputs[0].value &&
-      precio == inputs[1].value &&
-      stock == inputs[2].value &&
-      pais == inputs[3].value &&
-      region == inputs[4].value &&
-      cosecha == inputs[5].value &&
-      bodega == inputs[6].value
-      ) {
-        inputs[0].value = "";
-        inputs[1].value = "";
-        inputs[2].value = "";
-        inputs[3].value = "";
-        inputs[4].value = "";
-        inputs[5].value = "";
-        inputs[6].value = "";
-    } else {
-  
-      inputs[0].value = nombre;
-      inputs[1].value = precio;
-      inputs[2].value = stock;
-      inputs[3].value = pais;
-      inputs[4].value = region;
-      inputs[5].value = cosecha;
-      inputs[6].value = bodega;
-  
-      option.classList.toggle("selected");
-    }
-    
+    modvinobox.classList.remove("desplegar2");
+    modbodegabox.classList.remove("desplegar2");
+    setTimeout(() => addvinobox.classList.remove("desplegar"), 900);
+    setTimeout(() => addbodegabox.classList.remove("desplegar"), 900);
   }
+}

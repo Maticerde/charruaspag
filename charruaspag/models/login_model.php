@@ -6,7 +6,11 @@
     
     public function __construct() {
         
+<<<<<<< HEAD
         $host = "localhost:3306";
+=======
+        $host = "localhost:3307";
+>>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
         $username = "root";
         $password = "";
         $db_name = "vinos_charruas";
@@ -42,11 +46,19 @@
             $_SESSION['nombredeusuario']=$array_dataset["user"]; // guardo en la sesion los datos de la consulta mysql
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
+<<<<<<< HEAD
             header("Location:/resktsoftware/charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
          } else { // en caso de que no haya coincidencia en los datos no podremos iniciar sesion
             $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
             echo "$consulta_login";
             header("Location: /resktsoftware/charruaspag/views/login/index.php");
+=======
+            header("Location:/charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
+         } else { // en caso de que no haya coincidencia en los datos no podremos iniciar sesion
+            $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
+            echo "$consulta_login";
+            header("Location: /charruaspag/views/login/index.php");
+>>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
          }
       }
 

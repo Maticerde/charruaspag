@@ -3,7 +3,11 @@
 session_start();  // crea una sesion o reanuda la actual basada en un identificador de sesion mediante 
                   //la peticion POST
 if(isset($_SESSION['nombredeusuario'])){
+<<<<<<< HEAD
    header('location: /resktsoftware/charruaspag/index.php');
+=======
+   header('location: /charruaspag/index.php');
+>>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
 }
 require('..\models\login_model.php');
 /*me aseguro que existan los recursos por POST, con esto solo se procesa si se proviene del form configurado
