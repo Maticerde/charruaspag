@@ -27,18 +27,20 @@
   </section>
 
   <?php
-if(isset($_SESSION["nombredeusuario"])) {
+if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
   echo'
   <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
   </form>';
-  echo '<form id="gotologin" action="http://localhost/charruaspag/salir.php">
+  echo '
+  <form id="gotologin" action="http://localhost/charruaspag/salir.php">
     <button id="newsesion">Cerrar Sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
-} else {// solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
-  echo '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
+} else {
+  echo 
+  '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
@@ -49,23 +51,23 @@ if(isset($_SESSION["nombredeusuario"])) {
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
 </div>
-<?php include 'views\desplegables\desplegables.php';?>
-<div id="arrow" onclick="scrollto()"> &#10151; </div>
+<?php include 'views/desplegables/desplegables.php';?>
+<img id="arrow" src="src/house_arrow.png" onclick="scrollto()"/>
 <img id="cart-icon" src="src/carticon.png"></img>
 <div id="cart">
-    <h1 id="carrito-title"> Carrito </h1>
-    <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
-    <section id="carro-content"></section>
-    <div id="totalcount"></div>
-    
-    <button id="compraboton" <?php 
-    if(isset($_SESSION["nombredeusuario"])){
+  <h1 id="carrito-title"> Carrito Charrúas </h1>
+  <img id="vaciar" onclick="vaciarcarrito();" src="src/trashicon.png"></img>
+  <img id="close_cart" onclick="cartanimation();" src="src/right_arrow.png"></img>
+  <section id="carro-content"></section>
+  <div id="totalcount"></div>
+  <button id="compraboton" <?php 
+  if(isset($_SESSION["nombredeusuario"])){
     echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " '; }
-    else {
-      echo 'onclick="alertacarrito();"';
-    }
-    ?>>comprar</button>
-    </div>
+  else {
+    echo 'onclick="alertacarrito();"';
+  }
+  ?>>comprar</button>
+</div>
 <section id="texto1"> Un vino, ㅤ una Historia
   <p> “El mejor vino no es necesariamente el más caro, sino el que se comparte.” </p>
 </section>
