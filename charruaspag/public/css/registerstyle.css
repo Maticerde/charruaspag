@@ -30,9 +30,9 @@ p2 {
   display: block;
   margin: auto;
   border: none;
-  border-radius: 13px;
-  margin-top: 14px;
-  width: 250px;
+  border-radius: 1.2vw;
+  margin-top: 1vh;
+  width: 20vw;
   height: 30px;
   text-align: center;
   color: var(white);
@@ -79,17 +79,16 @@ p2 {
   color: white;
 }
 
+#redirect_login {
+  font-family:Verdana;
+  color: white;
+  margin-left:5.7vw ;
+}
+
 video {
   object-fit: cover;
   width: 100vw;
   height: 100%;
-}
-
-#gotoregister {
-  font-size: 2vh;
-  font-family:Verdana;
-  color: white;
-  margin-left:6.8vw ;
 }
 
 #mensaje {
@@ -128,7 +127,7 @@ video {
 #logo {
   opacity: 0.4;
   text-align: center;
-  margin-top: 41%;
+  margin-top: 35%;
   margin-left: 29.2%;
   height: 8vw;
   width: 10vw;

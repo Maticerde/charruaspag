@@ -47,7 +47,7 @@ if ((carrito.length = 1)) {
   carticon.style.pointerEvents = "none";
 }
 
-function acarrear(numprod, nombre, precio, stock) {
+function acarrear(numprod, nombre, precio, stock, imagen, pais) {
   if (total === 0 && stock > 0) {
     cartanimation();
     carticon.style.opacity = "0.8";
@@ -63,9 +63,10 @@ function acarrear(numprod, nombre, precio, stock) {
   objeto = {
     name: nombre,
     price: precio,
-    pais: "",
+    pais: pais,
     cant: 1,
     stock: stock,
+    imagen: imagen
   };
   if (stock == 0) {
     agrego = false;
@@ -99,8 +100,8 @@ function acarrear(numprod, nombre, precio, stock) {
 
   carrito.forEach((element) => {
     // por cada elemento en el carrito, se agrega una línea con la información del producto
-    carro.innerText +=
-      element.cant + "x $USD " + element.price + " | " + element.name + "\n";
+    carro.innerHTML +=
+    '<div id="cart_item"><img src=\"' + element.imagen + '\"><p1>'+ element.cant +' x $ '+ element.price +'</p1><p3>'+ element.name +'</p3><p4>'+ element.pais +'</p4></div>'
   });
 
   totalcount = document.getElementById("totalcount");
@@ -198,7 +199,7 @@ let auxflag = true;
 function myScrollFunc() {
   let y = window.scrollY;
   if (y > 1100) {
-    arrow.style.top = "0px";
+    arrow.style.top = "60px";
     if (!menu.classList.contains("llevarmenu") && auxflag) {
       menu.style.top = "-57px";
       menu.classList.add("llevarmenu");
@@ -208,19 +209,11 @@ function myScrollFunc() {
     arrow.style.top = "-50px";
     if (menu.classList.contains("llevarmenu") && auxflag) {
       menu.style.top = "-57px";
-<<<<<<< HEAD
-      setTimeout(() => menu.classList.remove("llevarmenu"), 600);
-      setTimeout(() => menu.style.top = "0", 600);
-      setTimeout(() => menu.style.top = "", 1200);
-      auxflag = false; // previene el inicio de otra animacion hasta que termine la actual
-      setTimeout(() => auxflag = true, 1200);
-=======
       setTimeout(() => menu.classList.remove("llevarmenu"), 500);
       setTimeout(() => menu.style.top = "0", 500);
       setTimeout(() => menu.style.top = "", 1000);
       auxflag = false; // previene el inicio de otra animacion hasta que termine la actual
       setTimeout(() => auxflag = true, 1000);
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
     }
   }
 }
@@ -231,11 +224,9 @@ function scrollto() {
     top: 0,
     behavior: "smooth",
   });
-<<<<<<< HEAD
-=======
 }
 
 function alertacarrito(){
   alert(" Para comprar productos, primero debes iniciar sesión");
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
 }
+

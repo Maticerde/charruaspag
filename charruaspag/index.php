@@ -14,12 +14,8 @@
 </head>
 
 <div id="menu">
-<<<<<<< HEAD
-  <section id="usuariologeado">
-=======
 
 <section id="usuariologeado">
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
     <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {
@@ -29,71 +25,49 @@
       }
     ?>
   </section>
-<<<<<<< HEAD
-<?php
-if(isset($_SESSION["nombredeusuario"]))
-echo'
-  <form id="gotoadmin" action="http://localhost/resktsoftware/charruaspag/views/panel_admin/panel_admin.php">
-    <button id="adminref">ADMIN</button>
-    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form> ';
-  ?>
-  <?php
-  if(empty($_SESSION["nombredeusuario"])){ // si no hay una sesion iniciada este sector no se muestra
-  echo ' <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/views/login/index.php">
-    <button id="newsesion">Iniciar sesión</button>
-    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>';
-  }else{ // si hay una sesion activa, esta opcion es unicamente para cerrar sesion
-    echo ' <form id="gotologin" action="http://localhost/resktsoftware/charruaspag/salir.php">
-      <button id="newsesion">Cerrar Sesión</button>
-      <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-    </form>';
-  }
-  ?>
-=======
 
   <?php
-if(isset($_SESSION["nombredeusuario"])) {
+if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
   echo'
   <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
     <button id="adminref">ADMIN</button>
     <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
   </form>';
-  echo '<form id="gotologin" action="http://localhost/charruaspag/salir.php">
+  echo '
+  <form id="gotologin" action="http://localhost/charruaspag/salir.php">
     <button id="newsesion">Cerrar Sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
-} else {// solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
-  echo '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
+} else {
+  echo 
+  '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
 }
   ?>
 
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
   <a href="http://localhost/charruaspag/index.php">
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
 </div>
-<?php include 'views\desplegables\desplegables.php';?>
-<div id="arrow" onclick="scrollto()"> &#10151; </div>
+<?php include 'views/desplegables/desplegables.php';?>
+<img id="arrow" src="src/house_arrow.png" onclick="scrollto()"/>
 <img id="cart-icon" src="src/carticon.png"></img>
 <div id="cart">
-    <h1 id="carrito-title"> Carrito </h1>
-    <img id="vaciar" onclick="vaciarcarrito()" src="src/trashicon.png"></img>
-    <section id="carro-content"></section>
-    <div id="totalcount"></div>
-    
-    <button id="compraboton" <?php 
-    if(isset($_SESSION["nombredeusuario"])){
+  <h1 id="carrito-title"> Carrito Charrúas </h1>
+  <img id="vaciar" onclick="vaciarcarrito();" src="src/trashicon.png"></img>
+  <img id="close_cart" onclick="cartanimation();" src="src/right_arrow.png"></img>
+  <section id="carro-content"></section>
+  <div id="totalcount"></div>
+  <button id="compraboton" <?php 
+  if(isset($_SESSION["nombredeusuario"])){
     echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " '; }
-    else {
-      echo 'onclick="alertacarrito();"';
-    }
-    ?>>comprar</button>
-    </div>
+  else {
+    echo 'onclick="alertacarrito();"';
+  }
+  ?>>comprar</button>
+</div>
 <section id="texto1"> Un vino, ㅤ una Historia
   <p> “El mejor vino no es necesariamente el más caro, sino el que se comparte.” </p>
 </section>
@@ -109,15 +83,9 @@ if(isset($_SESSION["nombredeusuario"])) {
 <section id="advertbox-d"> <a href=""><img src="src/wine-bottle-label-mockup-db.jpg"/></a></section>
 <div id="boxbs">
   <img id="bsfondo" src="src/wine-splash.png"> </img>
-<<<<<<< HEAD
-  <img class="bs" id="bs1" src="src/vinos/zapata-alta-malbec.png"> </img>
-  <img id="bs2" src="src/vinos/b1_tienda.png"> </img>
-  <img class="bs" id="bs3" src="src/vinos/amalaya-tinto.png"> </img>
-=======
   <span id="bestsellers">
   <script src="public/js/bestsellers_fetch.js"></script>
   </span>
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
   <div id="arr"> </div>
 </div>
 <section id="bestsellers_info"></section>

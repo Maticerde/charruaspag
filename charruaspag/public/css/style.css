@@ -51,11 +51,7 @@ body {
 }
 
 #menu {
-<<<<<<< HEAD
-  transition: all ease 0.6s;
-=======
   transition: all ease 0.5s;
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
   justify-content: center;
   position: absolute;
   height: 57px;
@@ -63,11 +59,7 @@ body {
   background: rgb(142,116,107);
   background: linear-gradient(90deg, rgba(142, 116, 107, 0.847) 0%, rgba(142,116,107,0.4066001400560224) 50%, rgba(98, 26, 26, 0.738) 100%);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-<<<<<<< HEAD
-  z-index: 4;
-=======
   z-index: 3;
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
 }
 
 #menu.llevarmenu {
@@ -354,11 +346,11 @@ height: 100%;
 }
 
 #carrito-title {
-  margin-left: 1vw;
-  font-size: 1.4vw;
-  top: 3px;
-  position: absolute;
-  font-family: "Cinzel_decorativebold";
+  font-size: 23px;
+  top: 10px;
+  position: relative;
+  font-family: cinzelregular;
+  letter-spacing: 3px;
 }
 
 #totalcount {
@@ -389,15 +381,22 @@ height: 100%;
   color: rgb(51, 13, 18);
 }
 
-#carro-content {
-  font-size: 1.05vw;
-  margin-top: 3.5vw;
-}
 
 #vaciar {
+  display: none;
   position: absolute;
   right: 15px;
   top: 18px;
+  height: 32px;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#close_cart {
+  position: absolute;
+  right: 8px;
+  top: 22px;
   height: 32px;
   font-weight: bold;
   background-color: transparent;
@@ -432,62 +431,122 @@ height: 100%;
   position: fixed;
   margin-top: -4px;
   top: -50px;
-<<<<<<< HEAD
-  right: 50px;
-=======
-  right: 54px;
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
+  right: 24px;
   z-index: 9;
   transition: all ease 0.5s;
   rotate: -90deg;
-  font-size: 45px;
-  opacity: 0.8;
+  height: 35px;
+  opacity: 0.9;
   cursor: pointer;
+  text-shadow: 1px 1px 2px #ffffff;
+}
+
+#carro-content {
+  margin-top: 30px;
+  max-height: 70vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 
+
+#carro-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+#carro-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.549);
+  border-radius: 5px;
+}
+
+#carro-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.161);
+  border-radius: 5px;
+}
+
 #cart {
+  scroll-behavior: none;
+  scroll-snap-stop: always;
   padding-left: 7px;
   background-color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   position: fixed;
   right: 0;
   height: 100%;
-  width: 300px;
+  width: 330px;
   z-index: 5;
   transition: transform ease 0.5s;
-  transform: translateX(307px);
+  transform: translateX(337px);
+  scroll-behavior: none;
+  overscroll-behavior: contain;
 }
 
 #cart.toggled {
   transform: translateX(0px);
 }
 
+
 #cart-icon.toggled {
-  transform: translateX(-290px);
+  transform: translateX(-330px);
 }
 
 #arrow.toggled {
-  transform: translateY(-290px);
+  transform: translateY(-330px);
 }
 
 #cart-icon {
   position: fixed;
-  right: 35px;
+  right: 25px;
   margin-top: 9px;
   z-index: 4;
   transition: transform 0.5s;
   transform: translateX(0px);
   height: 35px !important;
   width: 35px !important;
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: pointer;
 }
 
-#cart-icon:hover,
-#arrow:hover {
-  opacity: 0.9;
+#cart_item {
+  font-weight: 900;
+  font-family: robotolight;
+  position: relative;
+  width: 301px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 0.5vw;
+  height: 70px;
+  border: 1px solid rgb(193, 190, 190);
+}
+
+#cart_item img {
+  object-fit: contain;
+  height: 100%;
+  margin-left: 10px;
+}
+
+#cart_item p1 {
+  position: absolute;
+  font-size: 25px;
+  right: 10px;
+  bottom: 0;
+}
+
+#cart_item p3 {
+  font-weight: 900;
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+  left: 60px;
+  margin-inline: auto;
+}
+
+#cart_item p4 {
+  color: rgb(28, 26, 26);
+  font-size: 20px;
+  position: absolute;
+  left: 61px;
+  top: 30px;
 }
 
 .divisor {
@@ -782,10 +841,6 @@ transition: all 0.1s;
 z-index: 1;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a5bfbdf7d2bfe62364b81d98feaafa5142f07a25
 #newsesion:hover,
 #adminref:hover {
   top: 9px;
@@ -889,7 +944,7 @@ p {
 
 @media (max-width: 1150px) {
   #cart {
-    transform: translateX(308px);
+    transform: translateX(337px);
   }
 
   #newsesion {
@@ -1115,6 +1170,4 @@ p {
     left: 11vw;
     object-fit: scale-down;
   }
-
-  
 }
