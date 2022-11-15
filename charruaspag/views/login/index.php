@@ -24,7 +24,7 @@ session_start();
         <form method="POST" action="/charruaspag/controllers/login_Controller.php">
             <input type="text" disabled id="mensaje"/>
             <input type="text" name="unombre" placeholder="Email" required/>
-            <input type="password" name="upassword" placeholder="Contraseña" required/>
+            <input type="password" name="upass" placeholder="Contraseña" required/>
             <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
         <a id="gotoregister" href="../register/index.php"> Registrarse </a>

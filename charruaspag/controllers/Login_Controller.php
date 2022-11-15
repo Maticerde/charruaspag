@@ -8,7 +8,7 @@ if(isset($_SESSION['nombredeusuario'])){
 require('..\models\login_model.php');
 /*me aseguro que existan los recursos por POST, con esto solo se procesa si se proviene del form configurado
      para ello*/
-     if(!empty($_POST["unombre"]) && !empty( $_POST["upassword"]) && isset($_POST["unombre"]) && isset($_POST["upassword"])){process_login();}else 
+     if(!empty($_POST["unombre"]) && !empty( $_POST["upass"]) && isset($_POST["unombre"]) && isset($_POST["upass"])){process_login();}else 
      {
         /*redirecciono a login si es que no se provino con DATA SET via POST desde el*/
          header("Location: ../views/login/index.php");
