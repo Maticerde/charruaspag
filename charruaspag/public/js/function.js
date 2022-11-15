@@ -229,4 +229,3 @@ function scrollto() {
 function alertacarrito(){
   alert(" Para comprar productos, primero debes iniciar sesión");
 }
-

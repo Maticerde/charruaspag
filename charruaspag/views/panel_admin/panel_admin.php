@@ -1,9 +1,12 @@
 <?php
 session_start();
 if(isset($_SESSION['nombredeusuario'])){
+    echo "<script> alert('Solo los administradores pueden ingresar a este lugar, no compartir esta informacion');</script> ";
+
     // $usuarioingresado = $_SESSION['nombredeusuario'];
-    // echo "<h1> bienvenido: $usuarioingresado </h1>";
-    header('location: /charruaspag/views/panel_admin/panel_admin.php');
+    //  echo "<h1> bienvenido: $usuarioingresado </h1>";
+    // header('location: /charruaspag/views/panel_admin/panel_admin.php');
+
 } else{
     header('location: /charruaspag/views/login/index.php');
 }

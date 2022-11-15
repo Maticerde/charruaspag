@@ -14,12 +14,12 @@ function new_user() {
     require_once("../models/register_model.php");
     $modelo = new register_model();
     $datos = $modelo->setUser(
-        $_POST["ucedula"],
-        $_POST["udireccion"],
-        $_POST["uciudad"],
-        $_POST["user"],
-        $_POST["umail"],
-        $_POST["upassword"]
+        $CI_Cliente     = $_POST["ucedula"],
+        $Nombre_Cliente = $_POST["udireccion"],
+        $Direccion      = $_POST["uciudad"],
+        $Ciudad         = $_POST["user"],
+        $Email_Cliente  = $_POST["umail"],
+        $Contrasenia    = md5($_POST["upassword"])
     );
     
         echo "UPDATE DATABASE realizado con exito.";
