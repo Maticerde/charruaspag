@@ -10,11 +10,11 @@
   <title>Vinos Charrúas</title>
   <link href="public/css/style.css" rel="stylesheet" type="text/css">
   <script src="public/js/script_load.js"></script>
-  
+
 </head>
 
 <div id="menu">
-
+<img id="cart-icon" src="src/carticon.png"><span id="cart-count"></span></img>
 <section id="usuariologeado">
     <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
@@ -53,20 +53,21 @@ if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel 
 </div>
 <?php include 'views/desplegables/desplegables.php';?>
 <img id="arrow" src="src/house_arrow.png" onclick="scrollto()"/>
-<img id="cart-icon" src="src/carticon.png"></img>
 <div id="cart">
   <h1 id="carrito-title"> Carrito Charrúas </h1>
-  <img id="vaciar" onclick="vaciarcarrito();" src="src/trashicon.png"></img>
   <img id="close_cart" onclick="cartanimation();" src="src/right_arrow.png"></img>
   <section id="carro-content"></section>
   <div id="totalcount"></div>
-  <button id="compraboton" <?php 
-  if(isset($_SESSION["nombredeusuario"])){
-    echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " '; }
-  else {
-    echo 'onclick="alertacarrito();"';
-  }
-  ?>>comprar</button>
+  <section id="cart-buttons">
+    <button id="compraboton" <?php 
+    if(isset($_SESSION["nombredeusuario"])){
+      echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " '; }
+    else {
+      echo 'onclick="alertacarrito();"';
+    }
+    ?>>Comprar</button>
+    <button type="button" id="vaciar" onclick="vaciarcarrito();"><p2>Vaciar</p2><img src="src/trashicon.png"/></button>
+  </section>
 </div>
 <section id="texto1"> Un vino, ㅤ una Historia
   <p> “El mejor vino no es necesariamente el más caro, sino el que se comparte.” </p>
@@ -79,8 +80,8 @@ if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel 
 </div>
 <img id="bsdetalle" src="src/wine-sommalier-drawing.png"> </img>
 <img id="deco-bstext" src="src/deco-bs.png"> </img>
-<section id="advertbox-i"> <a href="https://www.google.com.uy/maps/place/La+Casa+Violeta/@-34.8951846,-56.06,17z/data=!4m5!3m4!1s0x959f87968e4b3317:0x842ebec130f23abd!8m2!3d-34.8951662!4d-56.0607054" target="_blank"><img src="src/cubo_cena2_1400x.progressive.jpg"/></a></section>
-<section id="advertbox-d"> <a href=""><img src="src/wine-bottle-label-mockup-db.jpg"/></a></section>
+<!-- <section id="advertbox-i"> <a href="https://www.google.com.uy/maps/place/La+Casa+Violeta/@-34.8951846,-56.06,17z/data=!4m5!3m4!1s0x959f87968e4b3317:0x842ebec130f23abd!8m2!3d-34.8951662!4d-56.0607054" target="_blank"><img src="src/cubo_cena2_1400x.progressive.jpg"/></a></section>
+<section id="advertbox-d"> <a href=""><img src="src/wine-bottle-label-mockup-db.jpg"/></a></section> -->
 <div id="boxbs">
   <img id="bsfondo" src="src/wine-splash.png"> </img>
   <span id="bestsellers">
@@ -127,5 +128,5 @@ if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel 
 <div id="copyright">
   <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
 </div>
-<section id="darken"> </section>
+<script src="public/js/carrito.js"></script>
 <script src="public/js/function.js"></script>

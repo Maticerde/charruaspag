@@ -36,13 +36,13 @@ public function getVinosyBodegaEnOrden($orden) {
 
 public function setVino($nombre_vino, $precio, $bodega_vino, $stock, $pais, $region, $cosecha, $ubicacion_img) {
     
-    $sql = "INSERT INTO VINOS (Codigo_Vino, Nombre_Vino, Precio, Bodega_Vino, Stock, Pais, Region, Cosecha, Descripcion, Ubicacion_IMG)
+    $sql = "INSERT INTO VINOS (Codigo_Vino, Nombre_Vino, Precio, Bodega_Vino, Stock, Pais_Vinos, Region, Cosecha, Descripcion, Ubicacion_IMG)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
    $this->conn->prepare($sql)->execute([NULL, $nombre_vino, $precio, $bodega_vino, $stock, $pais, $region, $cosecha, NULL, $ubicacion_img]);
 }
 
 public function updateVino($nombre_vino, $precio, $bodega_vino, $stock, $pais, $region, $cosecha, $ubicacion_img, $codigo_vino) {
-    $sql = "UPDATE VINOS SET Nombre_Vino=?, Precio=?, Bodega_Vino=?, Stock=?, Pais=?, Region=?, Cosecha=?, Ubicacion_IMG=? WHERE Codigo_Vino=?;";
+    $sql = "UPDATE VINOS SET Nombre_Vino=?, Precio=?, Bodega_Vino=?, Stock=?, Pais_Vinos=?, Region=?, Cosecha=?, Ubicacion_IMG=? WHERE Codigo_Vino=?;";
     $this->conn->prepare($sql)->execute([$nombre_vino, $precio, $bodega_vino, $stock, $pais, $region, $cosecha, $ubicacion_img, $codigo_vino]);
 }
 

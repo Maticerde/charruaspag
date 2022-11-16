@@ -45,17 +45,43 @@ ul {
   font-style: normal;
 }
 
-
 body {
   background-color: rgb(253, 245, 241);
+  scrollbar-gutter: stable both-edges;
+}
+
+@supports(-webkit-tap-highlight-color: black) { /* FUNCIONES SOLO PARA CHROME */
+
+  @media (min-width: 1150px) {
+  body.hide_scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  body.hide_scrollbar {
+    width: calc(100% - 17px);
+  }
+  
+  body.overflowfix {
+    overflow: hidden;
+  }
+  
+  #deco-bstext.hide_scrollbar {
+    right: 17px;
+  }
+  
+  #menu.hide_scrollbar {
+    width: calc(100% - 17px);
+  }
+}
 }
 
 #menu {
-  transition: all ease 0.5s;
+  transition: all ease 0.5s, width 0s;
   justify-content: center;
   position: absolute;
   height: 57px;
   width: 100%;
+  overflow: hidden;
   background: rgb(142,116,107);
   background: linear-gradient(90deg, rgba(142, 116, 107, 0.847) 0%, rgba(142,116,107,0.4066001400560224) 50%, rgba(98, 26, 26, 0.738) 100%);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -345,64 +371,6 @@ height: 100%;
   background-color: #000;
 }
 
-#carrito-title {
-  font-size: 23px;
-  top: 10px;
-  position: relative;
-  font-family: cinzelregular;
-  letter-spacing: 3px;
-}
-
-#totalcount {
-  color: rgb(92, 33, 41);
-  font-weight: bold;
-  font-size: 25px;
-  margin-top: 2vw;
-}
-#compraboton {
-  width: 200px;
-  margin-left: 18%;
-  margin-top: 1vw;
-  text-align: center;
-  color: rgb(200, 186, 186);
-  cursor: pointer;
-  font-family: cinzelbold;
-  border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border: transparent;
-  font-size: 35px;
-  background-color: rgb(51, 13, 18);
-  transition: ease 0.3s;
-}
-
-#compraboton:hover {
-  transition: ease 0.3s;
-  background-color: rgb(200, 186, 186);
-  color: rgb(51, 13, 18);
-}
-
-
-#vaciar {
-  display: none;
-  position: absolute;
-  right: 15px;
-  top: 18px;
-  height: 32px;
-  font-weight: bold;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-#close_cart {
-  position: absolute;
-  right: 8px;
-  top: 22px;
-  height: 32px;
-  font-weight: bold;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 #gallery {
   height: 25vw;
   width: 100%;
@@ -443,12 +411,10 @@ height: 100%;
 
 #carro-content {
   margin-top: 30px;
-  max-height: 70vh;
+  max-height: 66vh;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
-
-
 
 #carro-content::-webkit-scrollbar {
   width: 5px;
@@ -485,29 +451,43 @@ height: 100%;
   transform: translateX(0px);
 }
 
-
-#cart-icon.toggled {
-  transform: translateX(-330px);
-}
-
 #arrow.toggled {
   transform: translateY(-330px);
 }
 
-#cart-icon {
-  position: fixed;
-  right: 25px;
+#cart-icon, #cart-count {
+  position: absolute;
+  right: 22vw;
   margin-top: 9px;
   z-index: 4;
   transition: transform 0.5s;
   transform: translateX(0px);
-  height: 35px !important;
-  width: 35px !important;
+  height: 35px;
   opacity: 0.9;
   cursor: pointer;
 }
 
-#cart_item {
+#cart-count {
+  width: 35px;
+  height: fit-content;
+  text-align: left;
+  right: calc(22vw - 35px);
+  margin-top: 16px;
+  font-family: robotolight;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: auto;
+}
+
+#cart-icon.animatecart {
+  transition: all 0.2s;
+  right: 21.9vw;
+  margin-top: 7px;
+  height: 40px;
+
+}
+
+#cart-item {
   font-weight: 900;
   font-family: robotolight;
   position: relative;
@@ -516,23 +496,76 @@ height: 100%;
   border-radius: 10px;
   margin-bottom: 0.5vw;
   height: 70px;
-  border: 1px solid rgb(193, 190, 190);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
-#cart_item img {
+#cart-item:hover > .cart-cant, #cart-item:hover > #cart-sumar, #cart-item:hover > #cart-restar {
+  opacity: 1;
+}
+
+#cart-item .cart-cant:focus {
+  opacity: 1;
+}
+
+#cart-item img {
   object-fit: contain;
   height: 100%;
   margin-left: 10px;
 }
 
-#cart_item p1 {
+.cart-cant, #cart-sumar, #cart-restar {
+  transition: all 0.1s;
+  opacity: 0.3;
+  color: rgb(11, 11, 11);
+  position: absolute;
+  outline: none;
+  border: none;
+  bottom: 34px;
+  right: 32px;
+  width: 36px;
+  height: 22px;
+  font-family: robotolight;
+  font-weight: 900;
+  font-size: 17px;
+  text-align: center;
+}
+
+#cart-sumar {
+  font-size: 20px;
+  right: 6px;
+  height: 24px;
+  width: 25px;
+  background-color: rgba(0, 0, 0, 0.11);  
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+#cart-restar {
+  font-size: 20px;
+  right: 73px;
+  height: 24px;
+  width: 25px;
+  background-color: rgba(0, 0, 0, 0.11);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.cart-cant[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#cart-item p1 {
   position: absolute;
   font-size: 25px;
   right: 10px;
   bottom: 0;
 }
 
-#cart_item p3 {
+#cart-item p3 {
   font-weight: 900;
   font-size: 25px;
   position: absolute;
@@ -541,13 +574,128 @@ height: 100%;
   margin-inline: auto;
 }
 
-#cart_item p4 {
+#cart-item p4 {
   color: rgb(28, 26, 26);
   font-size: 20px;
   position: absolute;
   left: 61px;
   top: 30px;
 }
+
+
+#carrito-title {
+  font-size: 23px;
+  top: 10px;
+  position: relative;
+  font-family: cinzelregular;
+  letter-spacing: 3px;
+}
+
+#totalcount {
+  color: rgb(21, 20, 20);
+  font-weight: bold;
+  font-family: cinzelregular;
+  font-weight: 900;
+  width: 90%;
+  letter-spacing: 3px;
+  text-indent: 10px;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#cart-buttons {
+  width: 100%;
+  height: 50px;
+  display: grid;
+  position: relative;
+  grid-template-columns: 70% 30%;
+  overflow: hidden;
+}
+
+#compraboton {
+  margin-left: 2px;
+  width: 200px;
+  text-align: center;
+  color: rgb(216, 201, 201);
+  cursor: pointer;
+  font-family: cinzelbold;
+  border-radius: 200px;
+  border: transparent;
+  font-size: 35px;
+  background-color: rgb(74, 10, 18);
+  transition: ease 0.3s;
+  z-index: 1;
+}
+
+#compraboton:hover {
+  transition: ease 0.3s;
+  background-color: rgb(216, 201, 201);
+  color: rgb(74, 10, 18);
+}
+
+#compraboton:hover {
+width: 319px;
+letter-spacing: 5px;
+} 
+
+#compraboton:hover + #vaciar {
+  width: 20px;
+  margin-left: 67px;
+}
+
+#vaciar:hover img{
+  transition: ease 0.3s;
+  margin-top: 67%;
+}
+
+#vaciar:hover p2 {
+  transition: ease 0.3s;
+  margin-top: 34%;
+}
+
+#vaciar {
+  transition: ease 0.3s;
+  position: relative;
+  border-radius: 200px;
+  right: 10px;
+  width: 100px;
+  height: 100%;
+  overflow: hidden;
+  font-weight: bold;
+  background-color: rgb(216, 201, 201); 
+  cursor: pointer;
+  object-fit: scale-down;
+  border: none;
+}
+
+#vaciar p2 {
+  transition: ease 0.6s;
+  left: 0;
+  right: 0;
+  top: -20px;
+  position: absolute;
+  font-size: 20px;
+  color: rgb(74, 10, 18);
+  font-family: cinzelbold;
+  text-align: center;
+}
+
+#vaciar img {
+  transition: ease 0.6s;
+  width: 25%;
+}
+
+#close_cart {
+  position: absolute;
+  right: 8px;
+  top: 22px;
+  height: 32px;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 
 .divisor {
   opacity: 0.3;
@@ -669,6 +817,7 @@ height: 100%;
   width: 100%;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .productos-gallery div:hover {
@@ -685,7 +834,7 @@ height: 100%;
   height: 60%;
   width: 60%;
   margin-top: 2%;
-  margin-bottom: 1%;
+
 }
 
 #productos-div p0, #productos-div-lowstock p0 {
@@ -947,6 +1096,10 @@ p {
     transform: translateX(337px);
   }
 
+  body.overflowfix {
+    overflow-y: auto;
+  }
+
   #newsesion {
     font-size: 26px;
     top: 12px;
@@ -1028,59 +1181,7 @@ p {
   #newsesion {
     display: none;
   }
-  .productos-gallery {
-    justify-content: center;
-    width: auto;
-    display: grid;
-    margin: auto;
-    left: 0vw;
-    position: relative;
-    grid-template-columns: repeat(3, 23.57%);
-    grid-template-rows: repeat(23.33vw);
-    column-gap: 0.5vw;
-    row-gap: 1vw;
-    overflow: hidden;
-  }
 
-  .productos-gallery div {
-    font-size: 1.2vw;
-    font-family: robotolight;
-    background-color: rgb(253, 245, 241);
-    height: 23.33vw;
-    width: 100%;
-  }
-  #carrito {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    padding: 20px;
-    background-color: white;
-  }
-
-  #infocarrito {
-    width: 100%;
-    height: 100px;
-    display: flex;
-  }
-
-  #vaciar {
-    position: absolute;
-    right: 20px;
-    color: rgb(114, 40, 40);
-    border: none;
-    font-size: 50px;
-    font-weight: bold;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  #carro-content {
-    font-size: 1.95vh;
-  }
-
-  #totalcount {
-    font-weight: bold;
-    font-size: 25px;
-  }
 
   #box1 {
     height: 100vh;
@@ -1093,9 +1194,6 @@ p {
     object-fit: cover;
     height: 100%;
     width: 100%;
-  }
-  #menu {
-    z-index: 2;
   }
 
   #texto1 {
