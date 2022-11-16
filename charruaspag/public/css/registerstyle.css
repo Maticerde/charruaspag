@@ -40,7 +40,7 @@ p2 {
 }
 
 .login section p {
-  margin: 7px;
+  margin: 0.04em;
   cursor: pointer;
   border-bottom: 1px solid transparent;
   user-select: none;
@@ -77,12 +77,6 @@ p2 {
   background-color: rgb(92, 40, 40);
   color: var(green);
   color: white;
-}
-
-#redirect_login {
-  font-family:Verdana;
-  color: white;
-  margin-left:5.7vw ;
 }
 
 video {

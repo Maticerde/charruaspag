@@ -85,11 +85,11 @@ video {
   height: 100%;
 }
 
-#gotoregister {
+ #gotoregister {
   font-size: 2vh;
   font-family:Verdana;
   color: white;
-  margin-left:6.8vw ;
+  display: center ;
 }
 
 #mensaje {

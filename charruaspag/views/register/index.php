@@ -1,3 +1,9 @@
+<?php
+session_start();
+    if(isset($_SESSION["nombredeusuario"])){
+        header("location: /charruaspag/index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +17,8 @@
 <div class="login">
     <section id="panel">
         <a href="http://localhost/charruaspag/index.php">
-        <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
-        <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
+        <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
+        <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
         <form method="POST" action="/charruaspag/controllers/Register_Controller.php">
@@ -25,8 +31,10 @@
             <input type="password" name="upassword" placeholder="Contraseña" required/>
             <button type="submit_button" id="register_button"> Registrarse </button>
         </form>
-        <a id="redirect_login" href="http://localhost/charruaspag/views/login/index.php"> ¿Ya tenes una cuenta? </a>
+        <a id="redirect_login" href="http://localhost/charruaspag/views/login/index.php"> 
+            <p>¿Ya tenes una cuenta?</p>
+        </a>
     </section>
         <video autoplay loop muted src="/charruaspag/src/login/Video/vino_cayendo_en_una_copa.mp4"></video>
-     <!-- <script src="/resktsoftware/charruaspag/public/js/register/registerjs.js"></script> -->
+     <!-- <script src="/charruaspag/public/js/register/registerjs.js"></script> -->
 </div>

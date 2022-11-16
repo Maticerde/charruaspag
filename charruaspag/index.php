@@ -19,12 +19,13 @@
     <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {
-        echo $_SESSION["nombredeusuario"];
+        echo $_SESSION["nombredeusuario"]; 
       }else {
       echo " ";
       }
     ?>
-  </section>
+    </section>
+  
 
   <?php
 if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
