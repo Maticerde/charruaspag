@@ -22,4 +22,5 @@
         VALUES (?, ?, ?, ?, ?, ?, ?);";
        $this->conn->prepare($sql)->execute([NULL, $CI_Cliente, $Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia]);
     }
+
 }

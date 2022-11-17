@@ -26,7 +26,7 @@
         $array_dataset = 
         [
             "user" => $_POST["unombre"],
-            "pass" => $_POST["upass"]
+            "pass" => md5($_POST["upass"])
         ];
      
         /*recorro consulta*/
