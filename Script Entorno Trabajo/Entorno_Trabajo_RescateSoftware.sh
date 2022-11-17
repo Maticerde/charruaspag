@@ -304,7 +304,7 @@ echo "insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, 
 echo "insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, Costo_DetalleC) values (4, 4, 4, 34);" >> Vinos_Charruas.sql
 echo "insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, Costo_DetalleC) values (5, 5, 5, 76);" >> Vinos_Charruas.sql
 
-# mysql -u root -p Vinos_Charruas < Vinos_Charruas.sql ¡Falta Revisar att:Diego! # ErrorContraseña #
+mysql -uroot -p123456 < Vinos_Charruas.sql
 
 sleep 1
 echo "=================================================="
