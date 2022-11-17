@@ -18,14 +18,15 @@
 
      public function consulta(){
 
-           /*configuracion consulta*/
+        
+        /*configuracion consulta*/
          $sql = $this->conn->query("SELECT * FROM clientes")->fetchAll();
         
         /*datos POST*/
         $array_dataset = 
         [
             "user" => $_POST["unombre"],
-            "pass" => md5($_POST["upass"])
+            "pass" => $_POST["upass"]
         ];
      
         /*recorro consulta*/
@@ -43,11 +44,34 @@
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
             header("Location:/charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
-         } else { // en caso de que no haya coincidencia en los datos no podremos iniciar sesion
+        
+        } else { // en caso de que no haya coincidencia con los datos de la tabla clientes, se buscará en empleados 
+            
+            // en caso de que no haya coincidencia en los datos no podremos iniciar sesion
+
+            // $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
+            // echo "$consulta_login";
+            // header("Location: /charruaspag/views/login/index.php");
+
+            $sql = $this->conn->query("SELECT * FROM empleados")->fetchAll();
+            foreach ($sql as $row)
+        {
+            /*escucho coincidencia en usuario y pass*/
+            if(strcmp($row['Email_Emplaedo'], $array_dataset["user"])==0 && strcmp($row['Contasenia'], $array_dataset["pass"])==0){$log_validate = true;}
+
+            if ($log_validate == true) {
+                $consulta_login = "credenciales válidas";
+                $_SESSION['setAdmin']=$array_dataset["user"]; // guardo en la sesion los datos de la consulta mysql
+                echo $consulta_login;
+                //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
+                header("Location:/charruaspag/views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
+        } else{
             $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
             echo "$consulta_login";
             header("Location: /charruaspag/views/login/index.php");
+        }
          }
+        
       }
-
+    }
    }

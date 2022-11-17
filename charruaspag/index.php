@@ -20,25 +20,33 @@
       if(isset($_SESSION["nombredeusuario"]))
       {
         echo $_SESSION["nombredeusuario"]; 
-      }else {
-      echo " ";
+      }elseif(isset($_SESSION["setAdmin"])) {
+        echo $_SESSION["setAdmin"];
       }
     ?>
     </section>
   
 
   <?php
-if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel admin los privilegiados que iniciaron sesion
-  echo'
-  <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
-    <button id="adminref">ADMIN</button>
-    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form>';
+if(isset($_SESSION["nombredeusuario"])) { // si el cliente inició sesion, aparecerá el apartado de cerrar sesión
   echo '
   <form id="gotologin" action="http://localhost/charruaspag/salir.php">
     <button id="newsesion">Cerrar Sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
+} elseif(isset($_SESSION["setAdmin"])) {
+  echo'
+  <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
+    <button id="adminref">ADMIN</button>
+    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
+  </form>';
+
+  echo '
+  <form id="gotologin" action="http://localhost/charruaspag/salir.php">
+    <button id="newsesion">Cerrar Sesión</button>
+    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
+  </form>';
+
 } else {
   echo 
   '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
@@ -63,8 +71,10 @@ if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel 
   <div id="totalcount"></div>
   <button id="compraboton" <?php 
   if(isset($_SESSION["nombredeusuario"])){
-    echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " '; }
-  else {
+    echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " ';
+  } elseif(isset($_SESSION["setAdmin"])) {
+    echo 'onclick="generar_compra(); load_shop(); vaciarcarrito(); " ';
+  } else {
     echo 'onclick="alertacarrito();"';
   }
   ?>>comprar</button>

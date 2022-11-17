@@ -4,6 +4,8 @@ session_start();  // crea una sesion o reanuda la actual basada en un identifica
                   //la peticion POST
 if(isset($_SESSION['nombredeusuario'])){
    header('location: /charruaspag/index.php');
+}  elseif(isset($_SESSION["setAdmin"])) {
+   header('location: /charruaspag/index.php');
 }
 require('..\models\login_model.php');
 /*me aseguro que existan los recursos por POST, con esto solo se procesa si se proviene del form configurado

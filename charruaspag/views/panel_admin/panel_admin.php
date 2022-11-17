@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['nombredeusuario'])){
+if(isset($_SESSION['setAdmin'])){
     echo "<script> alert('Solo los administradores pueden ingresar a este lugar, no compartir esta informacion');</script> ";
 
     // $usuarioingresado = $_SESSION['nombredeusuario'];

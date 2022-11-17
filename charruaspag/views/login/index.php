@@ -2,6 +2,8 @@
 session_start();
     if(isset($_SESSION["nombredeusuario"])){
         header("location: /charruaspag/index.php");
+    }elseif(isset($_SESSION["setAdmin"])){
+        header("location: /charruaspag/index.php");
     }
 ?>
 <!DOCTYPE html>
