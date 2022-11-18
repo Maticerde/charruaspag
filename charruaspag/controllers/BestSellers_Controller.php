@@ -18,7 +18,7 @@ foreach ($datos as $row) {
         array_push($array_nombres, $row['Nombre_Vino']);
         array_push($array_precios, $row['Precio']);
         array_push($array_stocks, $row['Stock']);
-        array_push($array_paises, $row['Pais']);
+        array_push($array_paises, $row['Pais_Vinos']);
         array_push($array_regiones, $row['Region']);
         array_push($array_images, $row['Ubicacion_IMG']);
         $aux++;
