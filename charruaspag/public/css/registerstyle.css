@@ -1,0 +1,210 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "cinzelbold";
+  src: url(fonts/cinzel-bold-webfont.woff2) format("woff2"),
+    url(fonts/cinzel-bold-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#regresar {
+  position: absolute;
+  font-size: 50px;
+  rotate: 180deg;
+}
+.login {
+  display: grid;
+  grid-template-columns: 8% 22% 70%;
+  grid-template-rows: repeat(1, 100vh);
+}
+
+.login section input,
+.login section button,
+p2 {
+  display: block;
+  margin: auto;
+  border: none;
+  border-radius: 1.2vw;
+  margin-top: 1vh;
+  width: 20vw;
+  height: 30px;
+  text-align: center;
+  color: var(white);
+  background: var(black);
+}
+
+.login section p {
+  margin: 0.04em;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  user-select: none;
+  text-align: center;
+  color: white;
+}
+
+.login section p:hover {
+  transition: all ease 0.3s;
+  color: rgb(92, 40, 40);
+}
+
+.login section button,
+.login section p,
+.login section input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+.login section button {
+  font-size: 14px;
+  border-radius: 24px;
+  margin-top: 38px;
+  margin-bottom: 10px;
+  padding: 0;
+  width: 130px;
+  height: 32px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login section button:hover {
+  transition: all ease 0.5s;
+  background-color: rgb(92, 40, 40);
+  color: var(green);
+  color: white;
+}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100%;
+}
+
+#mensaje {
+  font-size: 13px;
+  background-color: transparent;
+  color: var(black);
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: opacity ease 1s;
+  opacity: 0;
+  font-family: monospace;
+}
+
+#panel {
+  overflow: hidden;
+  margin-left: 10vw;
+  position: absolute;
+  z-index: 1;
+  width: 24vw;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #410a0f;
+}
+
+#panel p2 {
+  text-decoration: none;
+  margin-top: -5px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: rgb(97, 44, 44);
+  font-family: cinzelbold;
+  cursor: pointer;
+}
+
+#logo {
+  opacity: 0.4;
+  text-align: center;
+  margin-top: 35%;
+  margin-left: 29.2%;
+  height: 8vw;
+  width: 10vw;
+  cursor: pointer;
+}
+
+#logo2 {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (max-width: 1240px) {
+  #logo {
+    display: none;
+  }
+  .login {
+    display: grid;
+    grid-template-columns: 22.8% 52%;
+    margin-left: 55vw;
+    grid-template-rows: repeat(1, 100vh);
+    margin: auto;
+  }
+  .login section p {
+    margin: 7px;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    user-select: none;
+    text-align: center;
+    color: white;
+  }
+  #panel {
+    margin: 0;
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  html {
+    background-color: #161010;
+  }
+  .login section input,
+  .login section button,
+  p2,
+  .login section p,
+  #logo2 {
+    display: block;
+    margin: auto;
+    border: none;
+    border-radius: 13px;
+    margin-top: 14px;
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    color: var(white);
+    background: var(black);
+  }
+
+  .login section button {
+    width: 150px;
+  }
+
+  .login section p {
+    width: 25%;
+    height: 20px;
+    margin-top: 10px;
+  }
+  #logo2 {
+    display: block;
+    margin-top: 15vh;
+    opacity: 0.9;
+    text-align: center;
+    height: 150px;
+    width: 200px;
+  }
+
+  #panel p2 {
+    text-align: center;
+    font-size: 35px;
+    color: rgb(88, 20, 20);
+    font-family: cinzelbold;
+    text-shadow: 1px 1px 1px rgb(79, 13, 13);
+  }
+}
