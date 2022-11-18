@@ -1,0 +1,291 @@
+
+#carro-content {
+    margin-top: 30px;
+    max-height: 66vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  #carro-content::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  #carro-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.549);
+    border-radius: 5px;
+  }
+  
+  #carro-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.161);
+    border-radius: 5px;
+  }
+  
+  #cart {
+    scroll-behavior: none;
+    scroll-snap-stop: always;
+    padding-left: 7px;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    position: fixed;
+    right: 0;
+    height: 100%;
+    width: 330px;
+    z-index: 5;
+    transition: transform ease 0.5s;
+    transform: translateX(337px);
+    scroll-behavior: none;
+    overscroll-behavior: contain;
+  }
+  
+  #cart.toggled {
+    transform: translateX(0px);
+  }
+  
+  #arrow.toggled {
+    transform: translateY(-330px);
+  }
+  
+  #cart-icon, #cart-count {
+    position: absolute;
+    right: 22vw;
+    margin-top: 9px;
+    z-index: 4;
+    transition: transform 0.5s;
+    transform: translateX(0px);
+    height: 35px;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  
+  #cart-count {
+    color: rgb(228, 213, 213);
+    width: 35px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    border-radius: 50px;
+    right: calc(22vw - 21px);
+    margin-top: 16px;
+    font-family: robotolight;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: auto;
+  }
+  
+  #cart-icon.animatecart {
+    transition: all 0.2s;
+    right: 21.9vw;
+    margin-top: 7px;
+    height: 40px;
+  
+  }
+  
+  #cart-item {
+    font-weight: 900;
+    font-family: robotolight;
+    position: relative;
+    width: 301px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 0.5vw;
+    height: 70px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  }
+  
+  #cart-item:hover > .cart-cant, #cart-item:hover > #cart-sumar, #cart-item:hover > #cart-restar {
+    opacity: 1;
+  }
+  
+  #cart-item .cart-cant:focus {
+    opacity: 1;
+  }
+  
+  #cart-item img {
+    object-fit: contain;
+    height: 100%;
+    margin-left: 10px;
+  }
+  
+  .cart-cant, #cart-sumar, #cart-restar {
+    transition: all 0.1s;
+    opacity: 0.3;
+    color: rgb(11, 11, 11);
+    position: absolute;
+    outline: none;
+    border: none;
+    bottom: 34px;
+    right: 32px;
+    width: 36px;
+    height: 22px;
+    font-family: robotolight;
+    font-weight: 900;
+    font-size: 17px;
+    text-align: center;
+  }
+  
+  #cart-sumar {
+    font-size: 20px;
+    right: 6px;
+    height: 24px;
+    width: 25px;
+    background-color: rgba(0, 0, 0, 0.11);  
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    line-height: 22px;
+    cursor: pointer;
+  }
+  
+  #cart-restar {
+    font-size: 20px;
+    right: 73px;
+    height: 24px;
+    width: 25px;
+    background-color: rgba(0, 0, 0, 0.11);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    line-height: 22px;
+    cursor: pointer;
+  }
+  
+  .cart-cant[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  #cart-item p1 {
+    position: absolute;
+    font-size: 25px;
+    right: 10px;
+    bottom: 0;
+  }
+  
+  #cart-item p3 {
+    font-weight: 900;
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    left: 60px;
+    margin-inline: auto;
+  }
+  
+  #cart-item p4 {
+    color: rgb(28, 26, 26);
+    font-size: 20px;
+    position: absolute;
+    left: 61px;
+    top: 30px;
+  }
+  
+  
+  #carrito-title {
+    font-size: 23px;
+    top: 10px;
+    position: relative;
+    font-family: cinzelregular;
+    letter-spacing: 3px;
+  }
+  
+  #totalcount {
+    color: rgb(21, 20, 20);
+    font-weight: bold;
+    font-family: cinzelregular;
+    font-weight: 900;
+    width: 90%;
+    letter-spacing: 3px;
+    text-indent: 10px;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #cart-buttons {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    position: relative;
+    grid-template-columns: 70% 30%;
+    overflow: hidden;
+  }
+  
+  #compraboton {
+    margin-left: 2px;
+    width: 200px;
+    text-align: center;
+    color: rgb(216, 201, 201);
+    cursor: pointer;
+    font-family: cinzelbold;
+    border-radius: 200px;
+    border: transparent;
+    font-size: 35px;
+    background-color: rgb(74, 10, 18);
+    transition: ease 0.3s;
+    z-index: 1;
+  }
+  
+  #compraboton:hover {
+    transition: ease 0.3s;
+    background-color: rgb(216, 201, 201);
+    color: rgb(74, 10, 18);
+  }
+  
+  #compraboton:hover {
+  width: 319px;
+  letter-spacing: 5px;
+  } 
+  
+  #compraboton:hover + #vaciar {
+    width: 20px;
+    margin-left: 67px;
+  }
+  
+  #vaciar:hover img{
+    transition: ease 0.3s;
+    margin-top: 67%;
+  }
+  
+  #vaciar:hover p2 {
+    transition: ease 0.3s;
+    margin-top: 34%;
+  }
+  
+  #vaciar {
+    transition: ease 0.3s;
+    position: relative;
+    border-radius: 200px;
+    right: 10px;
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+    font-weight: bold;
+    background-color: rgb(216, 201, 201); 
+    cursor: pointer;
+    object-fit: scale-down;
+    border: none;
+  }
+  
+  #vaciar p2 {
+    transition: ease 0.6s;
+    left: 0;
+    right: 0;
+    top: -20px;
+    position: absolute;
+    font-size: 20px;
+    color: rgb(74, 10, 18);
+    font-family: cinzelbold;
+    text-align: center;
+  }
+  
+  #vaciar img {
+    transition: ease 0.6s;
+    width: 25%;
+  }
+  
+  #close_cart {
+    position: absolute;
+    right: 8px;
+    top: 22px;
+    height: 32px;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+  }

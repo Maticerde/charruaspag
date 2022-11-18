@@ -137,6 +137,11 @@ a {
 }
 
 @media (max-width: 1240px) {
+
+  video {
+    margin-left: 0;
+  }
+
   #logo {
     display: none;
   }

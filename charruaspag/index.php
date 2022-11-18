@@ -9,12 +9,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vinos Charrúas</title>
   <link href="public/css/style.css" rel="stylesheet" type="text/css">
+  <link href="public/css/carrito.css" rel="stylesheet" type="text/css">
+  <link href="public/css/desplegables.css" rel="stylesheet" type="text/css">
   <script src="public/js/script_load.js"></script>
 
 </head>
 
 <div id="menu">
 <img id="cart-icon" src="src/carticon.png"><span id="cart-count"></span></img>
+<form id="gototienda" action="http://localhost/charruaspag/views/market/market.php">
+    <button id="gototienda">Tienda</button>
+  </form>
 <section id="usuariologeado">
     <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
@@ -107,9 +112,8 @@ if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel 
 </section>
 <div id="slidertext"></div>
 <section class="gallery-wrapper">
-  <input type="text" id="keywords" name="keywords" size="30" maxlength="30" placeholder="Buscar productos">
-  </button>
-  <section class="productos-gallery"></section>
+  <h1>¡Últimas Oportunidades!</h1>
+<section class="productos-gallery"></section>
 </section>
 <div id="box3">
   <div class="contactobox">
@@ -118,7 +122,7 @@ if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel 
     <p2 id="charruas-texto2"> Charrúas </p2>
     </a>
     <ul>
-      <li id="contacto" onclick="desplegar(id)"> Contacto </li>
+      <li id="contacto"><a href="mailto:charruas.soporte@gmail.com">Contacto</a></li>
       <li id="fdepago" onclick="desplegar(id)"> Formas de pago </li>
       <li id="poldevolucion" onclick="desplegar(id)"> Política de Devolución </li>
       <li id="polprivacidad" onclick="desplegar(id)"> Políticas de Privacidad </li>
@@ -129,4 +133,5 @@ if(isset($_SESSION["nombredeusuario"])) { // solamente pueden accerder al panel 
   <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
 </div>
 <script src="public/js/carrito.js"></script>
-<script src="public/js/function.js"></script>
+<script src="public/js/scroll-function.js"></script>
+<script src="public/js/desplegables.js"></script>

@@ -1,7 +1,7 @@
 <?php
 session_start();
     if(isset($_SESSION["nombredeusuario"])){
-        header("location: /resktsoftware/charruaspag/index.php");
+        header("location: /charruaspag/index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -17,8 +17,8 @@ session_start();
 <div class="login">
     <section id="panel">
         <a href="http://localhost/charruaspag/index.php">
-        <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
-        <img src=/resktsoftware/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
+        <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
+        <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
         <form method="POST" action="/charruaspag/controllers/login_Controller.php">
@@ -30,6 +30,6 @@ session_start();
         <p onclick="add_user()"> Registrarse </p>
         <p onclick="change_password()"> Olvidaste tu contraseña? </p>
     </section>
-        <video autoplay loop muted src="/charruaspag/src/login/Video/vino_cayendo_en_una_copa.mp4"></video>
+        <video autoplay loop muted src="/charruaspag/src/login/Video/viña_video.mp4"></video>
     <!-- <script src="/resktsoftware/charruaspag/public/js/loginjs.js"></script> -->
 </div>

@@ -18,25 +18,25 @@ function load_bestsellers_info() {
 
   bestsellers_info.innerHTML = "";
   fetch("controllers/BestSellers_Controller.php", {
-      method: "POST",
-      body: data,
+    method: "POST",
+    body: data,
   })
-      .then(function (response) {
-          if (response.ok) {
-              return response.text();
-          } else {
-              throw "Error";
-          }
-      })
-      .then(function (text) {
-        bestsellers_info.innerHTML = text;
-      })
-      .catch(function (err) {
-          console.log(err);
-      });
+    .then(function (response) {
+      if (response.ok) {
+        return response.text();
+      } else {
+        throw "Error";
+      }
+    })
+    .then(function (text) {
+      bestsellers_info.innerHTML = text;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
   load_bestsellers();
 });
-  
+

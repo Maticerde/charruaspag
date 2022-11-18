@@ -43,10 +43,10 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
   }
 
   if (ultimaopcion !== id) {
-    
-     // si no dimos click dos veces en el mismo vino entra acá
+
+    // si no dimos click dos veces en el mismo vino entra acá
     if (primeraflag == true) {
-       //si es el primer click, las animaciones son instantaneas
+      //si es el primer click, las animaciones son instantaneas
       option.classList.toggle("selected");
       info_vino.classList.toggle("info-select");
       info_bodega.classList.toggle("info-select");
@@ -60,7 +60,7 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
         cosecha,
         bodega,
         imagen
-        );
+      );
       carga_form_modv(
         codigo_vino,
         nombre_vino,
@@ -82,15 +82,15 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
         codpostal
       );
       carga_form_modb(
-          bodega,
-          nombre_bodega,
-          email,
-          direccion,
-          pais_bodega,
-          ciudad,
-          cuenta,
-          codpostal
-        );
+        bodega,
+        nombre_bodega,
+        email,
+        direccion,
+        pais_bodega,
+        ciudad,
+        cuenta,
+        codpostal
+      );
       setTimeout(() => (info_wrapper.style.display = ""), 400);
       setTimeout(() => (info_efecto.style.display = ""), 400);
     } else {
@@ -123,8 +123,8 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
             cosecha,
             bodega,
             imagen
-            ), 450);
-      
+          ), 450);
+
       setTimeout(() => carga_form_modb(
         bodega,
         nombre_bodega,
@@ -179,7 +179,7 @@ function desplegarmod() {
     addbodegabox.classList.toggle("desplegar");
     setTimeout(() => modvinobox.classList.toggle("desplegar2"), 900);
     setTimeout(() => modbodegabox.classList.toggle("desplegar2"), 900);
-  }else {
+  } else {
     if (!modvinobox.classList.contains("desplegar2")) {
       addvinobox.classList.toggle("desplegar");
       addbodegabox.classList.toggle("desplegar");

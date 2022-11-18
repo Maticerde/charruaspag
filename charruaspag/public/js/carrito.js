@@ -7,7 +7,12 @@ function cartanimation() { //funcion de despliegue de carrito
     let arrow = document.querySelector("#arrow").classList.toggle("toggled");
     body = document.querySelector("body").classList.toggle("hide_scrollbar");
     let menu = document.querySelector("#menu").classList.toggle("hide_scrollbar");
-    let deco = document.querySelector("#deco-bstext").classList.toggle("hide_scrollbar");
+    try { //intenta aplicar una clase a un elemento que solo se encuentra en la pagina principal
+        let deco = document.querySelector("#deco-bstext").classList.toggle("hide_scrollbar"); 
+    } catch (error) {
+        // ignoramos el error ya que no nos afecta en nada
+    }
+
     block_scroll();
 }
 
@@ -54,21 +59,21 @@ function acarrear(cantidad, nombre, precio, stock, imagen, pais) { // funcion de
                     // en caso de que la cantidad agregada al carro sea mayor al stock del producto..
                     alert("Ya alcanzó el stock maximo de ese producto");
                 } else {
-                    if (objeto.cant + element.cant < 1) {   
+                    if (objeto.cant + element.cant < 1) { // si tenemos un producto con cantidad negativa...
                         let index = carrito.indexOf(element);
-                        carrito.splice(index, 1);
+                        carrito.splice(index, 1); // eliminamos el producto del carrito
                         cartcount.innerText = (carrito.length - 1);
                         if (carrito.length == 1) {
-                            vaciarcarrito();
-                            exit();         
+                            vaciarcarrito(); // si eliminamos el último producto del carrito, se vacía
+                            exit();
                         }
                     }
                     carticon = document.querySelector("#cart-icon").classList.toggle("animatecart");
                     setTimeout(() => carticon = document.querySelector("#cart-icon").classList.toggle("animatecart"), 200);
                     // en caso de que no supere el stock
-                    total += parseInt(objeto.price)*parseInt(objeto.cant); // el precio de las unidades extra se agregan al total
-                    element.cant+=objeto.cant; // se agregan las unidades al producto
-                    
+                    total += parseInt(objeto.price) * parseInt(objeto.cant); // el precio de las unidades extra se agregan al total
+                    element.cant += objeto.cant; // se agregan las unidades al producto
+
                 }
                 agrego = false; // si el objeto seleccionado ya existe en el carrito la flag 'agrego' da falso
             }
@@ -77,11 +82,12 @@ function acarrear(cantidad, nombre, precio, stock, imagen, pais) { // funcion de
 
     if (agrego) {
         cartcount.innerText = carrito.length;
+        cartcount.style.background = "#800b18";
         carticon = document.querySelector("#cart-icon").classList.toggle("animatecart");
         setTimeout(() => carticon = document.querySelector("#cart-icon").classList.toggle("animatecart"), 200);
         // si la flag 'agrego' es verdadero
         carrito.push(objeto); // se agrega al carrito el objeto
-        total += parseInt(objeto.price)*parseInt(objeto.cant); // se suma al total el objeto agregado al carrito
+        total += parseInt(objeto.price) * parseInt(objeto.cant); // se suma al total el objeto agregado al carrito
     }
 
     carro = document.getElementById("carro-content");
@@ -91,20 +97,20 @@ function acarrear(cantidad, nombre, precio, stock, imagen, pais) { // funcion de
     carrito.forEach((element) => {
         // por cada elemento en el carrito, se agrega una línea con la información del producto
         carro.innerHTML +=
-            "<div id='cart-item'><p0>"+carrito.indexOf(element)+"</p0><img src=\"" + element.imagen + "\"><div id='cart-restar' onclick='cart_cant_verify(" + -1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>-</div><input type='number' min='1' max='5' value='1' class='cart-cant' id='cart-cant" + aux + "'></input><div id='cart-sumar' onclick='cart_cant_verify(" + 1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>+</div><p1>" + element.cant + " x $ " + element.price + "</p1><p3>" + element.name + "</p3><p4>" + element.pais + "</p4></div>"   
-        aux++; 
-        });
+            "<div id='cart-item'><img src=\"" + element.imagen + "\"><div id='cart-restar' onclick='cart_cant_verify(" + -1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>-</div><input type='number' min='1' max='100' onkeyup=verificar_num(this) value='1' class='cart-cant' id='cart-cant" + aux + "'></input><div id='cart-sumar' onclick='cart_cant_verify(" + 1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>+</div><p1>" + element.cant + " x $ " + element.price + "</p1><p3>" + element.name + "</p3><p4>" + element.pais + "</p4></div>"
+        aux++;
+    });
 
     totalcount = document.getElementById("totalcount");
     totalcount.innerText = "Total: $ " + total; // se escribe el valor total
 }
 
 function cart_cant_verify(cantidad, nombre, precio, stock, imagen, pais, num_input) {
-    cart_input_cant = document.querySelector("#cart-cant"+num_input).value;
+    cart_cant_pick = document.querySelector("#cart-cant" + num_input).value;
     if (cantidad > 0) { //si le di al botón +
-        acarrear(parseInt(cart_input_cant), nombre, precio, stock, imagen, pais);
+        acarrear(parseInt(cart_cant_pick), nombre, precio, stock, imagen, pais);
     } else { //si le di al botón -
-        acarrear(-(parseInt(cart_input_cant)), nombre, precio, stock, imagen, pais);
+        acarrear(-(parseInt(cart_cant_pick)), nombre, precio, stock, imagen, pais);
     }
 
 }
@@ -148,6 +154,7 @@ function vaciarcarrito() {
     carro.innerText = "";
     totalcount.innerText = "";
     cartcount.innerText = "";
+    cartcount.style.background = "none";
     title = document.getElementById("carrito-title").style.display = "none";
     cartbotones = document.getElementById("cart-buttons").style.display = "none";
     carticon = document.querySelector("#cart-icon").style.pointerEvents = "none";
@@ -177,4 +184,15 @@ function block_scroll() { // bloquea el desplazamiento si nuestro cursor esta en
         });
         setTimeout(() => close_cart.style.display = "", 500);
     }
-}  
+}
+
+function verificar_num(input) {
+    if (input.value != "") {
+        if (parseInt(input.value) < parseInt(input.min)) {
+            input.value = input.min;
+        }
+        if (parseInt(input.value) > parseInt(input.max)) {
+            input.value = input.max;
+        }
+    }
+}

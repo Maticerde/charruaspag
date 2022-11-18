@@ -1,4 +1,4 @@
-function escribir_info_vino(codigo_vino ,nombre, precio, stock, pais_vino, region, cosecha, bodega, imagen) {
+function escribir_info_vino(codigo_vino, nombre, precio, stock, pais_vino, region, cosecha, bodega, imagen) {
     info = document.querySelectorAll(".info");
     info[0].src = "../../" + imagen;
     info[1].innerText = nombre;
