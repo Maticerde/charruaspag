@@ -33,7 +33,6 @@
         $log_validate = false;
         foreach ($sql as $row)
         {
-            $row["Nombre_Cliente"];
             /*escucho coincidencia en usuario y pass*/
             if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Cliente'], $array_dataset["pass"])==0){$log_validate = true;}
         }

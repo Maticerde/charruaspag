@@ -20,7 +20,7 @@
 <form id="gototienda" action="http://localhost/charruaspag/views/market/market.php">
     <button id="gototienda">Tienda</button>
   </form>
-<section id="usuariologeado">
+  <section id="usuariologeado">
 <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {

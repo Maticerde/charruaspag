@@ -26,4 +26,3 @@ function new_user() {
         header("Location: http://localhost/charruaspag/views/login/index.php");
 }
 
-

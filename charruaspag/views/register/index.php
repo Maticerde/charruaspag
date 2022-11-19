@@ -37,6 +37,6 @@ session_start();
             <p>¿Ya tenes una cuenta?</p>
         </a>
     </section>
-        <video autoplay loop muted src="/charruaspag/src/login/Video/vino_cayendo_en_una_copa.mp4"></video>
+        <video autoplay loop muted src="/charruaspag/src/login/Video/viña_video.mp4"></video>
      <!-- <script src="/charruaspag/public/js/register/registerjs.js"></script> -->
 </div>

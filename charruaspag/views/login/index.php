@@ -25,17 +25,17 @@ session_start();
         </a>
         <form method="POST" action="/charruaspag/controllers/login_Controller.php">
             <input type="text" disabled id="mensaje"/>
-            <input type="text" name="unombre" placeholder="Email" required/>
+            <input type="email" name="unombre" placeholder="Email" required/>
             <input type="password" name="upass" placeholder="Contraseña" required/>
             <button type="submit_button" id="login_button"> Ingresar </button>
         </form>
         <a id="gotoregister" href="../register/index.php"> 
             <p>Registrarse</p> 
         </a>
-        <a id="gotomissedpassword" href="../passperdida/index.php">
+        <a id="goto_olvidemipass" href="../olvidemipass/index.php">
             <p> ¿Olvidaste tu contraseña? </p>
         </a>
     </section>
-        <video autoplay loop muted src="/charruaspag/src/login/Video/vino_cayendo_en_una_copa.mp4"></video>
+        <video autoplay loop muted src="/charruaspag/src/login/Video/viña_video.mp4"></video>
     <!-- <script src="/charruaspag/public/js/loginjs.js"></script> -->
 </div>

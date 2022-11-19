@@ -1,53 +1,35 @@
-function load_shop() {
-    const market = document.querySelector(".productos-gallery");
-    // se inicia load de productos
-    market.innerHTML = "";
-    fetch("../../controllers/MarketVinos_Controller.php").then(function (response) {
-      return response.text().then(function (text) {
-        //alert(text);
-        market.innerHTML = text;
-      });
-    });
+
+arrow = document.getElementById("arrow");
+menu = document.getElementById("menu");
+let auxflag = true;
+
+function myScrollFunc() {
+  console.log("a");
+  let y = window.scrollY;
+  if (y > 1100) {
+    arrow.style.top = "60px";
+    if (!menu.classList.contains("llevarmenu") && auxflag) {
+      menu.style.top = "-57px";
+      menu.classList.add("llevarmenu");
+      setTimeout(() => menu.style.top = "0px", 100);
+    } 
+  } else {
+    arrow.style.top = "-50px";
+    if (menu.classList.contains("llevarmenu") && auxflag) {
+      menu.style.top = "-57px";
+      setTimeout(() => menu.classList.remove("llevarmenu"), 500);
+      setTimeout(() => menu.style.top = "0", 500);
+      setTimeout(() => menu.style.top = "", 1000);
+      auxflag = false; // previene el inicio de otra animacion hasta que termine la actual
+      setTimeout(() => auxflag = true, 1000);
+    }
   }
-  
-  document.addEventListener("DOMContentLoaded", function (event) {
-    load_shop();
+}
+window.addEventListener("scroll", myScrollFunc);
+window.addEventListener("load", myScrollFunc);
+function scrollto() {
+  window.scroll({
+    top: 0,
+    behavior: "smooth",
   });
-
-  searchbar = document.getElementById("keywords").addEventListener('keydown', (e) => {
-    setTimeout(() => search(), 50);
-  });
-
-  function search() {
-    const data = new FormData();
-    keywords = document.querySelector("#keywords").value;
-    data.set("keyword_post", keywords);
-  
-    //ya tengo el dato escrito cuando toco el boton, falta enviar por post a implement para actualizar el select y despues loadear shop nuevamente
-    fetch("../../controllers/MarketVinos_Controller.php", {
-      method: "POST",
-      body: data,
-    })
-      .then(function (response) {
-        if (response.ok) {
-          return response.text();
-        } else {
-          throw "Error";
-        }
-      })
-      .then(function (texto) {
-        //load_shop()
-        load_filter_shop(texto);
-        //alert(texto);
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-  }
-  
-
-
-  function load_filter_shop(filtro) {
-    const market = document.querySelector(".productos-gallery");
-    market.innerHTML = filtro;
-  }
+}

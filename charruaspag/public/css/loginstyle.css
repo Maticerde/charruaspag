@@ -85,13 +85,6 @@ video {
   height: 100%;
 }
 
- #gotoregister {
-  font-size: 2vh;
-  font-family:Verdana;
-  color: white;
-  display: center ;
-}
-
 #mensaje {
   font-size: 13px;
   background-color: transparent;
@@ -144,6 +137,11 @@ a {
 }
 
 @media (max-width: 1240px) {
+
+  video {
+    margin-left: 0;
+  }
+
   #logo {
     display: none;
   }
