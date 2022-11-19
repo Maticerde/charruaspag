@@ -70,6 +70,59 @@ echo "=================================================="
 echo ""
 sleep 2
 
+
+echo "=================================================="
+echo "Configurando SSH"
+echo "=================================================="
+echo ""
+
+
+echo "Port 2666" >> /etc/ssh/sshd_config
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
+echo "==================================================="
+echo "Ingrese nombre y contraseña para la llave (OPCIONAL)"
+echo "==========PRESIONE INTRO PARA SALTAR==============="
+echo ""
+
+ssh-keygen -t rsa
+
+ls /root/.ssh/
+
+systemctl restart ssh
+systemctl restart sshd
+
+cd
+cd /home/proyecto/server/script_recovery
+mkdir ssh_configuracion.sh
+chmod 755 ssh_configuracion.sh
+
+cd ssh_configuracion.sh
+
+touch ssh_config.sh
+chmod 755 ssh_config.sh
+
+echo "#!/bin/bash" >> ssh_config
+
+echo "echo "Port 2666" >> /etc/ssh/sshd_config" >> ssh_config.sh
+echo "echo "PermitRootLogin yes" >> /etc/ssh/sshd_config" >> ssh_config.sh
+
+
+echo "ssh-keygen -t rsa" >> ssh_config.sh
+
+echo "ls /root/.ssh/" >> ssh_config.sh
+
+
+echo "systemctl restart ssh" >> ssh_config.sh
+echo "systemctl restart sshd" >> ssh_config.sh
+
+
+echo "=================================================="
+echo "¡Configuracion Completada!"
+echo "=================================================="
+echo ""
+sleep 1
+
 echo "=================================================="
 echo "Creando usuarios del sistema "
 echo "=================================================="
@@ -642,6 +695,7 @@ sudo ufw allow 2666
 sudo ufw allow 80
 sudo ufw allow http
 sudo ufw allow 80/tcp
+sudo ufw reload
 
 cd
 cd /home/proyecto/server/script_recovery
@@ -673,23 +727,12 @@ echo "sudo ufw allow 80" >> firewall.sh
 echo "sudo ufw allow http" >> firewall.sh
 echo "sudo ufw allow 80/tcp" >> firewall.sh
 
+echo "sudo ufw reload" >> firewall.sh
+
 echo "========================================================"
 echo "¡Instalacion y Configuracion de FireWall Completada!"
 echo "========================================================"
 echo ""
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 sleep 1
 echo "========================================================"

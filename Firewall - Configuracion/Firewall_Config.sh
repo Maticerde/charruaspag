@@ -27,28 +27,32 @@ echo "================================================================"
 sleep 0.3
 echo ""
 
-opciones=("Realizar Respaldo" "Salir")
+
+opciones=("Configurar Firewall" "Salir")
 select opcion in "${opciones[@]}"
 do
 
 case $opcion in
 
-"Realizar Respaldo") 
-cd /home/proyecto
+"Ver Intentos de Login")
 
-cp Vinos_Charruas.sql /home/proyecto/server/respaldos
-
-cd /home/proyecto/server/respaldos
+sudo apt install ufw
+sudo ufw enable
 
 
-tar -czvf Vinos_Charruas-$(date +%F_%H_%M).tar.gz *.sql
+sudo ufw allow OpenSSH
+sudo ufw allow ssh
 
-rm -rf *.sql
 
-echo ===================================== 
-echo ¡Se ha respladado las Bases de Datos! 
-echo ===================================== 
+sudo ufw logging on
+
+sudo ufw allow 2666
+
+sudo ufw allow 80
+sudo ufw allow http
+sudo ufw allow 80/tcp
 ;;
+
 
 "Salir") echo "¡Hasta Luego!"; exit
 ;;
@@ -58,3 +62,4 @@ echo =====================================
 	esac
 echo "------Precione ENTER para continuar-----"
 done
+
