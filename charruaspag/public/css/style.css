@@ -941,3 +941,9 @@ li:hover {
     object-fit: scale-down;
   }
 }
+
+#usuariologeado a{
+  text-decoration: none;
+  margin-left: 2vh;
+  color: #ffffff;
+}

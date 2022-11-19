@@ -15,9 +15,9 @@ function new_user() {
     $modelo = new register_model();
     $datos = $modelo->setUser(
         $CI_Cliente     = $_POST["ucedula"],
-        $Nombre_Cliente = $_POST["udireccion"],
-        $Direccion      = $_POST["uciudad"],
-        $Ciudad         = $_POST["user"],
+        $Nombre_Cliente = $_POST["user"],
+        $Direccion      = $_POST["udireccion"],
+        $Ciudad         = $_POST["uciudad"],
         $Email_Cliente  = $_POST["umail"],
         $Contrasenia    = md5($_POST["upassword"])
     );
