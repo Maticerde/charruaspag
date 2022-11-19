@@ -14,8 +14,8 @@ function escribir_info_bodega(nombre_bodega, email, direccion, pais_bodega, ciud
     info[0].innerText = nombre_bodega;
     info[1].innerText = pais_bodega;
     info[2].innerText = ciudad;
-    info[3].innerText = cuenta;
+    info[3].innerText = "Cuenta: " + cuenta;
     info[4].innerText = direccion;
-    info[5].innerText = codpostal;
+    info[5].innerText = "Cod. Postal: " + codpostal;
     info[6].innerText = email;
 }

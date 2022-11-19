@@ -153,18 +153,23 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
       }
     }
   } else {
-    info_wrapper.style.display = "none";
-    if (!modvinobox.classList.contains("desplegar2")) {
-      addvinobox.classList.toggle("desplegar");
-      addbodegabox.classList.toggle("desplegar");
-      setTimeout(() => modvinobox.classList.toggle("desplegar2"), 900);
-      setTimeout(() => modbodegabox.classList.toggle("desplegar2"), 900);
+    try {
+      info_wrapper.style.display = "none";
+      if (!modvinobox.classList.contains("desplegar2")) {
+        addvinobox.classList.toggle("desplegar");
+        addbodegabox.classList.toggle("desplegar");
+        setTimeout(() => modvinobox.classList.toggle("desplegar2"), 900);
+        setTimeout(() => modbodegabox.classList.toggle("desplegar2"), 900);
+      }
+      modvinobox.classList.remove("desplegar2");
+      modbodegabox.classList.remove("desplegar2");
+      setTimeout(() => addvinobox.classList.remove("desplegar"), 900);
+      setTimeout(() => addbodegabox.classList.remove("desplegar"), 900);
+      primeraflag = true;
+    } catch (error) {
+      // Da un error necesario para funcionar 
     }
-    modvinobox.classList.remove("desplegar2");
-    modbodegabox.classList.remove("desplegar2");
-    setTimeout(() => addvinobox.classList.remove("desplegar"), 900);
-    setTimeout(() => addbodegabox.classList.remove("desplegar"), 900);
-    primeraflag = true;
+
   }
 }
 

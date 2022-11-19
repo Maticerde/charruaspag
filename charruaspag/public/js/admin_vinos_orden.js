@@ -15,6 +15,8 @@ function load_orden_style(id) {
     info_bodega = document.getElementById("info-bodega");
     options = document.querySelectorAll(".options");
     inputs = document.querySelectorAll(".inputs");
+    
+    addvinobox = document.getElementById("addvino-box")
     addbodegabox = document.getElementById("addbodega-box");
     modbodegabox = document.getElementById("modbodega-bax");
 
@@ -30,13 +32,13 @@ function load_orden_style(id) {
     info_bodega.classList.remove("info-select");
     info_wrapper.style.display = "none";
     info_efecto.style.display = ""
-    setTimeout(() => modvinobox.classList.remove("desplegar2"), 100);
-    setTimeout(() => modbodegabox.classList.remove("desplegar2"), 100);
-    setTimeout(() => addvinobox.classList.remove("desplegar"), 1000);
-    setTimeout(() => addbodegabox.classList.remove("desplegar"), 1000);
-  }
+      setTimeout(() => modvinobox.classList.remove("desplegar2"), 100);
+      setTimeout(() => modbodegabox.classList.remove("desplegar2"), 100);
+      setTimeout(() => addvinobox.classList.remove("desplegar"), 1000);
+      setTimeout(() => addbodegabox.classList.remove("desplegar"), 1000);
 
-  vaciarforms();
+  }
+    vaciarforms();
 }
 
 function load_vinos() { // este fetch carga asíncronamente la lista de vinos cargados

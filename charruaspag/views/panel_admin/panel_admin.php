@@ -66,7 +66,6 @@
           <input class="inputs_mod" type="text" list="in_bodega_vino" name="in_bodega_vino" required>
           <p2 class="input_texto_modv"> ID Bodega </p2>
           <datalist id="in_bodega_vino">
-            <script src="../../public/js/admin_bodegas_form_load.js"></script>
           </datalist>
         </label>
         <label id="imagen_label" class="input_label">
@@ -263,7 +262,7 @@
     </div>
 
     <div class="box" id="usermod-box">
-      <h3>MODIFICAR USUARIO</h3>
+      <h3> AGREGAR ADMINISTRADOR</h3>
     </div>
   </section>
   <script src="../../public/js/admin_function.js"></script>

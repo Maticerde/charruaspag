@@ -49,29 +49,3 @@ for ($i = 0; $i < $aux; $i++) {
         echo "<div id='productos-div' onclick='acarrear(" . 1 . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\",\"" . $array_images[$i] . "\",\"" . $array_paises[$i] . "\");'><img src=\"" . $array_images[$i] . "\"/><p0> " . $array_nombres[$i] . "</p0><br><p1> " . $array_regiones[$i] . " •</p1><p1> " . $array_paises[$i] . "</p1><br><h2> $ " . $array_precios[$i] . "</h2></div>";
     }
 }
-
-for ($i = 0; $i < $aux; $i++) {
-    if ($array_stocks[$i]<=5) {
-        echo "<div id='productos-div-lowstock' onclick='acarrear(" . 1 . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\",\"" . $array_images[$i] . "\",\"" . $array_paises[$i] . "\");'><img src=\"" . $array_images[$i] . "\"/><p0> " . $array_nombres[$i] . "</p0><br><p1> " . $array_regiones[$i] . " •</p1><p1> " . $array_paises[$i] . "</p1><br><h2> $ " . $array_precios[$i] . "</h2><br></div>";
-    } else {
-        echo "<div id='productos-div' onclick='acarrear(" . 1 . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\",\"" . $array_images[$i] . "\",\"" . $array_paises[$i] . "\");'><img src=\"" . $array_images[$i] . "\"/><p0> " . $array_nombres[$i] . "</p0><br><p1> " . $array_regiones[$i] . " •</p1><p1> " . $array_paises[$i] . "</p1><br><h2> $ " . $array_precios[$i] . "</h2></div>";
-    }
-}
-for ($i = 0; $i < $aux; $i++) {
-    if ($array_stocks[$i]<=5) {
-        echo "<div id='productos-div-lowstock' onclick='acarrear(" . 1 . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\",\"" . $array_images[$i] . "\",\"" . $array_paises[$i] . "\");'><img src=\"" . $array_images[$i] . "\"/><p0> " . $array_nombres[$i] . "</p0><br><p1> " . $array_regiones[$i] . " •</p1><p1> " . $array_paises[$i] . "</p1><br><h2> $ " . $array_precios[$i] . "</h2><br></div>";
-    } else {
-        echo "<div id='productos-div' onclick='acarrear(" . 1 . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\",\"" . $array_images[$i] . "\",\"" . $array_paises[$i] . "\");'><img src=\"" . $array_images[$i] . "\"/><p0> " . $array_nombres[$i] . "</p0><br><p1> " . $array_regiones[$i] . " •</p1><p1> " . $array_paises[$i] . "</p1><br><h2> $ " . $array_precios[$i] . "</h2></div>";
-    }
-}
-
-for ($i = 0; $i < $aux; $i++) {
-    if ($array_stocks[$i]<=5) {
-        echo "<div id='productos-div-lowstock' onclick='acarrear(" . 1 . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\",\"" . $array_images[$i] . "\",\"" . $array_paises[$i] . "\");'><img src=\"" . $array_images[$i] . "\"/><p0> " . $array_nombres[$i] . "</p0><br><p1> " . $array_regiones[$i] . " •</p1><p1> " . $array_paises[$i] . "</p1><br><h2> $ " . $array_precios[$i] . "</h2><br></div>";
-    } else {
-        echo "<div id='productos-div' onclick='acarrear(" . 1 . ",\"" . $array_nombres[$i] . "\",\"" . $array_precios[$i] . "\",\"" . $array_stocks[$i] . "\",\"" . $array_images[$i] . "\",\"" . $array_paises[$i] . "\");'><img src=\"" . $array_images[$i] . "\"/><p0> " . $array_nombres[$i] . "</p0><br><p1> " . $array_regiones[$i] . " •</p1><p1> " . $array_paises[$i] . "</p1><br><h2> $ " . $array_precios[$i] . "</h2></div>";
-    }
-}
-
-
-
