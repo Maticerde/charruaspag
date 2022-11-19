@@ -4,6 +4,7 @@ menu = document.getElementById("menu");
 let auxflag = true;
 
 function myScrollFunc() {
+  console.log("a");
   let y = window.scrollY;
   if (y > 1100) {
     arrow.style.top = "60px";

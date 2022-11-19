@@ -69,6 +69,11 @@ ul {
   }
 }
 
+#body {
+  height: 100%;
+  min-height: 100%;
+}
+
 #menu {
   transition: all ease 0.5s, width 0s;
   overflow: hidden;
@@ -91,6 +96,7 @@ ul {
 
 #cart {
   top: 0vw;
+  z-index: 5;
 }
 
 #charruas-texto {
@@ -124,15 +130,53 @@ ul {
   position: relative;
   display: grid;
   width: 100vw;
-  height: calc(100vh - 50px);
+  height: fit-content;
+  min-height: 100%;
   grid-template-columns: 25% 75%;
+  grid-template-rows: 100%;
 }
 
 #filter-section {
+  padding-top: 2vw;
+  text-indent: 1vw;
   position: relative;
-  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(3);
+  row-gap: 2vw;
+  height: fit-content;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.081);
+  padding-bottom: 2vw;
+}
+
+#filter-section div {
+  width: 100%;
+  height: fit-content;
+  min-height: 300px;
+  background-color: rgba(40, 40, 40, 0.059);
+  padding-bottom: 2vw;
+}
+
+#filter-section h1 {
+  position: relative;
+  font-size: 1.5vw;
+  font-family: robotolight;
+  letter-spacing: 0.2vw;
+  top: 0;
+  width: 90%;
+  border-bottom: 1px solid grey;
+  line-height: 2.5vw;
+}
+
+#paises-list, #bodegas-list, #regiones-list {
+  position: relative;
+  font-family: robotolight;
+  font-size: 1.1vw;
+  top: -1vw;
+}
+
+#paises-list p1 {
+  font-size: 0.1vw;
 }
 
 #market-section {
@@ -151,7 +195,7 @@ ul {
   background-color: rgb(253, 245, 241);
   font-family: robotolight;
   top: 2vw;
-  left: 31vw;
+  left: 29.1vw;
   height: 2.7vw;
   width: 50vw;
   font-size: 1.5vw;
@@ -162,8 +206,52 @@ ul {
   color: rgb(156, 153, 153);
 }
 
+input[type="radio"] {
+  accent-color: rgb(169, 110, 110);
+  right: 0;
+}
+
+input[type="radio"]:checked + p1{
+  color: black;
+  font-weight: 900;
+}
+
+#vinos-order {
+  font-family: edensor;
+  font-weight: bold;
+  font-size: 1vw;
+  top: 3vw;
+  position: absolute;
+  right: 3vw;
+  width: 18vw;
+  text-align: center;
+  color: rgba(147, 147, 147, 0.743);
+}
+
+#vinos-order p1 {
+  transition: all ease 0.1s;
+  position: absolute;
+  text-indent: -5vw;
+}
+
+#orden1 {
+top: -3px;
+}
+
+#vinos-order input {
+  cursor: pointer;
+  opacity: 0;
+  top: 2px;
+  width: 5vw;
+  height: 1vw ;
+  accent-color: rgba(79, 79, 79, 0.243);
+  position: relative;
+  margin-inline: auto;
+  z-index: 1;
+}
+
+
 .productos-gallery {
-  height: fit-content;
   margin-top: 4.1vw;
   width: 90%;
   margin-inline: auto;
@@ -173,6 +261,8 @@ ul {
   column-gap: 0.5vw;
   row-gap: 2.5vw;
   padding-top: 3vw;
+  overflow: hidden;
+  padding-bottom: 2vw;
 }
 
 .productos-gallery div {
@@ -190,9 +280,11 @@ ul {
 }
 
 .productos-gallery div:hover {
+  width: 13.2vw;
   background-color: rgb(246, 237, 234);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 }
+
 
 #productos-div img,
 #productos-div-lowstock img {
@@ -223,15 +315,19 @@ ul {
   font-size: 0.85vw;
 }
 
-#productos-div p2,
-#productos-div-lowstock p2 {
+#productos-div h2,
+#productos-div-lowstock h2 {
+  transition: all ease 0.3s;
   position: relative;
+  text-align: center;
+  text-indent: -0.55vw;
   font-size: 1.5vw;
-  right: 0.55vw;
-  bottom: 0.5vw;
-  color: rgba(0, 0, 0, 0.913);
+  bottom: 1.5vw;
+  color: rgb(17, 16, 16);
+  background-color: rgba(219, 216, 216, 0.645);
   font-weight: 900;
   font-family: robotolight;
+  width: 100%;
 }
 
 #load-more {
@@ -255,18 +351,20 @@ ul {
   background-color: #63252c;
   background: rgb(117, 56, 63);
   background: linear-gradient(90deg, #75383f 0%, #63252c 48%, #75383f 100%);
-  position: relative;
+  position: absolute;
+  bottom: -17vw;
 }
 
 .contactobox {
   margin: auto;
-  height: fit-content;
+  height: 17vw;
   width: 60%;
 }
 
 .contactobox ul {
   color: rgb(51, 13, 18);
   background-color: transparent;
+  height: fit-content;
   padding-top: 4.5vw;
   margin-left: 35vw;
   width: 15vw;
@@ -335,6 +433,7 @@ li:hover {
   font-size: 1.2vw;
   font-family: robotolight;
   overflow: hidden;
+
 }
 
 #copy {

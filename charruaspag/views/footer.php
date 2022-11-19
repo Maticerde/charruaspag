@@ -12,7 +12,7 @@
       <li id="polprivacidad" onclick="desplegar(id)"> Políticas de Privacidad </li>
     </ul>
   </div>
-</div>
-<div id="copyright">
-  <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
+  <div id="copyright">
+    <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
+  </div>
 </div>

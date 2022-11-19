@@ -38,18 +38,39 @@
     <button type="button" id="vaciar" onclick="vaciarcarrito();"><p2>Vaciar</p2><img src="/charruaspag/src/trashicon.png"/></button>
   </section>
 </div>
-  <section id="main-grid">
-    <section id="filter-section"></section>
-    <section id="market-section">
+<section id="main-grid">
+  <section id="filter-section">
+    <div id="paises-filter"> 
+      <h1>Países</h1>
+      <section id="paises-list"></section>
+    </div>
+    <div id="bodegas-filter">
+      <h1>Bodegas</h1>
+      <section id="bodegas-list"></section>
+    </div>
+    <div id="regiones-filter">
+      <h1>Regiones</h1>
+      <section id="regiones-list"></section>
+    </div>
+  </section>
+  <section id="market-section">
     <input type="text" id="keywords" name="keywords" size="30" maxlength="30" placeholder="Buscar productos">
+    <form id="vinos-order" method="POST">
+      <input type="radio" name="orden" onclick="load_shop();" value="Nombre_Vino" checked>
+      <p1 class="ord" id="orden1">A &#10132; Z</p1></input>
+      <input type="radio" name="orden" onclick="load_shop();" value="Codigo_Vino DESC">
+      <p1 class="ord" id="orden2">Recientes</p1></input>
+      <input type="radio" name="orden" onclick="load_shop();" value="Codigo_Vino ASC">
+      <p1 class="ord" id="orden3">Antiguos</p1></input>
+    </form>
     <section class="productos-gallery"></section>
-    <div id="load-more">CARGAR MAS</div>
-    </section>
   </section>
   <?php include "../footer.php" ?>
   <?php include '../desplegables/desplegables.php';?>
+</section>
 </body>
 <script src="../../public/js/market_load.js"></script>
 <script src="../../public/js/scroll-function.js"></script>
+<script src="../../public/js/market_filters.js"></script>
 <script src="../../public/js/carrito.js"></script>
 <script src="../../public/js/desplegables.js"></script>
