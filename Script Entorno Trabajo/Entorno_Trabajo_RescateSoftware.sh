@@ -94,10 +94,10 @@ systemctl restart sshd
 
 cd
 cd /home/proyecto/server/script_recovery
-mkdir ssh_configuracion.sh
-chmod 755 ssh_configuracion.sh
+mkdir ssh_configuracion
+chmod 755 ssh_configuracion
 
-cd ssh_configuracion.sh
+cd ssh_configuracion
 
 touch ssh_config.sh
 chmod 755 ssh_config.sh
