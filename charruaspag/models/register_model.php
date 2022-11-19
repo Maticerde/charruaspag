@@ -18,9 +18,8 @@
 
     public function setUser($CI_Cliente, $Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia) {
     
-        $sql = "INSERT INTO CLIENTES (Codigo_Cliente, CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia)
+        $sql = "INSERT INTO CLIENTES (Codigo_Cliente, CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente)
         VALUES (?, ?, ?, ?, ?, ?, ?);";
        $this->conn->prepare($sql)->execute([NULL, $CI_Cliente, $Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia]);
-    }
-
+    } 
 }
