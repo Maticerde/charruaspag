@@ -34,13 +34,13 @@
         foreach ($sql as $row)
         {
             /*escucho coincidencia en usuario y pass*/
-            if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Cliente'], $array_dataset["pass"])==0){$log_validate = true;}
+            if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Cliente'], $array_dataset["pass"])==0){$log_validate = true; $row["Nombre_Cliente"];}
         }
 
         /*estimo resultado de consulta login*/
         if ($log_validate == true) {
             $consulta_login = "credenciales válidas";
-            $_SESSION['nombredeusuario']=$array_dataset["user"]; // guardo en la sesion los datos de la consulta mysql
+            $_SESSION['nombredeusuario']=$row["Nombre_Cliente"]; // guardo en la sesion los datos de la consulta mysql
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
             header("Location:/charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
@@ -57,11 +57,11 @@
             foreach ($sql as $row)
         {
             /*escucho coincidencia en usuario y pass*/
-            if(strcmp($row['Email_Empleado'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Empleado'], $array_dataset["pass"])==0){$log_validate = true;}
+            if(strcmp($row['Email_Empleado'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Empleado'], $array_dataset["pass"])==0){$log_validate = true; $row["Nombre_Empleado"];}
 
             if ($log_validate == true) {
                 $consulta_login = "credenciales válidas";
-                $_SESSION['setAdmin']=$array_dataset["user"]; // guardo en la sesion los datos de la consulta mysql
+                $_SESSION['setAdmin']=$row["Nombre_Empleado"]; // guardo en la sesion los datos de la consulta mysql
                 echo $consulta_login;
                 //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
                 header("Location:/charruaspag/views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
