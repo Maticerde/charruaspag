@@ -1,9 +1,7 @@
  <?php
 session_start();
     if(isset($_SESSION["nombredeusuario"])){
-        echo "<script> alert('Modificar perfil');</script> ";
     }elseif(isset($_SESSION["setAdmin"])){
-        echo "<script> alert('Modificar perfil');</script> ";
     } else {
         header("location: ../login/index.php");
     }

@@ -29,6 +29,8 @@
         echo '<a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar perfil</a>';
       }elseif(isset($_SESSION["setAdmin"])) {
         echo $_SESSION["setAdmin"];
+        echo "  ";
+        echo '<a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar perfil</a>';
       }
     ?>
   </section>
