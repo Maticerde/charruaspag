@@ -613,6 +613,18 @@ body {
   color: inherit;
 }
 
+#hamburguer ul{
+  list-style: none;
+}
+
+#hamburguer ul li{
+  color: white;
+}
+
+#hamburguer ul li:hover{
+  color: green;
+}
+
 li {
   border-bottom: 2px solid rgb(51, 13, 18);
   font-weight: bold;

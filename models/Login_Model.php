@@ -63,6 +63,7 @@
             if ($log_validate == true) {
                 $consulta_login = "credenciales válidas";
                 $_SESSION['setAdmin']=$Nom_Empleado; // guardo en la sesion los datos de la consulta mysql
+                $_SESSION['id_admin']=$id_empleado;
                 echo $consulta_login;
                 //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
                 header("Location:/charruaspag/views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
