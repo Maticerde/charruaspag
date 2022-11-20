@@ -6,7 +6,7 @@
     
     public function __construct() {
         
-        $host = "localhost:3307";
+        $host = "localhost:3306";
         $username = "root";
         $password = "";
         $db_name = "vinos_charruas";
@@ -34,13 +34,13 @@
         foreach ($sql as $row)
         {
             /*escucho coincidencia en usuario y pass*/
-            if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Cliente'], $array_dataset["pass"])==0){$log_validate = true; $id_cliente = $row['Codigo_Cliente'];}
+            if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Cliente'], $array_dataset["pass"])==0){$log_validate = true; $id_cliente = $row['Codigo_Cliente']; $Nom_Cliente = $row["Nombre_Cliente"];}
         }
 
         /*estimo resultado de consulta login*/
         if ($log_validate == true) {
             $consulta_login = "credenciales válidas";
-            $_SESSION['nombredeusuario']=$array_dataset["user"]; // guardo en la sesion los datos de la consulta mysql
+            $_SESSION['nombredeusuario']= $Nom_Cliente; // guardo en la sesion los datos de la consulta mysql
             $_SESSION['id_cliente'] = $id_cliente;
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
@@ -58,11 +58,11 @@
             foreach ($sql as $row)
         {
             /*escucho coincidencia en usuario y pass*/
-            if(strcmp($row['Email_Empleado'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Empleado'], $array_dataset["pass"])==0){$log_validate = true;}
+            if(strcmp($row['Email_Empleado'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Empleado'], $array_dataset["pass"])==0){$log_validate = true;$id_empleado = $row["Codigo_Empleado"] ;$Nom_Empleado = $row["Nombre_Empleado"];}
 
             if ($log_validate == true) {
                 $consulta_login = "credenciales válidas";
-                $_SESSION['setAdmin']=$array_dataset["user"]; // guardo en la sesion los datos de la consulta mysql
+                $_SESSION['setAdmin']=$Nom_Empleado; // guardo en la sesion los datos de la consulta mysql
                 echo $consulta_login;
                 //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
                 header("Location:/charruaspag/views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
