@@ -28,7 +28,7 @@ session_start();
             <input type="number" name="ucedula" maxlength="8" placeholder="Documento C. I." required/>
             <input type="text" name="udireccion" placeholder="Dirección" required/>
             <input type="text" name="uciudad" placeholder="Ciudad" required/>
-            <input type="text" name="user" placeholder="Nombre" required/>
+            <input type="text" name="nombre_user" placeholder="Nombre" required/>
             <input type="text" name="umail" placeholder="Email" required/>
             <input type="password" name="upassword" placeholder="Contraseña" required/>
             <button type="submit_button" id="register_button"> Registrarse </button>
