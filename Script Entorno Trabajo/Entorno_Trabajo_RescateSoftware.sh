@@ -63,6 +63,8 @@ sudo apt -y install openssh-client
 sudo apt -y install mysql-server
 sudo apt -y install mysql-client
 sudo apt -y install network-manager
+sudo apt -y install apache2
+sudo apt -y install php8.1
 
 echo "=================================================="
 echo "¡Paquetes instalados!"
