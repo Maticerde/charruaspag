@@ -82,7 +82,11 @@ if(isset($_SESSION["nombredeusuario"])) { // si el cliente inició sesion, apare
       if(isset($_SESSION["nombredeusuario"])){
         echo 'onclick="generar_venta(); generar_detalleventa(); vaciarcarrito();"';}
       else {
-        echo 'onclick="alertacarrito();"';
+        if(isset($_SESSION["setAdmin"])){
+          echo 'onclick="alertacarrito_admin();"';
+        } else {
+          echo 'onclick="alertacarrito();"';
+        }
       }
       ?>>Comprar</button>
     <button type="button" id="vaciar" onclick="vaciarcarrito();"><p2>Vaciar</p2><img src="src/trashicon.png"/></button>

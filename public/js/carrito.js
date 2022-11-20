@@ -188,7 +188,11 @@ function vaciarcarrito() {
 }
 
 function alertacarrito() {
-    alert("Para comprar productos, primero debes iniciar sesión");
+    alert("Para comprar productos, primero debes iniciar sesión.");
+}
+
+function alertacarrito_admin() {
+    alert("Un empleado no puede efectuar compras a su nombre.");
 }
 
 function block_scroll() { // bloquea el desplazamiento si nuestro cursor esta en el carrito (solo chrome)
