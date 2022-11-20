@@ -1,12 +1,12 @@
-
+<!-- 
 <div id="contacto-desp">
 <h4> CONTACTO <p onclick="cerrar_nodo()">&#10005;</p></h4>
 <p>WORK IN PROGRESS<img id="contactoimg" src="src/contacto.png"/></p>
-</div>
+</div> -->
 
 <div id="fdepago-desp">
 <h4> MÉTODOS DE PAGO <p onclick="cerrar_nodo()">&#10005;</p></h4>
-<p>WORK IN PROGRESS<img src="src/medios de pago.png"/></p>
+<p><img src="/charruaspag/src/medios de pago.png"/></p>
 </div>
 
 
