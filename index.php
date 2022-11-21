@@ -25,13 +25,8 @@
       if(isset($_SESSION["nombredeusuario"]))
       {
         echo $_SESSION["nombredeusuario"];
-        echo ' 
-        <div id="hamburguer">
-        <ul id="cont-hamburguer">
-                <li> Cerrar Sesion </li>
-                <li>  </li>
-              </ul> 
-        </div>';
+        echo "  ";
+        echo '<a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar perfil</a>';
         
       }elseif(isset($_SESSION["setAdmin"])) {
         echo $_SESSION["setAdmin"];
