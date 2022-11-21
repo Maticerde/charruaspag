@@ -1,0 +1,1472 @@
+html,
+body,
+ul {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+@font-face {
+  font-family: "cinzelregular";
+  src: url(fonts/cinzel-regular-webfont.woff2) format("woff2"),
+    url(fonts/cinzel-regular-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "cinzelbold";
+  src: url(fonts/cinzel-bold-webfont.woff2) format("woff2"),
+    url(fonts/cinzel-bold-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "cinzel_decorativebold";
+  src: url(fonts/cinzeldecorative-bold-webfont.woff2) format("woff2"),
+    url(fonts/cinzeldecorative-bold-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "edensor";
+  src: url(fonts/edensor-free-webfont.woff2) format("woff2"),
+    url(fonts/edensor-free-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "robotolight";
+  src: url(fonts/roboto-light-webfont.woff2) format("woff2"),
+    url(fonts/roboto-light-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#fondo {
+  -webkit-user-drag: none;
+  user-select: none;
+  transform: scale(1.02);
+  filter: blur(0.258vw);
+  position: absolute;
+  height: 101vh;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+#menu {
+  transition: all 0.5s;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#charruas-texto {
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-inline: auto;
+  text-align: center;
+  position: absolute;
+  width: fit-content;
+  color: rgb(107, 8, 8);
+  text-shadow: 1px 1px 2px #000000;
+  font-family: "cinzelbold";
+  font-size: 27px;
+}
+
+#texto1 {
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  text-align: center;
+  color: rgb(31, 31, 31);
+  font-weight: bolder;
+  position: absolute;
+  top: 20px;
+  font-family: "cinzelregular";
+  font-size: 30px;
+}
+
+#text-prod {
+  transition: all ease 0.3s;
+  text-align: center;
+  color: rgb(14, 14, 14);
+  font-weight: bolder;
+  position: absolute;
+  font-family: "edensor";
+  font-size: 1.546vw;
+  left: 5.67vw;
+  top: 5.67vw;
+  width: fit-content;
+  cursor: pointer;
+}
+
+#text-prod-preventclick, #text-user-preventclick {
+  position: absolute;
+  z-index: 1;
+  top: -10%;
+  width: 130%;
+  height: 110%;
+}
+
+#text-prod-preventclick {
+  left: -25%;
+}
+
+#text-prod span {
+  width: 2.577vw;
+  display: inline;
+  position: absolute;
+  right: 11.856vw;
+  bottom: 0;
+  transform: scaleX(-1);
+}
+
+#text-user span {
+  width: 2.577vw;
+  display: inline;
+  position: absolute;
+  left: 9.33vw;
+  bottom: 0;
+  display: inline;
+}
+
+#text-user {
+  transition: all ease 0.3s;
+  text-align: center;
+  color: rgb(14, 14, 14);
+  font-weight: bolder;
+  position: absolute;
+  font-family: "edensor";
+  font-size: 1.546vw;
+  right: 5.67vw;
+  top: 5.67vw;
+  width: fit-content;
+  cursor: pointer;
+}
+
+
+#productos_Text, #usuarios_Text {
+  display: 'flex' !important;
+}
+
+#regresar_Text, .modificar_Text {
+  display: none !important;
+}
+
+.modificar_Text {
+  opacity: 0;
+}
+
+
+
+#grid-functions {
+  transition: all ease 1s;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 50% 50% 50% 50%;
+  top: 8vw;
+  left: 3.4vw;
+  transform: translate(0px);
+  right: 0;
+  height: fit-content;
+  width: 90%;
+  grid-column-gap: 4.653vw;
+  padding: 0.773vw;
+  z-index: 1;
+}
+
+#grid-functions.slide,
+#grid-mod-functions.slide,
+#vinos-list-label.slide {
+  transform: translate(-100vw);
+}
+
+#modbodega-bax.slide, #modvino-bax.slide {
+  transform: translate(-100vw);
+}
+
+.box {
+  z-index: 2;
+  border-radius: 1.3vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgba(0, 0, 0, 0.966);
+  height: 24.485vw;
+  width: 42vw;
+}
+
+#modvino-bax, #modbodega-bax {
+  transition: all ease 1s;
+  top: calc(8vw + 15px);
+  left: calc(3.4vw + 15px);
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  border-radius: 1.3vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgba(0, 0, 0, 0.966);
+  height: 0px;
+  width: 42vw;
+}
+
+#adduser-box, #addadmin-box {
+  margin-top: 2.65vw;
+  height: 19.485vw;
+}
+
+#modbodega-bax {
+  margin-left: 7.45vw;
+}
+
+#addvino-box,
+#addbodega-box,
+#modvino-bax,
+#modbodega-bax {
+  overflow: hidden;
+  transition: all ease 1s;
+  position: relative;
+}
+
+.desplegar {
+  height: 0px;
+}
+
+#modvino-bax.desplegar2, #modbodega-bax.desplegar2 {
+  height: 24.485vw;
+}
+
+
+h3 {
+  top: 0.515vw;
+  margin-inline: auto;
+  width: fit-content;
+  position: relative;
+  font-family: edensor;
+  font-size: 1.289vw;
+  font-weight: 900;
+  letter-spacing: 0.515vw;
+  color: rgba(130, 10, 10, 0.879);
+  text-shadow: 1px 1px 1px rgba(94, 8, 8, 0.879);
+}
+
+#mensaje_modv, #mensaje_modb {
+  opacity: 0;
+  transition: all ease 0.3s;
+  position: absolute;
+  color: white;
+  bottom: 1.031vw;
+  right: 5.155vw;
+  font-size: 1.031vw;
+  font-family: robotolight;
+  height: 2.062vw;
+  width: 9.278vw;
+}
+
+
+#mensaje_modv.mostrarmensaje, #mensaje_modv.mostrarmensaje2 {
+  opacity: 1;
+  transform: translateY(-1.031vw);
+}
+
+#mensaje_modb.mostrarmensaje, #mensaje_modb.mostrarmensaje2 {
+  opacity: 1;
+  transform: translateY(-1.031vw);
+}
+
+#addvino-form, #addbodega-form, #modvino-form, #modbodega-form {
+  margin-top: 2.784vw;
+}
+
+#modvino-form,
+#modbodega-form {
+  z-index: 2;
+}
+
+#input_grid, #input_grid_modv, #input_grid_modb {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-row-gap: 1.804vw;
+}
+
+#adduser-form input,
+#addadmin-form input,
+#addvino-form input,
+#addvino-form select,
+#modvino-form input,
+#modvino-form select,
+#modbodega-form input,
+#addbodega-form input,
+#addbodega-form select {
+  color: white;
+  transition: all ease 0.2s;
+  height: 1.546vw;
+  width: 12.5vw;
+  font-size: 1.031vw;
+  display: block;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 0.155vw solid rgba(135, 135, 135, 0.906);
+}
+
+#addvino-form select,
+#addvino-form input[type="file"],
+#modvino-form select,
+#modvino-form input[type="file"],
+#addbodega-form select,
+#addbodega-form input[type="file"] {
+  margin-top: 0.258vw;
+  width: calc(12.5vw + 4px);
+}
+
+#addvino-form input[type="file"],
+#modvino-form input[type="file"],
+#addbodega-form input[type="file"] {
+  display: none;
+}
+
+#imagen_label {
+  cursor: pointer;
+  width: calc(12.5vw + 4px);
+}
+
+.input_label {
+  margin-inline: auto;
+  position: relative;
+}
+.input_texto,
+.input_texto_modv,
+.input_texto_modb,
+#nombre_imagen,
+#nombre_imagen_mod {
+  font-family: robotolight;
+  font-size: 1.031vw;
+  pointer-events: none;
+  position: absolute;
+  color: rgba(235, 235, 235, 0.879);
+  top: 0.103vw;
+  transition: all ease 0.2s;
+}
+
+#nombre_imagen,
+#nombre_imagen_mod {
+  padding-bottom: 0.155vw;
+  width: calc(12.5vw + 4px);
+  border-bottom: 0.155vw solid rgba(135, 135, 135, 0.906);
+}
+
+#adduser-button,
+#addadmin-button,
+#addvino-button,
+#addbodega-button,
+#modvino-button,
+#modvino-button-preventclick,
+#modbodega-button,
+#modbodega-button-preventclick {
+  transition: all ease 0.1s;
+  font-family: robotolight;
+  font-size: 1.34vw;
+  font-weight: 900;
+  color: rgba(179, 174, 174, 0.968);
+  border: none;
+  border-bottom: 0.155vw solid rgba(8, 0, 0, 0.822);
+  border-left: 3px solid rgba(8, 0, 0, 0.822);
+  background: rgb(111,7,20);
+  background: radial-gradient(circle, rgba(111,7,20,1) 54%, rgba(62,4,4,1) 94%);
+  cursor: pointer;
+  border-radius: 0.515vw;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 2.062vw;
+  margin-inline: auto;
+  width: 7.732vw;
+  height: 2.577vw;
+}
+
+#adduser-button, #addadmin-button {
+  position: relative;
+  left: 41%;
+}
+
+#modvino-button-preventclick, #modbodega-button-preventclick {
+  z-index: 1;
+  background-color: none;
+  background: none;
+  border: none;
+  color: none;
+}
+
+#modvino-button-preventclick:hover + #modvino-button {
+  border: none;
+  margin-top: 2.113vw;
+  right: 0.103vw;
+  font-size: 1.443vw;
+}
+
+#addvino-button:hover,
+#adduser-button:hover,
+#addadmin-button:hover,
+#addbodega-button:hover,
+#modvino-button:hover {
+  border: none;
+  margin-top: 2.113vw;
+  right: 0.103vw;
+  font-size: 1.443vw;
+}
+
+#addvino-form input[type="file"]:valid + #nombre_imagen,
+#modvino-form input[type="file"]:valid + #nombre_imagen_mod,
+#addbodega-form input[type="file"]:valid + #nombre_imagen {
+  border-bottom: 0.155vw solid rgba(255, 255, 255, 0.815);
+  color: white;
+}
+#adduser-form input:focus + .input_texto,
+#adduser-form input:valid + .input_texto,
+#addvino-form input:focus + .input_texto,
+#addvino-form input:valid + .input_texto,
+#addvino-form select:focus + .input_texto,
+#addvino-form select:valid + .input_texto,
+#addbodega-form input:focus + .input_texto,
+#addbodega-form input:valid + .input_texto,
+#addbodega-form select:focus + .input_texto,
+#addbodega-form select:valid + .input_texto,
+#modvino-form input:focus + .input_texto_modv,
+#modvino-form input:valid + .input_texto_modv,
+#modvino-form select:focus + .input_texto_modv,
+#modvino-form select:valid + .input_texto_modv,
+#modbodega-form input:focus + .input_texto_modb,
+#modbodega-form input:valid + .input_texto_modb{
+  transform: translateY(-0.825vw);
+  color: white;
+  font-size: 0.773vw;
+}
+
+#addvino-form input:focus,
+#addvino-form input:valid,
+#addvino-form select:valid,
+#addbodega-form input:focus,
+#addbodega-form input:valid,
+#addbodega-form select:valid,
+#modvino-form input:focus,
+#modvino-form input:valid,
+#modbodega-form input:focus,
+#modbodega-form input:valid,
+#modvino-form select:valid {
+  border-bottom: 0.155vw solid rgba(255, 255, 255, 0.815);
+}
+
+#info-section, #info-efecto {
+  z-index: 1;
+  position: absolute;
+  height: 12.216vw;
+  width: 33.1vw;
+  right: -33.3vw;
+  
+}
+#info-efecto {
+  border-radius: 0.515vw;
+  transition: all ease 0.4s;
+  z-index: 0;
+}
+
+#info-section:hover + #info-efecto {
+  background: rgb(92,3,3);
+  background: radial-gradient(circle, rgba(92,3,3,1) 0%, rgba(135,12,12,0) 100%);
+}
+
+#info-vino {
+  transition: all ease 0.4s;
+  position: absolute;
+  height: 12.216vw;
+  width: 12.216vw;
+  background-color: rgba(0, 0, 0, 0.892);
+  color: white;
+  border-radius: 1.031vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  right: -14.6vw;
+  top: 15vw;
+  overflow: hidden;
+}
+
+#v_img {
+  -webkit-user-drag: none;
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  right: -1.134vw;
+  width: 37%;
+  z-index: 1;
+}
+
+#v_nombre {
+  padding-bottom: 5%;
+  margin-top: 8%;
+  position: relative;
+  margin-left: 8%;
+  font-size: 1.1vw;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+}
+
+#v_pais {
+  text-align: right;
+  font-size: 0.85vw;
+  margin-right: 30%;
+  font-family: cinzel_decorativebold;
+}
+
+#v_region {
+  text-align: right;
+  font-size: 0.6vw;
+  margin-right: 30%;
+  font-family: cinzel_decorativebold;
+}
+
+#v_cosecha {
+  position: relative;
+  margin-right: 8%;
+  font-size: 1.25vw;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+  text-align: right;
+}
+
+#v_precio {
+  margin-top: 4%;
+  text-align: right;
+  position: relative;
+  margin-right: 8%;
+  font-size: 1.18vw;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+}
+
+#v_stock {
+  position: relative;
+  font-size: 0.84vw;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+  text-align: right;
+  padding-bottom: 8%;
+}
+
+#upperinfo {
+  color: rgba(223, 223, 223, 0.887);
+  top: 0;
+}
+
+#lowerinfo {
+  color: rgba(223, 223, 223, 0.887);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+#info-bodega {
+  transition: all ease 0.6s;
+  position: absolute;
+  height: 12.216vw;
+  width: 12.216vw;
+  background-color: rgba(0, 0, 0, 0.892);
+  color: white;
+  border-radius: 1.031vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  right: -29.38vw;
+  top: 15vw;
+  overflow: hidden;
+}
+
+#b_nombre {
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 5%;
+  margin-top: 8%;
+  position: relative;
+  margin-inline: auto;
+  font-size: 1.1vw;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 80%;
+}
+
+#b_pais {
+  text-align: right;
+  font-size: 0.6vw;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_ciudad {
+  text-align: right;
+  font-size: 0.84vw;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_cuenta {
+  text-align: right;
+  font-size: 0.6vw;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+
+#b_direccion {
+  word-wrap: break-word;
+  text-align: left;
+  height: fit-content;
+  font-size: 0.6vw;
+  margin-left: 8%;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_codpostal {
+  font-size: 0.6vw;
+  margin-left: 8%;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_email {
+  word-wrap: break-word;
+  text-align: center;
+  width: 90%;
+  height: fit-content;
+  font-size: 0.6vw;
+  font-family: cinzel_decorativebold;
+  margin-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 6%;
+}
+
+.info-select {
+  transform: translateY(-15vw);
+}
+
+#vinos-list-label {
+  transition: all ease 1s;
+  position: absolute;
+  bottom: 13vw;
+  width: 61.856vw;
+  height: 1.907vw;
+  left: 4vw;
+  border-top-left-radius: 1.031vw;
+  border-top-right-radius: 1.031vw;
+  background: rgb(64,4,4);
+  background: linear-gradient(90deg, rgba(64,4,4,1) 0%, rgba(110,7,14,1) 26%, rgba(128,8,8,1) 60%, rgba(80,5,18,1) 100%);
+}
+
+#vinos-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  height: 10.309vw;
+  width: 100%;
+  top: 100%;
+  margin-inline: auto;
+  border-bottom-left-radius: 1.031vw;
+  border-bottom-right-radius: 1.031vw;
+  background-color: rgba(0, 0, 0, 0.84);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#vinos-list-label h1 {
+  letter-spacing: 0.103vw;
+  font-weight: 900;
+  top: -0.515vw;
+  left: 1.031vw;
+  position: absolute;
+  font-family: edensor;
+  font-size: 1.289vw;
+  color: rgba(235, 235, 235, 0.879);
+}
+
+#vinos-list span {
+  color: rgb(255, 255, 255);
+  direction: ltr;
+  text-indent: 0.206vw;
+  width: 100%;
+  height: 2.577vw;
+  display: block;
+}
+
+#vinos-list section {
+  bottom: 0.515vw;
+  font-size: 1.2vw;
+  font-family: robotolight;
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  width: 11.856vw;
+  white-space: nowrap;
+}
+
+#vinos-list img {
+  -webkit-user-drag: none;
+  position: relative;
+  object-fit: scale-down;
+  top: 0.155vw;
+  height: 2.268vw;
+  width: 2.268vw;
+}
+
+#vinos-list::-webkit-scrollbar {
+  width: 0.258vw;
+}
+
+#vinos-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.549);
+  border-radius: 0.258vw;
+}
+
+#vinos-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.161);
+  border-radius: 0.258vw;
+}
+
+.selected {
+  transition: all ease 0.1s;
+  background-color: rgba(250, 250, 250, 0.049);
+}
+
+#vinos-order {
+  font-family: edensor;
+  font-weight: bold;
+  font-size: 1vw;
+  top: 0.515vw;
+  position: absolute;
+  right: 0.258vw;
+  width: 18.041vw;
+  text-align: center;
+  color: rgba(205, 205, 205, 0.743);
+}
+
+#vinos-order p1 {
+  transition: all ease 0.1s;
+  position: absolute;
+  text-indent: -5.155vw;
+}
+
+#orden1 {
+top: -0.155vw;
+}
+
+.selectorden {
+  color: rgba(255, 255, 255, 0.911);
+  text-decoration: underline;
+  font-size: 1.05vw;
+  font-weight: bolder;
+}
+
+#vinos-order input {
+  cursor: pointer;
+  opacity: 0;
+  top: 0.103vw;
+  width: 5.155vw;
+  height: 1.031vw;
+  accent-color: rgba(79, 79, 79, 0.243);
+  position: relative;
+  margin-inline: auto;
+  z-index: 1;
+}
+
+@media (max-width: 900px) { /* TABLET */
+
+  #text-prod {
+    transition: all ease 0.3s;
+    text-align: center;
+    color: rgb(14, 14, 14);
+    font-weight: bolder;
+    position: absolute;
+    font-family: "edensor";
+    font-size: 15px;
+    left: 3.67vw;
+    top: 54px;
+    width: fit-content;
+    cursor: pointer;
+  }
+  
+  #text-prod-preventclick, #text-user-preventclick {
+    position: absolute;
+    z-index: 1;
+    top: -10%;
+    width: 130%;
+    height: 110%;
+  }
+  
+  #text-prod-preventclick {
+    left: -25%;
+  }
+  
+  #text-prod span {
+    width: 2.577vw;
+    display: inline;
+    position: absolute;
+    right: 85px;
+    bottom: 0;
+    transform: scaleX(-1);
+  }
+  
+  #text-user span {
+    width: 2.577vw;
+    display: inline;
+    position: absolute;
+    left: 104px;
+    bottom: 0;
+    display: inline;
+  }
+  
+  #text-user {
+    transition: all ease 0.3s;
+    text-align: center;
+    color: rgb(14, 14, 14);
+    font-weight: bolder;
+    position: absolute;
+    font-family: "edensor";
+    font-size: 15px;
+    right: 5.67vw;
+    top: 54px;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  #productos_Text, #usuarios_Text {
+    display: none !important;
+  }
+  
+  #regresar_Text, .modificar_Text {
+    display: inline !important;
+  }
+
+  .modificar_Text.aparecer {
+    opacity: 1;
+  }
+  
+  
+  h3 {
+    font-size: 20px;
+  }
+
+  #grid-functions {
+    transition: all ease 1s;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 100% 100% 100% 100%;
+    grid-template-rows: 100%;
+    top: 70px;
+    left: 4.4vw;
+    transform: translate(0px);
+    right: 0;
+    height: 56%;
+    width: 90%;
+    grid-column-gap: 4.653vw;
+    padding: 0.773vw;
+    z-index: 1;
+    overflow-x: scroll;
+  }
+
+  #grid-mod-functions {
+    transition: all ease 1s;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 100% 100%;
+    top: 70px;
+    height: 56%;
+    width: 90%;
+    right: -95.7vw;
+    overflow-x: scroll;
+    z-index: 1;
+    grid-column-gap: 4.653vw;
+    padding: 0.773vw;
+  }
+
+  #grid-functions::-webkit-scrollbar, #grid-mod-functions::-webkit-scrollbar {
+    width: 0.258vw;
+  }
+  
+  #grid-functions::-webkit-scrollbar-track, #grid-mod-functions::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.549);
+    border-radius: 0.258vw;
+  }
+  
+  #grid-functions::-webkit-scrollbar-thumb, #grid-mod-functions::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.161);
+    border-radius: 0.258vw;
+  }
+
+  .box {
+    z-index: 2;
+    border-radius: 2.3vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgba(0, 0, 0, 0.966);
+    height: 100%;
+    width: 100%;
+  }
+
+  #adduser-box, #addadmin-box {
+    margin-top: 0;
+    height: 100%;
+  }
+
+  #input_grid, #input_grid_modv, #input_grid_modb {
+    height: 35vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-row-gap: 1.804vw;
+  }
+  
+  #addvino-form input,
+  #addvino-form select,
+  #modvino-form input,
+  #modvino-form select,
+  #modbodega-form input,
+  #addbodega-form input,
+  #addbodega-form select {
+    color: white;
+    transition: all ease 0.2s;
+    height: 5.546vh;
+    width: 25.5vw;
+    font-size: 2.7vh;
+    display: block;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid rgba(135, 135, 135, 0.906);
+  }
+  
+  #addvino-form select,
+  #addvino-form input[type="file"],
+  #modvino-form select,
+  #modvino-form input[type="file"],
+  #addbodega-form select,
+  #addbodega-form input[type="file"] {
+    margin-top: 0.258vw;
+    width: calc(25.5vw + 4px);
+  }
+  
+  #addvino-form input[type="file"],
+  #modvino-form input[type="file"],
+  #addbodega-form input[type="file"] {
+    display: none;
+  }
+  
+  #imagen_label {
+    cursor: pointer;
+    width: calc(25.5vw + 4px);
+  }
+  
+  .input_label {
+    margin-inline: auto;
+    position: relative;
+  }
+  .input_texto,
+  .input_texto_modv,
+  .input_texto_modb,
+  #nombre_imagen,
+  #nombre_imagen_mod {
+    font-family: robotolight;
+    font-size: 2vh;
+    pointer-events: none;
+    position: absolute;
+    color: rgba(235, 235, 235, 0.879);
+    top: 2.303vh;
+    transition: all ease 0.2s;
+  }
+  
+  #nombre_imagen,
+  #nombre_imagen_mod {
+    line-height: 29px;
+    width: calc(25.5vw + 4px);
+    border-bottom: 3px solid rgba(135, 135, 135, 0.906);
+  }
+  
+  #addvino-button,
+  #addbodega-button,
+  #modvino-button,
+  #modvino-button-preventclick,
+  #modbodega-button,
+  #modbodega-button-preventclick {
+    transition: all ease 0.1s;
+    font-family: robotolight;
+    font-size: 2.7vh;
+    font-weight: 900;
+    color: rgba(179, 174, 174, 0.968);
+    border: none;
+    border-bottom: 3px solid rgba(8, 0, 0, 0.822);
+    border-left: 3px solid rgba(8, 0, 0, 0.822);
+    background: rgb(111,7,20);
+    background: radial-gradient(circle, rgba(111,7,20,1) 54%, rgba(62,4,4,1) 94%);
+    cursor: pointer;
+    border-radius: 1vh;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 2.062vh;
+    margin-inline: auto;
+    width: 12.732vh;
+    height: 5.577vh;
+  }
+
+#addvino-button:hover,
+#addbodega-button:hover,
+#modvino-button:hover {
+  border: none;
+  margin-top: 2.113vw;
+  right: 0.103vw;
+  font-size: 1.443vw;
+}
+
+#addvino-form input[type="file"]:valid + #nombre_imagen,
+#modvino-form input[type="file"]:valid + #nombre_imagen_mod,
+#addbodega-form input[type="file"]:valid + #nombre_imagen {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.815);
+  color: white;
+}
+
+#addvino-form input:focus + .input_texto,
+#addvino-form input:valid + .input_texto,
+#addvino-form select:focus + .input_texto,
+#addvino-form select:valid + .input_texto,
+#addbodega-form input:focus + .input_texto,
+#addbodega-form input:valid + .input_texto,
+#addbodega-form select:focus + .input_texto,
+#addbodega-form select:valid + .input_texto,
+#modvino-form input:focus + .input_texto_modv,
+#modvino-form input:valid + .input_texto_modv,
+#modvino-form select:focus + .input_texto_modv,
+#modvino-form select:valid + .input_texto_modv,
+#modbodega-form input:focus + .input_texto_modb,
+#modbodega-form input:valid + .input_texto_modb{
+  transform: translateY(-3vh);
+  color: white;
+  font-size: 1.4vh;
+}
+
+#addvino-form input:focus,
+#addvino-form input:valid,
+#addvino-form select:valid,
+#addbodega-form input:focus,
+#addbodega-form input:valid,
+#addbodega-form select:valid,
+#modvino-form input:focus,
+#modvino-form input:valid,
+#modbodega-form input:focus,
+#modbodega-form input:valid,
+#modvino-form select:valid {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.815);
+}
+
+#info-section, #info-efecto {
+  z-index: 1;
+  position: absolute;
+  height: 200px;
+  width: 100.1vw;
+  right:  -108vw;
+  
+}
+#info-efecto {
+  border-radius: 10px;
+  transition: all ease 0.4s;
+  z-index: 0;
+}
+
+#info-section:hover + #info-efecto {
+  background: rgb(92,3,3);
+  background: radial-gradient(circle, rgba(92,3,3,1) 0%, rgba(135,12,12,0) 100%);
+}
+
+#info-vino {
+  transition: all ease 0.4s;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.892);
+  color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  right:  -55vw;
+  top: 35vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#v_img {
+  -webkit-user-drag: none;
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  right: -22px;
+  width: 37%;
+  z-index: 1;
+}
+
+#v_id {
+  position: absolute;
+  margin-left: 61%;
+  height: fit-content;
+  width: fit-content;
+  font-family: cinzelbold;
+  font-size: 110%;
+  top: 4%;
+  color: rgba(112, 12, 12, 0.915);
+}
+#v_nombre {
+  padding-bottom: 5%;
+  margin-top: 8%;
+  position: relative;
+  margin-left: 8%;
+  font-size: 120%;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+}
+
+#v_pais {
+  text-align: right;
+  font-size: 90%;
+  margin-right: 30%;
+  font-family: cinzel_decorativebold;
+}
+
+#v_region {
+  text-align: right;
+  font-size: 60%;
+  margin-right: 30%;
+  font-family: cinzel_decorativebold;
+}
+
+#v_cosecha {
+  position: relative;
+  margin-right: 8%;
+  font-size: 140%;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+  text-align: right;
+}
+
+#v_precio {
+  margin-top: 4%;
+  text-align: right;
+  position: relative;
+  margin-right: 8%;
+  font-size: 130%;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+}
+
+#v_stock {
+  position: relative;
+  font-size: 90%;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 70%;
+  text-align: right;
+  padding-bottom: 8%;
+}
+
+#upperinfo {
+  color: rgba(223, 223, 223, 0.887);
+  top: 0;
+}
+
+#lowerinfo {
+  color: rgba(223, 223, 223, 0.887);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+#info-bodega {
+  transition: all ease 0.6s;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.892);
+  color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  right:  -104vw;
+  top: 35vh;
+  overflow: hidden;
+}
+
+#b_id {
+  display: none;
+  font-size: 90%;
+  margin-right: 30%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_nombre {
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 5%;
+  margin-top: 8%;
+  position: relative;
+  margin-inline: auto;
+  font-size: 120%;
+  height: fit-content;
+  font-family: cinzel_decorativebold;
+  width: 80%;
+}
+
+#b_pais {
+  text-align: right;
+  font-size: 60%;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_ciudad {
+  text-align: right;
+  font-size: 90%;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_cuenta {
+  text-align: right;
+  font-size: 60%;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+
+#b_direccion {
+  word-wrap: break-word;
+  text-align: left;
+  height: fit-content;
+  font-size: 60%;
+  margin-left: 8%;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_codpostal {
+  font-size: 60%;
+  margin-left: 8%;
+  margin-right: 8%;
+  font-family: cinzel_decorativebold;
+}
+
+#b_email {
+  word-wrap: break-word;
+  text-align: center;
+  width: 90%;
+  height: fit-content;
+  font-size: 60%;
+  font-family: cinzel_decorativebold;
+  margin-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 6%;
+}
+
+.info-select {
+  transform: translateY(-35vh);
+}
+
+#vinos-list-label {
+  transition: all ease 1s;
+  position: absolute;
+  bottom: 27vh;
+  width: 90.856vw;
+  height: 35px;
+  left: 5vw;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: rgb(64,4,4);
+  background: linear-gradient(90deg, rgba(64,4,4,1) 0%, rgba(110,7,14,1) 26%, rgba(128,8,8,1) 60%, rgba(80,5,18,1) 100%);
+}
+
+#vinos-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  height: 24vh;
+  width: 100%;
+  top: 100%;
+  margin-inline: auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.84);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+
+#vinos-list-label h1 {
+  letter-spacing: 2px;
+  font-weight: 900;
+  top: -1vh;
+  left: 2.031vw;
+  position: absolute;
+  font-family: edensor;
+  font-size: 2vh;
+  color: rgba(235, 235, 235, 0.879);
+}
+
+#vinos-list span {
+  color: rgb(255, 255, 255);
+  direction: ltr;
+  text-indent: 4px;
+  width: 100%;
+  height: 50px;
+  display: block;
+}
+
+#vinos-list section {
+  bottom: 10px;
+  font-size: 3vh;
+  font-family: robotolight;
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  width:70%;
+  white-space: nowrap;
+}
+
+#vinos-list img {
+  -webkit-user-drag: none;
+  position: relative;
+  object-fit: scale-down;
+  top: 3px;
+  height: 44px;
+  width: 44px;
+}
+
+.selected {
+  transition: all ease 0.1s;
+  background-color: rgba(250, 250, 250, 0.049);
+}
+
+#vinos-order {
+  font-family: edensor;
+  font-weight: bold;
+  font-size: 1.6vh;
+  top: 2.6vh;
+  position: absolute;
+  right: 0.258vw;
+  width: 350px;
+  text-align: center;
+  color: rgba(205, 205, 205, 0.743);
+}
+
+#vinos-order p1 {
+  transition: all ease 0.1s;
+  position: absolute;
+  text-indent: -100px;
+}
+
+
+#orden1 {
+top: -3px;
+}
+
+.selectorden {
+  color: rgba(255, 255, 255, 0.911);
+  text-decoration: underline;
+  font-size: 1.9vh;
+  font-weight: bolder;
+}
+
+#vinos-order input {
+  cursor: pointer;
+  opacity: 0;
+  top: 2px;
+  width: 100px;
+  height: 20px;
+  accent-color: rgba(79, 79, 79, 0.243);
+  position: relative;
+  margin-inline: auto;
+  z-index: 1;
+}
+
+  #charruas-texto {
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    width: fit-content;
+    font-family: "cinzelbold";
+    font-size: 25px;
+  }
+
+  #texto1 {
+    left: 0;
+    right: 0;
+    top: 20px;
+    margin-inline: auto;
+    font-weight: bolder;
+    font-family: "cinzelregular";
+    font-size: 27px;
+  }
+
+  #modvino-bax, #modbodega-bax {
+    transition: all ease 1s;
+    top: 0;
+    left: 111%;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    border-radius: 1.3vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgba(0, 0, 0, 0.966);
+    height: 0px;
+    width: 100%;
+  }
+  
+  #modbodega-bax {
+    margin-left: 7.45vw;
+  }
+
+  .desplegar {
+    height: 0px;
+  }
+  
+  #modvino-bax.desplegar2, #modbodega-bax.desplegar2 {
+    height: 100%;
+  }
+  
+}
+
+@media (max-width: 390px) {
+
+
+}
+
+@media (max-width: 600px) {
+
+  #vinos-list section {
+    font-size: 70%;
+    width: 51%;
+  }
+}
+
+
