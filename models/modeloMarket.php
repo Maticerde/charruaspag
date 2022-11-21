@@ -19,7 +19,11 @@ class soporteMarket {
 
     public function getVinosMarket($keywords, $orden) {
 
-        $sql = "SELECT * FROM VINOS JOIN BODEGA on Bodega_Vino = ID_Bodega WHERE Nombre_Vino LIKE '%" . $keywords . "%' OR Region LIKE '%" . $keywords . "%' OR Pais_Vinos LIKE '%" . $keywords . "%' OR Nombre_Bodega LIKE '%" . $keywords . "%' ORDER BY $orden";
+        $sql = "SELECT * FROM VINOS JOIN BODEGA on Bodega_Vino = ID_Bodega WHERE Nombre_Vino LIKE '%" . $keywords . "%' 
+        OR Region LIKE '%" . $keywords . "%' 
+        OR Pais_Vinos LIKE '%" . $keywords . "%'
+        OR Nombre_Bodega LIKE '%" . $keywords . "%'
+        ORDER BY $orden";
         foreach ($this->conn->query($sql) as $row) {
             $this->respuesta[] = $row;
         }

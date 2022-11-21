@@ -43,7 +43,9 @@ if(isset($_SESSION['setAdmin'])){
     <div id="text-user-preventclick"
       onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"></div>
   </section>
-
+  <a href="/charruaspag/views/panel_admin/altas_stock.php">
+    <section id="text-altas-stock"><span>&#10070;</span></section>
+  </a>
 <section id="grid-mod-functions">
   <div class="box" id="modvino-bax">
     <h3>MODIFICAR PRODUCTO</h3>

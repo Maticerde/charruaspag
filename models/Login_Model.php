@@ -34,14 +34,24 @@
         foreach ($sql as $row)
         {
             /*escucho coincidencia en usuario y pass*/
-            if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Cliente'], $array_dataset["pass"])==0){$log_validate = true; $id_cliente = $row['Codigo_Cliente']; $Nom_Cliente = $row["Nombre_Cliente"];}
+            if(strcmp($row['Email_Cliente'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Cliente'], $array_dataset["pass"])==0){$log_validate = true; 
+                $id_cliente             = $row['Codigo_Cliente'];
+                $Nom_Cliente            = $row["Nombre_Cliente"]; 
+                $getCi_Cliente          = $row["CI_Cliente"];
+                $getDireccion_Cliente   = $row["Direccion"];
+                $getCiudad_Cliente      = $row["Ciudad"];}
         }
 
         /*estimo resultado de consulta login*/
         if ($log_validate == true) {
             $consulta_login = "credenciales válidas";
-            $_SESSION['nombredeusuario']= $Nom_Cliente; // guardo en la sesion los datos de la consulta mysql
-            $_SESSION['id_cliente'] = $id_cliente;
+            $_SESSION['nombredeusuario']    = $Nom_Cliente; // guardo en la sesion los datos de la consulta mysql
+            $_SESSION['id_cliente']         = $id_cliente;
+            $_SESSION["getCI_cliente"]      = $getCi_Cliente;
+            $_SESSION["getDir_cliente"]     = $getDireccion_Cliente;
+            $_SESSION["getCity_cliente"]    = $getCiudad_Cliente;
+            $_SESSION["getMail_cliente"]    = $array_dataset["user"];
+
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
             header("Location:/charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
@@ -58,12 +68,22 @@
             foreach ($sql as $row)
         {
             /*escucho coincidencia en usuario y pass*/
-            if(strcmp($row['Email_Empleado'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Empleado'], $array_dataset["pass"])==0){$log_validate = true;$id_empleado = $row["Codigo_Empleado"] ;$Nom_Empleado = $row["Nombre_Empleado"];}
+            if(strcmp($row['Email_Empleado'], $array_dataset["user"])==0 && strcmp($row['Contrasenia_Empleado'], $array_dataset["pass"])==0){$log_validate = true;
+                $id_empleado            = $row["Codigo_Empleado"];
+                $Nom_Empleado           = $row["Nombre_Empleado"];
+                $getCI_Empleado         = $row["CI_Empleado"];
+                $getDir_Empleado        = $row["Direccion"];
+                $getCity_Empleado       = $row["Ciudad"];
+            }
 
             if ($log_validate == true) {
                 $consulta_login = "credenciales válidas";
-                $_SESSION['setAdmin']=$Nom_Empleado; // guardo en la sesion los datos de la consulta mysql
-                $_SESSION['id_admin']=$id_empleado;
+                $_SESSION['setAdmin']               = $Nom_Empleado; // guardo en la sesion los datos de la consulta mysql
+                $_SESSION['id_admin']               = $id_empleado;
+                $_SESSION["getCI_empleado"]         = $getCI_Empleado;
+                $_SESSION["getDir_empleado"]        = $getDir_Empleado;
+                $_SESSION["getCity_empleado"]       = $getCity_Empleado;
+                $_SESSION["getMail_empleado"]       = $array_dataset["user"];
                 echo $consulta_login;
                 //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
                 header("Location:/charruaspag/views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
