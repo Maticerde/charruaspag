@@ -7,7 +7,7 @@ if(isset($_SESSION['nombredeusuario'])){
 }  elseif(isset($_SESSION["setAdmin"])) {
    header('location: /charruaspag/index.php');
 }
-require('..\models\login_model.php');
+require('../models/login_model.php');
 /*me aseguro que existan los recursos por POST, con esto solo se procesa si se proviene del form configurado
      para ello*/
      if(!empty($_POST["unombre"]) && !empty( $_POST["upass"]) && isset($_POST["unombre"]) && isset($_POST["upass"])){process_login();}else 

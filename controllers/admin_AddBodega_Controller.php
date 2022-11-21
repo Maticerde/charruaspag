@@ -24,10 +24,6 @@ function add_bodega() {
         $_POST["in_telefono"],
         $_POST["in_cuenta"]
     );
-    function add_telbodega() {
-        require_once("..\models\modeloAdmin.php");
-        $modelo = new SoporteAdmin();
-        $datos = $modelo->setTelBodega($_POST["in_pais"], $_POST["in_postal"],)
-    }
-        header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");
+
+    header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");
 }
