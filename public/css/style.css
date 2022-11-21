@@ -613,16 +613,22 @@ body {
   color: inherit;
 }
 
-#hamburguer ul{
-  list-style: none;
+#useroptions {
+  margin-left: 1vh;
+  display: inline-block;
 }
 
-#hamburguer ul li{
-  color: white;
+#useroptions a{
+  margin-inline: 1vw;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5vh;
 }
 
-#hamburguer ul li:hover{
-  color: green;
+#useroptions a:hover{
+  margin-inline: 0.65vw;
+  color: #000000;
+  font-size: 1.7vh;
 }
 
 li {
@@ -716,7 +722,7 @@ li:hover {
   background-color: rgba(84, 39, 39, 0.55);
   left: 90px;
   top: 10px;
-  font-size: 20px;
+  font-size: 2vh;
   position: absolute;
   width: auto;
   text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,

@@ -20,55 +20,42 @@
 <form id="gototienda" action="http://localhost/charruaspag/views/market/market.php">
     <button id="gototienda">Tienda</button>
   </form>
-<section id="usuariologeado">
-<?php // muestra el email del usuario
-      if(isset($_SESSION["nombredeusuario"]))
-      {
-        echo $_SESSION["nombredeusuario"];
-        echo ' 
-        <div id="hamburguer">
-        <ul id="cont-hamburguer">
-                <li> Cerrar Sesion </li>
-                <li>  </li>
-              </ul> 
-        </div>';
-        
-      }elseif(isset($_SESSION["setAdmin"])) {
-        echo $_SESSION["setAdmin"];
-        echo "  ";
-        echo '<a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar perfil</a>';
-      }
-    ?>
-  </section>
-
   <?php
-if(isset($_SESSION["nombredeusuario"])) { // si el cliente inició sesion, aparecerá el apartado de cerrar sesión
+if(empty($_SESSION["nombredeusuario"])) {
   echo '
-  <form id="gotologin" action="http://localhost/charruaspag/salir.php">
-    <button id="newsesion">Cerrar Sesión</button>
+  <form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
+    <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
-} elseif(isset($_SESSION["setAdmin"])) {
+} elseif(empty($_SESSION["setAdmin"])){
   echo'
-  <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
-    <button id="adminref">ADMIN</button>
-    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form>';
-
-  echo '
-  <form id="gotologin" action="http://localhost/charruaspag/salir.php">
-    <button id="newsesion">Cerrar Sesión</button>
-    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>';
-
-} else {
-  echo 
-  '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
+  <form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
     <button id="newsesion">Iniciar sesión</button>
     <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
   </form>';
 }
   ?>
+<section id="usuariologeado">
+<?php // muestra el email del usuario
+      if(isset($_SESSION["nombredeusuario"]))
+      {
+        echo $_SESSION["nombredeusuario"];
+        echo '<div id="useroptions">
+        <a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar Perfil</a>
+        <a href="salir.php">Cerrar Sesión</a>
+      </div>';
+                
+      }elseif(isset($_SESSION["setAdmin"])) {
+        echo $_SESSION["setAdmin"];
+        echo '<div id="useroptions">
+        <a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar Perfil</a>
+        <a href="salir.php">Cerrar Sesión</a>
+        <a href="http://localhost/charruaspag/views/panel_admin/panel_admin.php">Panel Admin</a>
+      </div>';
+      }
+    ?>
+  </section>
+
   <a href="http://localhost/charruaspag/index.php">
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
