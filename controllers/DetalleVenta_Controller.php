@@ -5,7 +5,7 @@ if(!empty($_POST["id_vino"])){
 }else 
 {
 /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
-Header("Location: ../indexo.php");
+Header("Location: ../index.php");
 exit();
 }
 
