@@ -25,13 +25,6 @@
       if(isset($_SESSION["nombredeusuario"]))
       {
         echo $_SESSION["nombredeusuario"];
-        echo ' 
-        <div id="hamburguer">
-        <ul id="cont-hamburguer">
-                <li> Cerrar Sesion </li>
-                <li>  </li>
-              </ul> 
-        </div>';
         
       }elseif(isset($_SESSION["setAdmin"])) {
         echo $_SESSION["setAdmin"];
