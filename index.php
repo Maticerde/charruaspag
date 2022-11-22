@@ -40,12 +40,22 @@
 <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {
+<<<<<<< HEAD
         echo "¡Bienvenid@, " . $_SESSION["nombredeusuario"] . "!";
       }
       elseif(isset($_SESSION["setAdmin"])) {
         echo "¡Bienvenid@, " . $_SESSION["setAdmin"] . "!";
       }else {
         echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/login/index.php"> Iniciar Sesión </a></div>';
+=======
+        echo $_SESSION["nombredeusuario"];
+        echo '<a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar perfil</a>';
+        
+      }elseif(isset($_SESSION["setAdmin"])) {
+        echo $_SESSION["setAdmin"];
+        echo "  ";
+        echo '<a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar perfil</a>';
+>>>>>>> 0f9ebeafddcf7cc8b03181bd9f4e37f2359ff2d9
       }
     ?>
   </section>

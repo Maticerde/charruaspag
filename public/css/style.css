@@ -782,6 +782,18 @@ li:hover {
   z-index: 1;
 }
 
+#usuariologeado a{
+  margin-left: 2vw;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#usuariologeado:hover{
+  margin-left: 2vw;
+  text-decoration: none;
+  background-color: rgba(146, 121, 121, 0.343);
+}
+
 #newsesion:hover,
 #adminref:hover {
   top: 9px;
