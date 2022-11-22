@@ -5,11 +5,7 @@
 require_once("../models/modificarPerfil_model.php");
 $modelo = new modificarPerfil_model();
 $datos = $modelo->getCliente();
-echo "<option value='' disabled selected> </option>";
 
-foreach ($datos as $row) {
-    echo "<option value=" . $row['CI_Cliente']. ">" . $row['Direccion'] . "</option>";
-}
 
     if(!empty($_POST["mdireccion"])){
         modify_user();
@@ -24,11 +20,11 @@ function modify_user() {
     require_once("../models/modificarPerfil_model.php");
     $modelo = new modificarPerfil_model();
     $datos = $modelo->updateUser(
-        $CI_Cliente     = $_POST["mcedula"],
-        $Nombre_Cliente = $_POST["muser"],
-        $Direccion      = $_POST["mdireccion"],
-        $Ciudad         = $_POST["mciudad"],
-        $Email_Cliente  = $_POST["mmail"],
+        $CI_Cliente             = $_POST["mcedula"],
+        $Nombre_Cliente         = $_POST["muser"],
+        $Direccion              = $_POST["mdireccion"],
+        $Ciudad                 = $_POST["mciudad"],
+        $Email_Cliente          = $_POST["mmail"],
         $Contrasenia_Cliente    = md5($_POST["mpassword"])
     );
     

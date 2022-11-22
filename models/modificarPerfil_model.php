@@ -26,8 +26,8 @@
 
     public function updateUser($CI_Cliente, $Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente) {
     
-        $sql = "UPDATE CLIENTES SET Nombre_cliente=?, Direccion=?, Ciudad=?, Email_Cliente=?, Contrasenia_Cliente=? WHERE CI_Cliente=?";
-       $this->conn->prepare($sql)->execute([$Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente, $CI_Cliente]);
+        $sql = "UPDATE CLIENTES SET Nombre_cliente=?, Direccion=?, Ciudad=?, Email_Cliente=?, Contrasenia_Cliente=? WHERE CI_Cliente=? AND Contrasenia_Cliente=?";
+       $this->conn->prepare($sql)->execute([$Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente, $CI_Cliente, $Contrasenia_Cliente]);
     }
 
 }
