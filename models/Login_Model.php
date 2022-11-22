@@ -51,6 +51,7 @@
             $_SESSION["getDir_cliente"]     = $getDireccion_Cliente;
             $_SESSION["getCity_cliente"]    = $getCiudad_Cliente;
             $_SESSION["getMail_cliente"]    = $array_dataset["user"];
+            $_SESSION["getPass_cliente"]    = $array_dataset["pass"];
 
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal

@@ -1,23 +1,26 @@
 <?php
-
+session_start();
 // en este archivo se escribe toda la informacion del cliente que tenemos en la base de datos, al llamarse se escriben en el formulario
 
 require_once("../models/modificarPerfil_model.php");
 $modelo = new modificarPerfil_model();
 $datos = $modelo->getCliente();
 
-
-    if(!empty($_POST["mdireccion"])){
+    $confirmarpass = false;
+    if(strcmp(md5($_POST["mpassword"]), $_SESSION["getPass_cliente"])==0 ){$confirmarpass = true;
         modify_user();
     }else 
 {
-    /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
-    header("Location: http://localhost/charruaspag/views/modificar_perfil/index.php ");
-    exit();
+        /*Si la contraseña es incorrecta*/
+            $confirmarpass = "<h3>Contraseña Incorrecta</h3>";
+            echo $confirmarpass;
+            echo '<a href="../index.php" >Inicio</>';
+            //header("Location: /charruaspag/index.php");
 }
 
 function modify_user() {
     require_once("../models/modificarPerfil_model.php");
+
     $modelo = new modificarPerfil_model();
     $datos = $modelo->updateUser(
         $CI_Cliente             = $_POST["mcedula"],
@@ -27,7 +30,5 @@ function modify_user() {
         $Email_Cliente          = $_POST["mmail"],
         $Contrasenia_Cliente    = md5($_POST["mpassword"])
     );
-    
-        echo "UPDATE DATABASE realizado con exito.";
-        header("Location: http://localhost/charruaspag/views/login/index.php");
+        header("location: ../index.php");
 }
