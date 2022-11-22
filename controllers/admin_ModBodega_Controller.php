@@ -21,7 +21,8 @@ function mod_bodega() {
         $_POST["in_pais"],
         $_POST["in_postal"],
         $_POST["in_ciudad"],
-        $_POST["in_cuenta"],
+        $_POST["in_telefono"],
+        $_POST["in_cuenta"]
     );
     
     header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");

@@ -14,54 +14,50 @@
   <script src="public/js/script_load.js"></script>
 
 </head>
-
 <div id="menu">
+  <section id="panel_menu">
+    <div><a style="color: inherit; text-decoration: none;" href="/charruaspag/views/market/market.php">Tienda</a></div>
+    <div><a style="cursor: pointer;" onclick="scrolltoBottom();">Contacto</a></div>
+    <?php // muestra el email del usuario
+      if(isset($_SESSION["nombredeusuario"]))
+      {
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+      }elseif(isset($_SESSION["setAdmin"])) {
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/panel_admin.php"> Panel Admin </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/altas_stock.php"> Gestión de Stock </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+      }
+    ?>
+  </section>
+  <div id="hamburguer" onclick="desplegarpanel();"><span>&#9776;</span></div>
 <img id="cart-icon" src="src/carticon.png"><span id="cart-count"></span></img>
 <form id="gototienda" action="http://localhost/charruaspag/views/market/market.php">
-    <button id="gototienda">Tienda</button>
-  </form>
+  <button id="gototienda">Tienda</button>
+</form>
 <section id="usuariologeado">
 <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {
-        echo $_SESSION["nombredeusuario"];
-        
-      }elseif(isset($_SESSION["setAdmin"])) {
-        echo $_SESSION["setAdmin"];
-        echo "  ";
-        echo '<a href="http://localhost/charruaspag/views/modificar_perfil/index.php">Modificar perfil</a>';
+        echo "¡Bienvenid@, " . $_SESSION["nombredeusuario"] . "!";
+      }
+      elseif(isset($_SESSION["setAdmin"])) {
+        echo "¡Bienvenid@, " . $_SESSION["setAdmin"] . "!";
+      }else {
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/login/index.php"> Iniciar Sesión </a></div>';
       }
     ?>
   </section>
 
   <?php
-if(isset($_SESSION["nombredeusuario"])) { // si el cliente inició sesion, aparecerá el apartado de cerrar sesión
-  echo '
-  <form id="gotologin" action="http://localhost/charruaspag/salir.php">
-    <button id="newsesion">Cerrar Sesión</button>
-    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>';
-} elseif(isset($_SESSION["setAdmin"])) {
-  echo'
-  <form id="gotoadmin" action="http://localhost/charruaspag/views/panel_admin/panel_admin.php">
-    <button id="adminref">ADMIN</button>
-    <button id="adminref2"><img id="adminref-r" src="src/adminicon.png"/></button>
-  </form>';
-
-  echo '
-  <form id="gotologin" action="http://localhost/charruaspag/salir.php">
-    <button id="newsesion">Cerrar Sesión</button>
-    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>';
-
-} else {
-  echo 
-  '<form id="gotologin" action="http://localhost/charruaspag/views/login/index.php">
-    <button id="newsesion">Iniciar sesión</button>
-    <button id="newsesion2"><img id="newsesion-r" src="src/usericon.png"/></button>
-  </form>';
-}
-  ?>
+  if(isset($_SESSION["nombredeusuario"])) { // si el cliente inició sesion, aparecerá el apartado de cerrar sesión
+    echo '
+    <form id="gotologin" action="http://localhost/charruaspag/salir.php">
+      <button id="newsesion">Cerrar Sesión</button>
+    </form>';
+  } 
+    ?>
   <a href="http://localhost/charruaspag/index.php">
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
@@ -151,4 +147,5 @@ if(isset($_SESSION["nombredeusuario"])) { // si el cliente inició sesion, apare
 </div>
 <script src="public/js/carrito.js"></script>
 <script src="public/js/scroll-function.js"></script>
+<script src="public/js/hamburguer.js"></script>
 <script src="public/js/desplegables.js"></script>

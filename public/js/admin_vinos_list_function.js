@@ -21,7 +21,8 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
   ciudad,
   cuenta,
   codpostal,
-  descripcion
+  descripcion,
+  telefono
 ) {
   info_vino = document.getElementById("info-vino");
   info_bodega = document.getElementById("info-bodega");
@@ -93,7 +94,8 @@ function select_vino( // esta funcion maneja la lista de vinos, lo que sucede cu
         pais_bodega,
         ciudad,
         cuenta,
-        codpostal
+        codpostal,
+        telefono
       );
       setTimeout(() => (info_wrapper.style.display = ""), 400);
       setTimeout(() => (info_efecto.style.display = ""), 400);

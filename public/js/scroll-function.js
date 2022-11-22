@@ -32,4 +32,10 @@ function scrollto() {
     behavior: "smooth",
   });
 }
+function scrolltoBottom() {
+  window.scroll({
+    top: 100000,
+    behavior: "smooth",
+  });
+}
 

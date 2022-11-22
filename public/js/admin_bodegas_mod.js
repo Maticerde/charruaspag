@@ -7,7 +7,8 @@ function carga_form_modb(
   pais_bodega,
   ciudad,
   cuenta,
-  codpostal
+  codpostal,
+  telefono
 ) {
   // paso los argumentos a un array global, para poder ser usados en otra funcion
   global_arguments_b[0] = bodega;
@@ -18,6 +19,7 @@ function carga_form_modb(
   global_arguments_b[5] = codpostal;
   global_arguments_b[6] = ciudad;
   global_arguments_b[7] = cuenta;
+  global_arguments_b[8] = telefono;
 
   inputs_mod_b = document.querySelectorAll(".inputs_modb");
   inputs_mod_b[0].value = nombre_bodega;
@@ -26,6 +28,7 @@ function carga_form_modb(
   inputs_mod_b[3].value = pais_bodega;
   inputs_mod_b[4].value = codpostal;
   inputs_mod_b[5].value = ciudad;
+  inputs_mod_b[6].value = telefono;
   inputs_mod_b[7].value = cuenta;
   input_codbodega = document.getElementById("in_codigo_bodega").value = bodega;
 }
@@ -38,6 +41,7 @@ function validate_submit_modb() {
     inputs_mod_b[3].value == global_arguments_b[4] &&
     inputs_mod_b[4].value == global_arguments_b[5] &&
     inputs_mod_b[5].value == global_arguments_b[6] &&
+    inputs_mod_b[6].value == global_arguments_b[8] &&
     inputs_mod_b[7].value == global_arguments_b[7]) {
     mensaje = document.getElementById("mensaje_modb").innerText = "No hay cambios en el producto";
     mensaje = document.getElementById("mensaje_modb").classList.toggle("mostrarmensaje");

@@ -48,20 +48,14 @@ public function updateVino($nombre_vino, $precio, $bodega_vino, $descripcion, $p
 
 public function setBodega($nombre_bodega, $email, $direccion, $pais, $codpostal, $ciudad, $telefono, $cuenta) {
     
-    $sql = "INSERT INTO BODEGA (ID_Bodega, Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-   $this->conn->prepare($sql)->execute([NULL, $nombre_bodega, $email, $direccion, $pais, $ciudad, $cuenta, $codpostal]);
+    $sql = "INSERT INTO BODEGA (ID_Bodega, Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal, Telefono_Bodega)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+   $this->conn->prepare($sql)->execute([NULL, $nombre_bodega, $email, $direccion, $pais, $ciudad, $cuenta, $codpostal, $telefono]);
 }
 
-public function updateBodega($codigo_bodega, $nombre_bodega, $email, $direccion, $pais, $codpostal, $ciudad, $cuenta) {
-    $sql = "UPDATE BODEGA SET Nombre_Bodega=?, Email_Bodega=?, Direccion=?, Pais_Bodega=?, Ciudad=?, Cuenta=?, Codigo_Postal=? WHERE ID_Bodega=?;";
-    $this->conn->prepare($sql)->execute([$nombre_bodega, $email, $direccion, $pais, $ciudad, $cuenta, $codpostal, $codigo_bodega]);
-}
-
-public function setTelBodega($codigo_bodega, $telefono) {
-    $sql = "INSERT INTO TEL_BODEGA (Cod_Bodega, Telefono_Bodega)
-    VALUES (?, ?);";
-   $this->conn->prepare($sql)->execute([$codigo_bodega, $telefono]);
+public function updateBodega($codigo_bodega, $nombre_bodega, $email, $direccion, $pais, $codpostal, $ciudad, $telefono, $cuenta) {
+    $sql = "UPDATE BODEGA SET Nombre_Bodega=?, Email_Bodega=?, Direccion=?, Pais_Bodega=?, Ciudad=?, Cuenta=?, Codigo_Postal=?, Telefono_Bodega=? WHERE ID_Bodega=?;";
+    $this->conn->prepare($sql)->execute([$nombre_bodega, $email, $direccion, $pais, $ciudad, $cuenta, $codpostal, $codigo_bodega, $telefono]);
 }
 
 }
