@@ -1,0 +1,55 @@
+insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Establecimiento Juanico', 'establecimiento@gmail.com', 'Ruta 5 Km 30', 'Uruguay', 'Canelones', 27, 90400);
+insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Bodega Roses', 'bodegaroses@gmail.com', 'Ruta 6 S/N - Km 30,200', 'Uruguay', 'Canelones', 57, 90000);
+insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Concha y Toro', 'conchaytoro@gmail.com', 'Avenida Virginia Subercaseaux 210 9480092 Pirque', 'Chile', 'Santiago', 17, 90000);
+insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Bodega Garzon', 'garzon@gmail.com', 'Ruta 9 Km. 175, Garzon 20401', 'Uruguay', 'Maldonado', 37, 90000);
+insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Santa Rosa', 'santarosa@gmail.com', '2218 Ruta Cesar Mayo Gutierrez', 'Uruguay', 'Montevideo', 27, 90000);
+
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Pais_Vinos, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Amalaya Tinto', 24, 1, 'Argentina', 'Mendoza', 2021, '-', 'src/vinos/amalaya-tinto.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Pais_Vinos, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Casillero del Diablo', 50, 3, 'Chile', 'Santiago', 2022, '-', 'src/vinos/cdd1_tienda.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Pais_Vinos, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Vino Roses', 15, 2, 'Uruguay', 'Canelones', 2022, '-', 'src/vinos/vr1_tienda.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Pais_Vinos, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Balasto', 56, 4, 'Uruguay', 'Maldonado', 2022, '-', 'src/vinos/b1_tienda.png');
+insert into VINOS (Nombre_Vino, Precio, Bodega_Vino, Pais_Vinos, Region, Cosecha, Descripcion, Ubicacion_IMG) values ('Don Pascual', 22, 1, 'Uruguay', 'Canelones', 2022, '-', 'src/vinos/dp1_tienda.png');
+
+insert into CLIENTES (CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente) values (54622348, 'Ramon Alvarez', 'Ruta 5 vieja', 'Las Piedras', 'ramon@gmail.com', '123');
+insert into CLIENTES (CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente) values (54642348, 'Gaston Alvarez', 'AV. Italia', 'Montevideo', 'gaston@gmail.com', '123');
+insert into CLIENTES (CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente) values (51232348, 'Gonzalo Alvarez', 'Calle Ancha', 'Canelones', 'gonzalo@gmail.com', '123');
+insert into CLIENTES (CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente) values (52621318, 'Matias Alvarez', 'Cuareim', 'Las Piedras', 'matias@gmail.com', '123');
+insert into CLIENTES (CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente) values (54622309, 'Sergio Alvarez', 'San Isidro', 'Las Piedras', 'Sergio@gmail.com', '123');
+
+insert into EMPLEADOS (Nombre_Empleado, CI_Empleado, Salario, Email_Empleado, Contrasenia_Empleado) values ('Juan Carlos Rodrigez', 58240825, 25000, 'juancarlo@gmail.com', '234');
+insert into EMPLEADOS (Nombre_Empleado, CI_Empleado, Salario, Email_Empleado, Contrasenia_Empleado) values ('Ramon Gutierrez', 58212825, 26000, 'ramon@gmail.com', '234');
+insert into EMPLEADOS (Nombre_Empleado, CI_Empleado, Salario, Email_Empleado, Contrasenia_Empleado) values ('Pablo Perez', 58247659, 25000, 'pablo@gmail.com', '234');
+insert into EMPLEADOS (Nombre_Empleado, CI_Empleado, Salario, Email_Empleado, Contrasenia_Empleado) values ('Gonzalo Gimenez', 58128655, 25000, 'gonzalo@gmail.com', '234');
+insert into EMPLEADOS (Nombre_Empleado, CI_Empleado, Salario, Email_Empleado, Contrasenia_Empleado) values ('Matias Martinez', 52240825, 25000, 'matias@gmail.com', '289dff07669d7a23de0ef88d2f7129e7');
+
+insert into VENTAS (Fecha_Venta, cliente) values ('2022-08-12', 1);
+insert into VENTAS (Fecha_Venta, cliente) values ('2022-08-15', 2);
+insert into VENTAS (Fecha_Venta, cliente) values ('2022-08-12', 3);
+insert into VENTAS (Fecha_Venta, cliente) values ('2022-03-12', 4);
+insert into VENTAS (Fecha_Venta, cliente) values ('2022-06-12', 5);
+
+insert into DETALLEVENTA (Cod_Venta, Vinos_DetalleV, Cantidad_DetalleV, Costo_DetalleV) values (1, 1, 1, 79);
+insert into DETALLEVENTA (Cod_Venta, Vinos_DetalleV, Cantidad_DetalleV, Costo_DetalleV) values (2, 2, 1, 27);
+insert into DETALLEVENTA (Cod_Venta, Vinos_DetalleV, Cantidad_DetalleV, Costo_DetalleV) values (3, 3, 1, 59);
+insert into DETALLEVENTA (Cod_Venta, Vinos_DetalleV, Cantidad_DetalleV, Costo_DetalleV) values (4, 4, 1, 35);
+insert into DETALLEVENTA (Cod_Venta, Vinos_DetalleV, Cantidad_DetalleV, Costo_DetalleV) values (5, 5, 1, 78);
+
+insert into COMPRAS (Fecha_Compra, Bodega, Empleado) values ('2022-08-19', 1, 1);
+insert into COMPRAS (Fecha_Compra, Bodega, Empleado) values ('2022-08-22', 2, 2);
+insert into COMPRAS (Fecha_Compra, Bodega, Empleado) values ('2022-08-14', 3, 3);
+insert into COMPRAS (Fecha_Compra, Bodega, Empleado) values ('2022-04-12', 4, 4);
+insert into COMPRAS (Fecha_Compra, Bodega, Empleado) values ('2022-03-12', 5, 5);
+
+insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, Costo_DetalleC) values (1, 1, 3, 78);
+insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, Costo_DetalleC) values (2, 2, 2, 21);
+insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, Costo_DetalleC) values (3, 3, 3, 54);
+insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, Costo_DetalleC) values (4, 4, 4, 34);
+insert into DETALLECOMPRA (Cod_Compra, Vinos_DetalleC, Cantidad_DetalleC, Costo_DetalleC) values (5, 5, 5, 76);
+
+drop trigger if exists Respaldo_Vinos;
+create trigger Respaldo_Vinos before update on VINOS for each row
+insert into RESPALDOSVINOS (Resp_Cod_Vino , Resp_Nombre_Vino, Resp_Precio_Vino, Resp_Stock_Vino) values (old.Codigo_Vino, old.Nombre_Vino, old.Precio, old.Stock);
+ 
+drop trigger if exists Respaldo_Bodega;
+create trigger Respaldo_Bodega before update on BODEGA for each row
+insert into RESPALDOSBODEGAS (Resp_ID_Bodega, Resp_Nombre_Bodega, Resp_Cuenta) values (old.ID_Bodega, old.Nombre_Bodega, old.Cuenta);
