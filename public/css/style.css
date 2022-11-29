@@ -47,7 +47,6 @@ ul {
   font-style: normal;
 }
 
-
 body {
   background-color: rgb(253, 245, 241);
 }
@@ -79,22 +78,13 @@ body {
 }
 
 #menu {
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  transition: all ease 0.5s;
-=======
   transition: all ease 0.5s, width 0s;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   justify-content: center;
   position: absolute;
   height: 57px;
   width: 100%;
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  background: rgb(142,116,107);
-  background: linear-gradient(90deg, rgba(142, 116, 107, 0.847) 0%, rgba(142,116,107,0.4066001400560224) 50%, rgba(98, 26, 26, 0.738) 100%);
-=======
   background: rgb(142, 116, 107);
   background: linear-gradient(90deg, rgba(120, 49, 49, 0.794) 0%, rgba(142, 116, 107, 0.4066001400560224) 50%, rgba(98, 26, 26, 0.738) 100%);
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   z-index: 3;
 }
@@ -102,8 +92,6 @@ body {
 #menu.llevarmenu {
   background: linear-gradient(90deg, rgba(98, 26, 26, 0.794) 0%, rgba(213, 205, 203, 0.83) 50%, rgba(98, 26, 26, 0.794) 100%);
   position: fixed;
-<<<<<<< HEAD:charruaspag/public/css/style.css
-=======
 }
 
 #hamburguer {
@@ -160,7 +148,6 @@ body {
 #panel_menu div:hover{
   letter-spacing: 4px;
   color: white;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #charruas-texto {
@@ -175,20 +162,11 @@ body {
   color: #510707;
   text-shadow: 1px 1px 2px #000000;
   font-family: "cinzelbold";
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  font-size: 55px;
-
-}
-
-#charruas-texto img {
-  right: 46px;
-=======
   font-size: 50px;
 }
 
 #charruas-texto img {
   right: 39px;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   top: -2px;
   object-fit: cover;
   margin-inline: auto;
@@ -386,10 +364,7 @@ body {
 #bestsellers_info #bs2-info {
   top: 1.5vw;
 }
-<<<<<<< HEAD:charruaspag/public/css/style.css
-=======
 
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 #bestsellers_info #bs2-name {
   font-size: 2vw;
 }
@@ -404,114 +379,6 @@ body {
   top: 40%;
   cursor: pointer;
   color: rgb(10, 10, 10);
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  background: rgb(152,2,2);
-  background: linear-gradient(101deg, rgba(152,2,2,0.8267682072829132) 0%, rgba(110,5,5,0.7987570028011204) 62%);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  transition: all ease 0.3s;
-}
-#bestsellers_info h3:hover {
-  letter-spacing: 0.1vw;
-  color: rgb(253, 245, 241);
-  width: 90%;
-}
-
-#advertbox-i, #advertbox-d {
-  border-radius: 0.1vw;
-  position: absolute;
-  overflow: hidden;
-  margin-top: 6vw;
-  height: 30vw;
-  width: 12vw;
-  padding-bottom: 1vw;
-  z-index: 1;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}
-#advertbox-i {
-  left: 1vw;
-}
-#advertbox-d {
-  right: 1vw;
-}
-
-#advertbox-i a, #advertbox-d a {
-width: 100%;
-height: 100%;
-}
-
-#advertbox-i img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transform: scale(1.20);
-  background-color: #000;
-}
-
-#advertbox-d img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.09);
-  background-color: #000;
-}
-
-#carrito-title {
-  font-size: 23px;
-  top: 10px;
-  position: relative;
-  font-family: cinzelregular;
-  letter-spacing: 3px;
-}
-
-#totalcount {
-  color: rgb(92, 33, 41);
-  font-weight: bold;
-  font-size: 25px;
-  margin-top: 2vw;
-}
-#compraboton {
-  width: 200px;
-  margin-left: 18%;
-  margin-top: 1vw;
-  text-align: center;
-  color: rgb(200, 186, 186);
-  cursor: pointer;
-  font-family: cinzelbold;
-  border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border: transparent;
-  font-size: 35px;
-  background-color: rgb(51, 13, 18);
-  transition: ease 0.3s;
-}
-
-#compraboton:hover {
-  transition: ease 0.3s;
-  background-color: rgb(200, 186, 186);
-  color: rgb(51, 13, 18);
-}
-
-
-#vaciar {
-  display: none;
-  position: absolute;
-  right: 15px;
-  top: 18px;
-  height: 32px;
-  font-weight: bold;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-#close_cart {
-  position: absolute;
-  right: 8px;
-  top: 22px;
-  height: 32px;
-  font-weight: bold;
-  background-color: transparent;
-  cursor: pointer;
-=======
   background: rgb(152, 2, 2);
   background: linear-gradient(101deg, rgba(152, 2, 2, 0.8267682072829132) 0%, rgba(110, 5, 5, 0.7987570028011204) 62%);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -565,7 +432,6 @@ height: 100%;
   object-fit: cover;
   transform: scale(1.09);
   background-color: #000;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #gallery {
@@ -619,134 +485,16 @@ top: 47%;
   position: fixed;
   margin-top: -4px;
   top: -50px;
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  right: 24px;
-=======
   right: 22px;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   z-index: 9;
   transition: all ease 0.5s;
   rotate: -90deg;
   height: 35px;
   opacity: 0.9;
-<<<<<<< HEAD:charruaspag/public/css/style.css
   cursor: pointer;
   text-shadow: 1px 1px 2px #ffffff;
 }
 
-#carro-content {
-  margin-top: 30px;
-  max-height: 70vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-
-
-#carro-content::-webkit-scrollbar {
-  width: 5px;
-}
-
-#carro-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.549);
-  border-radius: 5px;
-}
-
-#carro-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.161);
-  border-radius: 5px;
-}
-
-#cart {
-  scroll-behavior: none;
-  scroll-snap-stop: always;
-  padding-left: 7px;
-  background-color: white;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  position: fixed;
-  right: 0;
-  height: 100%;
-  width: 330px;
-  z-index: 5;
-  transition: transform ease 0.5s;
-  transform: translateX(337px);
-  scroll-behavior: none;
-  overscroll-behavior: contain;
-}
-
-#cart.toggled {
-  transform: translateX(0px);
-}
-
-
-#cart-icon.toggled {
-  transform: translateX(-330px);
-}
-
-#arrow.toggled {
-  transform: translateY(-330px);
-}
-
-#cart-icon {
-  position: fixed;
-  right: 25px;
-  margin-top: 9px;
-  z-index: 4;
-  transition: transform 0.5s;
-  transform: translateX(0px);
-  height: 35px !important;
-  width: 35px !important;
-  opacity: 0.9;
-=======
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
-  cursor: pointer;
-  text-shadow: 1px 1px 2px #ffffff;
-}
-
-<<<<<<< HEAD:charruaspag/public/css/style.css
-#cart_item {
-  font-weight: 900;
-  font-family: robotolight;
-  position: relative;
-  width: 301px;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 0.5vw;
-  height: 70px;
-  border: 1px solid rgb(193, 190, 190);
-}
-
-#cart_item img {
-  object-fit: contain;
-  height: 100%;
-  margin-left: 10px;
-}
-
-#cart_item p1 {
-  position: absolute;
-  font-size: 25px;
-  right: 10px;
-  bottom: 0;
-}
-
-#cart_item p3 {
-  font-weight: 900;
-  font-size: 25px;
-  position: absolute;
-  top: 0;
-  left: 60px;
-  margin-inline: auto;
-}
-
-#cart_item p4 {
-  color: rgb(28, 26, 26);
-  font-size: 20px;
-  position: absolute;
-  left: 61px;
-  top: 30px;
-}
-=======
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 
 .divisor {
   opacity: 0.3;
@@ -852,23 +600,6 @@ top: 47%;
 .productos-gallery div:hover {
   background-color: rgb(246, 237, 234);
   box-shadow: rgba(17, 12, 46, 0.289) 0px 48px 100px 0px;
-<<<<<<< HEAD:charruaspag/public/css/style.css
-}
-
-#productos-div img,
-#productos-div-lowstock img {
-  -webkit-user-drag: none;
-  margin-inline: auto;
-  display: block;
-  object-fit: contain;
-  height: 60%;
-  width: 60%;
-  margin-top: 2%;
-  margin-bottom: 1%;
-}
-
-#productos-div p0, #productos-div-lowstock p0 {
-=======
 }
 
 #productos-div img,
@@ -885,19 +616,14 @@ top: 47%;
 
 #productos-div p0,
 #productos-div-lowstock p0 {
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   font-size: 1.44vw;
   letter-spacing: 1px;
   font-weight: 900;
   color: rgb(67, 66, 66);
 }
 
-<<<<<<< HEAD:charruaspag/public/css/style.css
-#productos-div p1, #productos-div-lowstock p1 {
-=======
 #productos-div p1,
 #productos-div-lowstock p1 {
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   position: relative;
   color: #00000055;
   font-weight: 900;
@@ -905,12 +631,8 @@ top: 47%;
   font-size: 0.85vw;
 }
 
-<<<<<<< HEAD:charruaspag/public/css/style.css
-#productos-div p2, #productos-div-lowstock p2 {
-=======
 #productos-div p2,
 #productos-div-lowstock p2 {
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   position: relative;
   font-size: 1.7vw;
   right: 0.55vw;
@@ -920,12 +642,8 @@ top: 47%;
   font-family: robotolight;
 }
 
-<<<<<<< HEAD:charruaspag/public/css/style.css
-#productos-div p3, #productos-div-lowstock p3 {
-=======
 #productos-div p3,
 #productos-div-lowstock p3 {
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   color: rgb(29, 26, 26);
   letter-spacing: 1px;
   position: relative;
@@ -936,8 +654,6 @@ top: 47%;
 #productos-div-lowstock p3 {
   font-weight: bold;
   color: rgb(195, 24, 24);
-<<<<<<< HEAD:charruaspag/public/css/style.css
-=======
 }
 
 #contacto-icons {
@@ -964,7 +680,6 @@ opacity: 0.9;
 
 #contacto-icons img:nth-child(1) {
 margin-right: 10px;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #box3 {
@@ -1014,11 +729,7 @@ margin-right: 10px;
 }
 
 li {
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  border-bottom: 2px solid rgb(51, 13, 18);
-=======
   border-bottom: 0.2vw solid rgb(51, 13, 18);
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 0.8vw;
@@ -1097,23 +808,6 @@ li:hover {
   transition: all 0.1s;
 }
 
-<<<<<<< HEAD:charruaspag/public/css/style.css
-#usuariologeado {
-  border-radius: 5px;
-border: 3px solid rgba(215, 202, 202, 0.045);
-background-color: rgba(84, 39, 39, 0.55);
-left: 90px;
-top: 10px;
-font-size: 20px;
-position: absolute;
-width: auto;
-text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-text-align: center;
-font-family: "cinzelbold";
-transition: all 0.1s;
-z-index: 1;
-=======
 #gototienda {
   top: 5px;
   right: 15vw;
@@ -1135,7 +829,6 @@ z-index: 1;
   font-family: "cinzelbold";
   transition: all 0.1s;
   z-index: 1;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #newsesion:hover,
@@ -1175,69 +868,17 @@ z-index: 1;
   background: #000;
   opacity: 0.5;
   position: fixed;
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  top: 8vw;
-  left: 0;
-  right: 0;
-  margin-inline: auto;
-  z-index: 10;
-  transition: all 0.6s cubic-bezier(0.68, 0.32, 0.34, 0.97);
-  padding: 0 3% 0 3%;
-  font-family: robotolight;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  z-index: 5;
-}
-h4 {
-  font-size: 1.3vw;
-}
-h4 p {
-  cursor: pointer;
-  position: absolute;
-  font-size: 1.7vw;
-  top: -1vw;
-  right: 2%;
-}
-p {
-  font-size: 1.9vh;
-}
-#poldevolucion-desp.open,
-#contacto-desp.open,
-#fdepago-desp.open,
-#polprivacidad-desp.open {
-  padding: 1% 3% 1% 3%;
-  height: 50vh;
-=======
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 100;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
   #usuario_responsive {
   display: none;  
   }
 
-<<<<<<< HEAD:charruaspag/public/css/style.css
-
-#contactoimg {
-  width: 100%;
-  object-fit: scale-down;
-}
-
-#darken {
-  display: none;
-  background: #000;
-  opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-}
-=======
 @media (max-width: 1250px) {
   #usuariologeado {
     font-size: 14px;
@@ -1256,19 +897,15 @@ p {
   #usuario_responsive {
   display: block;  
   }
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 
 
 @media (max-width: 1150px) {
   #cart {
     transform: translateX(337px);
-<<<<<<< HEAD:charruaspag/public/css/style.css
-=======
   }
 
   body.overflowfix {
     overflow-y: auto;
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   }
 
   #newsesion {
@@ -1369,12 +1006,6 @@ p {
     height: 100%;
     width: 100%;
   }
-<<<<<<< HEAD:charruaspag/public/css/style.css
-  #menu {
-    z-index: 2;
-  }
-=======
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 
   #texto1 {
     color: rgb(255, 255, 255);
@@ -1439,8 +1070,4 @@ p {
     left: 11vw;
     object-fit: scale-down;
   }
-<<<<<<< HEAD:charruaspag/public/css/style.css
 }
-=======
-}
->>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
