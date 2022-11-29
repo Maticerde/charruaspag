@@ -6,6 +6,12 @@ function cartanimation() { //funcion de despliegue de carrito
     let panel = document.querySelector("#cart").classList.toggle("toggled");
     let arrow = document.querySelector("#arrow").classList.toggle("toggled");
     body = document.querySelector("body").classList.toggle("hide_scrollbar");
+    let carticon = document
+        .querySelector("#cart-icon")
+        .classList.toggle("toggled");
+            let carticoncount = document
+        .querySelector("#cart-count")
+        .classList.toggle("toggled");
     let menu = document.querySelector("#menu").classList.toggle("hide_scrollbar");
     try { //intenta aplicar una clase a un elemento que solo se encuentra en la pagina principal
         let deco = document.querySelector("#deco-bstext").classList.toggle("hide_scrollbar"); 
@@ -72,9 +78,13 @@ function acarrear(cantidad, nombre, precio, stock, imagen, pais, id_vino) { // f
                     carticon = document.querySelector("#cart-icon").classList.toggle("animatecart");
                     setTimeout(() => carticon = document.querySelector("#cart-icon").classList.toggle("animatecart"), 200);
                     // en caso de que no supere el stock
+                    if(objeto.cant + element.cant < 1) { // si restamos una cantidad mayor a la que tenemos..
+                    total -= (element.price) * (element.cant); //solo se restan las unidades que ya agregamos y se borra ese producto
+                    }else {
                     total += parseInt(objeto.price) * parseInt(objeto.cant); // el precio de las unidades extra se agregan al total
                     element.cant += objeto.cant; // se agregan las unidades al producto
 
+                    }
                 }
                 agrego = false; // si el objeto seleccionado ya existe en el carrito la flag 'agrego' da falso
             }

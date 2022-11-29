@@ -10,7 +10,7 @@ public function __construct() {
     $host = "localhost:3307";
     $username = "root";
     $password = "";
-    $db_name = "vinos_charruas";
+    $db_name = "Vinos_Charruas";
     
     $this->respuesta = array();
     $this->conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
@@ -28,6 +28,15 @@ public function getBodegas() {
 public function getVinosyBodegaEnOrden($orden) {
 
     $sql = "SELECT VINOS.*, BODEGA.* FROM VINOS JOIN BODEGA ON VINOS.Bodega_Vino = BODEGA.ID_Bodega ORDER BY $orden";
+    foreach ($this->conn->query($sql) as $row) {
+        $this->respuesta[] = $row;
+    }
+    return $this->respuesta;
+}
+
+public function getVinosOfBodega($bodega) {
+
+    $sql = "SELECT VINOS.* FROM VINOS JOIN BODEGA ON VINOS.Bodega_Vino = BODEGA.ID_Bodega WHERE VINOS.Bodega_Vino = $bodega";
     foreach ($this->conn->query($sql) as $row) {
         $this->respuesta[] = $row;
     }

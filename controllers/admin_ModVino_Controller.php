@@ -5,11 +5,12 @@
     }else 
 {
     /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
-    header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");
+    header("Location: /charruaspag/views/panel_admin/panel_admin.php ");
     exit();
 }
 
 function mod_vino() {
+
     require_once("../models/modeloAdmin.php");
     $modelo = new SoporteAdmin();
 
@@ -39,5 +40,5 @@ function mod_vino() {
         );
     }
 
-    header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php ");
+    header("Location: /charruaspag/views/panel_admin/panel_admin.php ");
 }

@@ -1,13 +1,7 @@
 <?php
 session_start();
-if(isset($_SESSION['setAdmin'])){
-
-    // $usuarioingresado = $_SESSION['nombredeusuario'];
-    //  echo "<h1> bienvenido: $usuarioingresado </h1>";
-    // header('location: /charruaspag/views/panel_admin/panel_admin.php');
-
-} else{
-    header('location: /charruaspag/views/login/index.php');
+if(empty($_SESSION['setAdmin'])){
+  header('location: /charruaspag/views/login/index.php');
 }
 ?>
 
@@ -30,7 +24,7 @@ if(isset($_SESSION['setAdmin'])){
   <img id=fondo src="../../src/foto3.jpg">
   <div id="menu">
     <section id="texto1">A d m i n i s t r a c i ó n</section>
-    <a href="http://localhost/charruaspag/index.php">
+    <a href="/charruaspag/index.php">
       <section id="charruas-texto"> Charrúas </section>
     </a>
   </div>
@@ -283,7 +277,7 @@ if(isset($_SESSION['setAdmin'])){
             <p2 class="input_texto"> Nombre </p2>
           </label>
           <label class="input_label">
-            <input class="inputs" type="number" id="ucedula" name="ucedula" maxlength="8" required>
+            <input class="inputs" type="number" id="ucedula" name="ucedula" min="1000000" max="99999999" required>
             <p2 class="input_texto"> Cédula </p2>
           </label>
           <label class="input_label">
@@ -316,7 +310,7 @@ if(isset($_SESSION['setAdmin'])){
             <p2 class="input_texto"> Nombre </p2>
           </label>
           <label class="input_label">
-            <input class="inputs" type="number" id="ucedula" name="ucedula" maxlength="8" required>
+            <input class="inputs" type="number" id="ucedula" name="ucedula" min="1000000" max="99999999" required>
             <p2 class="input_texto"> Cédula </p2>
           </label>
           <label class="input_label">

@@ -18,12 +18,12 @@ session_start();
 </head>
 <div class="login">
     <section id="panel">
-        <a href="http://localhost/charruaspag/index.php">
+        <a href="/charruaspag/index.php">
         <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
         <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
-        <form method="POST" action="/charruaspag/controllers/login_Controller.php">
+        <form method="POST" action="/charruaspag/controllers/Login_Controller.php">
             <input type="text" disabled id="mensaje"/>
             <input type="email" name="unombre" placeholder="Email" required/>
             <input type="password" name="upass" placeholder="Contraseña" required/>
@@ -33,6 +33,6 @@ session_start();
             <p>Registrarse</p> 
         </a>
     </section>
-        <video autoplay loop muted src="/charruaspag/src/login/Video/viña_video.mp4"></video>
-    <!-- <script src="/charruaspag/public/js/loginjs.js"></script> -->
+        <video autoplay loop muted src="/charruaspag/src/login/video/viña_video.mp4"></video>
+    <!-- <script src="/public/js/loginjs.js"></script> -->
 </div>

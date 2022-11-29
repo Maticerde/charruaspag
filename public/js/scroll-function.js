@@ -4,6 +4,7 @@ menu = document.getElementById("menu");
 let auxflag = true;
 
 function myScrollFunc() {
+  let icons = document.getElementById("contacto-icons");
   let y = window.scrollY;
   if (y > 1100) {
     arrow.style.top = "60px";
@@ -26,6 +27,8 @@ function myScrollFunc() {
 }
 window.addEventListener("scroll", myScrollFunc);
 window.addEventListener("load", myScrollFunc);
+window.addEventListener("scroll", icons-position);
+window.addEventListener("load", icons-position);
 function scrollto() {
   window.scroll({
     top: 0,
@@ -38,4 +41,5 @@ function scrolltoBottom() {
     behavior: "smooth",
   });
 }
+
 

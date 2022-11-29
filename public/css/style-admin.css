@@ -207,7 +207,6 @@ ul {
 
 
 #modvino-bax, #modbodega-bax {
-  transition: all ease 1s;
   top: calc(8vw + 15px);
   left: calc(3.4vw + 15px);
   overflow: hidden;
@@ -493,6 +492,8 @@ h3 {
 #compra-form input:valid + .input_texto,
 #adduser-form input:focus + .input_texto,
 #adduser-form input:valid + .input_texto,
+#addadmin-form input:focus + .input_texto,
+#addadmin-form input:valid + .input_texto,
 #addvino-form input:focus + .input_texto,
 #addvino-form input:valid + .input_texto,
 #addvino-form select:focus + .input_texto,

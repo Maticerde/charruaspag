@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,64 +19,62 @@
     <div><a style="color: inherit; text-decoration: none;" href="/charruaspag/views/market/market.php">Tienda</a></div>
     <div><a style="cursor: pointer;" onclick="scrolltoBottom();">Contacto</a></div>
     <?php // muestra el email del usuario
-if (isset($_SESSION["nombredeusuario"])) {
-    echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
-    echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
-} elseif (isset($_SESSION["setAdmin"])) {
-    echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
-    echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/panel_admin.php"> Panel Admin </a></div>';
-    echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/altas_stock.php"> Gestión de Stock </a></div>';
-    echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
-}
-?>
+      if(isset($_SESSION["nombredeusuario"]))
+      {
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+      }elseif(isset($_SESSION["setAdmin"])) {
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/panel_admin.php"> Panel Admin </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/altas_stock.php"> Nueva Compra </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+      } else {
+        echo '<div id="usuario_responsive"> <a style="color: inherit; text-decoration: none;" href="/views/login/index.php"> Iniciar Sesión </a></div>';
+      }
+    ?>
   </section>
   <div id="hamburguer" onclick="desplegarpanel();"><span>&#9776;</span></div>
-  <img id="cart-icon" src="src/carticon.png"><span id="cart-count"></span></img>
-  <form id="gototienda" action="http://localhost/charruaspag/views/market/market.php">
-    <button id="gototienda">Tienda</button>
-  </form>
-  <section id="usuariologeado">
-    <?php // muestra el email del usuario
-if (isset($_SESSION["nombredeusuario"])) {
-    echo "¡Bienvenid@, " . $_SESSION["nombredeusuario"] . "!";
-} elseif (isset($_SESSION["setAdmin"])) {
-    echo "¡Bienvenid@, " . $_SESSION["setAdmin"] . "!";
-} else {
-    echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/login/index.php"> Iniciar Sesión </a></div>';
-}
-?>
+<img id="cart-icon" src="src/carticon.png"><span id="cart-count"></span></img>
+<section id="usuariologeado">
+<?php // muestra el email del usuario
+      if(isset($_SESSION["nombredeusuario"]))
+      {
+        echo "¡Bienvenid@, " . $_SESSION["nombredeusuario"] . "!";
+      }
+      elseif(isset($_SESSION["setAdmin"])) {
+        echo "¡Bienvenid@, " . $_SESSION["setAdmin"] . "!";
+      }else {
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/login/index.php"> Iniciar Sesión </a></div>';
+      }
+    ?>
   </section>
-
-  <a href="http://localhost/charruaspag/index.php">
-    <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png" />&nbspas </section>
+  <a href="/charruaspag/index.php">
+  <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
 </div>
 <?php include 'views/desplegables/desplegables.php';?>
-<img id="arrow" src="src/house_arrow.png" onclick="scrollto()" />
+<img id="arrow" src="src/house_arrow.png" onclick="scrollto()"/>
 <div id="cart">
   <h1 id="carrito-title"> Carrito Charrúas </h1>
   <img id="close_cart" onclick="cartanimation();" src="src/right_arrow.png"></img>
   <section id="carro-content"></section>
   <div id="totalcount"></div>
   <form>
-    <input value="<?php if (isset($_SESSION["nombredeusuario"])) {echo $_SESSION["id_cliente"];}?>" type="number"
-      id="id_cliente_form" name="id_cliente_form" style="display: none">
+    <input value="<?php if(isset($_SESSION["nombredeusuario"])){ echo $_SESSION["id_cliente"];} ?>"type="number" id="id_cliente_form" name="id_cliente_form" style="display: none">
   </form>
   <section id="cart-buttons">
-    <button id="compraboton" <?php
-
-if (isset($_SESSION["nombredeusuario"])) {
-    echo 'onclick="generar_venta(); generar_detalleventa(); vaciarcarrito();"';} else {
-    if (isset($_SESSION["setAdmin"])) {
-        echo 'onclick="alertacarrito_admin();"';
-    } else {
-        echo 'onclick="alertacarrito();"';
-    }
-}
-?>>Comprar</button>
-    <button type="button" id="vaciar" onclick="vaciarcarrito();">
-      <p2>Vaciar</p2><img src="src/trashicon.png" />
-    </button>
+      <button id="compraboton" <?php 
+      if(isset($_SESSION["nombredeusuario"])){
+        echo 'onclick="generar_venta(); generar_detalleventa(); vaciarcarrito();"';}
+      else {
+        if(isset($_SESSION["setAdmin"])){
+          echo 'onclick="alertacarrito_admin();"';
+        } else {
+          echo 'onclick="alertacarrito();"';
+        }
+      }
+      ?>>Comprar</button>
+    <button type="button" id="vaciar" onclick="vaciarcarrito();"><p2>Vaciar</p2><img src="src/trashicon.png"/></button>
   </section>
 </div>
 <section id="texto1"> Un vino, ㅤ una Historia
@@ -95,16 +93,17 @@ if (isset($_SESSION["nombredeusuario"])) {
 <div id="boxbs">
   <img id="bsfondo" src="src/wine-splash.png"> </img>
   <span id="bestsellers">
-    <script src="public/js/bestsellers_fetch.js"></script>
+  <script src="public/js/bestsellers_fetch.js"></script>
   </span>
   <div id="arr"> </div>
 </div>
 <section id="bestsellers_info"></section>
 <section id="gallery">
-  <img id="img1" src="src/7304726.jpg">
-  <img id="img2" src="src/bodega.jpg">
-  <img id="img3" src="src/vinocopa.jpg">
-  <img id="img4" src="src/vinorosa.jpg">
+  <div style="position: relative;"><a href="/charruaspag/views/market/market.php"><img id="img1" src="src/7304726.jpg"><div class="gallery_text">Tienda</div></a></div>
+  <div style="position: relative;"><img id="img2" src="src/bodega.jpg"><div class="gallery_text">Bodegas</div></div>
+  <div style="position: relative;"><img id="img3" src="src/vinocopa.jpg"><div class="gallery_text">Sobre Nosotros</div></div>
+  <div style="position: relative;"><img id="img4" src="src/vinorosa.jpg"><div class="gallery_text">Recomendaciones</div></div>
+
 </section>
 <section class="divisor"></section>
 <section id="sliderbox">
@@ -118,13 +117,13 @@ if (isset($_SESSION["nombredeusuario"])) {
 <div id="slidertext"></div>
 <section class="gallery-wrapper">
   <h1>¡Últimas Oportunidades!</h1>
-  <section class="productos-gallery"></section>
+<section class="productos-gallery"></section>
 </section>
 <div id="box3">
   <div class="contactobox">
-    <a href="http://localhost/charruaspag/index.php">
-      <img class="logo1" src="src/charruas logo.png">
-      <p2 id="charruas-texto2"> Charrúas </p2>
+    <a href="/index.php">
+    <img class="logo1" src="src/charruas logo.png">
+    <p2 id="charruas-texto2"> Charrúas </p2>
     </a>
     <ul>
       <li id="contacto"><a href="mailto:charruas.soporte@gmail.com">Contacto</a></li>
@@ -137,6 +136,7 @@ if (isset($_SESSION["nombredeusuario"])) {
 <div id="copyright">
   <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
 </div>
+<div id="contacto-icons"><a target="_blank" href="https://www.instagram.com/gonzeh2/" ><img src="src/Instagram_icon.png"/></a><a target="_blank" href="https://www.facebook.com/gonzalo.acosta.1088893"><img src="src/Facebook_Logo.png"/></a></div>
 <script src="public/js/carrito.js"></script>
 <script src="public/js/scroll-function.js"></script>
 <script src="public/js/hamburguer.js"></script>

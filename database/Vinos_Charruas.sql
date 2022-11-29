@@ -1,3 +1,184 @@
+DROP DATABASE IF EXISTS Vinos_Charruas;
+CREATE DATABASE IF NOT EXISTS Vinos_Charruas;
+
+USE Vinos_Charruas;
+
+CREATE TABLE BODEGA(
+ID_Bodega int auto_increment,
+Nombre_Bodega VARCHAR (40) not null unique,
+Email_Bodega VARCHAR (50) not null,
+Direccion VARCHAR (70) not null,
+Pais_Bodega VARCHAR (25) not null,
+Ciudad VARCHAR (25) not null,
+Cuenta INT not null,
+Codigo_Postal int not null,
+Telefono_Bodega INT (9),
+Primary key (ID_Bodega)
+);
+
+CREATE TABLE VINOS(
+Codigo_Vino int auto_increment,
+Nombre_Vino VARCHAR (20) not null unique,
+Precio DECIMAL not null check(Precio>0),
+Bodega_Vino int not null,
+Stock INT default'1' check (Stock>=0),
+Pais_Vinos VARCHAR (20) not null,
+Region VARCHAR (50) not null,
+Cosecha VARCHAR (20) not null,
+Descripcion VARCHAR (100),
+Ubicacion_IMG VARCHAR (50) not null,
+Primary key (Codigo_Vino),
+Foreign key (Bodega_Vino) references BODEGA (ID_Bodega)
+);
+
+CREATE TABLE CLIENTES(
+Codigo_Cliente int auto_increment,
+CI_Cliente char (8) not null unique,
+Nombre_Cliente VARCHAR (20) not null,
+Direccion VARCHAR (70) not null,
+Ciudad VARCHAR (25) not null,
+Email_Cliente VARCHAR (50) unique not null,
+Contrasenia_Cliente VARCHAR (35) not null,
+Telefono_Cliente INT (9),
+Primary key (Codigo_Cliente)
+);
+
+CREATE TABLE EMPLEADOS(
+Codigo_Empleado int auto_increment,
+Nombre_Empleado VARCHAR (20) not null,
+CI_Empleado char (8) not null unique,
+Salario INT check(Salario>=0),
+Direccion VARCHAR (70) not null,
+Ciudad VARCHAR (25) not null,
+Email_Empleado VARCHAR (50) unique not null,
+Contrasenia_Empleado VARCHAR (35) not null,
+Telefono_Empleado INT (9),
+Primary key (Codigo_Empleado)
+);
+
+CREATE TABLE VENTAS(
+Codigo_Venta int auto_increment,
+Fecha_Venta DATETIME not null,
+cliente int not null,
+primary key (Codigo_Venta, Fecha_Venta),
+foreign key (cliente) references CLIENTES (Codigo_Cliente)
+);
+
+CREATE TABLE DETALLEVENTA(
+Cod_Detalle_Ven int auto_increment,
+Cod_Venta int not null,
+Vinos_DetalleV int not null,
+Cantidad_DetalleV int not null check (Cantidad_DetalleV>0),
+Costo_DetalleV decimal not null check(Costo_DetalleV>0),
+Primary key (Cod_Detalle_Ven),
+Foreign key (Vinos_DetalleV) references VINOS (Codigo_Vino),
+Foreign key (Cod_Venta) references VENTAS (Codigo_Venta)
+);
+
+CREATE TABLE COMPRAS(
+Codigo_Compra int auto_increment,
+Fecha_Compra datetime not null,
+Bodega int not null,
+Empleado int not null,
+primary key(Codigo_Compra),
+foreign key (Bodega) references BODEGA (ID_Bodega),
+foreign key (Empleado) references EMPLEADOS (Codigo_Empleado)
+);
+
+CREATE TABLE DETALLECOMPRA(
+Cod_Detalle_Com int auto_increment,
+Cod_Compra int not null,
+Vinos_DetalleC int not null,
+Cantidad_DetalleC int not null check(Cantidad_DetalleC>0),
+Costo_DetalleC decimal not null check(Costo_DetalleC>0),
+Primary key (Cod_Detalle_Com),
+Foreign key (Vinos_DetalleC) references VINOS (Codigo_Vino),
+Foreign key (Cod_Compra) references COMPRAS (Codigo_Compra)
+);
+
+CREATE TABLE RESPALDOSVINOS(
+Cod_Respado_Vino int auto_increment,
+Resp_Cod_Vino int,
+Resp_Nombre_Vino VARCHAR (20),
+Resp_Precio_Vino DECIMAL,
+Resp_Stock_Vino int,
+Primary key (Cod_Respado_Vino)
+);
+
+CREATE TABLE RESPALDOSBODEGAS(
+Cod_Respaldo_Bodega int auto_increment,
+Resp_ID_Bodega int,
+Resp_Nombre_Bodega VARCHAR (40),
+Resp_Cuenta int,
+Primary key (Cod_Respaldo_Bodega)
+);
+
+CREATE TABLE FALTASTOCK(
+Cod_Falta_Stock int auto_increment,
+Cod_Vino_Fal_STK int,
+Nom_Vino_Fal_STK VARCHAR (40),
+Stock_Fal_STK int,
+Primary key (Cod_Falta_Stock)
+);
+
+CREATE OR REPLACE VIEW Stock AS
+SELECT  VINOS.Nombre_Vino AS Nombre, DETALLECOMPRA.Cantidad_DetalleC - DETALLEVENTA.Cantidad_DetalleV AS stock FROM DETALLECOMPRA 
+JOIN VINOS ON DETALLECOMPRA.Vinos_DetalleC = VINOS.Codigo_Vino
+JOIN DETALLEVENTA ON VINOS.Codigo_Vino = DETALLEVENTA.Cod_Detalle_Ven
+GROUP BY VINOS.Codigo_Vino
+ORDER BY stock;
+
+CREATE OR REPLACE VIEW Producto_mas_Vendido AS
+SELECT VINOS.Codigo_Vino AS Codigo_Vino, VINOS.Nombre_Vino AS Nombre, SUM(DETALLEVENTA.Cantidad_DetalleV) AS Total_de_Ventas FROM DETALLEVENTA
+JOIN VINOS ON DETALLEVENTA.Vinos_DetalleV = VINOS.Codigo_Vino
+GROUP BY VINOS.Codigo_Vino
+ORDER BY Total_de_Ventas DESC;
+
+CREATE OR REPLACE VIEW Producto_menos_Vendido AS
+SELECT VINOS.Codigo_Vino AS Codigo_Vino, VINOS.Nombre_Vino AS Nombre, SUM(DETALLEVENTA.Cantidad_DetalleV) AS Total_de_Ventas FROM DETALLEVENTA
+JOIN VINOS ON DETALLEVENTA.Vinos_DetalleV = VINOS.Codigo_Vino
+GROUP BY VINOS.Codigo_Vino
+ORDER BY Total_de_Ventas;
+
+CREATE OR REPLACE VIEW Ganancias AS
+Select VINOS.Codigo_Vino AS Codigo_Vino, VINOS.Nombre_Vino AS Nombre, SUM(DETALLEVENTA.Costo_DetalleV) - SUM(DETALLECOMPRA.Costo_DetalleC) AS Ganancias FROM DETALLECOMPRA 
+JOIN VINOS ON DETALLECOMPRA.Vinos_DetalleC = VINOS.Codigo_Vino
+JOIN DETALLEVENTA ON VINOS.Codigo_Vino = DETALLEVENTA.Cod_Detalle_Ven
+GROUP BY VINOS.Codigo_Vino
+ORDER BY Ganancias DESC;
+
+drop trigger if exists Stock_ALTAS;
+create trigger Stock_ALTAS after insert on DETALLECOMPRA for each row
+ update VINOS set Stock = new.Cantidad_DetalleC + Stock
+ where VINOS.Codigo_Vino = new.Vinos_DetalleC;
+ 
+drop trigger if exists Stock_BAJAS;
+create trigger Stock_BAJAS after insert on DETALLEVENTA for each row
+ update VINOS set Stock = Stock - new.Cantidad_DetalleV
+ where VINOS.Codigo_Vino = new.Vinos_DetalleV;
+
+delimiter //
+create procedure tres_productos_mas_vendidos ()
+	begin
+		SELECT VINOS.Codigo_Vino AS Codigo_Vino, VINOS.Nombre_Vino AS Nombre, SUM(DETALLEVENTA.Cantidad_DetalleV) AS Total_de_Ventas FROM DETALLEVENTA
+		JOIN VINOS ON DETALLEVENTA.Vinos_DetalleV = VINOS.Codigo_Vino
+		GROUP BY VINOS.Codigo_Vino
+		ORDER BY Total_de_Ventas
+		DESC LIMIT 3;
+	end//
+    
+delimiter //
+create procedure respaldo_vino ()
+	begin
+		SELECT * from RESPALDOSVINOS;
+	end //
+    
+delimiter //
+create procedure respaldo_bodega ()
+	begin
+		select * from RESPALDOSBODEGAS;
+	end //
+
 insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Establecimiento Juanico', 'establecimiento@gmail.com', 'Ruta 5 Km 30', 'Uruguay', 'Canelones', 27, 90400);
 insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Bodega Roses', 'bodegaroses@gmail.com', 'Ruta 6 S/N - Km 30,200', 'Uruguay', 'Canelones', 57, 90000);
 insert into BODEGA (Nombre_Bodega, Email_Bodega, Direccion, Pais_Bodega, Ciudad, Cuenta, Codigo_Postal) values ('Concha y Toro', 'conchaytoro@gmail.com', 'Avenida Virginia Subercaseaux 210 9480092 Pirque', 'Chile', 'Santiago', 17, 90000);

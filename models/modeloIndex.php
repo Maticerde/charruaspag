@@ -19,7 +19,11 @@ class soporteIndex {
 
     public function getBestSellers() {
 
-        $sql = "SELECT * FROM VINOS ORDER BY Stock";
+        $sql = "SELECT VINOS.*, SUM(DETALLEVENTA.Cantidad_DetalleV) AS Total_de_Ventas FROM DETALLEVENTA
+		JOIN VINOS ON DETALLEVENTA.Vinos_DetalleV = VINOS.Codigo_Vino
+		GROUP BY VINOS.Codigo_Vino
+		ORDER BY Total_de_Ventas
+		DESC LIMIT 3;";
         foreach ($this->conn->query($sql) as $row) {
             $this->respuesta[] = $row;
         }

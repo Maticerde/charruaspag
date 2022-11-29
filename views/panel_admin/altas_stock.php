@@ -4,7 +4,7 @@ if(isset($_SESSION['setAdmin'])){
 
     // $usuarioingresado = $_SESSION['nombredeusuario'];
     //  echo "<h1> bienvenido: $usuarioingresado </h1>";
-    // header('location: /charruaspag/views/panel_admin/panel_admin.php');
+    // header('location: /views/panel_admin/panel_admin.php');
 
 } else{
     header('location: /charruaspag/views/login/index.php');
@@ -38,19 +38,22 @@ if(isset($_SESSION['setAdmin'])){
         <section id="text-inicio"><span>&#10094;</span></section>
     </a>
         <div class="box" id="detallecompra_box">
-        <h3>AGREGAR COMPRA</h3>
+        <h3>NUEVA COMPRA</h3>
         <form action="../../controllers/admin_AltaStock_Controller.php" method="POST" id="compra-form">
             <section id="input_grid_compra">
                 <label class="input_label">
-                    <input type="text" list="in_bodega_vino" class="inputs" name="in_bodega_vino" required>
+                    <input type="text" list="in_bodega_vino" id="input_bodega" class="inputs" name="in_bodega_vino" required>
                     <p2 class="input_texto"> ID Bodega </p2>
                     <datalist id="in_bodega_vino">
                         <script src="../../public/js/admin_bodegas_list_load.js"></script>
                     </datalist>
                 </label>
                 <label class="input_label">
-                    <input class="inputs_mod" type="number" min="0" id="vino_compra" name="vino_compra" required>
+                    <input class="inputs_mod" type="text" list="vino_compra" name="vino_compra" required>
                     <p2 class="input_texto"> ID Vino </p2>
+                    <datalist id="vino_compra">
+                        <script src="../../public/js/admin_vinos_form_load.js"></script>
+                    </datalist>
                 </label>
                 <label class="input_label">
                     <input class="inputs_mod" type="number" min="0" id="cant_compra" name="cant_compra" required>
@@ -58,7 +61,7 @@ if(isset($_SESSION['setAdmin'])){
                 </label>
                 <label class="input_label">
                     <input class="inputs_mod" type="text" id="costo_compra" name="costo_compra" maxlength="20" required>
-                    <p2 class="input_texto"> Costo </p2>
+                    <p2 class="input_texto"> Monto Pagado </p2>
                 </label>
                 <label class="input_label">
                     <input value="<?php echo date('y/m/d');; ?>" class="inputs_mod" type="text" style="border-bottom: 0.155vw solid rgba(255, 255, 255, 0.815);" id="fecha_compra" name="fecha_compra" maxlength="50" readonly>

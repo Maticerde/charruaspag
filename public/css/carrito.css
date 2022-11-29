@@ -1,7 +1,7 @@
 
 #carro-content {
     margin-top: 30px;
-    max-height: 66vh;
+    max-height: 60%;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -42,13 +42,14 @@
   }
   
   #arrow.toggled {
-    transform: translateY(-330px);
+    transform: translateY(-341px);
   }
   
   #cart-icon, #cart-count {
-    position: absolute;
+    transition: all ease 0.5s;
+    position: fixed;
     top: 3px;
-    right: 22vw;
+    right: 25px;
     margin-top: 9px;
     z-index: 4;
     transition: transform 0.5s;
@@ -56,9 +57,17 @@
     height: 35px;
     opacity: 0.9;
     cursor: pointer;
+    z-index: 5;
   }
   
+  #cart-icon.toggled, #cart-count.toggled {
+      transition: all ease 0.5s;
+    transform: translateX(-341px);
+  }
+  
+  
   #cart-count {
+      transition: all ease 0.5s;
     color: rgb(228, 213, 213);
     width: 35px;
     text-align: center;
@@ -66,7 +75,7 @@
     height: 20px;
     line-height: 18px;
     border-radius: 50px;
-    right: calc(22vw - 21px);
+    right: 4px;
     margin-top: 16px;
     font-family: robotolight;
     font-size: 15px;
@@ -75,8 +84,8 @@
   }
   
   #cart-icon.animatecart {
-    transition: all 0.2s;
-    right: 21.9vw;
+    transition: all ease 0.5s;
+    right: 23px;
     margin-top: 7px;
     height: 40px;
   
@@ -289,4 +298,21 @@
     font-weight: bold;
     background-color: transparent;
     cursor: pointer;
+  }
+  
+  @media (max-height: 470px) {
+    #cart-buttons {
+      background-color: white;
+      position: fixed;
+      padding-bottom: 4px;
+      bottom: 0;
+    }
+    
+    #totalcount {
+      position: fixed;
+      background-color: white;
+      font-size: 19px;
+      width: 96%;
+      bottom: 34px;
+    }
   }

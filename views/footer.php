@@ -1,7 +1,7 @@
 
 <div id="box3">
   <div class="contactobox">
-    <a href="http://localhost/charruaspag/index.php">
+    <a href="/charruaspag/index.php">
     <img class="logo1" src="/charruaspag/src/charruas logo.png">
     <p2 id="charruas-texto2"> Charrúas </p2>
     </a>

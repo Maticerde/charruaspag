@@ -13,7 +13,7 @@
     }else 
 {
     /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
-    header("Location: http://localhost/charruaspag/views/register/index.php ");
+    header("Location: /charruaspag/views/register/index.php ");
     exit();
 }
 function new_user() {
@@ -29,7 +29,7 @@ function new_user() {
         $Contrasenia    = md5($_POST["upassword"])
     );
     
-        header("Location: http://localhost/charruaspag/views/login/index.php");
+        header("Location: /charruaspag/views/login/index.php");
 }
 
 function new_admin() {
@@ -45,5 +45,5 @@ function new_admin() {
         $Contrasenia    = md5($_POST["upassword"])
     );
     
-        header("Location: http://localhost/charruaspag/views/panel_admin/panel_admin.php");
+        header("Location: /charruaspag/views/panel_admin/panel_admin.php");
 }

@@ -7,13 +7,13 @@ if(isset($_SESSION['nombredeusuario'])){
 }  elseif(isset($_SESSION["setAdmin"])) {
    header('location: /charruaspag/index.php');
 }
-require('../models/login_model.php');
+require('../models/Login_Model.php');
 /*me aseguro que existan los recursos por POST, con esto solo se procesa si se proviene del form configurado
      para ello*/
      if(!empty($_POST["unombre"]) && !empty( $_POST["upass"]) && isset($_POST["unombre"]) && isset($_POST["upass"])){process_login();}else 
      {
         /*redirecciono a login si es que no se provino con DATA SET via POST desde el*/
-         header("Location: ../views/login/index.php");
+         header('location: /charruaspag/views/login/index.php');
          exit();
      }
      
@@ -25,3 +25,5 @@ require('../models/login_model.php');
         $datos = $modelo-> consulta();
         
      }
+     
+     header('Location: /charruaspag/views/login/index.php');

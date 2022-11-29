@@ -10,7 +10,7 @@ class soporteMarket {
         $host = "localhost:3307";
         $username = "root";
         $password = "";
-        $db_name = "vinos_charruas";
+        $db_name = "Vinos_Charruas";
         
         $this->respuesta = array();
         $this->conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);

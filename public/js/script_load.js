@@ -4,7 +4,7 @@ function load_shop() {
   const market = document.querySelector(".productos-gallery");
   // se inicia load de productos
   market.innerHTML = "";
-  fetch("controllers/IndexVinos_Controller.php").then(function (response) {
+  fetch("/charruaspag/controllers/IndexVinos_Controller.php").then(function (response) {
     return response.text().then(function (text) {
       //alert(text);
       market.innerHTML = text;

@@ -70,7 +70,7 @@ ul {
 }
 
 body {
-  position: relative
+  position: relative;
 }
 
 #menu {
@@ -93,6 +93,11 @@ body {
 #cart {
   top: 0vw;
   z-index: 5;
+}
+
+#cart-icon, #cart-count {
+opacity: 1;
+margin-right: 18px;
 }
 
 #hamburguer {
@@ -226,13 +231,10 @@ body {
 #paises-list, #bodegas-list, #regiones-list {
   position: relative;
   font-family: robotolight;
-  font-size: 1.1vw;
+  font-size: calc(5px + 1.1vw);
   top: -1vw;
 }
 
-#paises-list p1 {
-  font-size: 0.1vw;
-}
 
 #market-section {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 8px;
@@ -374,6 +376,7 @@ top: -3px;
 }
 
 .productos-gallery div {
+  position: relative;
   text-align: center;
   border-radius: 5px;
   transition: all ease 0.3s;
@@ -438,18 +441,47 @@ top: -3px;
   width: 100%;
 }
 
-#load-more {
-  position: relative;
-  background-color: red;
-  color: white;
-  width: 100px;
-  height: 20px;
-  font-size: 15px;
-  text-align: center;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-inline: auto;
+#productos-div p3,
+#productos-div-lowstock p3 {
+  opacity: 0;
+  color: rgb(29, 26, 26);
+  letter-spacing: 1px;
+  position: absolute;
+  font-size: 1vw;
+  top: 0vw;
+  left: 0.3vw;
+}
+
+#productos-div-lowstock p3 {
+  font-weight: bold;
+  color: rgb(195, 24, 24);
+}
+
+
+#contacto-icons {
+position: fixed;
+z-index: 99;
+width: 80px;
+height: 30px;
+bottom: 10px;
+left: 1vw;
+}
+
+#contacto-icons img {
+display: inline;
+height: 30px;
+width: 30px;
+opacity: 0.7;
+cursor: pointer;
+-webkit-user-drag: none;
+}
+
+#contacto-icons img:hover {
+opacity: 0.9;
+}
+
+#contacto-icons img:nth-child(1) {
+margin-right: 10px;
 }
 
 #box3 {
@@ -553,7 +585,7 @@ li:hover {
   position: fixed;
   margin-top: -4px;
   top: -50px;
-  right: 24px;
+  right: 21px;
   z-index: 9;
   transition: all ease 0.5s;
   rotate: -90deg;
@@ -563,8 +595,8 @@ li:hover {
   text-shadow: 1px 1px 2px #ffffff;
 }
 
-#newsesion-r {
-  display: none;
+#usuario_responsive {
+  display: none;  
 }
 
 @media (max-width: 1250px) {
@@ -572,11 +604,248 @@ li:hover {
     font-size: 14px;
     top: 18px;
   }
+  
+  .productos-gallery {
+  margin-top: 4.1vw;
+  width: 90%;
+  margin-inline: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 15vw);
+  column-gap: 0.5vw;
+  row-gap: 2.5vw;
+  padding-top: 3vw;
+  overflow: hidden;
+  padding-bottom: 2vw;
+}
+
+.productos-gallery div {
+  text-align: center;
+  border-radius: 5px;
+  transition: all ease 0.3s;
+  font-size: 1.2vw;
+  font-family: robotolight;
+  background-color: rgb(240, 232, 229);
+  height: 15vw;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.productos-gallery div:hover {
+  width: 13.2vw;
+  background-color: rgb(246, 237, 234);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+
+#productos-div img,
+#productos-div-lowstock img {
+  -webkit-user-drag: none;
+  margin-inline: auto;
+  display: block;
+  object-fit: contain;
+  height: 65%;
+  width: 65%;
+  margin-top: 2%;
+
+}
+
+#productos-div p0,
+#productos-div-lowstock p0 {
+  font-size: 1.24vw;
+  letter-spacing: 1px;
+  font-weight: 900;
+  color: rgb(67, 66, 66);
+}
+
+#productos-div p1,
+#productos-div-lowstock p1 {
+  position: relative;
+  color: #00000055;
+  font-weight: 900;
+  bottom: 0.5vw;
+  font-size: 0.85vw;
+}
+
+#productos-div h2,
+#productos-div-lowstock h2 {
+  transition: all ease 0.3s;
+  position: relative;
+  text-align: center;
+  text-indent: -0.55vw;
+  font-size: 1.5vw;
+  bottom: 1.5vw;
+  color: rgb(17, 16, 16);
+  background-color: rgba(219, 216, 216, 0.645);
+  font-weight: 900;
+  font-family: robotolight;
+  width: 100%;
+}
+
 }
 
 @media (max-width: 1020px) {
   #usuariologeado {
     display: none;
   }
+  #usuario_responsive {
+  display: block;  
+  }
+
+  
+  .productos-gallery {
+  margin-top: 4.8vw;
+  width: 90%;
+  margin-inline: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 20vw);
+  column-gap: 0.5vw;
+  row-gap: 2.5vw;
+  padding-top: 3vw;
+  overflow: hidden;
+  padding-bottom: 2vw;
+}
+
+.productos-gallery div {
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1.2vw;
+  height: 20vw;
+}
+
+.productos-gallery div:hover {
+  width: 20.2vw;
+  background-color: rgb(246, 237, 234);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+
+#productos-div p0,
+#productos-div-lowstock p0 {
+  font-size: 1.9vw;
+}
+
+#productos-div p1,
+#productos-div-lowstock p1 {
+  bottom: 0.5vw;
+  font-size: 1.3vw;
+}
+
+#productos-div h2,
+#productos-div-lowstock h2 {
+  font-size: 2.3vw;
+  bottom: 2.5vw;
+}
+
+#keywords {
+  color: black;
+  border-radius: 0.3vw;
+  background-color: rgb(253, 245, 241);
+  font-family: robotolight;
+  top: 2vw;
+  left: 32vw;
+  height: 4.2vw;
+  width: 45vw;
+  font-size: 2.7vw;
+}
+
+
+#filter-section div {
+  width: 100%;
+  height: fit-content;
+  min-height: 300px;
+  background-color: rgba(40, 40, 40, 0.059);
+  padding-bottom: 2vw;
+}
+
+#filter-section h1 {
+  position: relative;
+  font-size: 2.3vw;
+  font-family: robotolight;
+  letter-spacing: 0.3vw;
+  top: 0;
+  width: 90%;
+  border-bottom: 1px solid grey;
+  line-height: 4.5vw;
+}
+
+#paises-list, #bodegas-list, #regiones-list {
+  position: relative;
+  font-family: robotolight;
+  font-size: calc(1px + 1.77vw);
+  top: -1vw;
+}
+
+#paises-list p1 {
+  font-size: 0.1vw;
+}
+
+}
+
+@media (max-width: 600px) {
+
+  .productos-gallery {
+  margin-top: 10vw;
+  grid-template-columns: repeat(2, 32vw);
+  row-gap: 3.5vw;
+}
+
+.productos-gallery div {
+  height: 38vw;
+}
+
+.productos-gallery div:hover {
+  width: 32.3vw;
+  background-color: rgb(246, 237, 234);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+
+
+#productos-div p0,
+#productos-div-lowstock p0 {
+  font-size: 2.95vw;
+}
+
+#productos-div p1,
+#productos-div-lowstock p1 {
+  font-size: 2.4vw;
+}
+
+#productos-div h2,
+#productos-div-lowstock h2 {
+  font-size: 4vw;
+  bottom: 3vw;
+}
+
+#keywords {
+  color: black;
+  border-radius: 0.4vw;
+  background-color: rgb(253, 245, 241);
+  font-family: robotolight;
+  top: 2vw;
+  left: 30.4vw;
+  height: 7vw;
+  width: 50vw;
+  font-size: 3.9vw;
+}
+
+/*#filter-section div {
+transition: all ease 0.3s;
+border-radus: 10vw;
+z-index: 4;
+}
+
+#filter-section div:hover {
+width: 60vw;
+background-color: white;
+}
+
+#filter-section div:hover + #filter-section div div{
+font-size: 50vw;
+*/
 }
 
