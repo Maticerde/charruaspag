@@ -26,11 +26,13 @@ userbox_preventclick = document.querySelector("#text-user-preventclick");
 prodbox = document.querySelector("#text-prod");
 prodbox_preventclick = document.querySelector("#text-prod-preventclick");
 grid = document.querySelector("#grid-functions");
+gridmod = document.querySelector("#grid-mod-functions");
 vinoslist = document.querySelector("#vinos-list-label");
 info_vino = document.getElementById("info-vino");
 info_bodega = document.getElementById("info-bodega");
 modvinobox = document.getElementById("modvino-bax");
 modbodegabox = document.getElementById("modbodega-bax");
+
 
 prodbox.style.display = "none";
 prodbox.style.opacity = "0";
@@ -39,6 +41,7 @@ prodbox_preventclick.style.display = "none";
 
 function slide(num) { //esta funcion se encarga de la animacion, tambien previene bugs al darle clicks rapidamente
   if (num == 0) {
+    gridmod.classList.toggle("slide");
     grid.classList.toggle("slide");
     vinoslist.classList.toggle("slide");
     info_vino.classList.toggle("slide");
@@ -52,6 +55,7 @@ function slide(num) { //esta funcion se encarga de la animacion, tambien previen
     setTimeout(() => (userbox.style.display = "none"), 300);
     setTimeout(() => (userbox_preventclick.style.display = "none"), 300);
   } else {
+    gridmod.classList.toggle("slide");
     grid.classList.toggle("slide");
     vinoslist.classList.toggle("slide");
     info_vino.classList.toggle("slide");

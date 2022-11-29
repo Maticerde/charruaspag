@@ -6,6 +6,12 @@ function cartanimation() { //funcion de despliegue de carrito
     let panel = document.querySelector("#cart").classList.toggle("toggled");
     let arrow = document.querySelector("#arrow").classList.toggle("toggled");
     body = document.querySelector("body").classList.toggle("hide_scrollbar");
+    let carticon = document
+        .querySelector("#cart-icon")
+        .classList.toggle("toggled");
+            let carticoncount = document
+        .querySelector("#cart-count")
+        .classList.toggle("toggled");
     let menu = document.querySelector("#menu").classList.toggle("hide_scrollbar");
     try { //intenta aplicar una clase a un elemento que solo se encuentra en la pagina principal
         let deco = document.querySelector("#deco-bstext").classList.toggle("hide_scrollbar"); 
@@ -27,7 +33,7 @@ if ((carrito.length = 1)) {
     carticon.style.pointerEvents = "none";
 }
 
-function acarrear(cantidad, nombre, precio, stock, imagen, pais) { // funcion de añadido de objetos al carrito
+function acarrear(cantidad, nombre, precio, stock, imagen, pais, id_vino) { // funcion de añadido de objetos al carrito
     if (total === 0 && stock > 0) {
         carticon = document.querySelector("#cart-icon").style.pointerEvents = "";
         title = document.getElementById("carrito-title").style.display = "";
@@ -45,6 +51,7 @@ function acarrear(cantidad, nombre, precio, stock, imagen, pais) { // funcion de
         price: precio,
         stock: stock,
         imagen: imagen,
+        id_vino: id_vino
     };
 
     if (objeto.stock == 0) {
@@ -71,9 +78,13 @@ function acarrear(cantidad, nombre, precio, stock, imagen, pais) { // funcion de
                     carticon = document.querySelector("#cart-icon").classList.toggle("animatecart");
                     setTimeout(() => carticon = document.querySelector("#cart-icon").classList.toggle("animatecart"), 200);
                     // en caso de que no supere el stock
+                    if(objeto.cant + element.cant < 1) { // si restamos una cantidad mayor a la que tenemos..
+                    total -= (element.price) * (element.cant); //solo se restan las unidades que ya agregamos y se borra ese producto
+                    }else {
                     total += parseInt(objeto.price) * parseInt(objeto.cant); // el precio de las unidades extra se agregan al total
                     element.cant += objeto.cant; // se agregan las unidades al producto
 
+                    }
                 }
                 agrego = false; // si el objeto seleccionado ya existe en el carrito la flag 'agrego' da falso
             }
@@ -97,7 +108,7 @@ function acarrear(cantidad, nombre, precio, stock, imagen, pais) { // funcion de
     carrito.forEach((element) => {
         // por cada elemento en el carrito, se agrega una línea con la información del producto
         carro.innerHTML +=
-            "<div id='cart-item'><img src=\"" + element.imagen + "\"><div id='cart-restar' onclick='cart_cant_verify(" + -1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>-</div><input type='number' min='1' max='100' onkeyup=verificar_num(this) value='1' class='cart-cant' id='cart-cant" + aux + "'></input><div id='cart-sumar' onclick='cart_cant_verify(" + 1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>+</div><p1>" + element.cant + " x $ " + element.price + "</p1><p3>" + element.name + "</p3><p4>" + element.pais + "</p4></div>"
+            "<div id='cart-item'>" + carrito.indexOf(element) + "<img src=\"" + element.imagen + "\"><div id='cart-restar' onclick='cart_cant_verify(" + -1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>-</div><input type='number' min='1' max='100' onkeyup=verificar_num(this) value='1' class='cart-cant' id='cart-cant" + aux + "'></input><div id='cart-sumar' onclick='cart_cant_verify(" + 1 + ",\"" + element.name + "\",\"" + element.price + "\",\"" + element.stock + "\",\"" + element.imagen + "\",\"" + element.pais + "\",\"" + aux + "\");'>+</div><p1>" + element.cant + " x $ " + element.price + "</p1><p3>" + element.name + "</p3><p4>" + element.pais + "</p4></div>"
         aux++;
     });
 
@@ -115,19 +126,44 @@ function cart_cant_verify(cantidad, nombre, precio, stock, imagen, pais, num_inp
 
 }
 
-function generar_compra() { //funcion que llama a un fetch por cada producto en el carrito
-    carrito.forEach((element) => {
-        fetch_async_compra(element.name, element.stock, element.cant);
-    });
+function generar_venta() { // envia por fetch el formulario virtual, que lleva el ID_Cliente al Controller
+    const data = new FormData();
+    const ID_Cliente = document.getElementById("id_cliente_form").value;
+    data.set("id_cliente_form", ID_Cliente);
+
+    fetch("/charruaspag/controllers/Venta_Controller.php", {
+      method: "POST",   
+      body: data,
+    })
+      .then(function (response) {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw "Error";
+        }
+      })
+      .then(function (texto) {
+        load_shop();
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+
+
+function generar_detalleventa() { //funcion que llama a un fetch por cada producto en el carrito
+        carrito.forEach((element) => {
+            fetch_async_compra(element.id_vino, element.cant, element.price);
+        });
 }
 
-function fetch_async_compra(name, stock, cant) { //fetch de envío de datos asíncronos
+function fetch_async_compra(idvino, cantidad, precio) { //fetch de envío de datos asíncronos
     const data = new FormData();
-    data.set("name", name);
-    data.set("stock", stock);
-    data.set("cant", cant);
+    data.set("id_vino", idvino);
+    data.set("cant", cantidad);
+    data.set("price", precio);
 
-    fetch("controllers/Stock_Controller.php", {
+    fetch("/charruaspag/controllers/DetalleVenta_Controller.php", {
         method: "POST",
         body: data,
     })
@@ -139,13 +175,13 @@ function fetch_async_compra(name, stock, cant) { //fetch de envío de datos así
             }
         })
         .then(function (texto) {
-            console.log(texto);
-            load_shop();
+            setTimeout(() => load_shop(), 350);
         })
         .catch(function (err) {
             console.log(err);
         });
 }
+
 
 function vaciarcarrito() {
     contador = 0;
@@ -162,7 +198,11 @@ function vaciarcarrito() {
 }
 
 function alertacarrito() {
-    alert("Para comprar productos, primero debes iniciar sesión");
+    alert("Para comprar productos, primero debes iniciar sesión.");
+}
+
+function alertacarrito_admin() {
+    alert("Un empleado no puede efectuar compras a su nombre.");
 }
 
 function block_scroll() { // bloquea el desplazamiento si nuestro cursor esta en el carrito (solo chrome)

@@ -1,16 +1,10 @@
 <?php
 session_start();
-if(isset($_SESSION['setAdmin'])){
-    echo "<script> alert('Solo los administradores pueden ingresar a este lugar, no compartir esta informacion');</script> ";
-
-    // $usuarioingresado = $_SESSION['nombredeusuario'];
-    //  echo "<h1> bienvenido: $usuarioingresado </h1>";
-    // header('location: /charruaspag/views/panel_admin/panel_admin.php');
-
-} else{
-    header('location: /charruaspag/views/login/index.php');
+if(empty($_SESSION['setAdmin'])){
+  header('location: /charruaspag/views/login/index.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,20 +24,23 @@ if(isset($_SESSION['setAdmin'])){
   <img id=fondo src="../../src/foto3.jpg">
   <div id="menu">
     <section id="texto1">A d m i n i s t r a c i ó n</section>
-    <a href="http://localhost/charruaspag/index.php">
+    <a href="/charruaspag/index.php">
       <section id="charruas-texto"> Charrúas </section>
     </a>
   </div>
-  <section id="text-prod" onclick="slide(1)"><span>&#10132;</span> P R O D U C T O S
+  <section id="text-prod" onclick="slide(1)"><span>&#10132;</span> <p5 id="regresar_Text">A G R E G A R</p5><p5 id="productos_Text">P R O D U C T O S</p5>
     <div id="text-prod-preventclick"
       onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"></div>
   </section>
 
-  <section id="text-user" onclick="slide(0)"><span>&#10132;</span> U S U A R I O S
+  <section id="text-user" onclick="slide(0)"><span>&#10132;</span> <p5 class="modificar_Text">M O D I F I C A R</p5><p5 id="usuarios_Text">U S U A R I O S</p5>
     <div id="text-user-preventclick"
       onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"></div>
   </section>
-
+  <a href="/charruaspag/views/panel_admin/altas_stock.php">
+    <section id="text-altas-stock"><span>&#10070;</span></section>
+  </a>
+<section id="grid-mod-functions">
   <div class="box" id="modvino-bax">
     <h3>MODIFICAR PRODUCTO</h3>
     <span id="mensaje_modv"></span>
@@ -60,8 +57,8 @@ if(isset($_SESSION['setAdmin'])){
           <p2 class="input_texto_modv"> Precio </p2>
         </label>
         <label class="input_label">
-          <input class="inputs_mod" type="number" min="0" id="in_stock" name="in_stock" required>
-          <p2 class="input_texto_modv"> Stock </p2>
+          <input class="inputs_mod" type="text" min="0" id="in_descrip" name="in_descrip" required>
+          <p2 class="input_texto_modv"> Descripción </p2>
         </label>
         <label class="input_label">
           <input class="inputs_mod" type="text" id="in_pais" name="in_pais" maxlength="20" required>
@@ -79,7 +76,6 @@ if(isset($_SESSION['setAdmin'])){
           <input class="inputs_mod" type="text" list="in_bodega_vino" name="in_bodega_vino" required>
           <p2 class="input_texto_modv"> ID Bodega </p2>
           <datalist id="in_bodega_vino">
-            <script src="../../public/js/admin_bodegas_form_load.js"></script>
           </datalist>
         </label>
         <label id="imagen_label" class="input_label">
@@ -136,9 +132,9 @@ if(isset($_SESSION['setAdmin'])){
         <button type="button" onclick="validate_submit_modb();" name="modbodega-button" id="modbodega-button"> ENVIAR </button>
       </form>
   </div>
+</section>
 
   <div id="vinos-list-label">
-
     <span id="info-section" onclick="desplegarmod();">
     </span>
     <span id="info-efecto">
@@ -199,8 +195,8 @@ if(isset($_SESSION['setAdmin'])){
             <p2 class="input_texto"> Precio </p2>
           </label>
           <label class="input_label">
-            <input class="inputs" type="number" min="0" id="in_stock" name="in_stock" required>
-            <p2 class="input_texto"> Stock </p2>
+            <input class="inputs" type="text" min="0" id="in_descrip" name="in_descrip" required>
+            <p2 class="input_texto"> Descripción </p2>
           </label>
           <label class="input_label">
             <input class="inputs" type="text" id="in_pais" name="in_pais" maxlength="20" required>
@@ -271,12 +267,71 @@ if(isset($_SESSION['setAdmin'])){
         <button name="addbodega-button" id="addbodega-button"> ENVIAR </button>
       </form>
     </div>
-    <div class="box" id="user-box">
+    <div class="box" id="adduser-box">
       <h3> AGREGAR USUARIO </h3>
+      <span id="mensaje"></span>
+      <form action="/charruaspag/controllers/Register_Controller.php" method="POST" id="adduser-form">
+        <section id="input_grid">
+        <label class="input_label">
+            <input class="inputs" type="text" id="nombre_user" name="nombre_user" maxlength="20" required>
+            <p2 class="input_texto"> Nombre </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="number" id="ucedula" name="ucedula" min="1000000" max="99999999" required>
+            <p2 class="input_texto"> Cédula </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="text" id="udireccion" name="udireccion" required>
+            <p2 class="input_texto"> Direccion </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="text" id="uciudad" name="uciudad" required>
+            <p2 class="input_texto"> Ciudad </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="text" id="umail" name="umail" required>
+            <p2 class="input_texto"> Email </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="password" id="upassword" name="upassword" required>
+            <p2 class="input_texto"> Contraseña </p2>
+          </label>
+        </section>
+        <button name="adduser-button" id="adduser-button"> ENVIAR </button>
+      </form>
     </div>
-
-    <div class="box" id="usermod-box">
-      <h3>MODIFICAR USUARIO</h3>
+    <div class="box" id="addadmin-box">
+      <h3> AGREGAR ADMINISTRADOR</h3>
+      <span id="mensaje"></span>
+      <form action="/charruaspag/controllers/Register_Controller.php" method="POST" id="addadmin-form">
+        <section id="input_grid">
+        <label class="input_label">
+            <input class="inputs" type="text" id="nombre_admin" name="nombre_admin" maxlength="20" required>
+            <p2 class="input_texto"> Nombre </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="number" id="ucedula" name="ucedula" min="1000000" max="99999999" required>
+            <p2 class="input_texto"> Cédula </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="text" id="udireccion" name="udireccion" required>
+            <p2 class="input_texto"> Direccion </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="text" id="uciudad" name="uciudad" required>
+            <p2 class="input_texto"> Ciudad </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="text" id="umail" name="umail" required>
+            <p2 class="input_texto"> Email </p2>
+          </label>
+          <label class="input_label">
+            <input class="inputs" type="password" id="upassword" name="upassword" required>
+            <p2 class="input_texto"> Contraseña </p2>
+          </label>
+        </section>
+        <button name="addadmin-button" id="addadmin-button"> ENVIAR </button>
+      </form>
     </div>
   </section>
   <script src="../../public/js/admin_function.js"></script>

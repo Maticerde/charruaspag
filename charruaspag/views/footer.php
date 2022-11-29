@@ -1,7 +1,7 @@
 
 <div id="box3">
   <div class="contactobox">
-    <a href="http://localhost/charruaspag/index.php">
+    <a href="/charruaspag/index.php">
     <img class="logo1" src="/charruaspag/src/charruas logo.png">
     <p2 id="charruas-texto2"> Charrúas </p2>
     </a>
@@ -12,7 +12,7 @@
       <li id="polprivacidad" onclick="desplegar(id)"> Políticas de Privacidad </li>
     </ul>
   </div>
-</div>
-<div id="copyright">
-  <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
+  <div id="copyright">
+    <section id="copy"> RESCATE SOFTWARE © Todos los derechos reservados.<section>
+  </div>
 </div>

@@ -1,5 +1,3 @@
-@import url(keyframes.css);
-
 html,
 body,
 ul {
@@ -16,6 +14,7 @@ ul {
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "cinzelbold";
   src: url(fonts/cinzel-bold-webfont.woff2) format("woff2"),
@@ -23,6 +22,7 @@ ul {
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "cinzel_decorativebold";
   src: url(fonts/cinzeldecorative-bold-webfont.woff2) format("woff2"),
@@ -30,6 +30,7 @@ ul {
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "edensor";
   src: url(fonts/edensor-free-webfont.woff2) format("woff2"),
@@ -37,6 +38,7 @@ ul {
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "robotolight";
   src: url(fonts/roboto-light-webfont.woff2) format("woff2"),
@@ -50,14 +52,49 @@ body {
   background-color: rgb(253, 245, 241);
 }
 
+@supports(-webkit-tap-highlight-color: black) {
+  /* FUNCIONES SOLO PARA CHROME */
+
+  @media (min-width: 1150px) {
+    body.hide_scrollbar::-webkit-scrollbar {
+      width: 0;
+    }
+
+    body.hide_scrollbar {
+      width: calc(100% - 17px);
+    }
+
+    body.overflowfix {
+      overflow: hidden;
+    }
+
+    #deco-bstext.hide_scrollbar {
+      right: 17px;
+    }
+
+    #menu.hide_scrollbar {
+      width: calc(100% - 17px);
+    }
+  }
+}
+
 #menu {
+<<<<<<< HEAD:charruaspag/public/css/style.css
   transition: all ease 0.5s;
+=======
+  transition: all ease 0.5s, width 0s;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   justify-content: center;
   position: absolute;
   height: 57px;
   width: 100%;
+<<<<<<< HEAD:charruaspag/public/css/style.css
   background: rgb(142,116,107);
   background: linear-gradient(90deg, rgba(142, 116, 107, 0.847) 0%, rgba(142,116,107,0.4066001400560224) 50%, rgba(98, 26, 26, 0.738) 100%);
+=======
+  background: rgb(142, 116, 107);
+  background: linear-gradient(90deg, rgba(120, 49, 49, 0.794) 0%, rgba(142, 116, 107, 0.4066001400560224) 50%, rgba(98, 26, 26, 0.738) 100%);
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   z-index: 3;
 }
@@ -65,6 +102,65 @@ body {
 #menu.llevarmenu {
   background: linear-gradient(90deg, rgba(98, 26, 26, 0.794) 0%, rgba(213, 205, 203, 0.83) 50%, rgba(98, 26, 26, 0.794) 100%);
   position: fixed;
+<<<<<<< HEAD:charruaspag/public/css/style.css
+=======
+}
+
+#hamburguer {
+  position: absolute;
+  top: 13px;
+  color: rgb(183, 183, 183);
+  background-color: rgba(23, 22, 22, 0.508);
+  font-size: 33px;
+  height: 33px;
+  width: 50px;
+  text-align: center;
+  line-height: 34px;
+  left: 13px;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #000000;
+  cursor: pointer;
+}
+
+
+#panel_menu {
+  transition: all 0.6s;
+  position: relative;
+  top: 100%;
+  background-color: rgba(23, 22, 22, 0.887);
+  width: calc(20.3vh + 10.3vw);
+  height: fit-content;
+  max-height: 300px;
+  overflow: hidden;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+#panel_menu.fitcontent {
+  height: fit-content;
+}
+
+#panel_menu div {
+  transition: all 0.3s;
+  color: rgb(183, 183, 183);
+  text-shadow: 1px 1px 2px #000000;
+  font-family: robotolight;
+  font-size: calc(2.3vh + 0.2vw);
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#panel_menu div a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.372);
+}
+
+
+#panel_menu div:hover{
+  letter-spacing: 4px;
+  color: white;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #charruas-texto {
@@ -79,12 +175,20 @@ body {
   color: #510707;
   text-shadow: 1px 1px 2px #000000;
   font-family: "cinzelbold";
+<<<<<<< HEAD:charruaspag/public/css/style.css
   font-size: 55px;
 
 }
 
 #charruas-texto img {
   right: 46px;
+=======
+  font-size: 50px;
+}
+
+#charruas-texto img {
+  right: 39px;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   top: -2px;
   object-fit: cover;
   margin-inline: auto;
@@ -222,6 +326,7 @@ body {
   transition: ease 0.3s;
   z-index: 1;
 }
+
 #arr {
   position: relative;
   height: 41vw;
@@ -281,6 +386,10 @@ body {
 #bestsellers_info #bs2-info {
   top: 1.5vw;
 }
+<<<<<<< HEAD:charruaspag/public/css/style.css
+=======
+
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 #bestsellers_info #bs2-name {
   font-size: 2vw;
 }
@@ -295,6 +404,7 @@ body {
   top: 40%;
   cursor: pointer;
   color: rgb(10, 10, 10);
+<<<<<<< HEAD:charruaspag/public/css/style.css
   background: rgb(152,2,2);
   background: linear-gradient(101deg, rgba(152,2,2,0.8267682072829132) 0%, rgba(110,5,5,0.7987570028011204) 62%);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -401,6 +511,61 @@ height: 100%;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
+=======
+  background: rgb(152, 2, 2);
+  background: linear-gradient(101deg, rgba(152, 2, 2, 0.8267682072829132) 0%, rgba(110, 5, 5, 0.7987570028011204) 62%);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all ease 0.3s;
+}
+
+#bestsellers_info h3:hover {
+  letter-spacing: 0.1vw;
+  color: rgb(253, 245, 241);
+  width: 90%;
+}
+
+#advertbox-i,
+#advertbox-d {
+  border-radius: 0.1vw;
+  position: absolute;
+  overflow: hidden;
+  margin-top: 6vw;
+  height: 30vw;
+  width: 12vw;
+  padding-bottom: 1vw;
+  z-index: 1;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+#advertbox-i {
+  left: 1vw;
+}
+
+#advertbox-d {
+  right: 1vw;
+}
+
+#advertbox-i a,
+#advertbox-d a {
+  width: 100%;
+  height: 100%;
+}
+
+#advertbox-i img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.20);
+  background-color: #000;
+}
+
+#advertbox-d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.09);
+  background-color: #000;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #gallery {
@@ -421,22 +586,50 @@ height: 100%;
   transition: ease-in-out 0.3s;
 }
 
+.gallery_text {
+pointer-events: none;
+transition: ease-in-out 0.3s;
+opacity: 0;
+position: absolute;
+color: white;
+font-family: robotolight;
+text-align: center;
+top: 50%;
+min-width: 10%;
+max-width: 50%;
+left: 0;
+right: 0;
+margin-inline: auto;
+border-bottom: 1px solid white;
+font-size: 1.4vw;
+}
+
 #gallery img:hover {
   cursor: pointer;
   filter: brightness(40%);
   transition: ease-in-out 0.3s;
 }
 
+#gallery img:hover + .gallery_text {
+opacity: 1;
+top: 47%;
+}
+
 #arrow {
   position: fixed;
   margin-top: -4px;
   top: -50px;
+<<<<<<< HEAD:charruaspag/public/css/style.css
   right: 24px;
+=======
+  right: 22px;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   z-index: 9;
   transition: all ease 0.5s;
   rotate: -90deg;
   height: 35px;
   opacity: 0.9;
+<<<<<<< HEAD:charruaspag/public/css/style.css
   cursor: pointer;
   text-shadow: 1px 1px 2px #ffffff;
 }
@@ -504,9 +697,13 @@ height: 100%;
   height: 35px !important;
   width: 35px !important;
   opacity: 0.9;
+=======
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   cursor: pointer;
+  text-shadow: 1px 1px 2px #ffffff;
 }
 
+<<<<<<< HEAD:charruaspag/public/css/style.css
 #cart_item {
   font-weight: 900;
   font-family: robotolight;
@@ -548,6 +745,8 @@ height: 100%;
   left: 61px;
   top: 30px;
 }
+=======
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 
 .divisor {
   opacity: 0.3;
@@ -575,15 +774,18 @@ height: 100%;
   animation-duration: 35s;
   animation-iteration-count: infinite;
 }
+
 #slider img {
   height: 30vw !important;
   width: 85vw !important;
   float: left;
   object-fit: cover;
 }
+
 #slidertext {
   margin-bottom: 3vw;
 }
+
 #slidertext::after {
   content: "";
   font-size: 1.2vw;
@@ -598,49 +800,9 @@ height: 100%;
   animation: animaciontexto 35s linear infinite;
 }
 
-#keywords {
-  color: black;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-color: transparent;
-  border-radius: 0.2vw;
-  background-color: rgb(253, 245, 241);
-  font-family: robotolight;
-  outline: transparent;
-  font-size: 1.5vw;
-  margin-bottom: 6vw;
-  margin-left: 24.44vw;
-  height: 3vw;
-  width: 50vw;
-}
-#search {
-  color: black;
-  background-color: rgb(253, 245, 241);
-  position: absolute;
-  border-radius: 0.2vw;
-  outline: transparent;
-  border-color: transparent;
-  margin-left: -3vw;
-  font-size: 1.8vw;
-  height: 3.3vw;
-  width: 3vw;
-  cursor: pointer;
-}
-#search p2 {
-  opacity: 0.35;
-}
-#search:hover p2 {
-  opacity: 0.6;
-  transition: ease-in 0.05s;
-  font-size: 2vw;
-}
-
-::placeholder {
-  color: rgb(156, 153, 153);
-}
-
 .gallery-wrapper {
   user-select: none;
-  padding-top: 5vw;
+  padding-top: 3.5vw;
   margin: auto;
   height: auto;
   width: 95vw;
@@ -648,6 +810,21 @@ height: 100%;
   background-color: rgb(243, 235, 235);
   margin-bottom: -0.4vw;
 }
+
+.gallery-wrapper h1 {
+  position: relative;
+  width: 45vw;
+  height: 2.5vw;
+  border-bottom: 1px solid rgba(47, 45, 45, 0.187);
+  text-align: center;
+  margin-inline: auto;
+  font-family: robotolight;
+  font-weight: 900;
+  font-size: 1.5vw;
+  color: #ba0f0ffe;
+  margin-bottom: 1vw;
+}
+
 .productos-gallery {
   height: 25vw;
   width: 100%;
@@ -669,11 +846,13 @@ height: 100%;
   width: 100%;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .productos-gallery div:hover {
   background-color: rgb(246, 237, 234);
   box-shadow: rgba(17, 12, 46, 0.289) 0px 48px 100px 0px;
+<<<<<<< HEAD:charruaspag/public/css/style.css
 }
 
 #productos-div img,
@@ -689,13 +868,36 @@ height: 100%;
 }
 
 #productos-div p0, #productos-div-lowstock p0 {
+=======
+}
+
+#productos-div img,
+#productos-div-lowstock img {
+  -webkit-user-drag: none;
+  margin-inline: auto;
+  display: block;
+  object-fit: contain;
+  height: 60%;
+  width: 60%;
+  margin-top: 2%;
+
+}
+
+#productos-div p0,
+#productos-div-lowstock p0 {
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   font-size: 1.44vw;
   letter-spacing: 1px;
   font-weight: 900;
   color: rgb(67, 66, 66);
 }
 
+<<<<<<< HEAD:charruaspag/public/css/style.css
 #productos-div p1, #productos-div-lowstock p1 {
+=======
+#productos-div p1,
+#productos-div-lowstock p1 {
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   position: relative;
   color: #00000055;
   font-weight: 900;
@@ -703,7 +905,12 @@ height: 100%;
   font-size: 0.85vw;
 }
 
+<<<<<<< HEAD:charruaspag/public/css/style.css
 #productos-div p2, #productos-div-lowstock p2 {
+=======
+#productos-div p2,
+#productos-div-lowstock p2 {
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   position: relative;
   font-size: 1.7vw;
   right: 0.55vw;
@@ -713,7 +920,12 @@ height: 100%;
   font-family: robotolight;
 }
 
+<<<<<<< HEAD:charruaspag/public/css/style.css
 #productos-div p3, #productos-div-lowstock p3 {
+=======
+#productos-div p3,
+#productos-div-lowstock p3 {
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   color: rgb(29, 26, 26);
   letter-spacing: 1px;
   position: relative;
@@ -724,22 +936,57 @@ height: 100%;
 #productos-div-lowstock p3 {
   font-weight: bold;
   color: rgb(195, 24, 24);
+<<<<<<< HEAD:charruaspag/public/css/style.css
+=======
+}
+
+#contacto-icons {
+position: fixed;
+z-index: 99;
+width: 80px;
+height: 30px;
+bottom: 10px;
+left: 1vw;
+}
+
+#contacto-icons img {
+display: inline;
+height: 30px;
+width: 30px;
+opacity: 0.7;
+cursor: pointer;
+-webkit-user-drag: none;
+}
+
+#contacto-icons img:hover {
+opacity: 0.9;
+}
+
+#contacto-icons img:nth-child(1) {
+margin-right: 10px;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #box3 {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   height: 17vw;
   width: 100%;
-  background-color: rgb(99, 37, 44);
+  background-color: #63252c;
+  background: rgb(117, 56, 63);
+  background: linear-gradient(90deg, #75383f 0%, #63252c 48%, #75383f 100%);
   position: relative;
 }
+
 .contactobox {
   margin: auto;
   height: 17vw;
   width: 60%;
 }
+
 .contactobox ul {
   color: rgb(51, 13, 18);
+  background-color: transparent;
+  height: fit-content;
   padding-top: 4.5vw;
   margin-left: 35vw;
   width: 15vw;
@@ -749,13 +996,35 @@ height: 100%;
   position: relative;
 }
 
+.contactobox a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#hamburguer ul{
+  list-style: none;
+}
+
+#hamburguer ul li{
+  color: white;
+}
+
+#hamburguer ul li:hover{
+  color: green;
+}
+
 li {
+<<<<<<< HEAD:charruaspag/public/css/style.css
   border-bottom: 2px solid rgb(51, 13, 18);
+=======
+  border-bottom: 0.2vw solid rgb(51, 13, 18);
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 0.8vw;
   transition: all ease 0.3s;
 }
+
 li:hover {
   color: rgb(166, 115, 115);
   padding-left: 0.4vw;
@@ -785,13 +1054,14 @@ li:hover {
   cursor: pointer;
 }
 
-.logo1:hover + #charruas-texto2 {
+.logo1:hover+#charruas-texto2 {
   color: rgb(166, 115, 115);
 }
 
 #charruas-texto2:hover {
   color: rgb(166, 115, 115);
 }
+
 #copyright {
   color: rgb(113, 87, 87);
   height: 1.7vw;
@@ -801,13 +1071,16 @@ li:hover {
   font-size: 1.2vw;
   font-family: robotolight;
   overflow: hidden;
+
 }
+
 #copy {
   margin-left: 1vw;
   animation: copyright-animation 20s linear infinite;
 }
 
-#newsesion {
+#newsesion,
+#gototienda {
   border-radius: 5px;
   border: 3px solid rgba(215, 202, 202, 0.045);
   background-color: rgba(84, 39, 39, 0.55);
@@ -824,6 +1097,7 @@ li:hover {
   transition: all 0.1s;
 }
 
+<<<<<<< HEAD:charruaspag/public/css/style.css
 #usuariologeado {
   border-radius: 5px;
 border: 3px solid rgba(215, 202, 202, 0.045);
@@ -839,6 +1113,29 @@ text-align: center;
 font-family: "cinzelbold";
 transition: all 0.1s;
 z-index: 1;
+=======
+#gototienda {
+  top: 5px;
+  right: 15vw;
+}
+
+#usuariologeado {
+  border-radius: 5px;
+  border: 3px solid rgba(215, 202, 202, 0.045);
+  color: rgb(210, 210, 210);
+  background-color: rgba(23, 22, 22, 0.508);
+  left: 80px;
+  top: 14px;
+  font-size: 20px;
+  position: absolute;
+  width: auto;
+  text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  text-align: center;
+  font-family: "cinzelbold";
+  transition: all 0.1s;
+  z-index: 1;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
 #newsesion:hover,
@@ -873,19 +1170,12 @@ z-index: 1;
   z-index: 1;
 }
 
-#poldevolucion-desp,
-#contacto-desp,
-#fdepago-desp,
-#polprivacidad-desp {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  justify-content: space-around;
-  width: 50%;
-  height: 0;
+#darken {
+  display: none;
+  background: #000;
+  opacity: 0.5;
   position: fixed;
+<<<<<<< HEAD:charruaspag/public/css/style.css
   top: 8vw;
   left: 0;
   right: 0;
@@ -916,13 +1206,20 @@ p {
 #polprivacidad-desp.open {
   padding: 1% 3% 1% 3%;
   height: 50vh;
+=======
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 }
 
-#polprivacidad-desp.open {
-  padding: 1% 3% 1% 3%;
-  height: 65vh;
-}
+  #usuario_responsive {
+  display: none;  
+  }
 
+<<<<<<< HEAD:charruaspag/public/css/style.css
 
 #contactoimg {
   width: 100%;
@@ -940,11 +1237,38 @@ p {
   height: 100%;
   z-index: 100;
 }
+=======
+@media (max-width: 1250px) {
+  #usuariologeado {
+    font-size: 14px;
+    top: 18px;
+  }
+}
+
+@media (max-width: 1020px) {
+  #usuariologeado {
+    display: none;
+  }
+  #gototienda {
+  display: none;
+  }
+  
+  #usuario_responsive {
+  display: block;  
+  }
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 
 
 @media (max-width: 1150px) {
   #cart {
     transform: translateX(337px);
+<<<<<<< HEAD:charruaspag/public/css/style.css
+=======
+  }
+
+  body.overflowfix {
+    overflow-y: auto;
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
   }
 
   #newsesion {
@@ -957,6 +1281,7 @@ p {
     right: 50px;
     z-index: 1;
   }
+
   #gotologin #newsesion2 {
     display: block;
     background-color: transparent;
@@ -991,12 +1316,14 @@ p {
     transition: all 0.1s;
     z-index: 1;
   }
+
   #adminref-r:hover {
     background-color: rgba(146, 121, 121, 0.343);
     border: 3px solid rgba(215, 202, 202, 0.134);
     height: 43px;
     top: 3px;
   }
+
   #newsesion-r {
     object-fit: scale-down;
     height: 40px;
@@ -1028,59 +1355,7 @@ p {
   #newsesion {
     display: none;
   }
-  .productos-gallery {
-    justify-content: center;
-    width: auto;
-    display: grid;
-    margin: auto;
-    left: 0vw;
-    position: relative;
-    grid-template-columns: repeat(3, 23.57%);
-    grid-template-rows: repeat(23.33vw);
-    column-gap: 0.5vw;
-    row-gap: 1vw;
-    overflow: hidden;
-  }
 
-  .productos-gallery div {
-    font-size: 1.2vw;
-    font-family: robotolight;
-    background-color: rgb(253, 245, 241);
-    height: 23.33vw;
-    width: 100%;
-  }
-  #carrito {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    padding: 20px;
-    background-color: white;
-  }
-
-  #infocarrito {
-    width: 100%;
-    height: 100px;
-    display: flex;
-  }
-
-  #vaciar {
-    position: absolute;
-    right: 20px;
-    color: rgb(114, 40, 40);
-    border: none;
-    font-size: 50px;
-    font-weight: bold;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  #carro-content {
-    font-size: 1.95vh;
-  }
-
-  #totalcount {
-    font-weight: bold;
-    font-size: 25px;
-  }
 
   #box1 {
     height: 100vh;
@@ -1094,14 +1369,17 @@ p {
     height: 100%;
     width: 100%;
   }
+<<<<<<< HEAD:charruaspag/public/css/style.css
   #menu {
     z-index: 2;
   }
+=======
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
 
   #texto1 {
     color: rgb(255, 255, 255);
     position: absolute;
-    height: 25vw;
+    height: 25vh;
     width: 70vw;
     margin-top: 35vh;
     margin-left: 27vw;
@@ -1136,15 +1414,6 @@ p {
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
-  #deco-bstext {
-    opacity: 0.3;
-    filter: saturate(1);
-    margin-left: -5.65vw;
-    position: absolute;
-    height: 8vw;
-    width: 28vw;
-    object-fit: cover;
-  }
 
   #boxbs {
     height: 41vw;
@@ -1170,4 +1439,8 @@ p {
     left: 11vw;
     object-fit: scale-down;
   }
+<<<<<<< HEAD:charruaspag/public/css/style.css
 }
+=======
+}
+>>>>>>> 1a10f8fb1b8758240a7f7e2108df8c41bd7e8244:public/css/style.css
