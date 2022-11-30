@@ -5,6 +5,9 @@ session_start();
     }elseif(isset($_SESSION["setAdmin"])){
         header("location: /charruaspag/index.php");
     }
+
+    $fechaActual = date("Y-m-d", strtotime( "now -18 year" ) );
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +29,7 @@ session_start();
         <form method="POST" action="/charruaspag/controllers/Register_Controller.php">
             <input type="text" disabled id="mensaje"/>
             <input type="number" name="ucedula" min="1000000" max="99999999" placeholder="Documento C. I." required/>
+            <input type="date" name="udate" max="<?php echo $fechaActual ?>" placeholder="Fecha de nacimiento" required/>
             <input type="text" name="udireccion" placeholder="Dirección" required/>
             <input type="text" name="uciudad" placeholder="Ciudad" required/>
             <input type="text" name="nombre_user" placeholder="Nombre" required/>

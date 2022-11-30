@@ -24,10 +24,10 @@
         return $this->respuesta;
     }
 
-    public function updateUser($CI_Cliente, $Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente) {
+    public function updateUser($CI_Cliente, $Nombre_Cliente, $FDN_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente) {
     
-        $sql = "UPDATE CLIENTES SET Nombre_cliente=?, Direccion=?, Ciudad=?, Email_Cliente=?, Contrasenia_Cliente=? WHERE CI_Cliente=? AND Contrasenia_Cliente=?";
-       $this->conn->prepare($sql)->execute([$Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente, $CI_Cliente, $Contrasenia_Cliente]);
+        $sql = "UPDATE CLIENTES SET Nombre_cliente=?, FDN_Cliente=?,  Direccion=?, Ciudad=?, Email_Cliente=?, Contrasenia_Cliente=? WHERE CI_Cliente=? AND Contrasenia_Cliente=?";
+       $this->conn->prepare($sql)->execute([$Nombre_Cliente, $FDN_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente, $CI_Cliente, $Contrasenia_Cliente]);
     }
     
     public function updateAdmin($CI_Empleado, $Nombre_Empleado, $Direccion, $Ciudad, $Email_Empleado, $Contrasenia_Empleado) {

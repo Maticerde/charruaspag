@@ -39,7 +39,8 @@
                 $Nom_Cliente            = $row["Nombre_Cliente"]; 
                 $getCi_Cliente          = $row["CI_Cliente"];
                 $getDireccion_Cliente   = $row["Direccion"];
-                $getCiudad_Cliente      = $row["Ciudad"];}
+                $getCiudad_Cliente      = $row["Ciudad"];
+                $getFDN_cliente         = $row["FDN_Cliente"];
         }
 
         /*estimo resultado de consulta login*/
@@ -52,18 +53,15 @@
             $_SESSION["getCity_cliente"]    = $getCiudad_Cliente;
             $_SESSION["getMail_cliente"]    = $array_dataset["user"];
             $_SESSION["getPass"]            = $array_dataset["pass"];
+            $_SESSION["getFDN_cliente"]     = $getFDN_cliente;
 
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
-            header("Location: /views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
+            header("Location: /charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
         
         } else { // en caso de que no haya coincidencia con los datos de la tabla clientes, se buscará en empleados 
             
             // en caso de que no haya coincidencia en los datos no podremos iniciar sesion
-
-            // $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
-            // echo "$consulta_login";
-            // header("Location: /charruaspag/views/login/index.php");
 
             $sql = $this->conn->query("SELECT * FROM EMPLEADOS")->fetchAll();
             foreach ($sql as $row)
@@ -86,6 +84,7 @@
                 $_SESSION["getCity_empleado"]       = $getCity_Empleado;
                 $_SESSION["getMail_empleado"]       = $array_dataset["user"];
                 $_SESSION["getPass"]                = $array_dataset["pass"];
+        
                 echo $consulta_login;
                 //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
                 header("Location: /charruaspag/views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
@@ -98,4 +97,5 @@
         
       }
     }
+}
    }

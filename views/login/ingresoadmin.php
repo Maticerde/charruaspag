@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['setAdmin'])){
     // $usuarioingresado = $_SESSION['nombredeusuario'];
     // echo "<h1> bienvenido: $usuarioingresado </h1>";
-    header('location: /index.php');
+    header('location: /charruaspag/index.php');
 } else{
-    header('location: /views/login/index.php');
+    header('location: /charruaspag/views/login/index.php');
 }

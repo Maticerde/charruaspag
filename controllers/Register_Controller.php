@@ -23,6 +23,7 @@ function new_user() {
     $datos = $modelo->setUser(
         $CI_Cliente     = $_POST["ucedula"],
         $Nombre_Cliente = $_POST["nombre_user"],
+        $FDN_Cliente    = $_POST["udate"],
         $Direccion      = $_POST["udireccion"],
         $Ciudad         = $_POST["uciudad"],
         $Email_Cliente  = $_POST["umail"],
@@ -37,12 +38,12 @@ function new_admin() {
     require_once("../models/register_model.php");
     $modelo = new register_model();
     $datos = $modelo->setAdmin(
-        $CI_Empleado     = $_POST["ucedula"],
-        $Nombre_Empleado = $_POST["nombre_admin"],
-        $Direccion      = $_POST["udireccion"],
-        $Ciudad         = $_POST["uciudad"],
-        $Email_Empleado  = $_POST["umail"],
-        $Contrasenia    = md5($_POST["upassword"])
+        $CI_Empleado        = $_POST["ucedula"],
+        $Nombre_Empleado    = $_POST["nombre_admin"],
+        $Direccion          = $_POST["udireccion"],
+        $Ciudad             = $_POST["uciudad"],
+        $Email_Empleado     = $_POST["umail"],
+        $Contrasenia        = md5($_POST["upassword"])
     );
     
         header("Location: /charruaspag/views/panel_admin/panel_admin.php");

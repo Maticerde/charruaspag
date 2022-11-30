@@ -30,6 +30,7 @@ function modify_user() {
     $datos = $modelo->updateUser(
         $CI_Cliente             = $_POST["mcedula"],
         $Nombre_Cliente         = $_POST["muser"],
+        $FDN_Cliente            = $_POST["mdate"],
         $Direccion              = $_POST["mdireccion"],
         $Ciudad                 = $_POST["mciudad"],
         $Email_Cliente          = $_POST["mmail"],

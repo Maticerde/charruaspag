@@ -13,6 +13,7 @@ unset(
         $_SESSION["getDir_empleado"],
         $_SESSION["getCity_empleado"],
         $_SESSION["getMail_empleado"],
-        $_SESSION["getPass"]);
+        $_SESSION["getPass"],
+        $_SESSION["getFDN_Cliente"]);
 session_destroy();
 header('location: /charruaspag/index.php');

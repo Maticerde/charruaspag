@@ -5,6 +5,8 @@ session_start();
     } else {
         header("location: ../login/index.php");
     }
+
+    $fechaActual = date("Y-m-d", strtotime( "now -18 year" ) );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +31,20 @@ session_start();
             <!-- <input type="number" name="ucedula" maxlength="8" placeholder="Documento C. I." required/> -->
             
             <input placeholder="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getCI_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getCI_empleado"];}?>" name="mcedula" value="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getCI_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getCI_empleado"];}?>" readonly/>
+            
+            <?php
+            if(isset($_SESSION["nombredeusuario"])){
+
+                echo ' <input type="date" placeholder="Fecha de nacimiento" max=' . $fechaActual . ' name="mdate" value=' . $_SESSION["getFDN_cliente"] .' required/>' ;}
+
+            ?>
+
             <input type="text" name="mdireccion" placeholder="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getDir_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getDir_empleado"];}?>" value="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getDir_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getDir_empleado"];}?>" required/>
             <input type="text" name="mciudad" placeholder="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getCity_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getCity_empleado"];}?>" value="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getCity_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getCity_empleado"];}?>" required/>
             <input type="text" name="muser" placeholder="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["nombredeusuario"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["setAdmin"];}?>" value="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["nombredeusuario"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["setAdmin"];}?>" required/>
             <input type="text" name="mmail" placeholder="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getMail_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getMail_empleado"];}?>" value="<?php if(isset($_SESSION["nombredeusuario"])){echo $_SESSION["getMail_cliente"];}elseif(isset($_SESSION["setAdmin"])){echo $_SESSION["getMail_empleado"];}?>" required/>
             <input type="password" name="mpassword" placeholder="Confirmar Contraseña" required/>
-            <button type="submit_button" id="register_button"> Ingresar </button>
+            <button type="submit_button" id="register_button"> Modificar </button>
             
         </form>
     </section>

@@ -16,11 +16,11 @@
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function setUser($CI_Cliente, $Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente) {
+    public function setUser($CI_Cliente, $Nombre_Cliente, $FDN_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente) {
     
-        $sql = "INSERT INTO CLIENTES (Codigo_Cliente, CI_Cliente, Nombre_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente,Telefono_Cliente)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-       $this->conn->prepare($sql)->execute([NULL, $CI_Cliente, $Nombre_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente, NULL]);
+        $sql = "INSERT INTO CLIENTES (Codigo_Cliente, CI_Cliente, Nombre_Cliente, FDN_Cliente, Direccion, Ciudad, Email_Cliente, Contrasenia_Cliente,Telefono_Cliente)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+       $this->conn->prepare($sql)->execute([NULL, $CI_Cliente, $Nombre_Cliente, $FDN_Cliente, $Direccion, $Ciudad, $Email_Cliente, $Contrasenia_Cliente, NULL]);
     }
 
     public function setAdmin($CI_Empleado, $Nombre_Empleado, $Direccion, $Ciudad, $Email_Empleado, $Contrasenia_Empleado) {
