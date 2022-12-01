@@ -16,11 +16,11 @@ $datos = $modelo->getCliente();
     }
     }else 
 {
-        /*Si la contraseï¿½a es incorrecta*/
-            $confirmarpass = "<h3>Contraseï¿½a Incorrecta</h3>";
+        /*Si la contraseña es incorrecta*/
+            $confirmarpass = "<h3>Contraseña Incorrecta</h3>";
             echo $confirmarpass;
             echo '<a href="../index.php" >Inicio</>';
-            header("Location: /charruaspag/views/modificar_perfil/index.php");
+            header("Location: /views/modificar_perfil/index.php");
 }
 
 function modify_user() {

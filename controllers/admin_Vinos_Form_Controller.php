@@ -4,7 +4,7 @@
         getvinos();
     }else 
 {
-    header("Location: /charruaspag/views/panel_admin/altas_stock.php");
+    header("Location: /views/panel_admin/altas_stock.php");
     exit();
 }
 

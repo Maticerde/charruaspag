@@ -9,7 +9,7 @@ class soporteMarket {
         
         $host = "localhost:3306";
         $username = "root";
-        $password = "";
+        $password = "123456";
         $db_name = "Vinos_Charruas";
         
         $this->respuesta = array();

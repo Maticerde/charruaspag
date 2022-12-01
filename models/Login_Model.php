@@ -57,7 +57,7 @@
 
             echo $consulta_login;
             //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
-            header("Location: /charruaspag/views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
+            header("Location: /views/login/ingreso.php"); // redirecciono a la pagina intermediaria del login
         
         } else { // en caso de que no haya coincidencia con los datos de la tabla clientes, se buscará en empleados 
             
@@ -87,11 +87,11 @@
         
                 echo $consulta_login;
                 //aca se deberia levantar una flag que muestre caracteristicas admin en la pagina principal
-                header("Location: /charruaspag/views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
+                header("Location: /views/login/ingresoadmin.php"); // redirecciono a la pagina intermediaria del login
         } else{
             $consulta_login = "<h3>CREDENCIALES INVÁLIDAS // WORK IN PROGRESS</h3>";
             echo "$consulta_login";
-            header("Location: /charruaspag/views/login/index.php");
+            header("Location: /views/login/index.php");
         }
          }
         

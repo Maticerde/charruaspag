@@ -19,29 +19,30 @@ session_start();
 <body>
   <div id="menu">
   <section id="panel_menu">
-    <div><a style="color: inherit; text-decoration: none;" href="/charruaspag/index.php">Inicio</a></div>
+    <div><a style="color: inherit; text-decoration: none;" href="/index.php">Inicio</a></div>
     <div><a style="cursor: pointer;" onclick="scrolltoBottom();">Contacto</a></div>
     <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
       }elseif(isset($_SESSION["setAdmin"])) {
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/panel_admin.php"> Panel Admin </a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/altas_stock.php"> Nueva Compra </a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/panel_admin/panel_admin.php"> <p1 style="color: rgba(130, 10, 10, 0.879);">*</p1>Panel Admin </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/panel_admin/altas_stock.php"> <p1 style="color: rgba(130, 10, 10, 0.879);">*</p1>Validar Compra </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/panel_admin/registros.php"> <p1 style="color: rgba(130, 10, 10, 0.879);">*</p1>Registros </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
       }else {
-        echo '<div id="usuario_responsive"> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/login/index.php"> Iniciar Sesión </a></div>';
+        echo '<div id="usuario_responsive"> <a style="color: inherit; text-decoration: none;" href="/views/login/index.php"> Iniciar Sesión </a></div>';
       }
     ?>
   </section>
   <div id="hamburguer" onclick="desplegarpanel();"><span>&#9776;</span></div>
     <section id="texto1"> B o u t i q u e </section>
-    <a href="/charruaspag/index.php">
+    <a href="/index.php">
       <section id="charruas-texto"> Charrúas </section>
     </a>
-    <img id="cart-icon" src="/charruaspag/src/carticon.png"><span id="cart-count"></span></img>
+    <img id="cart-icon" src="/src/carticon.png"><span id="cart-count"></span></img>
     <section id="usuariologeado">
       <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
@@ -51,15 +52,23 @@ session_start();
       elseif(isset($_SESSION["setAdmin"])) {
         echo "¡Bienvenid@, " . $_SESSION["setAdmin"] . "!";
       }else {
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/login/index.php"> Iniciar Sesión </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/login/index.php"> Iniciar Sesión </a></div>';
       }
     ?>
   </section>
+  <?php
+if(isset($_SESSION["nombredeusuario"])) { // si el cliente inició sesion, aparecerá el apartado de cerrar sesión
+  echo '
+  <form id="gotologin" action="/salir.php">
+    <button id="newsesion">Cerrar Sesión</button>
+  </form>';
+} 
+  ?>
   </div>
-  <img id="arrow" src="/charruaspag/src/house_arrow.png" onclick="scrollto()"/>
+  <img id="arrow" src="/src/house_arrow.png" onclick="scrollto()"/>
   <div id="cart">
   <h1 id="carrito-title"> Carrito Charrúas </h1>
-  <img id="close_cart" onclick="cartanimation();" src="/charruaspag/src/right_arrow.png"></img>
+  <img id="close_cart" onclick="cartanimation();" src="/src/right_arrow.png"></img>
   <section id="carro-content"></section>
   <div id="totalcount"></div>
    <form>
@@ -73,7 +82,7 @@ session_start();
       echo 'onclick="alertacarrito();"';
     }
     ?>>Comprar</button>
-    <button type="button" id="vaciar" onclick="vaciarcarrito();"><p2>Vaciar</p2><img src="/charruaspag/src/trashicon.png"/></button>
+    <button type="button" id="vaciar" onclick="vaciarcarrito();"><p2>Vaciar</p2><img src="/src/trashicon.png"/></button>
   </section>
 </div>
 <section id="main-grid">
@@ -92,7 +101,7 @@ session_start();
     </div>
   </section>
   <section id="market-section">
-    <input type="text" id="keywords" name="keywords" size="30" maxlength="30" placeholder="Buscar productos">
+    <input type="text" id="keywords" name="keywords" size="30" maxlength="30" placeholder="Buscar productos" autocomplete="off">
     <form id="vinos-order" method="POST">
       <input type="radio" name="orden" onclick="load_shop();" value="Nombre_Vino" checked>
       <p1 class="ord" id="orden1">A &#10132; Z</p1></input>

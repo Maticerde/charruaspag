@@ -7,7 +7,7 @@
     }else 
 {
     /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
-    header("Location: /charruaspag/views/panel_admin/panel_admin.php ");
+    header("Location: /views/panel_admin/panel_admin.php ");
     exit();
 }
 
@@ -25,5 +25,5 @@ function add_bodega() {
         $_POST["in_cuenta"]
     );
 
-    header("Location: /charruaspag/views/panel_admin/panel_admin.php ");
+    header("Location: /views/panel_admin/panel_admin.php ");
 }

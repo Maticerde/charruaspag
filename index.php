@@ -16,18 +16,19 @@
 </head>
 <div id="menu">
   <section id="panel_menu">
-    <div><a style="color: inherit; text-decoration: none;" href="/charruaspag/views/market/market.php">Tienda</a></div>
+    <div><a style="color: inherit; text-decoration: none;" href="/views/market/market.php">Tienda</a></div>
     <div><a style="cursor: pointer;" onclick="scrolltoBottom();">Contacto</a></div>
     <?php // muestra el email del usuario
       if(isset($_SESSION["nombredeusuario"]))
       {
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
       }elseif(isset($_SESSION["setAdmin"])) {
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/panel_admin.php"> Panel Admin </a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/panel_admin/altas_stock.php"> Nueva Compra </a></div>';
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/modificar_perfil/index.php"> Modificar perfil</a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/panel_admin/panel_admin.php"> <p1 style="color: rgba(130, 10, 10, 0.879);">*</p1>Panel Admin </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/panel_admin/altas_stock.php"> <p1 style="color: rgba(130, 10, 10, 0.879);">*</p1>Validar Compra </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/panel_admin/registros.php"> <p1 style="color: rgba(130, 10, 10, 0.879);">*</p1>Registros </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/salir.php"><p1 style="display: inline-block; transform: rotate(180deg); line-height: 0.1vw;">&#10154;</p1> Cerrar Sesión </a></div>';
       } else {
         echo '<div id="usuario_responsive"> <a style="color: inherit; text-decoration: none;" href="/views/login/index.php"> Iniciar Sesión </a></div>';
       }
@@ -44,11 +45,11 @@
       elseif(isset($_SESSION["setAdmin"])) {
         echo "¡Bienvenid@, " . $_SESSION["setAdmin"] . "!";
       }else {
-        echo '<div> <a style="color: inherit; text-decoration: none;" href="/charruaspag/views/login/index.php"> Iniciar Sesión </a></div>';
+        echo '<div> <a style="color: inherit; text-decoration: none;" href="/views/login/index.php"> Iniciar Sesión </a></div>';
       }
     ?>
   </section>
-  <a href="/charruaspag/index.php">
+  <a href="/index.php">
   <section id="charruas-texto"> Charr &nbsp<img src="src/Logo_Vinos_Charuas_V3.png"/>&nbspas </section>
   </a>
 </div>
@@ -99,10 +100,10 @@
 </div>
 <section id="bestsellers_info"></section>
 <section id="gallery">
-  <div style="position: relative;"><a href="/charruaspag/views/market/market.php"><img id="img1" src="src/7304726.jpg"><div class="gallery_text">Tienda</div></a></div>
-  <div style="position: relative;"><img id="img2" src="src/bodega.jpg"><div class="gallery_text">Bodegas</div></div>
-  <div style="position: relative;"><img id="img3" src="src/vinocopa.jpg"><div class="gallery_text">Sobre Nosotros</div></div>
-  <div style="position: relative;"><img id="img4" src="src/vinorosa.jpg"><div class="gallery_text">Recomendaciones</div></div>
+  <div style="position: relative;"><a href="/views/market/market.php"><img id="img1" src="src/7304726.jpg"><div class="gallery_text">Tienda</div></a></div>
+  <div style="position: relative;"><a href="https://www.google.com/maps/search/mapas+bodegas+del+uruguay/@-32.6367482,-56.4242119,7.75z" target="_blank"><img id="img2" src="src/bodega.jpg"><div class="gallery_text">Bodegas</div></a></div>
+  <div style="position: relative;"><a href="https://drive.google.com/file/d/1y5Gbj3aTJgPw6-Yb0-oktpHJwbIYcT_B/view?usp=drivesdk" target="_blank"><img id="img3" src="src/vinocopa.jpg"><div class="gallery_text">Anuncios</div></a></div>
+  <div style="position: relative;"><a onclick="scrolltoBottom();"><img id="img4" src="src/vinorosa.jpg"><div class="gallery_text">Recomendaciones</div></a></div>
 
 </section>
 <section class="divisor"></section>
@@ -121,7 +122,7 @@
 </section>
 <div id="box3">
   <div class="contactobox">
-    <a href="/charruaspag/index.php">
+    <a href="/index.php">
     <img class="logo1" src="src/charruas logo.png">
     <p2 id="charruas-texto2"> Charrúas </p2>
     </a>

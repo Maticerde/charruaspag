@@ -6,7 +6,7 @@
 
 <div id="fdepago-desp">
 <h4> MÉTODOS DE PAGO <p onclick="cerrar_nodo()">&#10005;</p></h4>
-<p><img src="/charruaspag/src/medios de pago.png"/></p>
+<p><img src="/src/medios de pago.png"/></p>
 </div>
 
 
@@ -41,3 +41,6 @@ Las mercancías vendidas están aseguradas durante el transporte y viajan por nu
     Condiciones de Uso. Confirmando su pedido en el final del proceso de una operación, el Usuario acuerda aceptar los artículos adquiridos y pagar su
     precio.</p>
 </div>
+
+
+

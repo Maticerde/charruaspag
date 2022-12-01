@@ -11,18 +11,18 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png">
+    <link rel="icon" href="/src/login/img/Logo_Vinos_Charuas_V2.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Perfil</title>
-    <link href="/charruaspag/public/css/registerstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/registerstyle.css" rel="stylesheet" type="text/css">
 </head>
 <div class="login">
     <section id="panel">
-        <a href="/charruaspag/index.php">
-        <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
-        <img src=/charruaspag/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
+        <a href="/index.php">
+        <img src=/src/login/img/Logo_Vinos_Charuas_V2.png id="logo">
+        <img src=/src/login/img/Logo_Vinos_Charuas_V3.png id="logo2">
             <p2> Charrúas </p2>
         </a>
         <p id="nota">Nota: Para modificar el perfil es necesario llenar todos los campos</p>
@@ -48,6 +48,6 @@ session_start();
             
         </form>
     </section>
-        <video autoplay loop muted src="/charruaspag/src/login/video/vino_cayendo_en_una_copa.mp4"></video>
+        <video autoplay loop muted src="/src/login/video/vino_cayendo_en_una_copa.mp4"></video>
         
 </div>

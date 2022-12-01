@@ -131,7 +131,7 @@ function generar_venta() { // envia por fetch el formulario virtual, que lleva e
     const ID_Cliente = document.getElementById("id_cliente_form").value;
     data.set("id_cliente_form", ID_Cliente);
 
-    fetch("/charruaspag/controllers/Venta_Controller.php", {
+    fetch("/controllers/Venta_Controller.php", {
       method: "POST",   
       body: data,
     })
@@ -163,7 +163,7 @@ function fetch_async_compra(idvino, cantidad, precio) { //fetch de envío de dat
     data.set("cant", cantidad);
     data.set("price", precio);
 
-    fetch("/charruaspag/controllers/DetalleVenta_Controller.php", {
+    fetch("/controllers/DetalleVenta_Controller.php", {
         method: "POST",
         body: data,
     })

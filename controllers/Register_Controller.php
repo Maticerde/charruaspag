@@ -13,7 +13,7 @@
     }else 
 {
     /*redirecciono al panel si es que no se provino con DATA SET via POST desde el*/
-    header("Location: /charruaspag/views/register/index.php ");
+    header("Location: /views/register/index.php ");
     exit();
 }
 function new_user() {
@@ -30,7 +30,7 @@ function new_user() {
         $Contrasenia    = md5($_POST["upassword"])
     );
     
-        header("Location: /charruaspag/views/login/index.php");
+        header("Location: /views/login/index.php");
 }
 
 function new_admin() {
@@ -38,13 +38,13 @@ function new_admin() {
     require_once("../models/register_model.php");
     $modelo = new register_model();
     $datos = $modelo->setAdmin(
-        $CI_Empleado        = $_POST["ucedula"],
-        $Nombre_Empleado    = $_POST["nombre_admin"],
-        $Direccion          = $_POST["udireccion"],
-        $Ciudad             = $_POST["uciudad"],
-        $Email_Empleado     = $_POST["umail"],
-        $Contrasenia        = md5($_POST["upassword"])
+        $CI_Empleado     = $_POST["ucedula"],
+        $Nombre_Empleado = $_POST["nombre_admin"],
+        $Direccion      = $_POST["udireccion"],
+        $Ciudad         = $_POST["uciudad"],
+        $Email_Empleado  = $_POST["umail"],
+        $Contrasenia    = md5($_POST["upassword"])
     );
     
-        header("Location: /charruaspag/views/panel_admin/panel_admin.php");
+        header("Location: /views/panel_admin/panel_admin.php");
 }

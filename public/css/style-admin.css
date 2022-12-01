@@ -452,7 +452,7 @@ h3 {
 }
 
 #compra-button {
-  left: 44%;
+  left: 42%;
 }
 
 #modvino-button-preventclick, #modbodega-button-preventclick {
@@ -474,7 +474,8 @@ h3 {
 #adduser-button:hover,
 #addadmin-button:hover,
 #addbodega-button:hover,
-#modvino-button:hover {
+#modvino-button:hover,
+#compra-button:hover {
   border: none;
   margin-top: 2.113vw;
   right: 0.103vw;
@@ -876,6 +877,7 @@ top: -0.155vw;
   z-index: 1;
 }
 
+
 @media (max-width: 900px) { /* TABLET */
 
   #text-prod {
@@ -1127,7 +1129,6 @@ top: -0.155vw;
     background: radial-gradient(circle, rgba(111,7,20,1) 54%, rgba(62,4,4,1) 94%);
     border-radius: 1vh;
     text-align: center;
-    margin-top: 2.062vh;
     margin-inline: auto;
     width: 12.732vh;
     height: 5.577vh;

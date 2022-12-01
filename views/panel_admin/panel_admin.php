@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION['setAdmin'])){
-  header('location: /charruaspag/views/login/index.php');
+    header('location: /views/login/index.php');
 }
 ?>
 
@@ -24,7 +24,7 @@ if(empty($_SESSION['setAdmin'])){
   <img id=fondo src="../../src/foto3.jpg">
   <div id="menu">
     <section id="texto1">A d m i n i s t r a c i ó n</section>
-    <a href="/charruaspag/index.php">
+    <a href="/index.php">
       <section id="charruas-texto"> Charrúas </section>
     </a>
   </div>
@@ -37,7 +37,7 @@ if(empty($_SESSION['setAdmin'])){
     <div id="text-user-preventclick"
       onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"></div>
   </section>
-  <a href="/charruaspag/views/panel_admin/altas_stock.php">
+  <a href="/views/panel_admin/altas_stock.php">
     <section id="text-altas-stock"><span>&#10070;</span></section>
   </a>
 <section id="grid-mod-functions">
@@ -184,7 +184,7 @@ if(empty($_SESSION['setAdmin'])){
     <div class="box" id="addvino-box">
       <h3>AGREGAR PRODUCTO</h3>
       <span id="mensaje"></span>
-      <form action="../../controllers/admin_AddVino_Controller.php" method="POST" id="addvino-form">
+      <form action="../../controllers/admin_AddVino_Controller.php" method="POST" id="addvino-form" autocomplete="off">
         <section id="input_grid">
           <label class="input_label">
             <input class="inputs" type="text" id="in_nombre_vino" name="in_nombre_vino" maxlength="20" required>
@@ -229,7 +229,7 @@ if(empty($_SESSION['setAdmin'])){
     <div class="box" id="addbodega-box">
       <h3>AGREGAR BODEGA</h3>
       <span id="mensaje"></span>
-      <form action="../../controllers/admin_AddBodega_Controller.php" method="post" id="addbodega-form">
+      <form action="../../controllers/admin_AddBodega_Controller.php" method="post" id="addbodega-form" autocomplete="off">
         <section id="input_grid">
           <label class="input_label">
             <input class="inputs_mod" type="text" id="in_nombre_bodega" name="in_nombre_bodega" maxlength="40" required>
@@ -270,7 +270,7 @@ if(empty($_SESSION['setAdmin'])){
     <div class="box" id="adduser-box">
       <h3> AGREGAR USUARIO </h3>
       <span id="mensaje"></span>
-      <form action="/charruaspag/controllers/Register_Controller.php" method="POST" id="adduser-form">
+      <form action="/controllers/Register_Controller.php" method="POST" id="adduser-form" autocomplete="off">
         <section id="input_grid">
         <label class="input_label">
             <input class="inputs" type="text" id="nombre_user" name="nombre_user" maxlength="20" required>
@@ -303,7 +303,7 @@ if(empty($_SESSION['setAdmin'])){
     <div class="box" id="addadmin-box">
       <h3> AGREGAR ADMINISTRADOR</h3>
       <span id="mensaje"></span>
-      <form action="/charruaspag/controllers/Register_Controller.php" method="POST" id="addadmin-form">
+      <form action="/controllers/Register_Controller.php" method="POST" id="addadmin-form" autocomplete="off">
         <section id="input_grid">
         <label class="input_label">
             <input class="inputs" type="text" id="nombre_admin" name="nombre_admin" maxlength="20" required>

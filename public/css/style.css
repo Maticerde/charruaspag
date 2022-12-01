@@ -118,7 +118,7 @@ body {
   background-color: rgba(23, 22, 22, 0.887);
   width: calc(20.3vh + 10.3vw);
   height: fit-content;
-  max-height: 300px;
+  max-height: 400px;
   overflow: hidden;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
@@ -1070,4 +1070,5 @@ li:hover {
     left: 11vw;
     object-fit: scale-down;
   }
+}
 }

@@ -9,8 +9,8 @@ class soporteIndex {
         
         $host = "localhost:3306";
         $username = "root";
-        $password = "";
-        $db_name = "vinos_charruas";
+        $password = "123456";
+        $db_name = "Vinos_Charruas";
         
         $this->respuesta = array();
         $this->conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
@@ -19,11 +19,7 @@ class soporteIndex {
 
     public function getBestSellers() {
 
-        $sql = "SELECT VINOS.*, SUM(DETALLEVENTA.Cantidad_DetalleV) AS Total_de_Ventas FROM DETALLEVENTA
-		JOIN VINOS ON DETALLEVENTA.Vinos_DetalleV = VINOS.Codigo_Vino
-		GROUP BY VINOS.Codigo_Vino
-		ORDER BY Total_de_Ventas
-		DESC LIMIT 3;";
+        $sql = "CALL tres_productos_mas_vendidos";
         foreach ($this->conn->query($sql) as $row) {
             $this->respuesta[] = $row;
         }

@@ -9,7 +9,7 @@ public function __construct() {
     
     $host = "localhost:3306";
     $username = "root";
-    $password = "";
+    $password = "123456";
     $db_name = "Vinos_Charruas";
     
     $this->respuesta = array();
@@ -64,7 +64,50 @@ public function setBodega($nombre_bodega, $email, $direccion, $pais, $codpostal,
 
 public function updateBodega($codigo_bodega, $nombre_bodega, $email, $direccion, $pais, $codpostal, $ciudad, $telefono, $cuenta) {
     $sql = "UPDATE BODEGA SET Nombre_Bodega=?, Email_Bodega=?, Direccion=?, Pais_Bodega=?, Ciudad=?, Cuenta=?, Codigo_Postal=?, Telefono_Bodega=? WHERE ID_Bodega=?;";
-    $this->conn->prepare($sql)->execute([$nombre_bodega, $email, $direccion, $pais, $ciudad, $cuenta, $codpostal, $codigo_bodega, $telefono]);
+    $this->conn->prepare($sql)->execute([$nombre_bodega, $email, $direccion, $pais, $ciudad, $cuenta, $codpostal, $telefono, $codigo_bodega]);
 }
 
+public function getVentas($keywords) {
+    $sql = "SELECT VENTAS.Codigo_Venta, VENTAS.Fecha_Venta, CLIENTES.Codigo_Cliente, CLIENTES.Nombre_Cliente, CLIENTES.CI_Cliente, CLIENTES.Email_Cliente from VENTAS
+    JOIN CLIENTES ON VENTAS.cliente = CLIENTES.Codigo_Cliente
+    WHERE VENTAS.Codigo_Venta LIKE '%" . $keywords . "%' 
+    OR CLIENTES.Nombre_Cliente LIKE '%" . $keywords . "%' 
+    OR CLIENTES.CI_Cliente LIKE '%" . $keywords . "%' 
+    OR CLIENTES.Email_Cliente LIKE '%" . $keywords . "%' 
+    OR VENTAS.Fecha_Venta LIKE '%" . $keywords . "%' 
+    GROUP by VENTAS.Codigo_Venta
+    ORDER by VENTAS.Codigo_Venta DESC;";
+    foreach ($this->conn->query($sql) as $row) {
+        $this->respuesta[] = $row;
+    }
+    return $this->respuesta;
 }
+
+public function getRespaldoVinos() {
+
+    $sql = "CALL respaldo_vino";
+    foreach ($this->conn->query($sql) as $row) {
+        $this->respuesta[] = $row;
+    }
+    return $this->respuesta;
+}
+
+public function getCompras($keywords) {
+    $sql = "SELECT COMPRAS.Codigo_compra, COMPRAS.Fecha_Compra, BODEGA.ID_Bodega, BODEGA.Nombre_Bodega, EMPLEADOS.Codigo_Empleado, EMPLEADOS.Nombre_Empleado from BODEGA
+    JOIN COMPRAS ON BODEGA.ID_Bodega = COMPRAS.Bodega
+    JOIN EMPLEADOS ON COMPRAS.Empleado = EMPLEADOS.Codigo_Empleado
+    where Codigo_compra LIKE '%" . $keywords . "%' 
+    OR EMPLEADOS.Nombre_Empleado LIKE '%" . $keywords . "%' 
+    OR BODEGA.Nombre_Bodega LIKE '%" . $keywords . "%' 
+    OR EMPLEADOS.Codigo_Empleado LIKE '%" . $keywords . "%' 
+    OR BODEGA.ID_Bodega LIKE '%" . $keywords . "%' 
+    OR COMPRAS.Fecha_Compra LIKE '%" . $keywords . "%' 
+    GROUP BY COMPRAS.Codigo_compra
+    ORDER BY COMPRAS.Codigo_compra DESC;";
+    foreach ($this->conn->query($sql) as $row) {
+        $this->respuesta[] = $row;
+    }
+    return $this->respuesta;
+}
+
+} 

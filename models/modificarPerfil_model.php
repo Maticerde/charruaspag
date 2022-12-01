@@ -8,8 +8,8 @@
         
         $host = "localhost:3306";
         $username = "root";
-        $password = "";
-        $db_name = "vinos_charruas";
+        $password = "123456";
+        $db_name = "Vinos_Charruas";
         
         $this->respuesta = array();
         $this->conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
